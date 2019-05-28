@@ -24,8 +24,7 @@ entity FreeSpanHistory{
 	id Long
     dateForm Instant
     dateTo Instant
-    workId Long
-    pipelineSection Long
+    workId Long    
     length Double
     kpStart Double
     kpEnd Double
