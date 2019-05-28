@@ -38,7 +38,6 @@ export class FreeSpanHistory extends React.Component<IFreeSpanHistoryProps> {
                 <th>Date Form</th>
                 <th>Date To</th>
                 <th>Work Id</th>
-                <th>Pipeline Section</th>
                 <th>Length</th>
                 <th>Kp Start</th>
                 <th>Kp End</th>
@@ -69,7 +68,6 @@ export class FreeSpanHistory extends React.Component<IFreeSpanHistoryProps> {
                     <TextFormat type="date" value={freeSpanHistory.dateTo} format={APP_DATE_FORMAT} />
                   </td>
                   <td>{freeSpanHistory.workId}</td>
-                  <td>{freeSpanHistory.pipelineSection}</td>
                   <td>{freeSpanHistory.length}</td>
                   <td>{freeSpanHistory.kpStart}</td>
                   <td>{freeSpanHistory.kpEnd}</td>
