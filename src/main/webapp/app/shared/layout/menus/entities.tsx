@@ -9,6 +9,15 @@ import { NavDropdown } from './menu-components';
 export const EntitiesMenu = props => (
   // tslint:disable-next-line:jsx-self-close
   <NavDropdown icon="th-list" name="Entities" id="entity-menu">
+    <MenuItem icon="asterisk" to="/entity/list-object-status">
+      List Object Status
+    </MenuItem>
+    <MenuItem icon="asterisk" to="/entity/pipeline-section">
+      Pipeline Section
+    </MenuItem>
+    <MenuItem icon="asterisk" to="/entity/free-span-history">
+      Free Span History
+    </MenuItem>
     {/* jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here */}
   </NavDropdown>
 );

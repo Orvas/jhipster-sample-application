@@ -1,0 +1,50 @@
+entity ListObjectStatus {
+	id Long
+    code String
+    name String
+    fullName String
+	isCurrentFlag Boolean
+}
+
+entity PipelineSection {
+	id Long
+ 	name String
+	pipelineId Long
+    isOnshore Boolean
+    safetyClassId Long
+    kpStart Double
+    kpEnd Double
+    dateCreate Instant
+    dateEdit Instant
+    creator String
+    editor String
+}
+
+entity FreeSpanHistory{
+	id Long
+    dateForm Instant
+    dateTo Instant
+    workId Long
+    pipelineSection Long
+    length Double
+    kpStart Double
+    kpEnd Double
+    isCurrentFlag Boolean
+    statusId Long
+    comment String
+    dateCreate Instant
+    dateEdit Instant
+    creator String
+    editor String
+}
+
+
+relationship ManyToOne {
+	FreeSpanHistory{status} to ListObjectStatus	,
+	FreeSpanHistory{pipelineSection} to PipelineSection
+}
+
+
+
+
+
