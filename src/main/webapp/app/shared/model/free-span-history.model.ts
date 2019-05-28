@@ -7,7 +7,6 @@ export interface IFreeSpanHistory {
   dateForm?: Moment;
   dateTo?: Moment;
   workId?: number;
-  pipelineSection?: number;
   length?: number;
   kpStart?: number;
   kpEnd?: number;

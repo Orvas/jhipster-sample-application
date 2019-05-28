@@ -14,10 +14,6 @@
             "fieldType": "Long"
         },
         {
-            "fieldName": "pipelineSection",
-            "fieldType": "Long"
-        },
-        {
             "fieldName": "length",
             "fieldType": "Double"
         },

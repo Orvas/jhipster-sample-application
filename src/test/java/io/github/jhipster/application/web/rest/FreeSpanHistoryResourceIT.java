@@ -44,9 +44,6 @@ public class FreeSpanHistoryResourceIT {
     private static final Long DEFAULT_WORK_ID = 1L;
     private static final Long UPDATED_WORK_ID = 2L;
 
-    private static final Long DEFAULT_PIPELINE_SECTION = 1L;
-    private static final Long UPDATED_PIPELINE_SECTION = 2L;
-
     private static final Double DEFAULT_LENGTH = 1D;
     private static final Double UPDATED_LENGTH = 2D;
 
@@ -122,7 +119,6 @@ public class FreeSpanHistoryResourceIT {
             .dateForm(DEFAULT_DATE_FORM)
             .dateTo(DEFAULT_DATE_TO)
             .workId(DEFAULT_WORK_ID)
-            .pipelineSection(DEFAULT_PIPELINE_SECTION)
             .length(DEFAULT_LENGTH)
             .kpStart(DEFAULT_KP_START)
             .kpEnd(DEFAULT_KP_END)
@@ -146,7 +142,6 @@ public class FreeSpanHistoryResourceIT {
             .dateForm(UPDATED_DATE_FORM)
             .dateTo(UPDATED_DATE_TO)
             .workId(UPDATED_WORK_ID)
-            .pipelineSection(UPDATED_PIPELINE_SECTION)
             .length(UPDATED_LENGTH)
             .kpStart(UPDATED_KP_START)
             .kpEnd(UPDATED_KP_END)
@@ -183,7 +178,6 @@ public class FreeSpanHistoryResourceIT {
         assertThat(testFreeSpanHistory.getDateForm()).isEqualTo(DEFAULT_DATE_FORM);
         assertThat(testFreeSpanHistory.getDateTo()).isEqualTo(DEFAULT_DATE_TO);
         assertThat(testFreeSpanHistory.getWorkId()).isEqualTo(DEFAULT_WORK_ID);
-        assertThat(testFreeSpanHistory.getPipelineSection()).isEqualTo(DEFAULT_PIPELINE_SECTION);
         assertThat(testFreeSpanHistory.getLength()).isEqualTo(DEFAULT_LENGTH);
         assertThat(testFreeSpanHistory.getKpStart()).isEqualTo(DEFAULT_KP_START);
         assertThat(testFreeSpanHistory.getKpEnd()).isEqualTo(DEFAULT_KP_END);
@@ -230,7 +224,6 @@ public class FreeSpanHistoryResourceIT {
             .andExpect(jsonPath("$.[*].dateForm").value(hasItem(DEFAULT_DATE_FORM.toString())))
             .andExpect(jsonPath("$.[*].dateTo").value(hasItem(DEFAULT_DATE_TO.toString())))
             .andExpect(jsonPath("$.[*].workId").value(hasItem(DEFAULT_WORK_ID.intValue())))
-            .andExpect(jsonPath("$.[*].pipelineSection").value(hasItem(DEFAULT_PIPELINE_SECTION.intValue())))
             .andExpect(jsonPath("$.[*].length").value(hasItem(DEFAULT_LENGTH.doubleValue())))
             .andExpect(jsonPath("$.[*].kpStart").value(hasItem(DEFAULT_KP_START.doubleValue())))
             .andExpect(jsonPath("$.[*].kpEnd").value(hasItem(DEFAULT_KP_END.doubleValue())))
@@ -257,7 +250,6 @@ public class FreeSpanHistoryResourceIT {
             .andExpect(jsonPath("$.dateForm").value(DEFAULT_DATE_FORM.toString()))
             .andExpect(jsonPath("$.dateTo").value(DEFAULT_DATE_TO.toString()))
             .andExpect(jsonPath("$.workId").value(DEFAULT_WORK_ID.intValue()))
-            .andExpect(jsonPath("$.pipelineSection").value(DEFAULT_PIPELINE_SECTION.intValue()))
             .andExpect(jsonPath("$.length").value(DEFAULT_LENGTH.doubleValue()))
             .andExpect(jsonPath("$.kpStart").value(DEFAULT_KP_START.doubleValue()))
             .andExpect(jsonPath("$.kpEnd").value(DEFAULT_KP_END.doubleValue()))
@@ -294,7 +286,6 @@ public class FreeSpanHistoryResourceIT {
             .dateForm(UPDATED_DATE_FORM)
             .dateTo(UPDATED_DATE_TO)
             .workId(UPDATED_WORK_ID)
-            .pipelineSection(UPDATED_PIPELINE_SECTION)
             .length(UPDATED_LENGTH)
             .kpStart(UPDATED_KP_START)
             .kpEnd(UPDATED_KP_END)
@@ -318,7 +309,6 @@ public class FreeSpanHistoryResourceIT {
         assertThat(testFreeSpanHistory.getDateForm()).isEqualTo(UPDATED_DATE_FORM);
         assertThat(testFreeSpanHistory.getDateTo()).isEqualTo(UPDATED_DATE_TO);
         assertThat(testFreeSpanHistory.getWorkId()).isEqualTo(UPDATED_WORK_ID);
-        assertThat(testFreeSpanHistory.getPipelineSection()).isEqualTo(UPDATED_PIPELINE_SECTION);
         assertThat(testFreeSpanHistory.getLength()).isEqualTo(UPDATED_LENGTH);
         assertThat(testFreeSpanHistory.getKpStart()).isEqualTo(UPDATED_KP_START);
         assertThat(testFreeSpanHistory.getKpEnd()).isEqualTo(UPDATED_KP_END);

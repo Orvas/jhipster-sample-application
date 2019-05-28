@@ -35,9 +35,6 @@ public class FreeSpanHistory implements Serializable {
     @Column(name = "work_id")
     private Long workId;
 
-    @Column(name = "pipeline_section")
-    private Long pipelineSection;
-
     @Column(name = "length")
     private Double length;
 
@@ -122,19 +119,6 @@ public class FreeSpanHistory implements Serializable {
 
     public void setWorkId(Long workId) {
         this.workId = workId;
-    }
-
-    public Long getPipelineSection() {
-        return pipelineSection;
-    }
-
-    public FreeSpanHistory pipelineSection(Long pipelineSection) {
-        this.pipelineSection = pipelineSection;
-        return this;
-    }
-
-    public void setPipelineSection(Long pipelineSection) {
-        this.pipelineSection = pipelineSection;
     }
 
     public Double getLength() {
@@ -317,7 +301,6 @@ public class FreeSpanHistory implements Serializable {
             ", dateForm='" + getDateForm() + "'" +
             ", dateTo='" + getDateTo() + "'" +
             ", workId=" + getWorkId() +
-            ", pipelineSection=" + getPipelineSection() +
             ", length=" + getLength() +
             ", kpStart=" + getKpStart() +
             ", kpEnd=" + getKpEnd() +

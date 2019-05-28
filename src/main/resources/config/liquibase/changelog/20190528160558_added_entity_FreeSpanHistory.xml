@@ -27,10 +27,6 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="pipeline_section" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
             <column name="length" type="double">
                 <constraints nullable="true" />
             </column>
@@ -106,7 +102,6 @@
             <column name="date_form" type="date"/>
             <column name="date_to" type="date"/>
             <column name="work_id" type="numeric"/>
-            <column name="pipeline_section" type="numeric"/>
             <column name="length" type="numeric"/>
             <column name="kp_start" type="numeric"/>
             <column name="kp_end" type="numeric"/>

@@ -134,12 +134,6 @@ export class FreeSpanHistoryUpdate extends React.Component<IFreeSpanHistoryUpdat
                   <AvField id="free-span-history-workId" type="string" className="form-control" name="workId" />
                 </AvGroup>
                 <AvGroup>
-                  <Label id="pipelineSectionLabel" for="free-span-history-pipelineSection">
-                    Pipeline Section
-                  </Label>
-                  <AvField id="free-span-history-pipelineSection" type="string" className="form-control" name="pipelineSection" />
-                </AvGroup>
-                <AvGroup>
                   <Label id="lengthLabel" for="free-span-history-length">
                     Length
                   </Label>

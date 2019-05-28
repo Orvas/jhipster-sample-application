@@ -45,10 +45,6 @@ export class FreeSpanHistoryDetail extends React.Component<IFreeSpanHistoryDetai
             </dt>
             <dd>{freeSpanHistoryEntity.workId}</dd>
             <dt>
-              <span id="pipelineSection">Pipeline Section</span>
-            </dt>
-            <dd>{freeSpanHistoryEntity.pipelineSection}</dd>
-            <dt>
               <span id="length">Length</span>
             </dt>
             <dd>{freeSpanHistoryEntity.length}</dd>
