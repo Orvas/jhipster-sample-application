@@ -61,10 +61,6 @@ export class FreeSpanHistoryDetail extends React.Component<IFreeSpanHistoryDetai
             </dt>
             <dd>{freeSpanHistoryEntity.isCurrentFlag ? 'true' : 'false'}</dd>
             <dt>
-              <span id="statusId">Status Id</span>
-            </dt>
-            <dd>{freeSpanHistoryEntity.statusId}</dd>
-            <dt>
               <span id="comment">Comment</span>
             </dt>
             <dd>{freeSpanHistoryEntity.comment}</dd>

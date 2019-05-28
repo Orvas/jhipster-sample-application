@@ -42,7 +42,6 @@ export class FreeSpanHistory extends React.Component<IFreeSpanHistoryProps> {
                 <th>Kp Start</th>
                 <th>Kp End</th>
                 <th>Is Current Flag</th>
-                <th>Status Id</th>
                 <th>Comment</th>
                 <th>Date Create</th>
                 <th>Date Edit</th>
@@ -72,7 +71,6 @@ export class FreeSpanHistory extends React.Component<IFreeSpanHistoryProps> {
                   <td>{freeSpanHistory.kpStart}</td>
                   <td>{freeSpanHistory.kpEnd}</td>
                   <td>{freeSpanHistory.isCurrentFlag ? 'true' : 'false'}</td>
-                  <td>{freeSpanHistory.statusId}</td>
                   <td>{freeSpanHistory.comment}</td>
                   <td>
                     <TextFormat type="date" value={freeSpanHistory.dateCreate} format={APP_DATE_FORMAT} />

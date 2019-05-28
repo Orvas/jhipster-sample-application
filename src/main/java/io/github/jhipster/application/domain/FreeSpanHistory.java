@@ -47,9 +47,6 @@ public class FreeSpanHistory implements Serializable {
     @Column(name = "is_current_flag")
     private Boolean isCurrentFlag;
 
-    @Column(name = "status_id")
-    private Long statusId;
-
     @Column(name = "jhi_comment")
     private String comment;
 
@@ -173,19 +170,6 @@ public class FreeSpanHistory implements Serializable {
         this.isCurrentFlag = isCurrentFlag;
     }
 
-    public Long getStatusId() {
-        return statusId;
-    }
-
-    public FreeSpanHistory statusId(Long statusId) {
-        this.statusId = statusId;
-        return this;
-    }
-
-    public void setStatusId(Long statusId) {
-        this.statusId = statusId;
-    }
-
     public String getComment() {
         return comment;
     }
@@ -305,7 +289,6 @@ public class FreeSpanHistory implements Serializable {
             ", kpStart=" + getKpStart() +
             ", kpEnd=" + getKpEnd() +
             ", isCurrentFlag='" + isIsCurrentFlag() + "'" +
-            ", statusId=" + getStatusId() +
             ", comment='" + getComment() + "'" +
             ", dateCreate='" + getDateCreate() + "'" +
             ", dateEdit='" + getDateEdit() + "'" +
