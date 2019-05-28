@@ -1,0 +1,55 @@
+{
+    "name": "PipelineSection",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pipelineId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "isOnshore",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "safetyClassId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "kpStart",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "kpEnd",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "dateCreate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateEdit",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "creator",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "editor",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190528160557",
+    "entityTableName": "pipeline_section",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

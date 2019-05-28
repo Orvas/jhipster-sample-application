@@ -1,0 +1,86 @@
+{
+    "name": "FreeSpanHistory",
+    "fields": [
+        {
+            "fieldName": "dateForm",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateTo",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "workId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "pipelineSection",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "length",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "kpStart",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "kpEnd",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "isCurrentFlag",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "statusId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "comment",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateEdit",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "creator",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "editor",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "listObjectStatus",
+            "otherEntityRelationshipName": "freeSpanHistory",
+            "relationshipName": "status",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "pipelineSection",
+            "otherEntityRelationshipName": "freeSpanHistory",
+            "relationshipName": "pipelineSection",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190528160558",
+    "entityTableName": "free_span_history",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
