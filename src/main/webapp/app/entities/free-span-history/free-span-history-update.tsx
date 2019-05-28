@@ -158,12 +158,6 @@ export class FreeSpanHistoryUpdate extends React.Component<IFreeSpanHistoryUpdat
                   </Label>
                 </AvGroup>
                 <AvGroup>
-                  <Label id="statusIdLabel" for="free-span-history-statusId">
-                    Status Id
-                  </Label>
-                  <AvField id="free-span-history-statusId" type="string" className="form-control" name="statusId" />
-                </AvGroup>
-                <AvGroup>
                   <Label id="commentLabel" for="free-span-history-comment">
                     Comment
                   </Label>

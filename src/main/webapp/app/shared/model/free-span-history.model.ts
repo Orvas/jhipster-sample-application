@@ -11,7 +11,6 @@ export interface IFreeSpanHistory {
   kpStart?: number;
   kpEnd?: number;
   isCurrentFlag?: boolean;
-  statusId?: number;
   comment?: string;
   dateCreate?: Moment;
   dateEdit?: Moment;

@@ -56,9 +56,6 @@ public class FreeSpanHistoryResourceIT {
     private static final Boolean DEFAULT_IS_CURRENT_FLAG = false;
     private static final Boolean UPDATED_IS_CURRENT_FLAG = true;
 
-    private static final Long DEFAULT_STATUS_ID = 1L;
-    private static final Long UPDATED_STATUS_ID = 2L;
-
     private static final String DEFAULT_COMMENT = "AAAAAAAAAA";
     private static final String UPDATED_COMMENT = "BBBBBBBBBB";
 
@@ -123,7 +120,6 @@ public class FreeSpanHistoryResourceIT {
             .kpStart(DEFAULT_KP_START)
             .kpEnd(DEFAULT_KP_END)
             .isCurrentFlag(DEFAULT_IS_CURRENT_FLAG)
-            .statusId(DEFAULT_STATUS_ID)
             .comment(DEFAULT_COMMENT)
             .dateCreate(DEFAULT_DATE_CREATE)
             .dateEdit(DEFAULT_DATE_EDIT)
@@ -146,7 +142,6 @@ public class FreeSpanHistoryResourceIT {
             .kpStart(UPDATED_KP_START)
             .kpEnd(UPDATED_KP_END)
             .isCurrentFlag(UPDATED_IS_CURRENT_FLAG)
-            .statusId(UPDATED_STATUS_ID)
             .comment(UPDATED_COMMENT)
             .dateCreate(UPDATED_DATE_CREATE)
             .dateEdit(UPDATED_DATE_EDIT)
@@ -182,7 +177,6 @@ public class FreeSpanHistoryResourceIT {
         assertThat(testFreeSpanHistory.getKpStart()).isEqualTo(DEFAULT_KP_START);
         assertThat(testFreeSpanHistory.getKpEnd()).isEqualTo(DEFAULT_KP_END);
         assertThat(testFreeSpanHistory.isIsCurrentFlag()).isEqualTo(DEFAULT_IS_CURRENT_FLAG);
-        assertThat(testFreeSpanHistory.getStatusId()).isEqualTo(DEFAULT_STATUS_ID);
         assertThat(testFreeSpanHistory.getComment()).isEqualTo(DEFAULT_COMMENT);
         assertThat(testFreeSpanHistory.getDateCreate()).isEqualTo(DEFAULT_DATE_CREATE);
         assertThat(testFreeSpanHistory.getDateEdit()).isEqualTo(DEFAULT_DATE_EDIT);
@@ -228,7 +222,6 @@ public class FreeSpanHistoryResourceIT {
             .andExpect(jsonPath("$.[*].kpStart").value(hasItem(DEFAULT_KP_START.doubleValue())))
             .andExpect(jsonPath("$.[*].kpEnd").value(hasItem(DEFAULT_KP_END.doubleValue())))
             .andExpect(jsonPath("$.[*].isCurrentFlag").value(hasItem(DEFAULT_IS_CURRENT_FLAG.booleanValue())))
-            .andExpect(jsonPath("$.[*].statusId").value(hasItem(DEFAULT_STATUS_ID.intValue())))
             .andExpect(jsonPath("$.[*].comment").value(hasItem(DEFAULT_COMMENT.toString())))
             .andExpect(jsonPath("$.[*].dateCreate").value(hasItem(DEFAULT_DATE_CREATE.toString())))
             .andExpect(jsonPath("$.[*].dateEdit").value(hasItem(DEFAULT_DATE_EDIT.toString())))
@@ -254,7 +247,6 @@ public class FreeSpanHistoryResourceIT {
             .andExpect(jsonPath("$.kpStart").value(DEFAULT_KP_START.doubleValue()))
             .andExpect(jsonPath("$.kpEnd").value(DEFAULT_KP_END.doubleValue()))
             .andExpect(jsonPath("$.isCurrentFlag").value(DEFAULT_IS_CURRENT_FLAG.booleanValue()))
-            .andExpect(jsonPath("$.statusId").value(DEFAULT_STATUS_ID.intValue()))
             .andExpect(jsonPath("$.comment").value(DEFAULT_COMMENT.toString()))
             .andExpect(jsonPath("$.dateCreate").value(DEFAULT_DATE_CREATE.toString()))
             .andExpect(jsonPath("$.dateEdit").value(DEFAULT_DATE_EDIT.toString()))
@@ -290,7 +282,6 @@ public class FreeSpanHistoryResourceIT {
             .kpStart(UPDATED_KP_START)
             .kpEnd(UPDATED_KP_END)
             .isCurrentFlag(UPDATED_IS_CURRENT_FLAG)
-            .statusId(UPDATED_STATUS_ID)
             .comment(UPDATED_COMMENT)
             .dateCreate(UPDATED_DATE_CREATE)
             .dateEdit(UPDATED_DATE_EDIT)
@@ -313,7 +304,6 @@ public class FreeSpanHistoryResourceIT {
         assertThat(testFreeSpanHistory.getKpStart()).isEqualTo(UPDATED_KP_START);
         assertThat(testFreeSpanHistory.getKpEnd()).isEqualTo(UPDATED_KP_END);
         assertThat(testFreeSpanHistory.isIsCurrentFlag()).isEqualTo(UPDATED_IS_CURRENT_FLAG);
-        assertThat(testFreeSpanHistory.getStatusId()).isEqualTo(UPDATED_STATUS_ID);
         assertThat(testFreeSpanHistory.getComment()).isEqualTo(UPDATED_COMMENT);
         assertThat(testFreeSpanHistory.getDateCreate()).isEqualTo(UPDATED_DATE_CREATE);
         assertThat(testFreeSpanHistory.getDateEdit()).isEqualTo(UPDATED_DATE_EDIT);

@@ -43,10 +43,6 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="status_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
             <column name="jhi_comment" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
@@ -106,7 +102,6 @@
             <column name="kp_start" type="numeric"/>
             <column name="kp_end" type="numeric"/>
             <column name="is_current_flag" type="boolean"/>
-            <column name="status_id" type="numeric"/>
             <column name="jhi_comment" type="string"/>
             <column name="date_create" type="date"/>
             <column name="date_edit" type="date"/>
