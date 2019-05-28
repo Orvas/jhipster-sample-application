@@ -28,8 +28,7 @@ entity FreeSpanHistory{
     length Double
     kpStart Double
     kpEnd Double
-    isCurrentFlag Boolean
-    statusId Long
+    isCurrentFlag Boolean    
     comment String
     dateCreate Instant
     dateEdit Instant
