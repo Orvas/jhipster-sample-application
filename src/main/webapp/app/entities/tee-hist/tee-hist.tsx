@@ -211,7 +211,7 @@ export class TeeHist extends React.Component<ITeeHistProps, ITeeHistState> {
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Tee <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
                   Id Pipeline Section <FontAwesomeIcon icon="sort" />
@@ -326,7 +326,7 @@ export class TeeHist extends React.Component<ITeeHistProps, ITeeHistState> {
                   </td>
                   <td>{teeHist.creator}</td>
                   <td>{teeHist.editor}</td>
-                  <td>{teeHist.idId ? <Link to={`tee/${teeHist.idId}`}>{teeHist.idId}</Link> : ''}</td>
+                  <td>{teeHist.teeId ? <Link to={`tee/${teeHist.teeId}`}>{teeHist.teeId}</Link> : ''}</td>
                   <td>
                     {teeHist.idPipelineSectionId ? (
                       <Link to={`pipeline-section/${teeHist.idPipelineSectionId}`}>{teeHist.idPipelineSectionId}</Link>

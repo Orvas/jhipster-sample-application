@@ -12,10 +12,7 @@ import java.time.Instant;
 import java.util.Objects;
 
 /**
- * List for define which value of boundary condidtion to use for calculations:
- * •	Pinned-Pinned
- * •	Fixed-Fixed
- * •	Single span on seabed
+ * List for define which value of boundary condidtion to use for calculations:•	Pinned-Pinned	•	Fixed-Fixed	•	Single span on seabed
  */
 @Entity
 @Table(name = "list_boundary_cond_ucase")

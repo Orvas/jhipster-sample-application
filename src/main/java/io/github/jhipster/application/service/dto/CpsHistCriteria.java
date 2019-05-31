@@ -59,7 +59,7 @@ public class CpsHistCriteria implements Serializable, Criteria {
 
     private StringFilter editor;
 
-    private LongFilter idId;
+    private LongFilter cpsId;
 
     private LongFilter idPipelineSectionId;
 
@@ -85,7 +85,7 @@ public class CpsHistCriteria implements Serializable, Criteria {
         this.dateEdit = other.dateEdit == null ? null : other.dateEdit.copy();
         this.creator = other.creator == null ? null : other.creator.copy();
         this.editor = other.editor == null ? null : other.editor.copy();
-        this.idId = other.idId == null ? null : other.idId.copy();
+        this.cpsId = other.cpsId == null ? null : other.cpsId.copy();
         this.idPipelineSectionId = other.idPipelineSectionId == null ? null : other.idPipelineSectionId.copy();
         this.idStatusId = other.idStatusId == null ? null : other.idStatusId.copy();
     }
@@ -223,12 +223,12 @@ public class CpsHistCriteria implements Serializable, Criteria {
         this.editor = editor;
     }
 
-    public LongFilter getIdId() {
-        return idId;
+    public LongFilter getCpsId() {
+        return cpsId;
     }
 
-    public void setIdId(LongFilter idId) {
-        this.idId = idId;
+    public void setCpsId(LongFilter cpsId) {
+        this.cpsId = cpsId;
     }
 
     public LongFilter getIdPipelineSectionId() {
@@ -274,7 +274,7 @@ public class CpsHistCriteria implements Serializable, Criteria {
             Objects.equals(dateEdit, that.dateEdit) &&
             Objects.equals(creator, that.creator) &&
             Objects.equals(editor, that.editor) &&
-            Objects.equals(idId, that.idId) &&
+            Objects.equals(cpsId, that.cpsId) &&
             Objects.equals(idPipelineSectionId, that.idPipelineSectionId) &&
             Objects.equals(idStatusId, that.idStatusId);
     }
@@ -298,7 +298,7 @@ public class CpsHistCriteria implements Serializable, Criteria {
         dateEdit,
         creator,
         editor,
-        idId,
+        cpsId,
         idPipelineSectionId,
         idStatusId
         );
@@ -323,7 +323,7 @@ public class CpsHistCriteria implements Serializable, Criteria {
                 (dateEdit != null ? "dateEdit=" + dateEdit + ", " : "") +
                 (creator != null ? "creator=" + creator + ", " : "") +
                 (editor != null ? "editor=" + editor + ", " : "") +
-                (idId != null ? "idId=" + idId + ", " : "") +
+                (cpsId != null ? "cpsId=" + cpsId + ", " : "") +
                 (idPipelineSectionId != null ? "idPipelineSectionId=" + idPipelineSectionId + ", " : "") +
                 (idStatusId != null ? "idStatusId=" + idStatusId + ", " : "") +
             "}";

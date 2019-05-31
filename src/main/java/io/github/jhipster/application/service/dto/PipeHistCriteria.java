@@ -125,7 +125,7 @@ public class PipeHistCriteria implements Serializable, Criteria {
 
     private StringFilter editor;
 
-    private LongFilter idId;
+    private LongFilter pipeId;
 
     private LongFilter idPipelineSectionId;
 
@@ -206,7 +206,7 @@ public class PipeHistCriteria implements Serializable, Criteria {
         this.dateEdit = other.dateEdit == null ? null : other.dateEdit.copy();
         this.creator = other.creator == null ? null : other.creator.copy();
         this.editor = other.editor == null ? null : other.editor.copy();
-        this.idId = other.idId == null ? null : other.idId.copy();
+        this.pipeId = other.pipeId == null ? null : other.pipeId.copy();
         this.idPipelineSectionId = other.idPipelineSectionId == null ? null : other.idPipelineSectionId.copy();
         this.idInternalCoatTypeId = other.idInternalCoatTypeId == null ? null : other.idInternalCoatTypeId.copy();
         this.idExternalCoatTypeId = other.idExternalCoatTypeId == null ? null : other.idExternalCoatTypeId.copy();
@@ -619,12 +619,12 @@ public class PipeHistCriteria implements Serializable, Criteria {
         this.editor = editor;
     }
 
-    public LongFilter getIdId() {
-        return idId;
+    public LongFilter getPipeId() {
+        return pipeId;
     }
 
-    public void setIdId(LongFilter idId) {
-        this.idId = idId;
+    public void setPipeId(LongFilter pipeId) {
+        this.pipeId = pipeId;
     }
 
     public LongFilter getIdPipelineSectionId() {
@@ -791,7 +791,7 @@ public class PipeHistCriteria implements Serializable, Criteria {
             Objects.equals(dateEdit, that.dateEdit) &&
             Objects.equals(creator, that.creator) &&
             Objects.equals(editor, that.editor) &&
-            Objects.equals(idId, that.idId) &&
+            Objects.equals(pipeId, that.pipeId) &&
             Objects.equals(idPipelineSectionId, that.idPipelineSectionId) &&
             Objects.equals(idInternalCoatTypeId, that.idInternalCoatTypeId) &&
             Objects.equals(idExternalCoatTypeId, that.idExternalCoatTypeId) &&
@@ -859,7 +859,7 @@ public class PipeHistCriteria implements Serializable, Criteria {
         dateEdit,
         creator,
         editor,
-        idId,
+        pipeId,
         idPipelineSectionId,
         idInternalCoatTypeId,
         idExternalCoatTypeId,
@@ -928,7 +928,7 @@ public class PipeHistCriteria implements Serializable, Criteria {
                 (dateEdit != null ? "dateEdit=" + dateEdit + ", " : "") +
                 (creator != null ? "creator=" + creator + ", " : "") +
                 (editor != null ? "editor=" + editor + ", " : "") +
-                (idId != null ? "idId=" + idId + ", " : "") +
+                (pipeId != null ? "pipeId=" + pipeId + ", " : "") +
                 (idPipelineSectionId != null ? "idPipelineSectionId=" + idPipelineSectionId + ", " : "") +
                 (idInternalCoatTypeId != null ? "idInternalCoatTypeId=" + idInternalCoatTypeId + ", " : "") +
                 (idExternalCoatTypeId != null ? "idExternalCoatTypeId=" + idExternalCoatTypeId + ", " : "") +

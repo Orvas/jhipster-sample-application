@@ -48,8 +48,8 @@ export class LaunchReceiverDetail extends React.Component<ILaunchReceiverDetailP
               <span id="editor">Editor</span>
             </dt>
             <dd>{launchReceiverEntity.editor}</dd>
-            <dt>Id</dt>
-            <dd>{launchReceiverEntity.idId ? launchReceiverEntity.idId : ''}</dd>
+            <dt>Base Class</dt>
+            <dd>{launchReceiverEntity.baseClassId ? launchReceiverEntity.baseClassId : ''}</dd>
           </dl>
           <Button tag={Link} to="/entity/launch-receiver" replace color="info">
             <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>

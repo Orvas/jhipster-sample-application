@@ -10,7 +10,7 @@ import java.util.Objects;
 /**
  * A DTO for the {@link io.github.jhipster.application.domain.CpsRange} entity.
  */
-@ApiModel(description = "CPS action  range One row corresponds to one cps and pipeline section")
+@ApiModel(description = "CPS action  rangeOne row corresponds to one cps and pipeline section")
 public class CpsRangeDTO implements Serializable {
 
     private Long id;

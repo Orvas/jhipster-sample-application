@@ -13,23 +13,7 @@ import java.time.Instant;
 import java.util.Objects;
 
 /**
- * One table rows corresponds to one pipeline segment
- * 
- * List of Pipeline segments:
- * 
- * Segment Number/Segment name/Pipeline 1 KP_start kp_end/Pipeline 4 kp_start kp_end
- * 
- * 1Onshore Pipeline - Russia -2.2 0 -2.2 0
- * 2 Micro Tunnel 0 1.4 0 1.4
- * 3 Shelf section- Russia 1.4 30.1 1.4 31.1
- * 4 Slope 30° - Russia 30.1 53 31.1 53
- * 5 Abyssal Plain 1 (Russia territorial waters end) 53 228.3 53 228.3
- * 6 Abyssal Plain 2 (original SS scope end) 228.3 660 228.3 660
- * 7 Abyssal Plain 3 (New TurkStream Scope) 660 792 660 790
- * 8 Slope 10° - Turkey 792 876.4 790 874.9
- * 9 Shelf section - Turkey 876.4 923.2 874.9 921.8
- * 10 Open Cut Shore Crossing 923.2 925.6 921.8 924.2
- * 11 Onshore Pipeline - Turkey 1000 1001.8 1000 1001.8
+ * One table rows corresponds to one pipeline segmentList of Pipeline segments:Segment Number/Segment name/Pipeline 1 KP_start kp_end/Pipeline 4 kp_start kp_end1Onshore Pipeline - Russia -2.2 0 -2.2 02 Micro Tunnel 0 1.4 0 1.43 Shelf section- Russia 1.4 30.1 1.4 31.14 Slope 30° - Russia 30.1 53 31.1 535 Abyssal Plain 1 (Russia territorial waters end) 53 228.3 53 228.36 Abyssal Plain 2 (original SS scope end) 228.3 660 228.3 6607 Abyssal Plain 3 (New TurkStream Scope) 660 792 660 7908 Slope 10° - Turkey 792 876.4 790 874.99 Shelf section - Turkey 876.4 923.2 874.9 921.810 Open Cut Shore Crossing 923.2 925.6 921.8 924.211 Onshore Pipeline - Turkey 1000 1001.8 1000 1001.8
  */
 @Entity
 @Table(name = "pipeline_segment")

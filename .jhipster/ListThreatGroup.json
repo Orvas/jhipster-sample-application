@@ -77,7 +77,7 @@
         }
     ],
     "changelogDate": "20190531124456",
-    "javadoc": "Threat groups:\n\nCorrosion/Erosion/Material Threats\nThird Party Interaction Threats\nNatural Hazard and Stability Threats\nStructural Threats\nDesign, Fabrication and Installation (DFI) and Incorrect\nOperation Threats",
+    "javadoc": "Threat groups:Corrosion/Erosion/Material ThreatsThird Party Interaction ThreatsNatural Hazard and Stability ThreatsStructural ThreatsDesign, Fabrication and Installation (DFI) and IncorrectOperation Threats",
     "entityTableName": "list_threat_group",
     "dto": "mapstruct",
     "pagination": "pagination",

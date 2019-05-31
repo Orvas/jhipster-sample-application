@@ -206,11 +206,9 @@
             <column name="editor" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
-            <column name="id_id" type="bigint">
-                <constraints nullable="false" />
+            <column name="pipe_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_pipe_hist_pipe_id" />
             </column>
-
             <column name="id_pipeline_section_id" type="bigint">
                 <constraints nullable="false" />
             </column>
@@ -333,7 +331,6 @@
             <column name="date_edit" type="date"/>
             <column name="creator" type="string"/>
             <column name="editor" type="string"/>
-            <column name="id_id" type="numeric"/>
             <column name="id_pipeline_section_id" type="numeric"/>
             <column name="id_status_id" type="numeric"/>
         </loadData>

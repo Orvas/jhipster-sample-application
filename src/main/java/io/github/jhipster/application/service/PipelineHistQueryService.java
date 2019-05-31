@@ -119,9 +119,9 @@ public class PipelineHistQueryService extends QueryService<PipelineHist> {
             if (criteria.getEditor() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getEditor(), PipelineHist_.editor));
             }
-            if (criteria.getIdId() != null) {
-                specification = specification.and(buildSpecification(criteria.getIdId(),
-                    root -> root.join(PipelineHist_.id, JoinType.LEFT).get(Pipeline_.id)));
+            if (criteria.getPipelineId() != null) {
+                specification = specification.and(buildSpecification(criteria.getPipelineId(),
+                    root -> root.join(PipelineHist_.pipeline, JoinType.LEFT).get(Pipeline_.id)));
             }
             if (criteria.getIdLocationId() != null) {
                 specification = specification.and(buildSpecification(criteria.getIdLocationId(),

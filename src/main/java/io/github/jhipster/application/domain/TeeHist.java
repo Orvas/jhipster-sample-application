@@ -183,10 +183,9 @@ public class TeeHist implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("teeHists")
-    private Tee id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Tee tee;
 
     @ManyToOne(optional = false)
     @NotNull
@@ -879,17 +878,17 @@ public class TeeHist implements Serializable {
         this.editor = editor;
     }
 
-    public Tee getId() {
-        return id;
+    public Tee getTee() {
+        return tee;
     }
 
-    public TeeHist id(Tee tee) {
-        this.id = tee;
+    public TeeHist tee(Tee tee) {
+        this.tee = tee;
         return this;
     }
 
-    public void setId(Tee tee) {
-        this.id = tee;
+    public void setTee(Tee tee) {
+        this.tee = tee;
     }
 
     public PipelineSection getIdPipelineSection() {

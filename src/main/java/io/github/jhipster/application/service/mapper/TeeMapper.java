@@ -11,11 +11,11 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {BaseClassMapper.class})
 public interface TeeMapper extends EntityMapper<TeeDTO, Tee> {
 
-    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "baseClass.id", target = "baseClassId")
     TeeDTO toDto(Tee tee);
 
-    @Mapping(source = "idId", target = "id")
-    @Mapping(target = "teeHists", ignore = true)
+    @Mapping(source = "baseClassId", target = "baseClass")
+    @Mapping(target = "teeHist", ignore = true)
     Tee toEntity(TeeDTO teeDTO);
 
     default Tee fromId(Long id) {

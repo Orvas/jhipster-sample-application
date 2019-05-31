@@ -48,7 +48,7 @@ public class PipelineHistCriteria implements Serializable, Criteria {
 
     private StringFilter editor;
 
-    private LongFilter idId;
+    private LongFilter pipelineId;
 
     private LongFilter idLocationId;
 
@@ -69,7 +69,7 @@ public class PipelineHistCriteria implements Serializable, Criteria {
         this.dateEdit = other.dateEdit == null ? null : other.dateEdit.copy();
         this.creator = other.creator == null ? null : other.creator.copy();
         this.editor = other.editor == null ? null : other.editor.copy();
-        this.idId = other.idId == null ? null : other.idId.copy();
+        this.pipelineId = other.pipelineId == null ? null : other.pipelineId.copy();
         this.idLocationId = other.idLocationId == null ? null : other.idLocationId.copy();
         this.idStatusId = other.idStatusId == null ? null : other.idStatusId.copy();
     }
@@ -167,12 +167,12 @@ public class PipelineHistCriteria implements Serializable, Criteria {
         this.editor = editor;
     }
 
-    public LongFilter getIdId() {
-        return idId;
+    public LongFilter getPipelineId() {
+        return pipelineId;
     }
 
-    public void setIdId(LongFilter idId) {
-        this.idId = idId;
+    public void setPipelineId(LongFilter pipelineId) {
+        this.pipelineId = pipelineId;
     }
 
     public LongFilter getIdLocationId() {
@@ -213,7 +213,7 @@ public class PipelineHistCriteria implements Serializable, Criteria {
             Objects.equals(dateEdit, that.dateEdit) &&
             Objects.equals(creator, that.creator) &&
             Objects.equals(editor, that.editor) &&
-            Objects.equals(idId, that.idId) &&
+            Objects.equals(pipelineId, that.pipelineId) &&
             Objects.equals(idLocationId, that.idLocationId) &&
             Objects.equals(idStatusId, that.idStatusId);
     }
@@ -232,7 +232,7 @@ public class PipelineHistCriteria implements Serializable, Criteria {
         dateEdit,
         creator,
         editor,
-        idId,
+        pipelineId,
         idLocationId,
         idStatusId
         );
@@ -252,7 +252,7 @@ public class PipelineHistCriteria implements Serializable, Criteria {
                 (dateEdit != null ? "dateEdit=" + dateEdit + ", " : "") +
                 (creator != null ? "creator=" + creator + ", " : "") +
                 (editor != null ? "editor=" + editor + ", " : "") +
-                (idId != null ? "idId=" + idId + ", " : "") +
+                (pipelineId != null ? "pipelineId=" + pipelineId + ", " : "") +
                 (idLocationId != null ? "idLocationId=" + idLocationId + ", " : "") +
                 (idStatusId != null ? "idStatusId=" + idStatusId + ", " : "") +
             "}";

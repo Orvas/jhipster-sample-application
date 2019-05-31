@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * A DTO for the {@link io.github.jhipster.application.domain.ListEffAxforceUcase} entity.
  */
-@ApiModel(description = "List for define which value of effective axial force to use for calculations: - Estimated in PIMS value of effective axial force - System design value - User input value")
+@ApiModel(description = "List for define which value of effective axial force to use for calculations:- Estimated in PIMS value of effective axial force- System design value- User input value")
 public class ListEffAxforceUcaseDTO implements Serializable {
 
     private Long id;

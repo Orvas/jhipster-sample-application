@@ -101,13 +101,13 @@ public class ValveQueryService extends QueryService<Valve> {
             if (criteria.getEditor() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getEditor(), Valve_.editor));
             }
-            if (criteria.getIdId() != null) {
-                specification = specification.and(buildSpecification(criteria.getIdId(),
-                    root -> root.join(Valve_.id, JoinType.LEFT).get(BaseClass_.id)));
+            if (criteria.getBaseClassId() != null) {
+                specification = specification.and(buildSpecification(criteria.getBaseClassId(),
+                    root -> root.join(Valve_.baseClass, JoinType.LEFT).get(BaseClass_.id)));
             }
             if (criteria.getValveHistId() != null) {
                 specification = specification.and(buildSpecification(criteria.getValveHistId(),
-                    root -> root.join(Valve_.valveHists, JoinType.LEFT).get(ValveHist_.id)));
+                    root -> root.join(Valve_.valveHist, JoinType.LEFT).get(ValveHist_.id)));
             }
         }
         return specification;

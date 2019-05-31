@@ -83,10 +83,9 @@ public class FreeSpanHist implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("freeSpanHists")
-    private FreeSpan id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private FreeSpan freeSpan;
 
     @ManyToOne(optional = false)
     @NotNull
@@ -315,17 +314,17 @@ public class FreeSpanHist implements Serializable {
         this.editor = editor;
     }
 
-    public FreeSpan getId() {
-        return id;
+    public FreeSpan getFreeSpan() {
+        return freeSpan;
     }
 
-    public FreeSpanHist id(FreeSpan freeSpan) {
-        this.id = freeSpan;
+    public FreeSpanHist freeSpan(FreeSpan freeSpan) {
+        this.freeSpan = freeSpan;
         return this;
     }
 
-    public void setId(FreeSpan freeSpan) {
-        this.id = freeSpan;
+    public void setFreeSpan(FreeSpan freeSpan) {
+        this.freeSpan = freeSpan;
     }
 
     public PipelineSection getIdPipelineSection() {

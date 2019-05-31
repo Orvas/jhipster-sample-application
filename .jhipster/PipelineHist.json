@@ -70,12 +70,12 @@
     ],
     "relationships": [
         {
-            "relationshipType": "many-to-one",
+            "relationshipType": "one-to-one",
             "otherEntityName": "pipeline",
             "otherEntityRelationshipName": "pipelineHist",
-            "relationshipValidateRules": "required",
-            "relationshipName": "id",
-            "otherEntityField": "id"
+            "relationshipName": "pipeline",
+            "otherEntityField": "id",
+            "ownerSide": true
         },
         {
             "relationshipType": "many-to-one",

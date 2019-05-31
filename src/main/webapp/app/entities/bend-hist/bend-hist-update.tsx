@@ -48,7 +48,7 @@ export interface IBendHistUpdateProps extends StateProps, DispatchProps, RouteCo
 
 export interface IBendHistUpdateState {
   isNew: boolean;
-  idId: string;
+  bendId: string;
   idPipelineSectionId: string;
   idTypeId: string;
   idInternalCoatTypeId: string;
@@ -69,7 +69,7 @@ export class BendHistUpdate extends React.Component<IBendHistUpdateProps, IBendH
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      bendId: '0',
       idPipelineSectionId: '0',
       idTypeId: '0',
       idInternalCoatTypeId: '0',
@@ -566,8 +566,9 @@ export class BendHistUpdate extends React.Component<IBendHistUpdateProps, IBendH
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="bend-hist-id">Id</Label>
-                  <AvInput id="bend-hist-id" type="select" className="form-control" name="idId" required>
+                  <Label for="bend-hist-bend">Bend</Label>
+                  <AvInput id="bend-hist-bend" type="select" className="form-control" name="bendId">
+                    <option value="" key="0" />
                     {bends
                       ? bends.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -576,7 +577,6 @@ export class BendHistUpdate extends React.Component<IBendHistUpdateProps, IBendH
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <AvGroup>
                   <Label for="bend-hist-idPipelineSection">Id Pipeline Section</Label>

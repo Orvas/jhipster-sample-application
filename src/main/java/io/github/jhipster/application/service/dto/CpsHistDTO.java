@@ -54,7 +54,7 @@ public class CpsHistDTO implements Serializable {
     private String editor;
 
 
-    private Long idId;
+    private Long cpsId;
 
     private Long idPipelineSectionId;
 
@@ -188,12 +188,12 @@ public class CpsHistDTO implements Serializable {
         this.editor = editor;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getCpsId() {
+        return cpsId;
     }
 
-    public void setIdId(Long cpsId) {
-        this.idId = cpsId;
+    public void setCpsId(Long cpsId) {
+        this.cpsId = cpsId;
     }
 
     public Long getIdPipelineSectionId() {
@@ -252,7 +252,7 @@ public class CpsHistDTO implements Serializable {
             ", dateEdit='" + getDateEdit() + "'" +
             ", creator='" + getCreator() + "'" +
             ", editor='" + getEditor() + "'" +
-            ", id=" + getIdId() +
+            ", cps=" + getCpsId() +
             ", idPipelineSection=" + getIdPipelineSectionId() +
             ", idStatus=" + getIdStatusId() +
             "}";

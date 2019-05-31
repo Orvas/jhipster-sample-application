@@ -125,7 +125,7 @@ public class ValveHistCriteria implements Serializable, Criteria {
 
     private StringFilter editor;
 
-    private LongFilter idId;
+    private LongFilter valveId;
 
     private LongFilter idPipelineSectionId;
 
@@ -210,7 +210,7 @@ public class ValveHistCriteria implements Serializable, Criteria {
         this.dateEdit = other.dateEdit == null ? null : other.dateEdit.copy();
         this.creator = other.creator == null ? null : other.creator.copy();
         this.editor = other.editor == null ? null : other.editor.copy();
-        this.idId = other.idId == null ? null : other.idId.copy();
+        this.valveId = other.valveId == null ? null : other.valveId.copy();
         this.idPipelineSectionId = other.idPipelineSectionId == null ? null : other.idPipelineSectionId.copy();
         this.idTypeId = other.idTypeId == null ? null : other.idTypeId.copy();
         this.idInternalCoatTypeId = other.idInternalCoatTypeId == null ? null : other.idInternalCoatTypeId.copy();
@@ -625,12 +625,12 @@ public class ValveHistCriteria implements Serializable, Criteria {
         this.editor = editor;
     }
 
-    public LongFilter getIdId() {
-        return idId;
+    public LongFilter getValveId() {
+        return valveId;
     }
 
-    public void setIdId(LongFilter idId) {
-        this.idId = idId;
+    public void setValveId(LongFilter valveId) {
+        this.valveId = valveId;
     }
 
     public LongFilter getIdPipelineSectionId() {
@@ -813,7 +813,7 @@ public class ValveHistCriteria implements Serializable, Criteria {
             Objects.equals(dateEdit, that.dateEdit) &&
             Objects.equals(creator, that.creator) &&
             Objects.equals(editor, that.editor) &&
-            Objects.equals(idId, that.idId) &&
+            Objects.equals(valveId, that.valveId) &&
             Objects.equals(idPipelineSectionId, that.idPipelineSectionId) &&
             Objects.equals(idTypeId, that.idTypeId) &&
             Objects.equals(idInternalCoatTypeId, that.idInternalCoatTypeId) &&
@@ -883,7 +883,7 @@ public class ValveHistCriteria implements Serializable, Criteria {
         dateEdit,
         creator,
         editor,
-        idId,
+        valveId,
         idPipelineSectionId,
         idTypeId,
         idInternalCoatTypeId,
@@ -954,7 +954,7 @@ public class ValveHistCriteria implements Serializable, Criteria {
                 (dateEdit != null ? "dateEdit=" + dateEdit + ", " : "") +
                 (creator != null ? "creator=" + creator + ", " : "") +
                 (editor != null ? "editor=" + editor + ", " : "") +
-                (idId != null ? "idId=" + idId + ", " : "") +
+                (valveId != null ? "valveId=" + valveId + ", " : "") +
                 (idPipelineSectionId != null ? "idPipelineSectionId=" + idPipelineSectionId + ", " : "") +
                 (idTypeId != null ? "idTypeId=" + idTypeId + ", " : "") +
                 (idInternalCoatTypeId != null ? "idInternalCoatTypeId=" + idInternalCoatTypeId + ", " : "") +

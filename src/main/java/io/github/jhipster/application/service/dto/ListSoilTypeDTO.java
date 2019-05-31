@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * A DTO for the {@link io.github.jhipster.application.domain.ListSoilType} entity.
  */
-@ApiModel(description = "List of values: - A - B - C - D - E")
+@ApiModel(description = "List of values:- A - B- C- D- E")
 public class ListSoilTypeDTO implements Serializable {
 
     private Long id;

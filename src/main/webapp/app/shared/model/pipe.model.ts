@@ -1,5 +1,4 @@
 import { Moment } from 'moment';
-import { IPipeHist } from 'app/shared/model/pipe-hist.model';
 
 export interface IPipe {
   id?: number;
@@ -7,8 +6,8 @@ export interface IPipe {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
-  pipeHists?: IPipeHist[];
+  baseClassId?: number;
+  pipeHistId?: number;
 }
 
 export const defaultValue: Readonly<IPipe> = {};

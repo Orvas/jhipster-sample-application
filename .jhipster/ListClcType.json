@@ -70,7 +70,7 @@
     ],
     "relationships": [],
     "changelogDate": "20190531124422",
-    "javadoc": "- Pipeline displacement\n- Metall loss\n- Dent\n- Cathodic protection",
+    "javadoc": "- Pipeline displacement- Metall loss- Dent- Cathodic protection",
     "entityTableName": "list_clc_type",
     "dto": "mapstruct",
     "pagination": "pagination",

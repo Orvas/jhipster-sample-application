@@ -109,16 +109,6 @@ public class LaunchReceiverResourceIT {
             .dateEdit(DEFAULT_DATE_EDIT)
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
-        // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        launchReceiver.setId(baseClass);
         return launchReceiver;
     }
     /**
@@ -133,16 +123,6 @@ public class LaunchReceiverResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createUpdatedEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        launchReceiver.setId(baseClass);
         return launchReceiver;
     }
 
@@ -386,17 +366,20 @@ public class LaunchReceiverResourceIT {
 
     @Test
     @Transactional
-    public void getAllLaunchReceiversByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        BaseClass id = launchReceiver.getId();
+    public void getAllLaunchReceiversByBaseClassIsEqualToSomething() throws Exception {
+        // Initialize the database
+        BaseClass baseClass = BaseClassResourceIT.createEntity(em);
+        em.persist(baseClass);
+        em.flush();
+        launchReceiver.setBaseClass(baseClass);
         launchReceiverRepository.saveAndFlush(launchReceiver);
-        Long idId = id.getId();
+        Long baseClassId = baseClass.getId();
 
-        // Get all the launchReceiverList where id equals to idId
-        defaultLaunchReceiverShouldBeFound("idId.equals=" + idId);
+        // Get all the launchReceiverList where baseClass equals to baseClassId
+        defaultLaunchReceiverShouldBeFound("baseClassId.equals=" + baseClassId);
 
-        // Get all the launchReceiverList where id equals to idId + 1
-        defaultLaunchReceiverShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the launchReceiverList where baseClass equals to baseClassId + 1
+        defaultLaunchReceiverShouldNotBeFound("baseClassId.equals=" + (baseClassId + 1));
     }
 
 
@@ -407,7 +390,8 @@ public class LaunchReceiverResourceIT {
         LaunchReceiverHist launchReceiverHist = LaunchReceiverHistResourceIT.createEntity(em);
         em.persist(launchReceiverHist);
         em.flush();
-        launchReceiver.addLaunchReceiverHist(launchReceiverHist);
+        launchReceiver.setLaunchReceiverHist(launchReceiverHist);
+        launchReceiverHist.setLaunchReceiver(launchReceiver);
         launchReceiverRepository.saveAndFlush(launchReceiver);
         Long launchReceiverHistId = launchReceiverHist.getId();
 

@@ -109,16 +109,6 @@ public class ValveResourceIT {
             .dateEdit(DEFAULT_DATE_EDIT)
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
-        // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        valve.setId(baseClass);
         return valve;
     }
     /**
@@ -133,16 +123,6 @@ public class ValveResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createUpdatedEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        valve.setId(baseClass);
         return valve;
     }
 
@@ -386,17 +366,20 @@ public class ValveResourceIT {
 
     @Test
     @Transactional
-    public void getAllValvesByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        BaseClass id = valve.getId();
+    public void getAllValvesByBaseClassIsEqualToSomething() throws Exception {
+        // Initialize the database
+        BaseClass baseClass = BaseClassResourceIT.createEntity(em);
+        em.persist(baseClass);
+        em.flush();
+        valve.setBaseClass(baseClass);
         valveRepository.saveAndFlush(valve);
-        Long idId = id.getId();
+        Long baseClassId = baseClass.getId();
 
-        // Get all the valveList where id equals to idId
-        defaultValveShouldBeFound("idId.equals=" + idId);
+        // Get all the valveList where baseClass equals to baseClassId
+        defaultValveShouldBeFound("baseClassId.equals=" + baseClassId);
 
-        // Get all the valveList where id equals to idId + 1
-        defaultValveShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the valveList where baseClass equals to baseClassId + 1
+        defaultValveShouldNotBeFound("baseClassId.equals=" + (baseClassId + 1));
     }
 
 
@@ -407,7 +390,8 @@ public class ValveResourceIT {
         ValveHist valveHist = ValveHistResourceIT.createEntity(em);
         em.persist(valveHist);
         em.flush();
-        valve.addValveHist(valveHist);
+        valve.setValveHist(valveHist);
+        valveHist.setValve(valve);
         valveRepository.saveAndFlush(valve);
         Long valveHistId = valveHist.getId();
 

@@ -236,9 +236,9 @@ public class BendHistQueryService extends QueryService<BendHist> {
             if (criteria.getEditor() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getEditor(), BendHist_.editor));
             }
-            if (criteria.getIdId() != null) {
-                specification = specification.and(buildSpecification(criteria.getIdId(),
-                    root -> root.join(BendHist_.id, JoinType.LEFT).get(Bend_.id)));
+            if (criteria.getBendId() != null) {
+                specification = specification.and(buildSpecification(criteria.getBendId(),
+                    root -> root.join(BendHist_.bend, JoinType.LEFT).get(Bend_.id)));
             }
             if (criteria.getIdPipelineSectionId() != null) {
                 specification = specification.and(buildSpecification(criteria.getIdPipelineSectionId(),

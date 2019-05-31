@@ -233,9 +233,9 @@ public class ValveHistQueryService extends QueryService<ValveHist> {
             if (criteria.getEditor() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getEditor(), ValveHist_.editor));
             }
-            if (criteria.getIdId() != null) {
-                specification = specification.and(buildSpecification(criteria.getIdId(),
-                    root -> root.join(ValveHist_.id, JoinType.LEFT).get(Valve_.id)));
+            if (criteria.getValveId() != null) {
+                specification = specification.and(buildSpecification(criteria.getValveId(),
+                    root -> root.join(ValveHist_.valve, JoinType.LEFT).get(Valve_.id)));
             }
             if (criteria.getIdPipelineSectionId() != null) {
                 specification = specification.and(buildSpecification(criteria.getIdPipelineSectionId(),

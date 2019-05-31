@@ -79,7 +79,7 @@ export class FreeSpanSupport extends React.Component<IFreeSpanSupportProps, IFre
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Base Class <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -100,7 +100,13 @@ export class FreeSpanSupport extends React.Component<IFreeSpanSupportProps, IFre
                   </td>
                   <td>{freeSpanSupport.creator}</td>
                   <td>{freeSpanSupport.editor}</td>
-                  <td>{freeSpanSupport.idId ? <Link to={`base-class/${freeSpanSupport.idId}`}>{freeSpanSupport.idId}</Link> : ''}</td>
+                  <td>
+                    {freeSpanSupport.baseClassId ? (
+                      <Link to={`base-class/${freeSpanSupport.baseClassId}`}>{freeSpanSupport.baseClassId}</Link>
+                    ) : (
+                      ''
+                    )}
+                  </td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${freeSpanSupport.id}`} color="info" size="sm">

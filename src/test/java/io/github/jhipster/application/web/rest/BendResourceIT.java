@@ -109,16 +109,6 @@ public class BendResourceIT {
             .dateEdit(DEFAULT_DATE_EDIT)
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
-        // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        bend.setId(baseClass);
         return bend;
     }
     /**
@@ -133,16 +123,6 @@ public class BendResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createUpdatedEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        bend.setId(baseClass);
         return bend;
     }
 
@@ -386,17 +366,20 @@ public class BendResourceIT {
 
     @Test
     @Transactional
-    public void getAllBendsByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        BaseClass id = bend.getId();
+    public void getAllBendsByBaseClassIsEqualToSomething() throws Exception {
+        // Initialize the database
+        BaseClass baseClass = BaseClassResourceIT.createEntity(em);
+        em.persist(baseClass);
+        em.flush();
+        bend.setBaseClass(baseClass);
         bendRepository.saveAndFlush(bend);
-        Long idId = id.getId();
+        Long baseClassId = baseClass.getId();
 
-        // Get all the bendList where id equals to idId
-        defaultBendShouldBeFound("idId.equals=" + idId);
+        // Get all the bendList where baseClass equals to baseClassId
+        defaultBendShouldBeFound("baseClassId.equals=" + baseClassId);
 
-        // Get all the bendList where id equals to idId + 1
-        defaultBendShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the bendList where baseClass equals to baseClassId + 1
+        defaultBendShouldNotBeFound("baseClassId.equals=" + (baseClassId + 1));
     }
 
 
@@ -407,7 +390,8 @@ public class BendResourceIT {
         BendHist bendHist = BendHistResourceIT.createEntity(em);
         em.persist(bendHist);
         em.flush();
-        bend.addBendHist(bendHist);
+        bend.setBendHist(bendHist);
+        bendHist.setBend(bend);
         bendRepository.saveAndFlush(bend);
         Long bendHistId = bendHist.getId();
 

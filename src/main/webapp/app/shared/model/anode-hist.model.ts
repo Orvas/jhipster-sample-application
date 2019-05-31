@@ -35,7 +35,7 @@ export interface IAnodeHist {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
+  anodeId?: number;
   idPipelineSectionId?: number;
   idBraceleteTypeId?: number;
   idMaterialId?: number;

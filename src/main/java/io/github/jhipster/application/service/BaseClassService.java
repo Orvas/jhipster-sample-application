@@ -65,6 +65,141 @@ public class BaseClassService {
 
 
     /**
+    *  Get all the baseClasses where Anode is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<BaseClassDTO> findAllWhereAnodeIsNull() {
+        log.debug("Request to get all baseClasses where Anode is null");
+        return StreamSupport
+            .stream(baseClassRepository.findAll().spliterator(), false)
+            .filter(baseClass -> baseClass.getAnode() == null)
+            .map(baseClassMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
+
+    /**
+    *  Get all the baseClasses where Bend is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<BaseClassDTO> findAllWhereBendIsNull() {
+        log.debug("Request to get all baseClasses where Bend is null");
+        return StreamSupport
+            .stream(baseClassRepository.findAll().spliterator(), false)
+            .filter(baseClass -> baseClass.getBend() == null)
+            .map(baseClassMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
+
+    /**
+    *  Get all the baseClasses where BuckleArrestor is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<BaseClassDTO> findAllWhereBuckleArrestorIsNull() {
+        log.debug("Request to get all baseClasses where BuckleArrestor is null");
+        return StreamSupport
+            .stream(baseClassRepository.findAll().spliterator(), false)
+            .filter(baseClass -> baseClass.getBuckleArrestor() == null)
+            .map(baseClassMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
+
+    /**
+    *  Get all the baseClasses where Cps is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<BaseClassDTO> findAllWhereCpsIsNull() {
+        log.debug("Request to get all baseClasses where Cps is null");
+        return StreamSupport
+            .stream(baseClassRepository.findAll().spliterator(), false)
+            .filter(baseClass -> baseClass.getCps() == null)
+            .map(baseClassMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
+
+    /**
+    *  Get all the baseClasses where Displacement is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<BaseClassDTO> findAllWhereDisplacementIsNull() {
+        log.debug("Request to get all baseClasses where Displacement is null");
+        return StreamSupport
+            .stream(baseClassRepository.findAll().spliterator(), false)
+            .filter(baseClass -> baseClass.getDisplacement() == null)
+            .map(baseClassMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
+
+    /**
+    *  Get all the baseClasses where FreeSpan is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<BaseClassDTO> findAllWhereFreeSpanIsNull() {
+        log.debug("Request to get all baseClasses where FreeSpan is null");
+        return StreamSupport
+            .stream(baseClassRepository.findAll().spliterator(), false)
+            .filter(baseClass -> baseClass.getFreeSpan() == null)
+            .map(baseClassMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
+
+    /**
+    *  Get all the baseClasses where FreeSpanSupport is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<BaseClassDTO> findAllWhereFreeSpanSupportIsNull() {
+        log.debug("Request to get all baseClasses where FreeSpanSupport is null");
+        return StreamSupport
+            .stream(baseClassRepository.findAll().spliterator(), false)
+            .filter(baseClass -> baseClass.getFreeSpanSupport() == null)
+            .map(baseClassMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
+
+    /**
+    *  Get all the baseClasses where LaunchReceiver is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<BaseClassDTO> findAllWhereLaunchReceiverIsNull() {
+        log.debug("Request to get all baseClasses where LaunchReceiver is null");
+        return StreamSupport
+            .stream(baseClassRepository.findAll().spliterator(), false)
+            .filter(baseClass -> baseClass.getLaunchReceiver() == null)
+            .map(baseClassMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
+
+    /**
+    *  Get all the baseClasses where Pipe is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<BaseClassDTO> findAllWherePipeIsNull() {
+        log.debug("Request to get all baseClasses where Pipe is null");
+        return StreamSupport
+            .stream(baseClassRepository.findAll().spliterator(), false)
+            .filter(baseClass -> baseClass.getPipe() == null)
+            .map(baseClassMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
+
+    /**
     *  Get all the baseClasses where Pipejoint is {@code null}.
      *  @return the list of entities.
      */
@@ -74,6 +209,66 @@ public class BaseClassService {
         return StreamSupport
             .stream(baseClassRepository.findAll().spliterator(), false)
             .filter(baseClass -> baseClass.getPipejoint() == null)
+            .map(baseClassMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
+
+    /**
+    *  Get all the baseClasses where Pipeline is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<BaseClassDTO> findAllWherePipelineIsNull() {
+        log.debug("Request to get all baseClasses where Pipeline is null");
+        return StreamSupport
+            .stream(baseClassRepository.findAll().spliterator(), false)
+            .filter(baseClass -> baseClass.getPipeline() == null)
+            .map(baseClassMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
+
+    /**
+    *  Get all the baseClasses where PipelineSection is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<BaseClassDTO> findAllWherePipelineSectionIsNull() {
+        log.debug("Request to get all baseClasses where PipelineSection is null");
+        return StreamSupport
+            .stream(baseClassRepository.findAll().spliterator(), false)
+            .filter(baseClass -> baseClass.getPipelineSection() == null)
+            .map(baseClassMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
+
+    /**
+    *  Get all the baseClasses where Tee is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<BaseClassDTO> findAllWhereTeeIsNull() {
+        log.debug("Request to get all baseClasses where Tee is null");
+        return StreamSupport
+            .stream(baseClassRepository.findAll().spliterator(), false)
+            .filter(baseClass -> baseClass.getTee() == null)
+            .map(baseClassMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
+
+    /**
+    *  Get all the baseClasses where Valve is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<BaseClassDTO> findAllWhereValveIsNull() {
+        log.debug("Request to get all baseClasses where Valve is null");
+        return StreamSupport
+            .stream(baseClassRepository.findAll().spliterator(), false)
+            .filter(baseClass -> baseClass.getValve() == null)
             .map(baseClassMapper::toDto)
             .collect(Collectors.toCollection(LinkedList::new));
     }

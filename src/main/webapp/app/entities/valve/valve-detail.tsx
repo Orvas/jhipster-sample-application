@@ -48,8 +48,8 @@ export class ValveDetail extends React.Component<IValveDetailProps> {
               <span id="editor">Editor</span>
             </dt>
             <dd>{valveEntity.editor}</dd>
-            <dt>Id</dt>
-            <dd>{valveEntity.idId ? valveEntity.idId : ''}</dd>
+            <dt>Base Class</dt>
+            <dd>{valveEntity.baseClassId ? valveEntity.baseClassId : ''}</dd>
           </dl>
           <Button tag={Link} to="/entity/valve" replace color="info">
             <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>

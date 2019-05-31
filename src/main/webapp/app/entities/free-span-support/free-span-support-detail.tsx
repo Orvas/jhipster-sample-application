@@ -48,8 +48,8 @@ export class FreeSpanSupportDetail extends React.Component<IFreeSpanSupportDetai
               <span id="editor">Editor</span>
             </dt>
             <dd>{freeSpanSupportEntity.editor}</dd>
-            <dt>Id</dt>
-            <dd>{freeSpanSupportEntity.idId ? freeSpanSupportEntity.idId : ''}</dd>
+            <dt>Base Class</dt>
+            <dd>{freeSpanSupportEntity.baseClassId ? freeSpanSupportEntity.baseClassId : ''}</dd>
           </dl>
           <Button tag={Link} to="/entity/free-span-support" replace color="info">
             <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>

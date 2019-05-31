@@ -95,7 +95,7 @@ public class AnodeHistCriteria implements Serializable, Criteria {
 
     private StringFilter editor;
 
-    private LongFilter idId;
+    private LongFilter anodeId;
 
     private LongFilter idPipelineSectionId;
 
@@ -143,7 +143,7 @@ public class AnodeHistCriteria implements Serializable, Criteria {
         this.dateEdit = other.dateEdit == null ? null : other.dateEdit.copy();
         this.creator = other.creator == null ? null : other.creator.copy();
         this.editor = other.editor == null ? null : other.editor.copy();
-        this.idId = other.idId == null ? null : other.idId.copy();
+        this.anodeId = other.anodeId == null ? null : other.anodeId.copy();
         this.idPipelineSectionId = other.idPipelineSectionId == null ? null : other.idPipelineSectionId.copy();
         this.idBraceleteTypeId = other.idBraceleteTypeId == null ? null : other.idBraceleteTypeId.copy();
         this.idMaterialId = other.idMaterialId == null ? null : other.idMaterialId.copy();
@@ -427,12 +427,12 @@ public class AnodeHistCriteria implements Serializable, Criteria {
         this.editor = editor;
     }
 
-    public LongFilter getIdId() {
-        return idId;
+    public LongFilter getAnodeId() {
+        return anodeId;
     }
 
-    public void setIdId(LongFilter idId) {
-        this.idId = idId;
+    public void setAnodeId(LongFilter anodeId) {
+        this.anodeId = anodeId;
     }
 
     public LongFilter getIdPipelineSectionId() {
@@ -512,7 +512,7 @@ public class AnodeHistCriteria implements Serializable, Criteria {
             Objects.equals(dateEdit, that.dateEdit) &&
             Objects.equals(creator, that.creator) &&
             Objects.equals(editor, that.editor) &&
-            Objects.equals(idId, that.idId) &&
+            Objects.equals(anodeId, that.anodeId) &&
             Objects.equals(idPipelineSectionId, that.idPipelineSectionId) &&
             Objects.equals(idBraceleteTypeId, that.idBraceleteTypeId) &&
             Objects.equals(idMaterialId, that.idMaterialId) &&
@@ -556,7 +556,7 @@ public class AnodeHistCriteria implements Serializable, Criteria {
         dateEdit,
         creator,
         editor,
-        idId,
+        anodeId,
         idPipelineSectionId,
         idBraceleteTypeId,
         idMaterialId,
@@ -601,7 +601,7 @@ public class AnodeHistCriteria implements Serializable, Criteria {
                 (dateEdit != null ? "dateEdit=" + dateEdit + ", " : "") +
                 (creator != null ? "creator=" + creator + ", " : "") +
                 (editor != null ? "editor=" + editor + ", " : "") +
-                (idId != null ? "idId=" + idId + ", " : "") +
+                (anodeId != null ? "anodeId=" + anodeId + ", " : "") +
                 (idPipelineSectionId != null ? "idPipelineSectionId=" + idPipelineSectionId + ", " : "") +
                 (idBraceleteTypeId != null ? "idBraceleteTypeId=" + idBraceleteTypeId + ", " : "") +
                 (idMaterialId != null ? "idMaterialId=" + idMaterialId + ", " : "") +

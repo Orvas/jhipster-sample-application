@@ -18,7 +18,7 @@ export interface IDisplacementHist {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
+  displacementId?: number;
   idPipelineSectionId?: number;
 }
 

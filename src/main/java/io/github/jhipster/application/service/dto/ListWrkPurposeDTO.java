@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * A DTO for the {@link io.github.jhipster.application.domain.ListWrkPurpose} entity.
  */
-@ApiModel(description = "List of work pursposes: - plan work - after repair")
+@ApiModel(description = "List of work pursposes:- plan work- after repair")
 public class ListWrkPurposeDTO implements Serializable {
 
     private Long id;

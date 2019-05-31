@@ -51,7 +51,7 @@ public class LaunchReceiverHistCriteria implements Serializable, Criteria {
 
     private StringFilter editor;
 
-    private LongFilter idId;
+    private LongFilter launchReceiverId;
 
     private LongFilter idPipelineId;
 
@@ -73,7 +73,7 @@ public class LaunchReceiverHistCriteria implements Serializable, Criteria {
         this.dateEdit = other.dateEdit == null ? null : other.dateEdit.copy();
         this.creator = other.creator == null ? null : other.creator.copy();
         this.editor = other.editor == null ? null : other.editor.copy();
-        this.idId = other.idId == null ? null : other.idId.copy();
+        this.launchReceiverId = other.launchReceiverId == null ? null : other.launchReceiverId.copy();
         this.idPipelineId = other.idPipelineId == null ? null : other.idPipelineId.copy();
         this.idStatusId = other.idStatusId == null ? null : other.idStatusId.copy();
     }
@@ -179,12 +179,12 @@ public class LaunchReceiverHistCriteria implements Serializable, Criteria {
         this.editor = editor;
     }
 
-    public LongFilter getIdId() {
-        return idId;
+    public LongFilter getLaunchReceiverId() {
+        return launchReceiverId;
     }
 
-    public void setIdId(LongFilter idId) {
-        this.idId = idId;
+    public void setLaunchReceiverId(LongFilter launchReceiverId) {
+        this.launchReceiverId = launchReceiverId;
     }
 
     public LongFilter getIdPipelineId() {
@@ -226,7 +226,7 @@ public class LaunchReceiverHistCriteria implements Serializable, Criteria {
             Objects.equals(dateEdit, that.dateEdit) &&
             Objects.equals(creator, that.creator) &&
             Objects.equals(editor, that.editor) &&
-            Objects.equals(idId, that.idId) &&
+            Objects.equals(launchReceiverId, that.launchReceiverId) &&
             Objects.equals(idPipelineId, that.idPipelineId) &&
             Objects.equals(idStatusId, that.idStatusId);
     }
@@ -246,7 +246,7 @@ public class LaunchReceiverHistCriteria implements Serializable, Criteria {
         dateEdit,
         creator,
         editor,
-        idId,
+        launchReceiverId,
         idPipelineId,
         idStatusId
         );
@@ -267,7 +267,7 @@ public class LaunchReceiverHistCriteria implements Serializable, Criteria {
                 (dateEdit != null ? "dateEdit=" + dateEdit + ", " : "") +
                 (creator != null ? "creator=" + creator + ", " : "") +
                 (editor != null ? "editor=" + editor + ", " : "") +
-                (idId != null ? "idId=" + idId + ", " : "") +
+                (launchReceiverId != null ? "launchReceiverId=" + launchReceiverId + ", " : "") +
                 (idPipelineId != null ? "idPipelineId=" + idPipelineId + ", " : "") +
                 (idStatusId != null ? "idStatusId=" + idStatusId + ", " : "") +
             "}";

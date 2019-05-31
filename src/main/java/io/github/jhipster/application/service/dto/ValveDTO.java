@@ -24,7 +24,7 @@ public class ValveDTO implements Serializable {
     private String editor;
 
 
-    private Long idId;
+    private Long baseClassId;
 
     public Long getId() {
         return id;
@@ -66,12 +66,12 @@ public class ValveDTO implements Serializable {
         this.editor = editor;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getBaseClassId() {
+        return baseClassId;
     }
 
-    public void setIdId(Long baseClassId) {
-        this.idId = baseClassId;
+    public void setBaseClassId(Long baseClassId) {
+        this.baseClassId = baseClassId;
     }
 
     @Override
@@ -103,7 +103,7 @@ public class ValveDTO implements Serializable {
             ", dateEdit='" + getDateEdit() + "'" +
             ", creator='" + getCreator() + "'" +
             ", editor='" + getEditor() + "'" +
-            ", id=" + getIdId() +
+            ", baseClass=" + getBaseClassId() +
             "}";
     }
 }

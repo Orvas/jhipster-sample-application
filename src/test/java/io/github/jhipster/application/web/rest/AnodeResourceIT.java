@@ -109,16 +109,6 @@ public class AnodeResourceIT {
             .dateEdit(DEFAULT_DATE_EDIT)
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
-        // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        anode.setId(baseClass);
         return anode;
     }
     /**
@@ -133,16 +123,6 @@ public class AnodeResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createUpdatedEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        anode.setId(baseClass);
         return anode;
     }
 
@@ -386,17 +366,20 @@ public class AnodeResourceIT {
 
     @Test
     @Transactional
-    public void getAllAnodesByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        BaseClass id = anode.getId();
+    public void getAllAnodesByBaseClassIsEqualToSomething() throws Exception {
+        // Initialize the database
+        BaseClass baseClass = BaseClassResourceIT.createEntity(em);
+        em.persist(baseClass);
+        em.flush();
+        anode.setBaseClass(baseClass);
         anodeRepository.saveAndFlush(anode);
-        Long idId = id.getId();
+        Long baseClassId = baseClass.getId();
 
-        // Get all the anodeList where id equals to idId
-        defaultAnodeShouldBeFound("idId.equals=" + idId);
+        // Get all the anodeList where baseClass equals to baseClassId
+        defaultAnodeShouldBeFound("baseClassId.equals=" + baseClassId);
 
-        // Get all the anodeList where id equals to idId + 1
-        defaultAnodeShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the anodeList where baseClass equals to baseClassId + 1
+        defaultAnodeShouldNotBeFound("baseClassId.equals=" + (baseClassId + 1));
     }
 
 
@@ -407,7 +390,8 @@ public class AnodeResourceIT {
         AnodeHist anodeHist = AnodeHistResourceIT.createEntity(em);
         em.persist(anodeHist);
         em.flush();
-        anode.addAnodeHist(anodeHist);
+        anode.setAnodeHist(anodeHist);
+        anodeHist.setAnode(anode);
         anodeRepository.saveAndFlush(anode);
         Long anodeHistId = anodeHist.getId();
 

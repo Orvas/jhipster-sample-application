@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * A DTO for the {@link io.github.jhipster.application.domain.ListBoundaryCondUcase} entity.
  */
-@ApiModel(description = "List for define which value of boundary condidtion to use for calculations: •	Pinned-Pinned •	Fixed-Fixed •	Single span on seabed")
+@ApiModel(description = "List for define which value of boundary condidtion to use for calculations:•	Pinned-Pinned	•	Fixed-Fixed	•	Single span on seabed")
 public class ListBoundaryCondUcaseDTO implements Serializable {
 
     private Long id;

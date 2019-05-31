@@ -91,7 +91,7 @@ export class PipelineSection extends React.Component<IPipelineSectionProps, IPip
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Base Class <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
                   Id Pipeline <FontAwesomeIcon icon="sort" />
@@ -122,7 +122,13 @@ export class PipelineSection extends React.Component<IPipelineSectionProps, IPip
                   </td>
                   <td>{pipelineSection.creator}</td>
                   <td>{pipelineSection.editor}</td>
-                  <td>{pipelineSection.idId ? <Link to={`base-class/${pipelineSection.idId}`}>{pipelineSection.idId}</Link> : ''}</td>
+                  <td>
+                    {pipelineSection.baseClassId ? (
+                      <Link to={`base-class/${pipelineSection.baseClassId}`}>{pipelineSection.baseClassId}</Link>
+                    ) : (
+                      ''
+                    )}
+                  </td>
                   <td>
                     {pipelineSection.idPipelineId ? (
                       <Link to={`pipeline/${pipelineSection.idPipelineId}`}>{pipelineSection.idPipelineId}</Link>

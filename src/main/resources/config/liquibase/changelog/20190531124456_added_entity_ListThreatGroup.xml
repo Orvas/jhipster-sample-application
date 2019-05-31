@@ -11,7 +11,7 @@
         Added the entity ListThreatGroup.
     -->
     <changeSet id="20190531124456-1" author="jhipster">
-        <createTable tableName="list_threat_group" remarks="Threat groups: Corrosion/Erosion/Material Threats Third Party Interaction Threats Natural Hazard and Stability Threats Structural Threats Design, Fabrication and Installation (DFI) and Incorrect Operation Threats">
+        <createTable tableName="list_threat_group" remarks="Threat groups:Corrosion/Erosion/Material ThreatsThird Party Interaction ThreatsNatural Hazard and Stability ThreatsStructural ThreatsDesign, Fabrication and Installation (DFI) and IncorrectOperation Threats">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>

@@ -101,13 +101,13 @@ public class BendQueryService extends QueryService<Bend> {
             if (criteria.getEditor() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getEditor(), Bend_.editor));
             }
-            if (criteria.getIdId() != null) {
-                specification = specification.and(buildSpecification(criteria.getIdId(),
-                    root -> root.join(Bend_.id, JoinType.LEFT).get(BaseClass_.id)));
+            if (criteria.getBaseClassId() != null) {
+                specification = specification.and(buildSpecification(criteria.getBaseClassId(),
+                    root -> root.join(Bend_.baseClass, JoinType.LEFT).get(BaseClass_.id)));
             }
             if (criteria.getBendHistId() != null) {
                 specification = specification.and(buildSpecification(criteria.getBendHistId(),
-                    root -> root.join(Bend_.bendHists, JoinType.LEFT).get(BendHist_.id)));
+                    root -> root.join(Bend_.bendHist, JoinType.LEFT).get(BendHist_.id)));
             }
         }
         return specification;

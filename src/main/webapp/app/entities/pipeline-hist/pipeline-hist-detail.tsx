@@ -76,8 +76,8 @@ export class PipelineHistDetail extends React.Component<IPipelineHistDetailProps
               <span id="editor">Editor</span>
             </dt>
             <dd>{pipelineHistEntity.editor}</dd>
-            <dt>Id</dt>
-            <dd>{pipelineHistEntity.idId ? pipelineHistEntity.idId : ''}</dd>
+            <dt>Pipeline</dt>
+            <dd>{pipelineHistEntity.pipelineId ? pipelineHistEntity.pipelineId : ''}</dd>
             <dt>Id Location</dt>
             <dd>{pipelineHistEntity.idLocationId ? pipelineHistEntity.idLocationId : ''}</dd>
             <dt>Id Status</dt>

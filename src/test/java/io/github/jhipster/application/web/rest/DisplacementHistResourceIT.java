@@ -161,16 +161,6 @@ public class DisplacementHistResourceIT {
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
         // Add required entity
-        Displacement displacement;
-        if (TestUtil.findAll(em, Displacement.class).isEmpty()) {
-            displacement = DisplacementResourceIT.createEntity(em);
-            em.persist(displacement);
-            em.flush();
-        } else {
-            displacement = TestUtil.findAll(em, Displacement.class).get(0);
-        }
-        displacementHist.setId(displacement);
-        // Add required entity
         PipelineSection pipelineSection;
         if (TestUtil.findAll(em, PipelineSection.class).isEmpty()) {
             pipelineSection = PipelineSectionResourceIT.createEntity(em);
@@ -206,16 +196,6 @@ public class DisplacementHistResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        Displacement displacement;
-        if (TestUtil.findAll(em, Displacement.class).isEmpty()) {
-            displacement = DisplacementResourceIT.createUpdatedEntity(em);
-            em.persist(displacement);
-            em.flush();
-        } else {
-            displacement = TestUtil.findAll(em, Displacement.class).get(0);
-        }
-        displacementHist.setId(displacement);
         // Add required entity
         PipelineSection pipelineSection;
         if (TestUtil.findAll(em, PipelineSection.class).isEmpty()) {
@@ -1184,17 +1164,20 @@ public class DisplacementHistResourceIT {
 
     @Test
     @Transactional
-    public void getAllDisplacementHistsByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        Displacement id = displacementHist.getId();
+    public void getAllDisplacementHistsByDisplacementIsEqualToSomething() throws Exception {
+        // Initialize the database
+        Displacement displacement = DisplacementResourceIT.createEntity(em);
+        em.persist(displacement);
+        em.flush();
+        displacementHist.setDisplacement(displacement);
         displacementHistRepository.saveAndFlush(displacementHist);
-        Long idId = id.getId();
+        Long displacementId = displacement.getId();
 
-        // Get all the displacementHistList where id equals to idId
-        defaultDisplacementHistShouldBeFound("idId.equals=" + idId);
+        // Get all the displacementHistList where displacement equals to displacementId
+        defaultDisplacementHistShouldBeFound("displacementId.equals=" + displacementId);
 
-        // Get all the displacementHistList where id equals to idId + 1
-        defaultDisplacementHistShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the displacementHistList where displacement equals to displacementId + 1
+        defaultDisplacementHistShouldNotBeFound("displacementId.equals=" + (displacementId + 1));
     }
 
 

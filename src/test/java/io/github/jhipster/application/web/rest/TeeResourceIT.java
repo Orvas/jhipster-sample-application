@@ -109,16 +109,6 @@ public class TeeResourceIT {
             .dateEdit(DEFAULT_DATE_EDIT)
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
-        // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        tee.setId(baseClass);
         return tee;
     }
     /**
@@ -133,16 +123,6 @@ public class TeeResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createUpdatedEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        tee.setId(baseClass);
         return tee;
     }
 
@@ -386,17 +366,20 @@ public class TeeResourceIT {
 
     @Test
     @Transactional
-    public void getAllTeesByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        BaseClass id = tee.getId();
+    public void getAllTeesByBaseClassIsEqualToSomething() throws Exception {
+        // Initialize the database
+        BaseClass baseClass = BaseClassResourceIT.createEntity(em);
+        em.persist(baseClass);
+        em.flush();
+        tee.setBaseClass(baseClass);
         teeRepository.saveAndFlush(tee);
-        Long idId = id.getId();
+        Long baseClassId = baseClass.getId();
 
-        // Get all the teeList where id equals to idId
-        defaultTeeShouldBeFound("idId.equals=" + idId);
+        // Get all the teeList where baseClass equals to baseClassId
+        defaultTeeShouldBeFound("baseClassId.equals=" + baseClassId);
 
-        // Get all the teeList where id equals to idId + 1
-        defaultTeeShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the teeList where baseClass equals to baseClassId + 1
+        defaultTeeShouldNotBeFound("baseClassId.equals=" + (baseClassId + 1));
     }
 
 
@@ -407,7 +390,8 @@ public class TeeResourceIT {
         TeeHist teeHist = TeeHistResourceIT.createEntity(em);
         em.persist(teeHist);
         em.flush();
-        tee.addTeeHist(teeHist);
+        tee.setTeeHist(teeHist);
+        teeHist.setTee(tee);
         teeRepository.saveAndFlush(tee);
         Long teeHistId = teeHist.getId();
 

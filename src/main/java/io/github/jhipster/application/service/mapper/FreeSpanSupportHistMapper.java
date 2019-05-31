@@ -11,12 +11,12 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {FreeSpanSupportMapper.class, PipelineSectionMapper.class, ListObjectStatusMapper.class})
 public interface FreeSpanSupportHistMapper extends EntityMapper<FreeSpanSupportHistDTO, FreeSpanSupportHist> {
 
-    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "freeSpanSupport.id", target = "freeSpanSupportId")
     @Mapping(source = "idPipelineSection.id", target = "idPipelineSectionId")
     @Mapping(source = "idStatus.id", target = "idStatusId")
     FreeSpanSupportHistDTO toDto(FreeSpanSupportHist freeSpanSupportHist);
 
-    @Mapping(source = "idId", target = "id")
+    @Mapping(source = "freeSpanSupportId", target = "freeSpanSupport")
     @Mapping(source = "idPipelineSectionId", target = "idPipelineSection")
     @Mapping(source = "idStatusId", target = "idStatus")
     FreeSpanSupportHist toEntity(FreeSpanSupportHistDTO freeSpanSupportHistDTO);

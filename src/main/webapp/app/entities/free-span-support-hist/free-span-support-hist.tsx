@@ -100,7 +100,7 @@ export class FreeSpanSupportHist extends React.Component<IFreeSpanSupportHistPro
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Free Span Support <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
                   Id Pipeline Section <FontAwesomeIcon icon="sort" />
@@ -139,8 +139,8 @@ export class FreeSpanSupportHist extends React.Component<IFreeSpanSupportHistPro
                   <td>{freeSpanSupportHist.creator}</td>
                   <td>{freeSpanSupportHist.editor}</td>
                   <td>
-                    {freeSpanSupportHist.idId ? (
-                      <Link to={`free-span-support/${freeSpanSupportHist.idId}`}>{freeSpanSupportHist.idId}</Link>
+                    {freeSpanSupportHist.freeSpanSupportId ? (
+                      <Link to={`free-span-support/${freeSpanSupportHist.freeSpanSupportId}`}>{freeSpanSupportHist.freeSpanSupportId}</Link>
                     ) : (
                       ''
                     )}

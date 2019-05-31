@@ -10,6 +10,8 @@ import { IRootState } from 'app/shared/reducers';
 
 import { IBaseClass } from 'app/shared/model/base-class.model';
 import { getEntities as getBaseClasses } from 'app/entities/base-class/base-class.reducer';
+import { IValveHist } from 'app/shared/model/valve-hist.model';
+import { getEntities as getValveHists } from 'app/entities/valve-hist/valve-hist.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './valve.reducer';
 import { IValve } from 'app/shared/model/valve.model';
 // tslint:disable-next-line:no-unused-variable
@@ -20,14 +22,16 @@ export interface IValveUpdateProps extends StateProps, DispatchProps, RouteCompo
 
 export interface IValveUpdateState {
   isNew: boolean;
-  idId: string;
+  baseClassId: string;
+  valveHistId: string;
 }
 
 export class ValveUpdate extends React.Component<IValveUpdateProps, IValveUpdateState> {
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      baseClassId: '0',
+      valveHistId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }
@@ -46,6 +50,7 @@ export class ValveUpdate extends React.Component<IValveUpdateProps, IValveUpdate
     }
 
     this.props.getBaseClasses();
+    this.props.getValveHists();
   }
 
   saveEntity = (event, errors, values) => {
@@ -72,7 +77,7 @@ export class ValveUpdate extends React.Component<IValveUpdateProps, IValveUpdate
   };
 
   render() {
-    const { valveEntity, baseClasses, loading, updating } = this.props;
+    const { valveEntity, baseClasses, valveHists, loading, updating } = this.props;
     const { isNew } = this.state;
 
     return (
@@ -147,8 +152,9 @@ export class ValveUpdate extends React.Component<IValveUpdateProps, IValveUpdate
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="valve-id">Id</Label>
-                  <AvInput id="valve-id" type="select" className="form-control" name="idId" required>
+                  <Label for="valve-baseClass">Base Class</Label>
+                  <AvInput id="valve-baseClass" type="select" className="form-control" name="baseClassId">
+                    <option value="" key="0" />
                     {baseClasses
                       ? baseClasses.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -157,7 +163,6 @@ export class ValveUpdate extends React.Component<IValveUpdateProps, IValveUpdate
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <Button tag={Link} id="cancel-save" to="/entity/valve" replace color="info">
                   <FontAwesomeIcon icon="arrow-left" />
@@ -180,6 +185,7 @@ export class ValveUpdate extends React.Component<IValveUpdateProps, IValveUpdate
 
 const mapStateToProps = (storeState: IRootState) => ({
   baseClasses: storeState.baseClass.entities,
+  valveHists: storeState.valveHist.entities,
   valveEntity: storeState.valve.entity,
   loading: storeState.valve.loading,
   updating: storeState.valve.updating,
@@ -188,6 +194,7 @@ const mapStateToProps = (storeState: IRootState) => ({
 
 const mapDispatchToProps = {
   getBaseClasses,
+  getValveHists,
   getEntity,
   updateEntity,
   createEntity,

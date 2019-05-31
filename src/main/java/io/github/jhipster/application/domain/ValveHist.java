@@ -186,10 +186,9 @@ public class ValveHist implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("valveHists")
-    private Valve id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Valve valve;
 
     @ManyToOne(optional = false)
     @NotNull
@@ -886,17 +885,17 @@ public class ValveHist implements Serializable {
         this.editor = editor;
     }
 
-    public Valve getId() {
-        return id;
+    public Valve getValve() {
+        return valve;
     }
 
-    public ValveHist id(Valve valve) {
-        this.id = valve;
+    public ValveHist valve(Valve valve) {
+        this.valve = valve;
         return this;
     }
 
-    public void setId(Valve valve) {
-        this.id = valve;
+    public void setValve(Valve valve) {
+        this.valve = valve;
     }
 
     public PipelineSection getIdPipelineSection() {

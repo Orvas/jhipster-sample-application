@@ -28,24 +28,25 @@
     ],
     "relationships": [
         {
-            "relationshipType": "many-to-one",
+            "relationshipType": "one-to-one",
             "otherEntityName": "baseClass",
             "otherEntityRelationshipName": "pipeline",
-            "relationshipValidateRules": "required",
-            "relationshipName": "id",
-            "otherEntityField": "id"
+            "relationshipName": "baseClass",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "pipelineHist",
+            "otherEntityRelationshipName": "pipeline",
+            "relationshipName": "pipelineHist",
+            "ownerSide": false
         },
         {
             "relationshipType": "one-to-many",
             "otherEntityName": "launchReceiverHist",
             "otherEntityRelationshipName": "idPipeline",
             "relationshipName": "launchReceiverHist"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "otherEntityName": "pipelineHist",
-            "otherEntityRelationshipName": "id",
-            "relationshipName": "pipelineHist"
         },
         {
             "relationshipType": "one-to-many",

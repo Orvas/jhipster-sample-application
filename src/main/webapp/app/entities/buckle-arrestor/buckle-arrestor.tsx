@@ -79,7 +79,7 @@ export class BuckleArrestor extends React.Component<IBuckleArrestorProps, IBuckl
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Base Class <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -100,7 +100,13 @@ export class BuckleArrestor extends React.Component<IBuckleArrestorProps, IBuckl
                   </td>
                   <td>{buckleArrestor.creator}</td>
                   <td>{buckleArrestor.editor}</td>
-                  <td>{buckleArrestor.idId ? <Link to={`base-class/${buckleArrestor.idId}`}>{buckleArrestor.idId}</Link> : ''}</td>
+                  <td>
+                    {buckleArrestor.baseClassId ? (
+                      <Link to={`base-class/${buckleArrestor.baseClassId}`}>{buckleArrestor.baseClassId}</Link>
+                    ) : (
+                      ''
+                    )}
+                  </td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${buckleArrestor.id}`} color="info" size="sm">

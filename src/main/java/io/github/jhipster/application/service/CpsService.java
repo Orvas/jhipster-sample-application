@@ -12,7 +12,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * Service Implementation for managing {@link Cps}.
@@ -58,6 +62,21 @@ public class CpsService {
             .map(cpsMapper::toDto);
     }
 
+
+
+    /**
+    *  Get all the cps where CpsHist is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<CpsDTO> findAllWhereCpsHistIsNull() {
+        log.debug("Request to get all cps where CpsHist is null");
+        return StreamSupport
+            .stream(cpsRepository.findAll().spliterator(), false)
+            .filter(cps -> cps.getCpsHist() == null)
+            .map(cpsMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
 
     /**
      * Get one cps by id.

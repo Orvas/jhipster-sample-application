@@ -125,9 +125,9 @@ public class PipejointHistQueryService extends QueryService<PipejointHist> {
             if (criteria.getEditor() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getEditor(), PipejointHist_.editor));
             }
-            if (criteria.getIdId() != null) {
-                specification = specification.and(buildSpecification(criteria.getIdId(),
-                    root -> root.join(PipejointHist_.id, JoinType.LEFT).get(Pipejoint_.id)));
+            if (criteria.getPipejointId() != null) {
+                specification = specification.and(buildSpecification(criteria.getPipejointId(),
+                    root -> root.join(PipejointHist_.pipejoint, JoinType.LEFT).get(Pipejoint_.id)));
             }
             if (criteria.getIdTypeId() != null) {
                 specification = specification.and(buildSpecification(criteria.getIdTypeId(),

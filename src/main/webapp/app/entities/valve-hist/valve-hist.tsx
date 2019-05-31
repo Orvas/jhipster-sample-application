@@ -211,7 +211,7 @@ export class ValveHist extends React.Component<IValveHistProps, IValveHistState>
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Valve <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
                   Id Pipeline Section <FontAwesomeIcon icon="sort" />
@@ -329,7 +329,7 @@ export class ValveHist extends React.Component<IValveHistProps, IValveHistState>
                   </td>
                   <td>{valveHist.creator}</td>
                   <td>{valveHist.editor}</td>
-                  <td>{valveHist.idId ? <Link to={`valve/${valveHist.idId}`}>{valveHist.idId}</Link> : ''}</td>
+                  <td>{valveHist.valveId ? <Link to={`valve/${valveHist.valveId}`}>{valveHist.valveId}</Link> : ''}</td>
                   <td>
                     {valveHist.idPipelineSectionId ? (
                       <Link to={`pipeline-section/${valveHist.idPipelineSectionId}`}>{valveHist.idPipelineSectionId}</Link>

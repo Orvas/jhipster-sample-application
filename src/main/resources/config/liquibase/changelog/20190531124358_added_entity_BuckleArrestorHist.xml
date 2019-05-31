@@ -218,11 +218,9 @@
             <column name="editor" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
-            <column name="id_id" type="bigint">
-                <constraints nullable="false" />
+            <column name="buckle_arrestor_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_buckle_arrestor_hist_buckle_arrestor_id" />
             </column>
-
             <column name="id_pipeline_section_id" type="bigint">
                 <constraints nullable="false" />
             </column>
@@ -348,7 +346,6 @@
             <column name="date_edit" type="date"/>
             <column name="creator" type="string"/>
             <column name="editor" type="string"/>
-            <column name="id_id" type="numeric"/>
             <column name="id_pipeline_section_id" type="numeric"/>
             <column name="id_type_id" type="numeric"/>
             <column name="id_internal_coat_type_id" type="numeric"/>

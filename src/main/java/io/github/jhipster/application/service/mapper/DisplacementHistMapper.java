@@ -11,11 +11,11 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {DisplacementMapper.class, PipelineSectionMapper.class})
 public interface DisplacementHistMapper extends EntityMapper<DisplacementHistDTO, DisplacementHist> {
 
-    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "displacement.id", target = "displacementId")
     @Mapping(source = "idPipelineSection.id", target = "idPipelineSectionId")
     DisplacementHistDTO toDto(DisplacementHist displacementHist);
 
-    @Mapping(source = "idId", target = "id")
+    @Mapping(source = "displacementId", target = "displacement")
     @Mapping(source = "idPipelineSectionId", target = "idPipelineSection")
     DisplacementHist toEntity(DisplacementHistDTO displacementHistDTO);
 

@@ -10,6 +10,8 @@ import { IRootState } from 'app/shared/reducers';
 
 import { IBaseClass } from 'app/shared/model/base-class.model';
 import { getEntities as getBaseClasses } from 'app/entities/base-class/base-class.reducer';
+import { IPipeHist } from 'app/shared/model/pipe-hist.model';
+import { getEntities as getPipeHists } from 'app/entities/pipe-hist/pipe-hist.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './pipe.reducer';
 import { IPipe } from 'app/shared/model/pipe.model';
 // tslint:disable-next-line:no-unused-variable
@@ -20,14 +22,16 @@ export interface IPipeUpdateProps extends StateProps, DispatchProps, RouteCompon
 
 export interface IPipeUpdateState {
   isNew: boolean;
-  idId: string;
+  baseClassId: string;
+  pipeHistId: string;
 }
 
 export class PipeUpdate extends React.Component<IPipeUpdateProps, IPipeUpdateState> {
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      baseClassId: '0',
+      pipeHistId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }
@@ -46,6 +50,7 @@ export class PipeUpdate extends React.Component<IPipeUpdateProps, IPipeUpdateSta
     }
 
     this.props.getBaseClasses();
+    this.props.getPipeHists();
   }
 
   saveEntity = (event, errors, values) => {
@@ -72,7 +77,7 @@ export class PipeUpdate extends React.Component<IPipeUpdateProps, IPipeUpdateSta
   };
 
   render() {
-    const { pipeEntity, baseClasses, loading, updating } = this.props;
+    const { pipeEntity, baseClasses, pipeHists, loading, updating } = this.props;
     const { isNew } = this.state;
 
     return (
@@ -147,8 +152,9 @@ export class PipeUpdate extends React.Component<IPipeUpdateProps, IPipeUpdateSta
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="pipe-id">Id</Label>
-                  <AvInput id="pipe-id" type="select" className="form-control" name="idId" required>
+                  <Label for="pipe-baseClass">Base Class</Label>
+                  <AvInput id="pipe-baseClass" type="select" className="form-control" name="baseClassId">
+                    <option value="" key="0" />
                     {baseClasses
                       ? baseClasses.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -157,7 +163,6 @@ export class PipeUpdate extends React.Component<IPipeUpdateProps, IPipeUpdateSta
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <Button tag={Link} id="cancel-save" to="/entity/pipe" replace color="info">
                   <FontAwesomeIcon icon="arrow-left" />
@@ -180,6 +185,7 @@ export class PipeUpdate extends React.Component<IPipeUpdateProps, IPipeUpdateSta
 
 const mapStateToProps = (storeState: IRootState) => ({
   baseClasses: storeState.baseClass.entities,
+  pipeHists: storeState.pipeHist.entities,
   pipeEntity: storeState.pipe.entity,
   loading: storeState.pipe.loading,
   updating: storeState.pipe.updating,
@@ -188,6 +194,7 @@ const mapStateToProps = (storeState: IRootState) => ({
 
 const mapDispatchToProps = {
   getBaseClasses,
+  getPipeHists,
   getEntity,
   updateEntity,
   createEntity,

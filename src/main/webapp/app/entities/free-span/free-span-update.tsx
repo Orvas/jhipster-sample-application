@@ -10,6 +10,8 @@ import { IRootState } from 'app/shared/reducers';
 
 import { IBaseClass } from 'app/shared/model/base-class.model';
 import { getEntities as getBaseClasses } from 'app/entities/base-class/base-class.reducer';
+import { IFreeSpanHist } from 'app/shared/model/free-span-hist.model';
+import { getEntities as getFreeSpanHists } from 'app/entities/free-span-hist/free-span-hist.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './free-span.reducer';
 import { IFreeSpan } from 'app/shared/model/free-span.model';
 // tslint:disable-next-line:no-unused-variable
@@ -20,14 +22,16 @@ export interface IFreeSpanUpdateProps extends StateProps, DispatchProps, RouteCo
 
 export interface IFreeSpanUpdateState {
   isNew: boolean;
-  idId: string;
+  baseClassId: string;
+  freeSpanHistId: string;
 }
 
 export class FreeSpanUpdate extends React.Component<IFreeSpanUpdateProps, IFreeSpanUpdateState> {
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      baseClassId: '0',
+      freeSpanHistId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }
@@ -46,6 +50,7 @@ export class FreeSpanUpdate extends React.Component<IFreeSpanUpdateProps, IFreeS
     }
 
     this.props.getBaseClasses();
+    this.props.getFreeSpanHists();
   }
 
   saveEntity = (event, errors, values) => {
@@ -72,7 +77,7 @@ export class FreeSpanUpdate extends React.Component<IFreeSpanUpdateProps, IFreeS
   };
 
   render() {
-    const { freeSpanEntity, baseClasses, loading, updating } = this.props;
+    const { freeSpanEntity, baseClasses, freeSpanHists, loading, updating } = this.props;
     const { isNew } = this.state;
 
     return (
@@ -147,8 +152,9 @@ export class FreeSpanUpdate extends React.Component<IFreeSpanUpdateProps, IFreeS
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="free-span-id">Id</Label>
-                  <AvInput id="free-span-id" type="select" className="form-control" name="idId" required>
+                  <Label for="free-span-baseClass">Base Class</Label>
+                  <AvInput id="free-span-baseClass" type="select" className="form-control" name="baseClassId">
+                    <option value="" key="0" />
                     {baseClasses
                       ? baseClasses.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -157,7 +163,6 @@ export class FreeSpanUpdate extends React.Component<IFreeSpanUpdateProps, IFreeS
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <Button tag={Link} id="cancel-save" to="/entity/free-span" replace color="info">
                   <FontAwesomeIcon icon="arrow-left" />
@@ -180,6 +185,7 @@ export class FreeSpanUpdate extends React.Component<IFreeSpanUpdateProps, IFreeS
 
 const mapStateToProps = (storeState: IRootState) => ({
   baseClasses: storeState.baseClass.entities,
+  freeSpanHists: storeState.freeSpanHist.entities,
   freeSpanEntity: storeState.freeSpan.entity,
   loading: storeState.freeSpan.loading,
   updating: storeState.freeSpan.updating,
@@ -188,6 +194,7 @@ const mapStateToProps = (storeState: IRootState) => ({
 
 const mapDispatchToProps = {
   getBaseClasses,
+  getFreeSpanHists,
   getEntity,
   updateEntity,
   createEntity,

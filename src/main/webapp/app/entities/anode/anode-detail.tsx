@@ -48,8 +48,8 @@ export class AnodeDetail extends React.Component<IAnodeDetailProps> {
               <span id="editor">Editor</span>
             </dt>
             <dd>{anodeEntity.editor}</dd>
-            <dt>Id</dt>
-            <dd>{anodeEntity.idId ? anodeEntity.idId : ''}</dd>
+            <dt>Base Class</dt>
+            <dd>{anodeEntity.baseClassId ? anodeEntity.baseClassId : ''}</dd>
           </dl>
           <Button tag={Link} to="/entity/anode" replace color="info">
             <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>

@@ -10,6 +10,8 @@ import { IRootState } from 'app/shared/reducers';
 
 import { IBaseClass } from 'app/shared/model/base-class.model';
 import { getEntities as getBaseClasses } from 'app/entities/base-class/base-class.reducer';
+import { IDisplacementHist } from 'app/shared/model/displacement-hist.model';
+import { getEntities as getDisplacementHists } from 'app/entities/displacement-hist/displacement-hist.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './displacement.reducer';
 import { IDisplacement } from 'app/shared/model/displacement.model';
 // tslint:disable-next-line:no-unused-variable
@@ -20,14 +22,16 @@ export interface IDisplacementUpdateProps extends StateProps, DispatchProps, Rou
 
 export interface IDisplacementUpdateState {
   isNew: boolean;
-  idId: string;
+  baseClassId: string;
+  displacementHistId: string;
 }
 
 export class DisplacementUpdate extends React.Component<IDisplacementUpdateProps, IDisplacementUpdateState> {
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      baseClassId: '0',
+      displacementHistId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }
@@ -46,6 +50,7 @@ export class DisplacementUpdate extends React.Component<IDisplacementUpdateProps
     }
 
     this.props.getBaseClasses();
+    this.props.getDisplacementHists();
   }
 
   saveEntity = (event, errors, values) => {
@@ -72,7 +77,7 @@ export class DisplacementUpdate extends React.Component<IDisplacementUpdateProps
   };
 
   render() {
-    const { displacementEntity, baseClasses, loading, updating } = this.props;
+    const { displacementEntity, baseClasses, displacementHists, loading, updating } = this.props;
     const { isNew } = this.state;
 
     return (
@@ -147,8 +152,9 @@ export class DisplacementUpdate extends React.Component<IDisplacementUpdateProps
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="displacement-id">Id</Label>
-                  <AvInput id="displacement-id" type="select" className="form-control" name="idId" required>
+                  <Label for="displacement-baseClass">Base Class</Label>
+                  <AvInput id="displacement-baseClass" type="select" className="form-control" name="baseClassId">
+                    <option value="" key="0" />
                     {baseClasses
                       ? baseClasses.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -157,7 +163,6 @@ export class DisplacementUpdate extends React.Component<IDisplacementUpdateProps
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <Button tag={Link} id="cancel-save" to="/entity/displacement" replace color="info">
                   <FontAwesomeIcon icon="arrow-left" />
@@ -180,6 +185,7 @@ export class DisplacementUpdate extends React.Component<IDisplacementUpdateProps
 
 const mapStateToProps = (storeState: IRootState) => ({
   baseClasses: storeState.baseClass.entities,
+  displacementHists: storeState.displacementHist.entities,
   displacementEntity: storeState.displacement.entity,
   loading: storeState.displacement.loading,
   updating: storeState.displacement.updating,
@@ -188,6 +194,7 @@ const mapStateToProps = (storeState: IRootState) => ({
 
 const mapDispatchToProps = {
   getBaseClasses,
+  getDisplacementHists,
   getEntity,
   updateEntity,
   createEntity,

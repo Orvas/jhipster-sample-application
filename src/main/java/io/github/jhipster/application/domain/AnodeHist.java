@@ -137,10 +137,9 @@ public class AnodeHist implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("anodeHists")
-    private Anode id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Anode anode;
 
     @ManyToOne(optional = false)
     @NotNull
@@ -598,17 +597,17 @@ public class AnodeHist implements Serializable {
         this.editor = editor;
     }
 
-    public Anode getId() {
-        return id;
+    public Anode getAnode() {
+        return anode;
     }
 
-    public AnodeHist id(Anode anode) {
-        this.id = anode;
+    public AnodeHist anode(Anode anode) {
+        this.anode = anode;
         return this;
     }
 
-    public void setId(Anode anode) {
-        this.id = anode;
+    public void setAnode(Anode anode) {
+        this.anode = anode;
     }
 
     public PipelineSection getIdPipelineSection() {

@@ -47,6 +47,10 @@ public class Pipejoint implements Serializable {
     @JoinColumn(unique = true)
     private BaseClass baseClass;
 
+    @OneToOne(mappedBy = "pipejoint")
+    @JsonIgnore
+    private PipejointHist pipejointHist;
+
     @OneToMany(mappedBy = "idPipeJoint")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<BendHist> bendHists = new HashSet<>();
@@ -58,10 +62,6 @@ public class Pipejoint implements Serializable {
     @OneToMany(mappedBy = "idPipeJoint")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<PipeHist> pipeHists = new HashSet<>();
-
-    @OneToMany(mappedBy = "id")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<PipejointHist> pipejointHists = new HashSet<>();
 
     @OneToMany(mappedBy = "idPipeJoint")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -145,6 +145,19 @@ public class Pipejoint implements Serializable {
         this.baseClass = baseClass;
     }
 
+    public PipejointHist getPipejointHist() {
+        return pipejointHist;
+    }
+
+    public Pipejoint pipejointHist(PipejointHist pipejointHist) {
+        this.pipejointHist = pipejointHist;
+        return this;
+    }
+
+    public void setPipejointHist(PipejointHist pipejointHist) {
+        this.pipejointHist = pipejointHist;
+    }
+
     public Set<BendHist> getBendHists() {
         return bendHists;
     }
@@ -218,31 +231,6 @@ public class Pipejoint implements Serializable {
 
     public void setPipeHists(Set<PipeHist> pipeHists) {
         this.pipeHists = pipeHists;
-    }
-
-    public Set<PipejointHist> getPipejointHists() {
-        return pipejointHists;
-    }
-
-    public Pipejoint pipejointHists(Set<PipejointHist> pipejointHists) {
-        this.pipejointHists = pipejointHists;
-        return this;
-    }
-
-    public Pipejoint addPipejointHist(PipejointHist pipejointHist) {
-        this.pipejointHists.add(pipejointHist);
-        pipejointHist.setId(this);
-        return this;
-    }
-
-    public Pipejoint removePipejointHist(PipejointHist pipejointHist) {
-        this.pipejointHists.remove(pipejointHist);
-        pipejointHist.setId(null);
-        return this;
-    }
-
-    public void setPipejointHists(Set<PipejointHist> pipejointHists) {
-        this.pipejointHists = pipejointHists;
     }
 
     public Set<TeeHist> getTeeHists() {

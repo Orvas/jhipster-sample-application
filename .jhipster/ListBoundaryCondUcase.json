@@ -70,7 +70,7 @@
     ],
     "relationships": [],
     "changelogDate": "20190531124414",
-    "javadoc": "List for define which value of boundary condidtion to use for calculations:\n•\tPinned-Pinned\n•\tFixed-Fixed\n•\tSingle span on seabed",
+    "javadoc": "List for define which value of boundary condidtion to use for calculations:•\tPinned-Pinned\t•\tFixed-Fixed\t•\tSingle span on seabed",
     "entityTableName": "list_boundary_cond_ucase",
     "dto": "mapstruct",
     "pagination": "pagination",

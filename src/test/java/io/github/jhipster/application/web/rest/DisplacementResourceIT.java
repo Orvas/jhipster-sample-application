@@ -109,16 +109,6 @@ public class DisplacementResourceIT {
             .dateEdit(DEFAULT_DATE_EDIT)
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
-        // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        displacement.setId(baseClass);
         return displacement;
     }
     /**
@@ -133,16 +123,6 @@ public class DisplacementResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createUpdatedEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        displacement.setId(baseClass);
         return displacement;
     }
 
@@ -386,17 +366,20 @@ public class DisplacementResourceIT {
 
     @Test
     @Transactional
-    public void getAllDisplacementsByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        BaseClass id = displacement.getId();
+    public void getAllDisplacementsByBaseClassIsEqualToSomething() throws Exception {
+        // Initialize the database
+        BaseClass baseClass = BaseClassResourceIT.createEntity(em);
+        em.persist(baseClass);
+        em.flush();
+        displacement.setBaseClass(baseClass);
         displacementRepository.saveAndFlush(displacement);
-        Long idId = id.getId();
+        Long baseClassId = baseClass.getId();
 
-        // Get all the displacementList where id equals to idId
-        defaultDisplacementShouldBeFound("idId.equals=" + idId);
+        // Get all the displacementList where baseClass equals to baseClassId
+        defaultDisplacementShouldBeFound("baseClassId.equals=" + baseClassId);
 
-        // Get all the displacementList where id equals to idId + 1
-        defaultDisplacementShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the displacementList where baseClass equals to baseClassId + 1
+        defaultDisplacementShouldNotBeFound("baseClassId.equals=" + (baseClassId + 1));
     }
 
 
@@ -407,7 +390,8 @@ public class DisplacementResourceIT {
         DisplacementHist displacementHist = DisplacementHistResourceIT.createEntity(em);
         em.persist(displacementHist);
         em.flush();
-        displacement.addDisplacementHist(displacementHist);
+        displacement.setDisplacementHist(displacementHist);
+        displacementHist.setDisplacement(displacement);
         displacementRepository.saveAndFlush(displacement);
         Long displacementHistId = displacementHist.getId();
 

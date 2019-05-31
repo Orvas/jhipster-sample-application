@@ -115,7 +115,7 @@ export class DisplacementHist extends React.Component<IDisplacementHistProps, ID
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Displacement <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
                   Id Pipeline Section <FontAwesomeIcon icon="sort" />
@@ -155,7 +155,13 @@ export class DisplacementHist extends React.Component<IDisplacementHistProps, ID
                   </td>
                   <td>{displacementHist.creator}</td>
                   <td>{displacementHist.editor}</td>
-                  <td>{displacementHist.idId ? <Link to={`displacement/${displacementHist.idId}`}>{displacementHist.idId}</Link> : ''}</td>
+                  <td>
+                    {displacementHist.displacementId ? (
+                      <Link to={`displacement/${displacementHist.displacementId}`}>{displacementHist.displacementId}</Link>
+                    ) : (
+                      ''
+                    )}
+                  </td>
                   <td>
                     {displacementHist.idPipelineSectionId ? (
                       <Link to={`pipeline-section/${displacementHist.idPipelineSectionId}`}>{displacementHist.idPipelineSectionId}</Link>

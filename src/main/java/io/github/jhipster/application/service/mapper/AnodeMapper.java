@@ -11,11 +11,11 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {BaseClassMapper.class})
 public interface AnodeMapper extends EntityMapper<AnodeDTO, Anode> {
 
-    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "baseClass.id", target = "baseClassId")
     AnodeDTO toDto(Anode anode);
 
-    @Mapping(source = "idId", target = "id")
-    @Mapping(target = "anodeHists", ignore = true)
+    @Mapping(source = "baseClassId", target = "baseClass")
+    @Mapping(target = "anodeHist", ignore = true)
     Anode toEntity(AnodeDTO anodeDTO);
 
     default Anode fromId(Long id) {

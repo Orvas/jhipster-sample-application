@@ -12,8 +12,7 @@ import java.time.Instant;
 import java.util.Objects;
 
 /**
- * - main calculation
- * - auxiliary calculation
+ * - main calculation- auxiliary calculation
  */
 @Entity
 @Table(name = "list_clc_kind")

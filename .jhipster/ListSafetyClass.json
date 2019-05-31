@@ -77,7 +77,7 @@
         }
     ],
     "changelogDate": "20190531124448",
-    "javadoc": "Pipeline safety class:\n- Low\n- Medium\n- High",
+    "javadoc": "Pipeline safety class:- Low- Medium- High",
     "entityTableName": "list_safety_class",
     "dto": "mapstruct",
     "pagination": "pagination",

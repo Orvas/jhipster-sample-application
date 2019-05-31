@@ -103,7 +103,7 @@ export class PipejointHist extends React.Component<IPipejointHistProps, IPipejoi
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Pipejoint <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
                   Id Type <FontAwesomeIcon icon="sort" />
@@ -151,7 +151,13 @@ export class PipejointHist extends React.Component<IPipejointHistProps, IPipejoi
                   </td>
                   <td>{pipejointHist.creator}</td>
                   <td>{pipejointHist.editor}</td>
-                  <td>{pipejointHist.idId ? <Link to={`pipejoint/${pipejointHist.idId}`}>{pipejointHist.idId}</Link> : ''}</td>
+                  <td>
+                    {pipejointHist.pipejointId ? (
+                      <Link to={`pipejoint/${pipejointHist.pipejointId}`}>{pipejointHist.pipejointId}</Link>
+                    ) : (
+                      ''
+                    )}
+                  </td>
                   <td>
                     {pipejointHist.idTypeId ? (
                       <Link to={`list-pipejoint-type/${pipejointHist.idTypeId}`}>{pipejointHist.idTypeId}</Link>

@@ -12,7 +12,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * Service Implementation for managing {@link FreeSpanSupport}.
@@ -58,6 +62,21 @@ public class FreeSpanSupportService {
             .map(freeSpanSupportMapper::toDto);
     }
 
+
+
+    /**
+    *  Get all the freeSpanSupports where FreeSpanSupportHist is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<FreeSpanSupportDTO> findAllWhereFreeSpanSupportHistIsNull() {
+        log.debug("Request to get all freeSpanSupports where FreeSpanSupportHist is null");
+        return StreamSupport
+            .stream(freeSpanSupportRepository.findAll().spliterator(), false)
+            .filter(freeSpanSupport -> freeSpanSupport.getFreeSpanSupportHist() == null)
+            .map(freeSpanSupportMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
 
     /**
      * Get one freeSpanSupport by id.

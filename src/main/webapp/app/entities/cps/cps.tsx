@@ -79,7 +79,7 @@ export class Cps extends React.Component<ICpsProps, ICpsState> {
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Base Class <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -100,7 +100,7 @@ export class Cps extends React.Component<ICpsProps, ICpsState> {
                   </td>
                   <td>{cps.creator}</td>
                   <td>{cps.editor}</td>
-                  <td>{cps.idId ? <Link to={`base-class/${cps.idId}`}>{cps.idId}</Link> : ''}</td>
+                  <td>{cps.baseClassId ? <Link to={`base-class/${cps.baseClassId}`}>{cps.baseClassId}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${cps.id}`} color="info" size="sm">

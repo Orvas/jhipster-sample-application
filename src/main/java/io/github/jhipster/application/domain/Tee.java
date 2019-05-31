@@ -2,7 +2,6 @@ package io.github.jhipster.application.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -11,8 +10,6 @@ import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -44,14 +41,13 @@ public class Tee implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("tees")
-    private BaseClass id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private BaseClass baseClass;
 
-    @OneToMany(mappedBy = "id")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<TeeHist> teeHists = new HashSet<>();
+    @OneToOne(mappedBy = "tee")
+    @JsonIgnore
+    private TeeHist teeHist;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -114,42 +110,30 @@ public class Tee implements Serializable {
         this.editor = editor;
     }
 
-    public BaseClass getId() {
-        return id;
+    public BaseClass getBaseClass() {
+        return baseClass;
     }
 
-    public Tee id(BaseClass baseClass) {
-        this.id = baseClass;
+    public Tee baseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
         return this;
     }
 
-    public void setId(BaseClass baseClass) {
-        this.id = baseClass;
+    public void setBaseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
     }
 
-    public Set<TeeHist> getTeeHists() {
-        return teeHists;
+    public TeeHist getTeeHist() {
+        return teeHist;
     }
 
-    public Tee teeHists(Set<TeeHist> teeHists) {
-        this.teeHists = teeHists;
+    public Tee teeHist(TeeHist teeHist) {
+        this.teeHist = teeHist;
         return this;
     }
 
-    public Tee addTeeHist(TeeHist teeHist) {
-        this.teeHists.add(teeHist);
-        teeHist.setId(this);
-        return this;
-    }
-
-    public Tee removeTeeHist(TeeHist teeHist) {
-        this.teeHists.remove(teeHist);
-        teeHist.setId(null);
-        return this;
-    }
-
-    public void setTeeHists(Set<TeeHist> teeHists) {
-        this.teeHists = teeHists;
+    public void setTeeHist(TeeHist teeHist) {
+        this.teeHist = teeHist;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

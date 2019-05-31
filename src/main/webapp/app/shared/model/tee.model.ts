@@ -1,5 +1,4 @@
 import { Moment } from 'moment';
-import { ITeeHist } from 'app/shared/model/tee-hist.model';
 
 export interface ITee {
   id?: number;
@@ -7,8 +6,8 @@ export interface ITee {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
-  teeHists?: ITeeHist[];
+  baseClassId?: number;
+  teeHistId?: number;
 }
 
 export const defaultValue: Readonly<ITee> = {};

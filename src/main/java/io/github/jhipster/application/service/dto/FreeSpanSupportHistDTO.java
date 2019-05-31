@@ -42,7 +42,7 @@ public class FreeSpanSupportHistDTO implements Serializable {
     private String editor;
 
 
-    private Long idId;
+    private Long freeSpanSupportId;
 
     private Long idPipelineSectionId;
 
@@ -144,12 +144,12 @@ public class FreeSpanSupportHistDTO implements Serializable {
         this.editor = editor;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getFreeSpanSupportId() {
+        return freeSpanSupportId;
     }
 
-    public void setIdId(Long freeSpanSupportId) {
-        this.idId = freeSpanSupportId;
+    public void setFreeSpanSupportId(Long freeSpanSupportId) {
+        this.freeSpanSupportId = freeSpanSupportId;
     }
 
     public Long getIdPipelineSectionId() {
@@ -204,7 +204,7 @@ public class FreeSpanSupportHistDTO implements Serializable {
             ", dateEdit='" + getDateEdit() + "'" +
             ", creator='" + getCreator() + "'" +
             ", editor='" + getEditor() + "'" +
-            ", id=" + getIdId() +
+            ", freeSpanSupport=" + getFreeSpanSupportId() +
             ", idPipelineSection=" + getIdPipelineSectionId() +
             ", idStatus=" + getIdStatusId() +
             "}";

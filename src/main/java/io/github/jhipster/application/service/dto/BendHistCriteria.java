@@ -127,7 +127,7 @@ public class BendHistCriteria implements Serializable, Criteria {
 
     private StringFilter editor;
 
-    private LongFilter idId;
+    private LongFilter bendId;
 
     private LongFilter idPipelineSectionId;
 
@@ -211,7 +211,7 @@ public class BendHistCriteria implements Serializable, Criteria {
         this.dateEdit = other.dateEdit == null ? null : other.dateEdit.copy();
         this.creator = other.creator == null ? null : other.creator.copy();
         this.editor = other.editor == null ? null : other.editor.copy();
-        this.idId = other.idId == null ? null : other.idId.copy();
+        this.bendId = other.bendId == null ? null : other.bendId.copy();
         this.idPipelineSectionId = other.idPipelineSectionId == null ? null : other.idPipelineSectionId.copy();
         this.idTypeId = other.idTypeId == null ? null : other.idTypeId.copy();
         this.idInternalCoatTypeId = other.idInternalCoatTypeId == null ? null : other.idInternalCoatTypeId.copy();
@@ -633,12 +633,12 @@ public class BendHistCriteria implements Serializable, Criteria {
         this.editor = editor;
     }
 
-    public LongFilter getIdId() {
-        return idId;
+    public LongFilter getBendId() {
+        return bendId;
     }
 
-    public void setIdId(LongFilter idId) {
-        this.idId = idId;
+    public void setBendId(LongFilter bendId) {
+        this.bendId = bendId;
     }
 
     public LongFilter getIdPipelineSectionId() {
@@ -814,7 +814,7 @@ public class BendHistCriteria implements Serializable, Criteria {
             Objects.equals(dateEdit, that.dateEdit) &&
             Objects.equals(creator, that.creator) &&
             Objects.equals(editor, that.editor) &&
-            Objects.equals(idId, that.idId) &&
+            Objects.equals(bendId, that.bendId) &&
             Objects.equals(idPipelineSectionId, that.idPipelineSectionId) &&
             Objects.equals(idTypeId, that.idTypeId) &&
             Objects.equals(idInternalCoatTypeId, that.idInternalCoatTypeId) &&
@@ -884,7 +884,7 @@ public class BendHistCriteria implements Serializable, Criteria {
         dateEdit,
         creator,
         editor,
-        idId,
+        bendId,
         idPipelineSectionId,
         idTypeId,
         idInternalCoatTypeId,
@@ -955,7 +955,7 @@ public class BendHistCriteria implements Serializable, Criteria {
                 (dateEdit != null ? "dateEdit=" + dateEdit + ", " : "") +
                 (creator != null ? "creator=" + creator + ", " : "") +
                 (editor != null ? "editor=" + editor + ", " : "") +
-                (idId != null ? "idId=" + idId + ", " : "") +
+                (bendId != null ? "bendId=" + bendId + ", " : "") +
                 (idPipelineSectionId != null ? "idPipelineSectionId=" + idPipelineSectionId + ", " : "") +
                 (idTypeId != null ? "idTypeId=" + idTypeId + ", " : "") +
                 (idInternalCoatTypeId != null ? "idInternalCoatTypeId=" + idInternalCoatTypeId + ", " : "") +

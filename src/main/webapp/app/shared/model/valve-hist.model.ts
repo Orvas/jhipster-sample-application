@@ -50,7 +50,7 @@ export interface IValveHist {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
+  valveId?: number;
   idPipelineSectionId?: number;
   idTypeId?: number;
   idInternalCoatTypeId?: number;

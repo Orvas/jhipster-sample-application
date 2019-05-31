@@ -11,7 +11,7 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {BendMapper.class, PipelineSectionMapper.class, ListBendTypeMapper.class, ListInternalCoatingMapper.class, ListExternalCoatingMapper.class, ListNominalWallThicknessMapper.class, PipejointMapper.class, ListBendManufacturerMapper.class, ListBendSpecificationMapper.class, ListLongSeamWeldTypeMapper.class, ListFabricationTypeMapper.class, ListMaterialMapper.class, ListMillLocationMapper.class, ListSteelGradeMapper.class, ListObjectStatusMapper.class})
 public interface BendHistMapper extends EntityMapper<BendHistDTO, BendHist> {
 
-    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "bend.id", target = "bendId")
     @Mapping(source = "idPipelineSection.id", target = "idPipelineSectionId")
     @Mapping(source = "idType.id", target = "idTypeId")
     @Mapping(source = "idInternalCoatType.id", target = "idInternalCoatTypeId")
@@ -28,7 +28,7 @@ public interface BendHistMapper extends EntityMapper<BendHistDTO, BendHist> {
     @Mapping(source = "idStatus.id", target = "idStatusId")
     BendHistDTO toDto(BendHist bendHist);
 
-    @Mapping(source = "idId", target = "id")
+    @Mapping(source = "bendId", target = "bend")
     @Mapping(source = "idPipelineSectionId", target = "idPipelineSection")
     @Mapping(source = "idTypeId", target = "idType")
     @Mapping(source = "idInternalCoatTypeId", target = "idInternalCoatType")

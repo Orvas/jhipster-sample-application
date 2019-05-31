@@ -64,8 +64,8 @@ export class PipelineSectionDetail extends React.Component<IPipelineSectionDetai
               <span id="editor">Editor</span>
             </dt>
             <dd>{pipelineSectionEntity.editor}</dd>
-            <dt>Id</dt>
-            <dd>{pipelineSectionEntity.idId ? pipelineSectionEntity.idId : ''}</dd>
+            <dt>Base Class</dt>
+            <dd>{pipelineSectionEntity.baseClassId ? pipelineSectionEntity.baseClassId : ''}</dd>
             <dt>Id Pipeline</dt>
             <dd>{pipelineSectionEntity.idPipelineId ? pipelineSectionEntity.idPipelineId : ''}</dd>
             <dt>Id Safety Class</dt>

@@ -233,9 +233,9 @@ public class TeeHistQueryService extends QueryService<TeeHist> {
             if (criteria.getEditor() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getEditor(), TeeHist_.editor));
             }
-            if (criteria.getIdId() != null) {
-                specification = specification.and(buildSpecification(criteria.getIdId(),
-                    root -> root.join(TeeHist_.id, JoinType.LEFT).get(Tee_.id)));
+            if (criteria.getTeeId() != null) {
+                specification = specification.and(buildSpecification(criteria.getTeeId(),
+                    root -> root.join(TeeHist_.tee, JoinType.LEFT).get(Tee_.id)));
             }
             if (criteria.getIdPipelineSectionId() != null) {
                 specification = specification.and(buildSpecification(criteria.getIdPipelineSectionId(),

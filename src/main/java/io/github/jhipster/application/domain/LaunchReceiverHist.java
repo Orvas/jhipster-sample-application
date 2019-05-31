@@ -71,10 +71,9 @@ public class LaunchReceiverHist implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("launchReceiverHists")
-    private LaunchReceiver id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private LaunchReceiver launchReceiver;
 
     @ManyToOne(optional = false)
     @NotNull
@@ -238,17 +237,17 @@ public class LaunchReceiverHist implements Serializable {
         this.editor = editor;
     }
 
-    public LaunchReceiver getId() {
-        return id;
+    public LaunchReceiver getLaunchReceiver() {
+        return launchReceiver;
     }
 
-    public LaunchReceiverHist id(LaunchReceiver launchReceiver) {
-        this.id = launchReceiver;
+    public LaunchReceiverHist launchReceiver(LaunchReceiver launchReceiver) {
+        this.launchReceiver = launchReceiver;
         return this;
     }
 
-    public void setId(LaunchReceiver launchReceiver) {
-        this.id = launchReceiver;
+    public void setLaunchReceiver(LaunchReceiver launchReceiver) {
+        this.launchReceiver = launchReceiver;
     }
 
     public Pipeline getIdPipeline() {

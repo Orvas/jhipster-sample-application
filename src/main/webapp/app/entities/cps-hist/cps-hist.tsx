@@ -112,7 +112,7 @@ export class CpsHist extends React.Component<ICpsHistProps, ICpsHistState> {
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Cps <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
                   Id Pipeline Section <FontAwesomeIcon icon="sort" />
@@ -154,7 +154,7 @@ export class CpsHist extends React.Component<ICpsHistProps, ICpsHistState> {
                   </td>
                   <td>{cpsHist.creator}</td>
                   <td>{cpsHist.editor}</td>
-                  <td>{cpsHist.idId ? <Link to={`cps/${cpsHist.idId}`}>{cpsHist.idId}</Link> : ''}</td>
+                  <td>{cpsHist.cpsId ? <Link to={`cps/${cpsHist.cpsId}`}>{cpsHist.cpsId}</Link> : ''}</td>
                   <td>
                     {cpsHist.idPipelineSectionId ? (
                       <Link to={`pipeline-section/${cpsHist.idPipelineSectionId}`}>{cpsHist.idPipelineSectionId}</Link>

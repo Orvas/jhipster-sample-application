@@ -24,7 +24,7 @@ export interface IFreeSpanSupportHistUpdateProps extends StateProps, DispatchPro
 
 export interface IFreeSpanSupportHistUpdateState {
   isNew: boolean;
-  idId: string;
+  freeSpanSupportId: string;
   idPipelineSectionId: string;
   idStatusId: string;
 }
@@ -33,7 +33,7 @@ export class FreeSpanSupportHistUpdate extends React.Component<IFreeSpanSupportH
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      freeSpanSupportId: '0',
       idPipelineSectionId: '0',
       idStatusId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
@@ -231,8 +231,9 @@ export class FreeSpanSupportHistUpdate extends React.Component<IFreeSpanSupportH
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="free-span-support-hist-id">Id</Label>
-                  <AvInput id="free-span-support-hist-id" type="select" className="form-control" name="idId" required>
+                  <Label for="free-span-support-hist-freeSpanSupport">Free Span Support</Label>
+                  <AvInput id="free-span-support-hist-freeSpanSupport" type="select" className="form-control" name="freeSpanSupportId">
+                    <option value="" key="0" />
                     {freeSpanSupports
                       ? freeSpanSupports.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -241,7 +242,6 @@ export class FreeSpanSupportHistUpdate extends React.Component<IFreeSpanSupportH
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <AvGroup>
                   <Label for="free-span-support-hist-idPipelineSection">Id Pipeline Section</Label>

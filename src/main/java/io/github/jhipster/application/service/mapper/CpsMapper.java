@@ -11,11 +11,11 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {BaseClassMapper.class})
 public interface CpsMapper extends EntityMapper<CpsDTO, Cps> {
 
-    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "baseClass.id", target = "baseClassId")
     CpsDTO toDto(Cps cps);
 
-    @Mapping(source = "idId", target = "id")
-    @Mapping(target = "cpsHists", ignore = true)
+    @Mapping(source = "baseClassId", target = "baseClass")
+    @Mapping(target = "cpsHist", ignore = true)
     @Mapping(target = "cpsRanges", ignore = true)
     Cps toEntity(CpsDTO cpsDTO);
 

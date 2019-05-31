@@ -12,7 +12,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * Service Implementation for managing {@link Displacement}.
@@ -58,6 +62,21 @@ public class DisplacementService {
             .map(displacementMapper::toDto);
     }
 
+
+
+    /**
+    *  Get all the displacements where DisplacementHist is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<DisplacementDTO> findAllWhereDisplacementHistIsNull() {
+        log.debug("Request to get all displacements where DisplacementHist is null");
+        return StreamSupport
+            .stream(displacementRepository.findAll().spliterator(), false)
+            .filter(displacement -> displacement.getDisplacementHist() == null)
+            .map(displacementMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
 
     /**
      * Get one displacement by id.

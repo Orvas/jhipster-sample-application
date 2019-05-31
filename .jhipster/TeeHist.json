@@ -233,12 +233,12 @@
     ],
     "relationships": [
         {
-            "relationshipType": "many-to-one",
+            "relationshipType": "one-to-one",
             "otherEntityName": "tee",
             "otherEntityRelationshipName": "teeHist",
-            "relationshipValidateRules": "required",
-            "relationshipName": "id",
-            "otherEntityField": "id"
+            "relationshipName": "tee",
+            "otherEntityField": "id",
+            "ownerSide": true
         },
         {
             "relationshipType": "many-to-one",

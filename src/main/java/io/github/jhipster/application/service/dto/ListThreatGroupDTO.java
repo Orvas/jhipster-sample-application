@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * A DTO for the {@link io.github.jhipster.application.domain.ListThreatGroup} entity.
  */
-@ApiModel(description = "Threat groups: Corrosion/Erosion/Material Threats Third Party Interaction Threats Natural Hazard and Stability Threats Structural Threats Design, Fabrication and Installation (DFI) and Incorrect Operation Threats")
+@ApiModel(description = "Threat groups:Corrosion/Erosion/Material ThreatsThird Party Interaction ThreatsNatural Hazard and Stability ThreatsStructural ThreatsDesign, Fabrication and Installation (DFI) and IncorrectOperation Threats")
 public class ListThreatGroupDTO implements Serializable {
 
     private Long id;

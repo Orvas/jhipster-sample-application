@@ -46,7 +46,7 @@ export interface IPipeHistUpdateProps extends StateProps, DispatchProps, RouteCo
 
 export interface IPipeHistUpdateState {
   isNew: boolean;
-  idId: string;
+  pipeId: string;
   idPipelineSectionId: string;
   idInternalCoatTypeId: string;
   idExternalCoatTypeId: string;
@@ -66,7 +66,7 @@ export class PipeHistUpdate extends React.Component<IPipeHistUpdateProps, IPipeH
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      pipeId: '0',
       idPipelineSectionId: '0',
       idInternalCoatTypeId: '0',
       idExternalCoatTypeId: '0',
@@ -561,8 +561,9 @@ export class PipeHistUpdate extends React.Component<IPipeHistUpdateProps, IPipeH
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="pipe-hist-id">Id</Label>
-                  <AvInput id="pipe-hist-id" type="select" className="form-control" name="idId" required>
+                  <Label for="pipe-hist-pipe">Pipe</Label>
+                  <AvInput id="pipe-hist-pipe" type="select" className="form-control" name="pipeId">
+                    <option value="" key="0" />
                     {pipes
                       ? pipes.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -571,7 +572,6 @@ export class PipeHistUpdate extends React.Component<IPipeHistUpdateProps, IPipeH
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <AvGroup>
                   <Label for="pipe-hist-idPipelineSection">Id Pipeline Section</Label>

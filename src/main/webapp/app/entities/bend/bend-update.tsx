@@ -10,6 +10,8 @@ import { IRootState } from 'app/shared/reducers';
 
 import { IBaseClass } from 'app/shared/model/base-class.model';
 import { getEntities as getBaseClasses } from 'app/entities/base-class/base-class.reducer';
+import { IBendHist } from 'app/shared/model/bend-hist.model';
+import { getEntities as getBendHists } from 'app/entities/bend-hist/bend-hist.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './bend.reducer';
 import { IBend } from 'app/shared/model/bend.model';
 // tslint:disable-next-line:no-unused-variable
@@ -20,14 +22,16 @@ export interface IBendUpdateProps extends StateProps, DispatchProps, RouteCompon
 
 export interface IBendUpdateState {
   isNew: boolean;
-  idId: string;
+  baseClassId: string;
+  bendHistId: string;
 }
 
 export class BendUpdate extends React.Component<IBendUpdateProps, IBendUpdateState> {
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      baseClassId: '0',
+      bendHistId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }
@@ -46,6 +50,7 @@ export class BendUpdate extends React.Component<IBendUpdateProps, IBendUpdateSta
     }
 
     this.props.getBaseClasses();
+    this.props.getBendHists();
   }
 
   saveEntity = (event, errors, values) => {
@@ -72,7 +77,7 @@ export class BendUpdate extends React.Component<IBendUpdateProps, IBendUpdateSta
   };
 
   render() {
-    const { bendEntity, baseClasses, loading, updating } = this.props;
+    const { bendEntity, baseClasses, bendHists, loading, updating } = this.props;
     const { isNew } = this.state;
 
     return (
@@ -147,8 +152,9 @@ export class BendUpdate extends React.Component<IBendUpdateProps, IBendUpdateSta
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="bend-id">Id</Label>
-                  <AvInput id="bend-id" type="select" className="form-control" name="idId" required>
+                  <Label for="bend-baseClass">Base Class</Label>
+                  <AvInput id="bend-baseClass" type="select" className="form-control" name="baseClassId">
+                    <option value="" key="0" />
                     {baseClasses
                       ? baseClasses.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -157,7 +163,6 @@ export class BendUpdate extends React.Component<IBendUpdateProps, IBendUpdateSta
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <Button tag={Link} id="cancel-save" to="/entity/bend" replace color="info">
                   <FontAwesomeIcon icon="arrow-left" />
@@ -180,6 +185,7 @@ export class BendUpdate extends React.Component<IBendUpdateProps, IBendUpdateSta
 
 const mapStateToProps = (storeState: IRootState) => ({
   baseClasses: storeState.baseClass.entities,
+  bendHists: storeState.bendHist.entities,
   bendEntity: storeState.bend.entity,
   loading: storeState.bend.loading,
   updating: storeState.bend.updating,
@@ -188,6 +194,7 @@ const mapStateToProps = (storeState: IRootState) => ({
 
 const mapDispatchToProps = {
   getBaseClasses,
+  getBendHists,
   getEntity,
   updateEntity,
   createEntity,

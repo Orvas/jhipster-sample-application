@@ -251,12 +251,12 @@
     ],
     "relationships": [
         {
-            "relationshipType": "many-to-one",
+            "relationshipType": "one-to-one",
             "otherEntityName": "buckleArrestor",
             "otherEntityRelationshipName": "buckleArrestorHist",
-            "relationshipValidateRules": "required",
-            "relationshipName": "id",
-            "otherEntityField": "id"
+            "relationshipName": "buckleArrestor",
+            "otherEntityField": "id",
+            "ownerSide": true
         },
         {
             "relationshipType": "many-to-one",

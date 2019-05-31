@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * A DTO for the {@link io.github.jhipster.application.domain.ListSafetyClass} entity.
  */
-@ApiModel(description = "Pipeline safety class: - Low - Medium - High")
+@ApiModel(description = "Pipeline safety class:- Low- Medium- High")
 public class ListSafetyClassDTO implements Serializable {
 
     private Long id;

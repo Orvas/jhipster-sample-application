@@ -97,7 +97,7 @@ export class PipelineHist extends React.Component<IPipelineHistProps, IPipelineH
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Pipeline <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
                   Id Location <FontAwesomeIcon icon="sort" />
@@ -134,7 +134,9 @@ export class PipelineHist extends React.Component<IPipelineHistProps, IPipelineH
                   </td>
                   <td>{pipelineHist.creator}</td>
                   <td>{pipelineHist.editor}</td>
-                  <td>{pipelineHist.idId ? <Link to={`pipeline/${pipelineHist.idId}`}>{pipelineHist.idId}</Link> : ''}</td>
+                  <td>
+                    {pipelineHist.pipelineId ? <Link to={`pipeline/${pipelineHist.pipelineId}`}>{pipelineHist.pipelineId}</Link> : ''}
+                  </td>
                   <td>
                     {pipelineHist.idLocationId ? (
                       <Link to={`list-pipeline-location/${pipelineHist.idLocationId}`}>{pipelineHist.idLocationId}</Link>

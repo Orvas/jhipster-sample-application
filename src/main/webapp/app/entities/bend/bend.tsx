@@ -79,7 +79,7 @@ export class Bend extends React.Component<IBendProps, IBendState> {
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Base Class <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -100,7 +100,7 @@ export class Bend extends React.Component<IBendProps, IBendState> {
                   </td>
                   <td>{bend.creator}</td>
                   <td>{bend.editor}</td>
-                  <td>{bend.idId ? <Link to={`base-class/${bend.idId}`}>{bend.idId}</Link> : ''}</td>
+                  <td>{bend.baseClassId ? <Link to={`base-class/${bend.baseClassId}`}>{bend.baseClassId}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${bend.id}`} color="info" size="sm">

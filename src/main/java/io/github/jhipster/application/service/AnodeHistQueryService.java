@@ -188,9 +188,9 @@ public class AnodeHistQueryService extends QueryService<AnodeHist> {
             if (criteria.getEditor() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getEditor(), AnodeHist_.editor));
             }
-            if (criteria.getIdId() != null) {
-                specification = specification.and(buildSpecification(criteria.getIdId(),
-                    root -> root.join(AnodeHist_.id, JoinType.LEFT).get(Anode_.id)));
+            if (criteria.getAnodeId() != null) {
+                specification = specification.and(buildSpecification(criteria.getAnodeId(),
+                    root -> root.join(AnodeHist_.anode, JoinType.LEFT).get(Anode_.id)));
             }
             if (criteria.getIdPipelineSectionId() != null) {
                 specification = specification.and(buildSpecification(criteria.getIdPipelineSectionId(),

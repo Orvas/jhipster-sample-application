@@ -11,7 +11,7 @@
         Added the entity ListClcType.
     -->
     <changeSet id="20190531124422-1" author="jhipster">
-        <createTable tableName="list_clc_type" remarks="- Pipeline displacement - Metall loss - Dent - Cathodic protection">
+        <createTable tableName="list_clc_type" remarks="- Pipeline displacement- Metall loss- Dent- Cathodic protection">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>

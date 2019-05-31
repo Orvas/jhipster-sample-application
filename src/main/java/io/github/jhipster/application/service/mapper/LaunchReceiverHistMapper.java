@@ -11,12 +11,12 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {LaunchReceiverMapper.class, PipelineMapper.class, ListObjectStatusMapper.class})
 public interface LaunchReceiverHistMapper extends EntityMapper<LaunchReceiverHistDTO, LaunchReceiverHist> {
 
-    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "launchReceiver.id", target = "launchReceiverId")
     @Mapping(source = "idPipeline.id", target = "idPipelineId")
     @Mapping(source = "idStatus.id", target = "idStatusId")
     LaunchReceiverHistDTO toDto(LaunchReceiverHist launchReceiverHist);
 
-    @Mapping(source = "idId", target = "id")
+    @Mapping(source = "launchReceiverId", target = "launchReceiver")
     @Mapping(source = "idPipelineId", target = "idPipeline")
     @Mapping(source = "idStatusId", target = "idStatus")
     LaunchReceiverHist toEntity(LaunchReceiverHistDTO launchReceiverHistDTO);

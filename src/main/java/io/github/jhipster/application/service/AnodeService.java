@@ -12,7 +12,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * Service Implementation for managing {@link Anode}.
@@ -58,6 +62,21 @@ public class AnodeService {
             .map(anodeMapper::toDto);
     }
 
+
+
+    /**
+    *  Get all the anodes where AnodeHist is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<AnodeDTO> findAllWhereAnodeHistIsNull() {
+        log.debug("Request to get all anodes where AnodeHist is null");
+        return StreamSupport
+            .stream(anodeRepository.findAll().spliterator(), false)
+            .filter(anode -> anode.getAnodeHist() == null)
+            .map(anodeMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
 
     /**
      * Get one anode by id.

@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * A DTO for the {@link io.github.jhipster.application.domain.ListClcLvl} entity.
  */
-@ApiModel(description = "- Pipeline displacement - Metall loss - Dent - Cathodic protection")
+@ApiModel(description = "- Pipeline displacement- Metall loss- Dent- Cathodic protection")
 public class ListClcLvlDTO implements Serializable {
 
     private Long id;

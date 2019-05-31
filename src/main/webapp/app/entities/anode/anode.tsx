@@ -79,7 +79,7 @@ export class Anode extends React.Component<IAnodeProps, IAnodeState> {
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Base Class <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -100,7 +100,7 @@ export class Anode extends React.Component<IAnodeProps, IAnodeState> {
                   </td>
                   <td>{anode.creator}</td>
                   <td>{anode.editor}</td>
-                  <td>{anode.idId ? <Link to={`base-class/${anode.idId}`}>{anode.idId}</Link> : ''}</td>
+                  <td>{anode.baseClassId ? <Link to={`base-class/${anode.baseClassId}`}>{anode.baseClassId}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${anode.id}`} color="info" size="sm">

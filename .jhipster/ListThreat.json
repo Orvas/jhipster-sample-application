@@ -79,7 +79,7 @@
         }
     ],
     "changelogDate": "20190531124455",
-    "javadoc": "Internal corrosion\nErosion\nExternal Corrosion\nStray Current/Current drain",
+    "javadoc": "Internal corrosionErosionExternal CorrosionStray Current/Current drain",
     "entityTableName": "list_threat",
     "dto": "mapstruct",
     "pagination": "pagination",

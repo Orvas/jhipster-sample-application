@@ -113,9 +113,9 @@ public class PipelineSectionQueryService extends QueryService<PipelineSection> {
             if (criteria.getEditor() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getEditor(), PipelineSection_.editor));
             }
-            if (criteria.getIdId() != null) {
-                specification = specification.and(buildSpecification(criteria.getIdId(),
-                    root -> root.join(PipelineSection_.id, JoinType.LEFT).get(BaseClass_.id)));
+            if (criteria.getBaseClassId() != null) {
+                specification = specification.and(buildSpecification(criteria.getBaseClassId(),
+                    root -> root.join(PipelineSection_.baseClass, JoinType.LEFT).get(BaseClass_.id)));
             }
             if (criteria.getIdPipelineId() != null) {
                 specification = specification.and(buildSpecification(criteria.getIdPipelineId(),

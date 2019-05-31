@@ -11,11 +11,11 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {BaseClassMapper.class})
 public interface DisplacementMapper extends EntityMapper<DisplacementDTO, Displacement> {
 
-    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "baseClass.id", target = "baseClassId")
     DisplacementDTO toDto(Displacement displacement);
 
-    @Mapping(source = "idId", target = "id")
-    @Mapping(target = "displacementHists", ignore = true)
+    @Mapping(source = "baseClassId", target = "baseClass")
+    @Mapping(target = "displacementHist", ignore = true)
     Displacement toEntity(DisplacementDTO displacementDTO);
 
     default Displacement fromId(Long id) {

@@ -91,7 +91,7 @@ public class AnodeHistDTO implements Serializable {
     private String editor;
 
 
-    private Long idId;
+    private Long anodeId;
 
     private Long idPipelineSectionId;
 
@@ -373,12 +373,12 @@ public class AnodeHistDTO implements Serializable {
         this.editor = editor;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getAnodeId() {
+        return anodeId;
     }
 
-    public void setIdId(Long anodeId) {
-        this.idId = anodeId;
+    public void setAnodeId(Long anodeId) {
+        this.anodeId = anodeId;
     }
 
     public Long getIdPipelineSectionId() {
@@ -471,7 +471,7 @@ public class AnodeHistDTO implements Serializable {
             ", dateEdit='" + getDateEdit() + "'" +
             ", creator='" + getCreator() + "'" +
             ", editor='" + getEditor() + "'" +
-            ", id=" + getIdId() +
+            ", anode=" + getAnodeId() +
             ", idPipelineSection=" + getIdPipelineSectionId() +
             ", idBraceleteType=" + getIdBraceleteTypeId() +
             ", idMaterial=" + getIdMaterialId() +

@@ -3,7 +3,6 @@ package io.github.jhipster.application.web.rest;
 import io.github.jhipster.application.JhipsterSampleApplicationApp;
 import io.github.jhipster.application.domain.BaseClass;
 import io.github.jhipster.application.domain.ListObjectType;
-import io.github.jhipster.application.domain.Pipejoint;
 import io.github.jhipster.application.domain.Anode;
 import io.github.jhipster.application.domain.Bend;
 import io.github.jhipster.application.domain.BuckleArrestor;
@@ -13,6 +12,7 @@ import io.github.jhipster.application.domain.FreeSpan;
 import io.github.jhipster.application.domain.FreeSpanSupport;
 import io.github.jhipster.application.domain.LaunchReceiver;
 import io.github.jhipster.application.domain.Pipe;
+import io.github.jhipster.application.domain.Pipejoint;
 import io.github.jhipster.application.domain.Pipeline;
 import io.github.jhipster.application.domain.PipelineSection;
 import io.github.jhipster.application.domain.Tee;
@@ -415,6 +415,186 @@ public class BaseClassResourceIT {
 
     @Test
     @Transactional
+    public void getAllBaseClassesByAnodeIsEqualToSomething() throws Exception {
+        // Initialize the database
+        Anode anode = AnodeResourceIT.createEntity(em);
+        em.persist(anode);
+        em.flush();
+        baseClass.setAnode(anode);
+        anode.setBaseClass(baseClass);
+        baseClassRepository.saveAndFlush(baseClass);
+        Long anodeId = anode.getId();
+
+        // Get all the baseClassList where anode equals to anodeId
+        defaultBaseClassShouldBeFound("anodeId.equals=" + anodeId);
+
+        // Get all the baseClassList where anode equals to anodeId + 1
+        defaultBaseClassShouldNotBeFound("anodeId.equals=" + (anodeId + 1));
+    }
+
+
+    @Test
+    @Transactional
+    public void getAllBaseClassesByBendIsEqualToSomething() throws Exception {
+        // Initialize the database
+        Bend bend = BendResourceIT.createEntity(em);
+        em.persist(bend);
+        em.flush();
+        baseClass.setBend(bend);
+        bend.setBaseClass(baseClass);
+        baseClassRepository.saveAndFlush(baseClass);
+        Long bendId = bend.getId();
+
+        // Get all the baseClassList where bend equals to bendId
+        defaultBaseClassShouldBeFound("bendId.equals=" + bendId);
+
+        // Get all the baseClassList where bend equals to bendId + 1
+        defaultBaseClassShouldNotBeFound("bendId.equals=" + (bendId + 1));
+    }
+
+
+    @Test
+    @Transactional
+    public void getAllBaseClassesByBuckleArrestorIsEqualToSomething() throws Exception {
+        // Initialize the database
+        BuckleArrestor buckleArrestor = BuckleArrestorResourceIT.createEntity(em);
+        em.persist(buckleArrestor);
+        em.flush();
+        baseClass.setBuckleArrestor(buckleArrestor);
+        buckleArrestor.setBaseClass(baseClass);
+        baseClassRepository.saveAndFlush(baseClass);
+        Long buckleArrestorId = buckleArrestor.getId();
+
+        // Get all the baseClassList where buckleArrestor equals to buckleArrestorId
+        defaultBaseClassShouldBeFound("buckleArrestorId.equals=" + buckleArrestorId);
+
+        // Get all the baseClassList where buckleArrestor equals to buckleArrestorId + 1
+        defaultBaseClassShouldNotBeFound("buckleArrestorId.equals=" + (buckleArrestorId + 1));
+    }
+
+
+    @Test
+    @Transactional
+    public void getAllBaseClassesByCpsIsEqualToSomething() throws Exception {
+        // Initialize the database
+        Cps cps = CpsResourceIT.createEntity(em);
+        em.persist(cps);
+        em.flush();
+        baseClass.setCps(cps);
+        cps.setBaseClass(baseClass);
+        baseClassRepository.saveAndFlush(baseClass);
+        Long cpsId = cps.getId();
+
+        // Get all the baseClassList where cps equals to cpsId
+        defaultBaseClassShouldBeFound("cpsId.equals=" + cpsId);
+
+        // Get all the baseClassList where cps equals to cpsId + 1
+        defaultBaseClassShouldNotBeFound("cpsId.equals=" + (cpsId + 1));
+    }
+
+
+    @Test
+    @Transactional
+    public void getAllBaseClassesByDisplacementIsEqualToSomething() throws Exception {
+        // Initialize the database
+        Displacement displacement = DisplacementResourceIT.createEntity(em);
+        em.persist(displacement);
+        em.flush();
+        baseClass.setDisplacement(displacement);
+        displacement.setBaseClass(baseClass);
+        baseClassRepository.saveAndFlush(baseClass);
+        Long displacementId = displacement.getId();
+
+        // Get all the baseClassList where displacement equals to displacementId
+        defaultBaseClassShouldBeFound("displacementId.equals=" + displacementId);
+
+        // Get all the baseClassList where displacement equals to displacementId + 1
+        defaultBaseClassShouldNotBeFound("displacementId.equals=" + (displacementId + 1));
+    }
+
+
+    @Test
+    @Transactional
+    public void getAllBaseClassesByFreeSpanIsEqualToSomething() throws Exception {
+        // Initialize the database
+        FreeSpan freeSpan = FreeSpanResourceIT.createEntity(em);
+        em.persist(freeSpan);
+        em.flush();
+        baseClass.setFreeSpan(freeSpan);
+        freeSpan.setBaseClass(baseClass);
+        baseClassRepository.saveAndFlush(baseClass);
+        Long freeSpanId = freeSpan.getId();
+
+        // Get all the baseClassList where freeSpan equals to freeSpanId
+        defaultBaseClassShouldBeFound("freeSpanId.equals=" + freeSpanId);
+
+        // Get all the baseClassList where freeSpan equals to freeSpanId + 1
+        defaultBaseClassShouldNotBeFound("freeSpanId.equals=" + (freeSpanId + 1));
+    }
+
+
+    @Test
+    @Transactional
+    public void getAllBaseClassesByFreeSpanSupportIsEqualToSomething() throws Exception {
+        // Initialize the database
+        FreeSpanSupport freeSpanSupport = FreeSpanSupportResourceIT.createEntity(em);
+        em.persist(freeSpanSupport);
+        em.flush();
+        baseClass.setFreeSpanSupport(freeSpanSupport);
+        freeSpanSupport.setBaseClass(baseClass);
+        baseClassRepository.saveAndFlush(baseClass);
+        Long freeSpanSupportId = freeSpanSupport.getId();
+
+        // Get all the baseClassList where freeSpanSupport equals to freeSpanSupportId
+        defaultBaseClassShouldBeFound("freeSpanSupportId.equals=" + freeSpanSupportId);
+
+        // Get all the baseClassList where freeSpanSupport equals to freeSpanSupportId + 1
+        defaultBaseClassShouldNotBeFound("freeSpanSupportId.equals=" + (freeSpanSupportId + 1));
+    }
+
+
+    @Test
+    @Transactional
+    public void getAllBaseClassesByLaunchReceiverIsEqualToSomething() throws Exception {
+        // Initialize the database
+        LaunchReceiver launchReceiver = LaunchReceiverResourceIT.createEntity(em);
+        em.persist(launchReceiver);
+        em.flush();
+        baseClass.setLaunchReceiver(launchReceiver);
+        launchReceiver.setBaseClass(baseClass);
+        baseClassRepository.saveAndFlush(baseClass);
+        Long launchReceiverId = launchReceiver.getId();
+
+        // Get all the baseClassList where launchReceiver equals to launchReceiverId
+        defaultBaseClassShouldBeFound("launchReceiverId.equals=" + launchReceiverId);
+
+        // Get all the baseClassList where launchReceiver equals to launchReceiverId + 1
+        defaultBaseClassShouldNotBeFound("launchReceiverId.equals=" + (launchReceiverId + 1));
+    }
+
+
+    @Test
+    @Transactional
+    public void getAllBaseClassesByPipeIsEqualToSomething() throws Exception {
+        // Initialize the database
+        Pipe pipe = PipeResourceIT.createEntity(em);
+        em.persist(pipe);
+        em.flush();
+        baseClass.setPipe(pipe);
+        pipe.setBaseClass(baseClass);
+        baseClassRepository.saveAndFlush(baseClass);
+        Long pipeId = pipe.getId();
+
+        // Get all the baseClassList where pipe equals to pipeId
+        defaultBaseClassShouldBeFound("pipeId.equals=" + pipeId);
+
+        // Get all the baseClassList where pipe equals to pipeId + 1
+        defaultBaseClassShouldNotBeFound("pipeId.equals=" + (pipeId + 1));
+    }
+
+
+    @Test
+    @Transactional
     public void getAllBaseClassesByPipejointIsEqualToSomething() throws Exception {
         // Initialize the database
         Pipejoint pipejoint = PipejointResourceIT.createEntity(em);
@@ -435,183 +615,13 @@ public class BaseClassResourceIT {
 
     @Test
     @Transactional
-    public void getAllBaseClassesByAnodeIsEqualToSomething() throws Exception {
-        // Initialize the database
-        Anode anode = AnodeResourceIT.createEntity(em);
-        em.persist(anode);
-        em.flush();
-        baseClass.addAnode(anode);
-        baseClassRepository.saveAndFlush(baseClass);
-        Long anodeId = anode.getId();
-
-        // Get all the baseClassList where anode equals to anodeId
-        defaultBaseClassShouldBeFound("anodeId.equals=" + anodeId);
-
-        // Get all the baseClassList where anode equals to anodeId + 1
-        defaultBaseClassShouldNotBeFound("anodeId.equals=" + (anodeId + 1));
-    }
-
-
-    @Test
-    @Transactional
-    public void getAllBaseClassesByBendIsEqualToSomething() throws Exception {
-        // Initialize the database
-        Bend bend = BendResourceIT.createEntity(em);
-        em.persist(bend);
-        em.flush();
-        baseClass.addBend(bend);
-        baseClassRepository.saveAndFlush(baseClass);
-        Long bendId = bend.getId();
-
-        // Get all the baseClassList where bend equals to bendId
-        defaultBaseClassShouldBeFound("bendId.equals=" + bendId);
-
-        // Get all the baseClassList where bend equals to bendId + 1
-        defaultBaseClassShouldNotBeFound("bendId.equals=" + (bendId + 1));
-    }
-
-
-    @Test
-    @Transactional
-    public void getAllBaseClassesByBuckleArrestorIsEqualToSomething() throws Exception {
-        // Initialize the database
-        BuckleArrestor buckleArrestor = BuckleArrestorResourceIT.createEntity(em);
-        em.persist(buckleArrestor);
-        em.flush();
-        baseClass.addBuckleArrestor(buckleArrestor);
-        baseClassRepository.saveAndFlush(baseClass);
-        Long buckleArrestorId = buckleArrestor.getId();
-
-        // Get all the baseClassList where buckleArrestor equals to buckleArrestorId
-        defaultBaseClassShouldBeFound("buckleArrestorId.equals=" + buckleArrestorId);
-
-        // Get all the baseClassList where buckleArrestor equals to buckleArrestorId + 1
-        defaultBaseClassShouldNotBeFound("buckleArrestorId.equals=" + (buckleArrestorId + 1));
-    }
-
-
-    @Test
-    @Transactional
-    public void getAllBaseClassesByCpsIsEqualToSomething() throws Exception {
-        // Initialize the database
-        Cps cps = CpsResourceIT.createEntity(em);
-        em.persist(cps);
-        em.flush();
-        baseClass.addCps(cps);
-        baseClassRepository.saveAndFlush(baseClass);
-        Long cpsId = cps.getId();
-
-        // Get all the baseClassList where cps equals to cpsId
-        defaultBaseClassShouldBeFound("cpsId.equals=" + cpsId);
-
-        // Get all the baseClassList where cps equals to cpsId + 1
-        defaultBaseClassShouldNotBeFound("cpsId.equals=" + (cpsId + 1));
-    }
-
-
-    @Test
-    @Transactional
-    public void getAllBaseClassesByDisplacementIsEqualToSomething() throws Exception {
-        // Initialize the database
-        Displacement displacement = DisplacementResourceIT.createEntity(em);
-        em.persist(displacement);
-        em.flush();
-        baseClass.addDisplacement(displacement);
-        baseClassRepository.saveAndFlush(baseClass);
-        Long displacementId = displacement.getId();
-
-        // Get all the baseClassList where displacement equals to displacementId
-        defaultBaseClassShouldBeFound("displacementId.equals=" + displacementId);
-
-        // Get all the baseClassList where displacement equals to displacementId + 1
-        defaultBaseClassShouldNotBeFound("displacementId.equals=" + (displacementId + 1));
-    }
-
-
-    @Test
-    @Transactional
-    public void getAllBaseClassesByFreeSpanIsEqualToSomething() throws Exception {
-        // Initialize the database
-        FreeSpan freeSpan = FreeSpanResourceIT.createEntity(em);
-        em.persist(freeSpan);
-        em.flush();
-        baseClass.addFreeSpan(freeSpan);
-        baseClassRepository.saveAndFlush(baseClass);
-        Long freeSpanId = freeSpan.getId();
-
-        // Get all the baseClassList where freeSpan equals to freeSpanId
-        defaultBaseClassShouldBeFound("freeSpanId.equals=" + freeSpanId);
-
-        // Get all the baseClassList where freeSpan equals to freeSpanId + 1
-        defaultBaseClassShouldNotBeFound("freeSpanId.equals=" + (freeSpanId + 1));
-    }
-
-
-    @Test
-    @Transactional
-    public void getAllBaseClassesByFreeSpanSupportIsEqualToSomething() throws Exception {
-        // Initialize the database
-        FreeSpanSupport freeSpanSupport = FreeSpanSupportResourceIT.createEntity(em);
-        em.persist(freeSpanSupport);
-        em.flush();
-        baseClass.addFreeSpanSupport(freeSpanSupport);
-        baseClassRepository.saveAndFlush(baseClass);
-        Long freeSpanSupportId = freeSpanSupport.getId();
-
-        // Get all the baseClassList where freeSpanSupport equals to freeSpanSupportId
-        defaultBaseClassShouldBeFound("freeSpanSupportId.equals=" + freeSpanSupportId);
-
-        // Get all the baseClassList where freeSpanSupport equals to freeSpanSupportId + 1
-        defaultBaseClassShouldNotBeFound("freeSpanSupportId.equals=" + (freeSpanSupportId + 1));
-    }
-
-
-    @Test
-    @Transactional
-    public void getAllBaseClassesByLaunchReceiverIsEqualToSomething() throws Exception {
-        // Initialize the database
-        LaunchReceiver launchReceiver = LaunchReceiverResourceIT.createEntity(em);
-        em.persist(launchReceiver);
-        em.flush();
-        baseClass.addLaunchReceiver(launchReceiver);
-        baseClassRepository.saveAndFlush(baseClass);
-        Long launchReceiverId = launchReceiver.getId();
-
-        // Get all the baseClassList where launchReceiver equals to launchReceiverId
-        defaultBaseClassShouldBeFound("launchReceiverId.equals=" + launchReceiverId);
-
-        // Get all the baseClassList where launchReceiver equals to launchReceiverId + 1
-        defaultBaseClassShouldNotBeFound("launchReceiverId.equals=" + (launchReceiverId + 1));
-    }
-
-
-    @Test
-    @Transactional
-    public void getAllBaseClassesByPipeIsEqualToSomething() throws Exception {
-        // Initialize the database
-        Pipe pipe = PipeResourceIT.createEntity(em);
-        em.persist(pipe);
-        em.flush();
-        baseClass.addPipe(pipe);
-        baseClassRepository.saveAndFlush(baseClass);
-        Long pipeId = pipe.getId();
-
-        // Get all the baseClassList where pipe equals to pipeId
-        defaultBaseClassShouldBeFound("pipeId.equals=" + pipeId);
-
-        // Get all the baseClassList where pipe equals to pipeId + 1
-        defaultBaseClassShouldNotBeFound("pipeId.equals=" + (pipeId + 1));
-    }
-
-
-    @Test
-    @Transactional
     public void getAllBaseClassesByPipelineIsEqualToSomething() throws Exception {
         // Initialize the database
         Pipeline pipeline = PipelineResourceIT.createEntity(em);
         em.persist(pipeline);
         em.flush();
-        baseClass.addPipeline(pipeline);
+        baseClass.setPipeline(pipeline);
+        pipeline.setBaseClass(baseClass);
         baseClassRepository.saveAndFlush(baseClass);
         Long pipelineId = pipeline.getId();
 
@@ -630,7 +640,8 @@ public class BaseClassResourceIT {
         PipelineSection pipelineSection = PipelineSectionResourceIT.createEntity(em);
         em.persist(pipelineSection);
         em.flush();
-        baseClass.addPipelineSection(pipelineSection);
+        baseClass.setPipelineSection(pipelineSection);
+        pipelineSection.setBaseClass(baseClass);
         baseClassRepository.saveAndFlush(baseClass);
         Long pipelineSectionId = pipelineSection.getId();
 
@@ -649,7 +660,8 @@ public class BaseClassResourceIT {
         Tee tee = TeeResourceIT.createEntity(em);
         em.persist(tee);
         em.flush();
-        baseClass.addTee(tee);
+        baseClass.setTee(tee);
+        tee.setBaseClass(baseClass);
         baseClassRepository.saveAndFlush(baseClass);
         Long teeId = tee.getId();
 
@@ -668,7 +680,8 @@ public class BaseClassResourceIT {
         Valve valve = ValveResourceIT.createEntity(em);
         em.persist(valve);
         em.flush();
-        baseClass.addValve(valve);
+        baseClass.setValve(valve);
+        valve.setBaseClass(baseClass);
         baseClassRepository.saveAndFlush(baseClass);
         Long valveId = valve.getId();
 

@@ -13,7 +13,7 @@ export interface ILaunchReceiverHist {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
+  launchReceiverId?: number;
   idPipelineId?: number;
   idStatusId?: number;
 }

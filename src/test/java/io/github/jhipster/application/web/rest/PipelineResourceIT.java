@@ -3,8 +3,8 @@ package io.github.jhipster.application.web.rest;
 import io.github.jhipster.application.JhipsterSampleApplicationApp;
 import io.github.jhipster.application.domain.Pipeline;
 import io.github.jhipster.application.domain.BaseClass;
-import io.github.jhipster.application.domain.LaunchReceiverHist;
 import io.github.jhipster.application.domain.PipelineHist;
+import io.github.jhipster.application.domain.LaunchReceiverHist;
 import io.github.jhipster.application.domain.PipelineSection;
 import io.github.jhipster.application.repository.PipelineRepository;
 import io.github.jhipster.application.service.PipelineService;
@@ -111,16 +111,6 @@ public class PipelineResourceIT {
             .dateEdit(DEFAULT_DATE_EDIT)
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
-        // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        pipeline.setId(baseClass);
         return pipeline;
     }
     /**
@@ -135,16 +125,6 @@ public class PipelineResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createUpdatedEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        pipeline.setId(baseClass);
         return pipeline;
     }
 
@@ -388,17 +368,40 @@ public class PipelineResourceIT {
 
     @Test
     @Transactional
-    public void getAllPipelinesByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        BaseClass id = pipeline.getId();
+    public void getAllPipelinesByBaseClassIsEqualToSomething() throws Exception {
+        // Initialize the database
+        BaseClass baseClass = BaseClassResourceIT.createEntity(em);
+        em.persist(baseClass);
+        em.flush();
+        pipeline.setBaseClass(baseClass);
         pipelineRepository.saveAndFlush(pipeline);
-        Long idId = id.getId();
+        Long baseClassId = baseClass.getId();
 
-        // Get all the pipelineList where id equals to idId
-        defaultPipelineShouldBeFound("idId.equals=" + idId);
+        // Get all the pipelineList where baseClass equals to baseClassId
+        defaultPipelineShouldBeFound("baseClassId.equals=" + baseClassId);
 
-        // Get all the pipelineList where id equals to idId + 1
-        defaultPipelineShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the pipelineList where baseClass equals to baseClassId + 1
+        defaultPipelineShouldNotBeFound("baseClassId.equals=" + (baseClassId + 1));
+    }
+
+
+    @Test
+    @Transactional
+    public void getAllPipelinesByPipelineHistIsEqualToSomething() throws Exception {
+        // Initialize the database
+        PipelineHist pipelineHist = PipelineHistResourceIT.createEntity(em);
+        em.persist(pipelineHist);
+        em.flush();
+        pipeline.setPipelineHist(pipelineHist);
+        pipelineHist.setPipeline(pipeline);
+        pipelineRepository.saveAndFlush(pipeline);
+        Long pipelineHistId = pipelineHist.getId();
+
+        // Get all the pipelineList where pipelineHist equals to pipelineHistId
+        defaultPipelineShouldBeFound("pipelineHistId.equals=" + pipelineHistId);
+
+        // Get all the pipelineList where pipelineHist equals to pipelineHistId + 1
+        defaultPipelineShouldNotBeFound("pipelineHistId.equals=" + (pipelineHistId + 1));
     }
 
 
@@ -418,25 +421,6 @@ public class PipelineResourceIT {
 
         // Get all the pipelineList where launchReceiverHist equals to launchReceiverHistId + 1
         defaultPipelineShouldNotBeFound("launchReceiverHistId.equals=" + (launchReceiverHistId + 1));
-    }
-
-
-    @Test
-    @Transactional
-    public void getAllPipelinesByPipelineHistIsEqualToSomething() throws Exception {
-        // Initialize the database
-        PipelineHist pipelineHist = PipelineHistResourceIT.createEntity(em);
-        em.persist(pipelineHist);
-        em.flush();
-        pipeline.addPipelineHist(pipelineHist);
-        pipelineRepository.saveAndFlush(pipeline);
-        Long pipelineHistId = pipelineHist.getId();
-
-        // Get all the pipelineList where pipelineHist equals to pipelineHistId
-        defaultPipelineShouldBeFound("pipelineHistId.equals=" + pipelineHistId);
-
-        // Get all the pipelineList where pipelineHist equals to pipelineHistId + 1
-        defaultPipelineShouldNotBeFound("pipelineHistId.equals=" + (pipelineHistId + 1));
     }
 
 

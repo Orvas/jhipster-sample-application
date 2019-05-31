@@ -214,7 +214,7 @@ export class BendHist extends React.Component<IBendHistProps, IBendHistState> {
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Bend <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
                   Id Pipeline Section <FontAwesomeIcon icon="sort" />
@@ -330,7 +330,7 @@ export class BendHist extends React.Component<IBendHistProps, IBendHistState> {
                   </td>
                   <td>{bendHist.creator}</td>
                   <td>{bendHist.editor}</td>
-                  <td>{bendHist.idId ? <Link to={`bend/${bendHist.idId}`}>{bendHist.idId}</Link> : ''}</td>
+                  <td>{bendHist.bendId ? <Link to={`bend/${bendHist.bendId}`}>{bendHist.bendId}</Link> : ''}</td>
                   <td>
                     {bendHist.idPipelineSectionId ? (
                       <Link to={`pipeline-section/${bendHist.idPipelineSectionId}`}>{bendHist.idPipelineSectionId}</Link>

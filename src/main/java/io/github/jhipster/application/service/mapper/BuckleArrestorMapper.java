@@ -11,11 +11,11 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {BaseClassMapper.class})
 public interface BuckleArrestorMapper extends EntityMapper<BuckleArrestorDTO, BuckleArrestor> {
 
-    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "baseClass.id", target = "baseClassId")
     BuckleArrestorDTO toDto(BuckleArrestor buckleArrestor);
 
-    @Mapping(source = "idId", target = "id")
-    @Mapping(target = "buckleArrestorHists", ignore = true)
+    @Mapping(source = "baseClassId", target = "baseClass")
+    @Mapping(target = "buckleArrestorHist", ignore = true)
     BuckleArrestor toEntity(BuckleArrestorDTO buckleArrestorDTO);
 
     default BuckleArrestor fromId(Long id) {

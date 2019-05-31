@@ -1,5 +1,4 @@
 import { Moment } from 'moment';
-import { IBendHist } from 'app/shared/model/bend-hist.model';
 
 export interface IBend {
   id?: number;
@@ -7,8 +6,8 @@ export interface IBend {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
-  bendHists?: IBendHist[];
+  baseClassId?: number;
+  bendHistId?: number;
 }
 
 export const defaultValue: Readonly<IBend> = {};

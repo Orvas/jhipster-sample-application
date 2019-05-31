@@ -11,11 +11,11 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {BaseClassMapper.class})
 public interface BendMapper extends EntityMapper<BendDTO, Bend> {
 
-    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "baseClass.id", target = "baseClassId")
     BendDTO toDto(Bend bend);
 
-    @Mapping(source = "idId", target = "id")
-    @Mapping(target = "bendHists", ignore = true)
+    @Mapping(source = "baseClassId", target = "baseClass")
+    @Mapping(target = "bendHist", ignore = true)
     Bend toEntity(BendDTO bendDTO);
 
     default Bend fromId(Long id) {

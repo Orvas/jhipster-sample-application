@@ -2,7 +2,6 @@ package io.github.jhipster.application.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -44,18 +43,17 @@ public class Pipeline implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("pipelines")
-    private BaseClass id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private BaseClass baseClass;
+
+    @OneToOne(mappedBy = "pipeline")
+    @JsonIgnore
+    private PipelineHist pipelineHist;
 
     @OneToMany(mappedBy = "idPipeline")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<LaunchReceiverHist> launchReceiverHists = new HashSet<>();
-
-    @OneToMany(mappedBy = "id")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<PipelineHist> pipelineHists = new HashSet<>();
 
     @OneToMany(mappedBy = "idPipeline")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -122,17 +120,30 @@ public class Pipeline implements Serializable {
         this.editor = editor;
     }
 
-    public BaseClass getId() {
-        return id;
+    public BaseClass getBaseClass() {
+        return baseClass;
     }
 
-    public Pipeline id(BaseClass baseClass) {
-        this.id = baseClass;
+    public Pipeline baseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
         return this;
     }
 
-    public void setId(BaseClass baseClass) {
-        this.id = baseClass;
+    public void setBaseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
+    }
+
+    public PipelineHist getPipelineHist() {
+        return pipelineHist;
+    }
+
+    public Pipeline pipelineHist(PipelineHist pipelineHist) {
+        this.pipelineHist = pipelineHist;
+        return this;
+    }
+
+    public void setPipelineHist(PipelineHist pipelineHist) {
+        this.pipelineHist = pipelineHist;
     }
 
     public Set<LaunchReceiverHist> getLaunchReceiverHists() {
@@ -158,31 +169,6 @@ public class Pipeline implements Serializable {
 
     public void setLaunchReceiverHists(Set<LaunchReceiverHist> launchReceiverHists) {
         this.launchReceiverHists = launchReceiverHists;
-    }
-
-    public Set<PipelineHist> getPipelineHists() {
-        return pipelineHists;
-    }
-
-    public Pipeline pipelineHists(Set<PipelineHist> pipelineHists) {
-        this.pipelineHists = pipelineHists;
-        return this;
-    }
-
-    public Pipeline addPipelineHist(PipelineHist pipelineHist) {
-        this.pipelineHists.add(pipelineHist);
-        pipelineHist.setId(this);
-        return this;
-    }
-
-    public Pipeline removePipelineHist(PipelineHist pipelineHist) {
-        this.pipelineHists.remove(pipelineHist);
-        pipelineHist.setId(null);
-        return this;
-    }
-
-    public void setPipelineHists(Set<PipelineHist> pipelineHists) {
-        this.pipelineHists = pipelineHists;
     }
 
     public Set<PipelineSection> getPipelineSections() {

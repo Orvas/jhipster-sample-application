@@ -24,7 +24,7 @@ export interface IPipelineHistUpdateProps extends StateProps, DispatchProps, Rou
 
 export interface IPipelineHistUpdateState {
   isNew: boolean;
-  idId: string;
+  pipelineId: string;
   idLocationId: string;
   idStatusId: string;
 }
@@ -33,7 +33,7 @@ export class PipelineHistUpdate extends React.Component<IPipelineHistUpdateProps
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      pipelineId: '0',
       idLocationId: '0',
       idStatusId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
@@ -233,8 +233,9 @@ export class PipelineHistUpdate extends React.Component<IPipelineHistUpdateProps
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="pipeline-hist-id">Id</Label>
-                  <AvInput id="pipeline-hist-id" type="select" className="form-control" name="idId" required>
+                  <Label for="pipeline-hist-pipeline">Pipeline</Label>
+                  <AvInput id="pipeline-hist-pipeline" type="select" className="form-control" name="pipelineId">
+                    <option value="" key="0" />
                     {pipelines
                       ? pipelines.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -243,7 +244,6 @@ export class PipelineHistUpdate extends React.Component<IPipelineHistUpdateProps
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <AvGroup>
                   <Label for="pipeline-hist-idLocation">Id Location</Label>

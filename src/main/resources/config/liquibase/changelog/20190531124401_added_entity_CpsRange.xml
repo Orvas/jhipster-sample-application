@@ -11,7 +11,7 @@
         Added the entity CpsRange.
     -->
     <changeSet id="20190531124401-1" author="jhipster">
-        <createTable tableName="cps_range" remarks="CPS action  range One row corresponds to one cps and pipeline section">
+        <createTable tableName="cps_range" remarks="CPS action  rangeOne row corresponds to one cps and pipeline section">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>

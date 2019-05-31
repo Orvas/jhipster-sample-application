@@ -306,16 +306,6 @@ public class BendHistResourceIT {
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
         // Add required entity
-        Bend bend;
-        if (TestUtil.findAll(em, Bend.class).isEmpty()) {
-            bend = BendResourceIT.createEntity(em);
-            em.persist(bend);
-            em.flush();
-        } else {
-            bend = TestUtil.findAll(em, Bend.class).get(0);
-        }
-        bendHist.setId(bend);
-        // Add required entity
         PipelineSection pipelineSection;
         if (TestUtil.findAll(em, PipelineSection.class).isEmpty()) {
             pipelineSection = PipelineSectionResourceIT.createEntity(em);
@@ -394,16 +384,6 @@ public class BendHistResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        Bend bend;
-        if (TestUtil.findAll(em, Bend.class).isEmpty()) {
-            bend = BendResourceIT.createUpdatedEntity(em);
-            em.persist(bend);
-            em.flush();
-        } else {
-            bend = TestUtil.findAll(em, Bend.class).get(0);
-        }
-        bendHist.setId(bend);
         // Add required entity
         PipelineSection pipelineSection;
         if (TestUtil.findAll(em, PipelineSection.class).isEmpty()) {
@@ -2992,17 +2972,20 @@ public class BendHistResourceIT {
 
     @Test
     @Transactional
-    public void getAllBendHistsByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        Bend id = bendHist.getId();
+    public void getAllBendHistsByBendIsEqualToSomething() throws Exception {
+        // Initialize the database
+        Bend bend = BendResourceIT.createEntity(em);
+        em.persist(bend);
+        em.flush();
+        bendHist.setBend(bend);
         bendHistRepository.saveAndFlush(bendHist);
-        Long idId = id.getId();
+        Long bendId = bend.getId();
 
-        // Get all the bendHistList where id equals to idId
-        defaultBendHistShouldBeFound("idId.equals=" + idId);
+        // Get all the bendHistList where bend equals to bendId
+        defaultBendHistShouldBeFound("bendId.equals=" + bendId);
 
-        // Get all the bendHistList where id equals to idId + 1
-        defaultBendHistShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the bendHistList where bend equals to bendId + 1
+        defaultBendHistShouldNotBeFound("bendId.equals=" + (bendId + 1));
     }
 
 

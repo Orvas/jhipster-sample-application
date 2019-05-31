@@ -58,12 +58,12 @@
     ],
     "relationships": [
         {
-            "relationshipType": "many-to-one",
+            "relationshipType": "one-to-one",
             "otherEntityName": "baseClass",
             "otherEntityRelationshipName": "pipelineSection",
-            "relationshipValidateRules": "required",
-            "relationshipName": "id",
-            "otherEntityField": "id"
+            "relationshipName": "baseClass",
+            "otherEntityField": "id",
+            "ownerSide": true
         },
         {
             "relationshipType": "many-to-one",
@@ -149,7 +149,7 @@
         }
     ],
     "changelogDate": "20190528160557",
-    "javadoc": "Homogeneous sections,  areas of unchanged values ??of the following characteristics:\n- is_onshore\n- safety class\n\nOne table rows corresponds to one section",
+    "javadoc": "Homogeneous sections,  areas of unchanged values ??of the following characteristics:- is_onshore- safety classOne table rows corresponds to one section",
     "entityTableName": "pipeline_section",
     "dto": "mapstruct",
     "pagination": "pagination",

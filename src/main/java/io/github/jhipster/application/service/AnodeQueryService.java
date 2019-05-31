@@ -101,13 +101,13 @@ public class AnodeQueryService extends QueryService<Anode> {
             if (criteria.getEditor() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getEditor(), Anode_.editor));
             }
-            if (criteria.getIdId() != null) {
-                specification = specification.and(buildSpecification(criteria.getIdId(),
-                    root -> root.join(Anode_.id, JoinType.LEFT).get(BaseClass_.id)));
+            if (criteria.getBaseClassId() != null) {
+                specification = specification.and(buildSpecification(criteria.getBaseClassId(),
+                    root -> root.join(Anode_.baseClass, JoinType.LEFT).get(BaseClass_.id)));
             }
             if (criteria.getAnodeHistId() != null) {
                 specification = specification.and(buildSpecification(criteria.getAnodeHistId(),
-                    root -> root.join(Anode_.anodeHists, JoinType.LEFT).get(AnodeHist_.id)));
+                    root -> root.join(Anode_.anodeHist, JoinType.LEFT).get(AnodeHist_.id)));
             }
         }
         return specification;

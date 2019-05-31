@@ -70,7 +70,7 @@
     ],
     "relationships": [],
     "changelogDate": "20190531124421",
-    "javadoc": "Calculation results:\n- Success\n- No success",
+    "javadoc": "Calculation results:- Success- No success",
     "entityTableName": "list_clc_result",
     "dto": "mapstruct",
     "pagination": "pagination",

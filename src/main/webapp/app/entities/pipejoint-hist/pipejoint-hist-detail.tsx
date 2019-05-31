@@ -84,8 +84,8 @@ export class PipejointHistDetail extends React.Component<IPipejointHistDetailPro
               <span id="editor">Editor</span>
             </dt>
             <dd>{pipejointHistEntity.editor}</dd>
-            <dt>Id</dt>
-            <dd>{pipejointHistEntity.idId ? pipejointHistEntity.idId : ''}</dd>
+            <dt>Pipejoint</dt>
+            <dd>{pipejointHistEntity.pipejointId ? pipejointHistEntity.pipejointId : ''}</dd>
             <dt>Id Type</dt>
             <dd>{pipejointHistEntity.idTypeId ? pipejointHistEntity.idTypeId : ''}</dd>
             <dt>Id External Coat Type</dt>

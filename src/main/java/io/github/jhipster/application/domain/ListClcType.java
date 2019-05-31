@@ -12,10 +12,7 @@ import java.time.Instant;
 import java.util.Objects;
 
 /**
- * - Pipeline displacement
- * - Metall loss
- * - Dent
- * - Cathodic protection
+ * - Pipeline displacement- Metall loss- Dent- Cathodic protection
  */
 @Entity
 @Table(name = "list_clc_type")

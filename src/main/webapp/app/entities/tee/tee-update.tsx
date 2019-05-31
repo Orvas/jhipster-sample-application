@@ -10,6 +10,8 @@ import { IRootState } from 'app/shared/reducers';
 
 import { IBaseClass } from 'app/shared/model/base-class.model';
 import { getEntities as getBaseClasses } from 'app/entities/base-class/base-class.reducer';
+import { ITeeHist } from 'app/shared/model/tee-hist.model';
+import { getEntities as getTeeHists } from 'app/entities/tee-hist/tee-hist.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './tee.reducer';
 import { ITee } from 'app/shared/model/tee.model';
 // tslint:disable-next-line:no-unused-variable
@@ -20,14 +22,16 @@ export interface ITeeUpdateProps extends StateProps, DispatchProps, RouteCompone
 
 export interface ITeeUpdateState {
   isNew: boolean;
-  idId: string;
+  baseClassId: string;
+  teeHistId: string;
 }
 
 export class TeeUpdate extends React.Component<ITeeUpdateProps, ITeeUpdateState> {
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      baseClassId: '0',
+      teeHistId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }
@@ -46,6 +50,7 @@ export class TeeUpdate extends React.Component<ITeeUpdateProps, ITeeUpdateState>
     }
 
     this.props.getBaseClasses();
+    this.props.getTeeHists();
   }
 
   saveEntity = (event, errors, values) => {
@@ -72,7 +77,7 @@ export class TeeUpdate extends React.Component<ITeeUpdateProps, ITeeUpdateState>
   };
 
   render() {
-    const { teeEntity, baseClasses, loading, updating } = this.props;
+    const { teeEntity, baseClasses, teeHists, loading, updating } = this.props;
     const { isNew } = this.state;
 
     return (
@@ -147,8 +152,9 @@ export class TeeUpdate extends React.Component<ITeeUpdateProps, ITeeUpdateState>
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="tee-id">Id</Label>
-                  <AvInput id="tee-id" type="select" className="form-control" name="idId" required>
+                  <Label for="tee-baseClass">Base Class</Label>
+                  <AvInput id="tee-baseClass" type="select" className="form-control" name="baseClassId">
+                    <option value="" key="0" />
                     {baseClasses
                       ? baseClasses.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -157,7 +163,6 @@ export class TeeUpdate extends React.Component<ITeeUpdateProps, ITeeUpdateState>
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <Button tag={Link} id="cancel-save" to="/entity/tee" replace color="info">
                   <FontAwesomeIcon icon="arrow-left" />
@@ -180,6 +185,7 @@ export class TeeUpdate extends React.Component<ITeeUpdateProps, ITeeUpdateState>
 
 const mapStateToProps = (storeState: IRootState) => ({
   baseClasses: storeState.baseClass.entities,
+  teeHists: storeState.teeHist.entities,
   teeEntity: storeState.tee.entity,
   loading: storeState.tee.loading,
   updating: storeState.tee.updating,
@@ -188,6 +194,7 @@ const mapStateToProps = (storeState: IRootState) => ({
 
 const mapDispatchToProps = {
   getBaseClasses,
+  getTeeHists,
   getEntity,
   updateEntity,
   createEntity,

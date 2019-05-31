@@ -70,7 +70,7 @@
     ],
     "relationships": [],
     "changelogDate": "20190531124433",
-    "javadoc": "List for define which value of internal pressure to use for calculations:\n•\tPi from PPS report on the date of assessment\n•\tPi from PPS report on the date of inspection\n•\tDesign pressure",
+    "javadoc": "List for define which value of internal pressure to use for calculations:•\tPi from PPS report on the date of assessment•\tPi from PPS report on the date of inspection•\tDesign pressure",
     "entityTableName": "list_internal_press_ucase",
     "dto": "mapstruct",
     "pagination": "pagination",

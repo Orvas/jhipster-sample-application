@@ -10,6 +10,8 @@ import { IRootState } from 'app/shared/reducers';
 
 import { IBaseClass } from 'app/shared/model/base-class.model';
 import { getEntities as getBaseClasses } from 'app/entities/base-class/base-class.reducer';
+import { ILaunchReceiverHist } from 'app/shared/model/launch-receiver-hist.model';
+import { getEntities as getLaunchReceiverHists } from 'app/entities/launch-receiver-hist/launch-receiver-hist.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './launch-receiver.reducer';
 import { ILaunchReceiver } from 'app/shared/model/launch-receiver.model';
 // tslint:disable-next-line:no-unused-variable
@@ -20,14 +22,16 @@ export interface ILaunchReceiverUpdateProps extends StateProps, DispatchProps, R
 
 export interface ILaunchReceiverUpdateState {
   isNew: boolean;
-  idId: string;
+  baseClassId: string;
+  launchReceiverHistId: string;
 }
 
 export class LaunchReceiverUpdate extends React.Component<ILaunchReceiverUpdateProps, ILaunchReceiverUpdateState> {
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      baseClassId: '0',
+      launchReceiverHistId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }
@@ -46,6 +50,7 @@ export class LaunchReceiverUpdate extends React.Component<ILaunchReceiverUpdateP
     }
 
     this.props.getBaseClasses();
+    this.props.getLaunchReceiverHists();
   }
 
   saveEntity = (event, errors, values) => {
@@ -72,7 +77,7 @@ export class LaunchReceiverUpdate extends React.Component<ILaunchReceiverUpdateP
   };
 
   render() {
-    const { launchReceiverEntity, baseClasses, loading, updating } = this.props;
+    const { launchReceiverEntity, baseClasses, launchReceiverHists, loading, updating } = this.props;
     const { isNew } = this.state;
 
     return (
@@ -147,8 +152,9 @@ export class LaunchReceiverUpdate extends React.Component<ILaunchReceiverUpdateP
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="launch-receiver-id">Id</Label>
-                  <AvInput id="launch-receiver-id" type="select" className="form-control" name="idId" required>
+                  <Label for="launch-receiver-baseClass">Base Class</Label>
+                  <AvInput id="launch-receiver-baseClass" type="select" className="form-control" name="baseClassId">
+                    <option value="" key="0" />
                     {baseClasses
                       ? baseClasses.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -157,7 +163,6 @@ export class LaunchReceiverUpdate extends React.Component<ILaunchReceiverUpdateP
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <Button tag={Link} id="cancel-save" to="/entity/launch-receiver" replace color="info">
                   <FontAwesomeIcon icon="arrow-left" />
@@ -180,6 +185,7 @@ export class LaunchReceiverUpdate extends React.Component<ILaunchReceiverUpdateP
 
 const mapStateToProps = (storeState: IRootState) => ({
   baseClasses: storeState.baseClass.entities,
+  launchReceiverHists: storeState.launchReceiverHist.entities,
   launchReceiverEntity: storeState.launchReceiver.entity,
   loading: storeState.launchReceiver.loading,
   updating: storeState.launchReceiver.updating,
@@ -188,6 +194,7 @@ const mapStateToProps = (storeState: IRootState) => ({
 
 const mapDispatchToProps = {
   getBaseClasses,
+  getLaunchReceiverHists,
   getEntity,
   updateEntity,
   createEntity,

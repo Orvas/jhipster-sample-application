@@ -101,13 +101,13 @@ public class DisplacementQueryService extends QueryService<Displacement> {
             if (criteria.getEditor() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getEditor(), Displacement_.editor));
             }
-            if (criteria.getIdId() != null) {
-                specification = specification.and(buildSpecification(criteria.getIdId(),
-                    root -> root.join(Displacement_.id, JoinType.LEFT).get(BaseClass_.id)));
+            if (criteria.getBaseClassId() != null) {
+                specification = specification.and(buildSpecification(criteria.getBaseClassId(),
+                    root -> root.join(Displacement_.baseClass, JoinType.LEFT).get(BaseClass_.id)));
             }
             if (criteria.getDisplacementHistId() != null) {
                 specification = specification.and(buildSpecification(criteria.getDisplacementHistId(),
-                    root -> root.join(Displacement_.displacementHists, JoinType.LEFT).get(DisplacementHist_.id)));
+                    root -> root.join(Displacement_.displacementHist, JoinType.LEFT).get(DisplacementHist_.id)));
             }
         }
         return specification;

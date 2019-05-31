@@ -1,6 +1,5 @@
 import { Moment } from 'moment';
 import { ILaunchReceiverHist } from 'app/shared/model/launch-receiver-hist.model';
-import { IPipelineHist } from 'app/shared/model/pipeline-hist.model';
 import { IPipelineSection } from 'app/shared/model/pipeline-section.model';
 
 export interface IPipeline {
@@ -9,9 +8,9 @@ export interface IPipeline {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
+  baseClassId?: number;
+  pipelineHistId?: number;
   launchReceiverHists?: ILaunchReceiverHist[];
-  pipelineHists?: IPipelineHist[];
   pipelineSections?: IPipelineSection[];
 }
 

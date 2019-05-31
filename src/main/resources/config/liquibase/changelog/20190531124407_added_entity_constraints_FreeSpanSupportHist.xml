@@ -8,9 +8,9 @@
     -->
     <changeSet id="20190531124407-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="id_id"
+        <addForeignKeyConstraint baseColumnNames="free_span_support_id"
                                  baseTableName="free_span_support_hist"
-                                 constraintName="fk_free_span_support_hist_id_id"
+                                 constraintName="fk_free_span_support_hist_free_span_support_id"
                                  referencedColumnNames="id"
                                  referencedTableName="free_span_support"/>
 

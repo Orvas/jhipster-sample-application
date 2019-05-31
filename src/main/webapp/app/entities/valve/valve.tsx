@@ -79,7 +79,7 @@ export class Valve extends React.Component<IValveProps, IValveState> {
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Base Class <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -100,7 +100,7 @@ export class Valve extends React.Component<IValveProps, IValveState> {
                   </td>
                   <td>{valve.creator}</td>
                   <td>{valve.editor}</td>
-                  <td>{valve.idId ? <Link to={`base-class/${valve.idId}`}>{valve.idId}</Link> : ''}</td>
+                  <td>{valve.baseClassId ? <Link to={`base-class/${valve.baseClassId}`}>{valve.baseClassId}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${valve.id}`} color="info" size="sm">

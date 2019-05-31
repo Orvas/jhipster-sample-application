@@ -236,8 +236,8 @@ export class BendHistDetail extends React.Component<IBendHistDetailProps> {
               <span id="editor">Editor</span>
             </dt>
             <dd>{bendHistEntity.editor}</dd>
-            <dt>Id</dt>
-            <dd>{bendHistEntity.idId ? bendHistEntity.idId : ''}</dd>
+            <dt>Bend</dt>
+            <dd>{bendHistEntity.bendId ? bendHistEntity.bendId : ''}</dd>
             <dt>Id Pipeline Section</dt>
             <dd>{bendHistEntity.idPipelineSectionId ? bendHistEntity.idPipelineSectionId : ''}</dd>
             <dt>Id Type</dt>

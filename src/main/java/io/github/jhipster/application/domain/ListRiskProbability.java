@@ -12,12 +12,7 @@ import java.time.Instant;
 import java.util.Objects;
 
 /**
- * List of values:
- * - high unlikely
- * - unlikely
- * - can occur once in lifetime
- * - somewhat likely to occur
- * -  likely to occur
+ * List of values: - high unlikely - unlikely - can occur once in lifetime - somewhat likely to occur-  likely to occur
  */
 @Entity
 @Table(name = "list_risk_probability")

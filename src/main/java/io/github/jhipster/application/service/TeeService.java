@@ -12,7 +12,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * Service Implementation for managing {@link Tee}.
@@ -58,6 +62,21 @@ public class TeeService {
             .map(teeMapper::toDto);
     }
 
+
+
+    /**
+    *  Get all the tees where TeeHist is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<TeeDTO> findAllWhereTeeHistIsNull() {
+        log.debug("Request to get all tees where TeeHist is null");
+        return StreamSupport
+            .stream(teeRepository.findAll().spliterator(), false)
+            .filter(tee -> tee.getTeeHist() == null)
+            .map(teeMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
 
     /**
      * Get one tee by id.

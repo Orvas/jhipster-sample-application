@@ -84,10 +84,9 @@ public class DisplacementHist implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("displacementHists")
-    private Displacement id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Displacement displacement;
 
     @ManyToOne(optional = false)
     @NotNull
@@ -311,17 +310,17 @@ public class DisplacementHist implements Serializable {
         this.editor = editor;
     }
 
-    public Displacement getId() {
-        return id;
+    public Displacement getDisplacement() {
+        return displacement;
     }
 
-    public DisplacementHist id(Displacement displacement) {
-        this.id = displacement;
+    public DisplacementHist displacement(Displacement displacement) {
+        this.displacement = displacement;
         return this;
     }
 
-    public void setId(Displacement displacement) {
-        this.id = displacement;
+    public void setDisplacement(Displacement displacement) {
+        this.displacement = displacement;
     }
 
     public PipelineSection getIdPipelineSection() {

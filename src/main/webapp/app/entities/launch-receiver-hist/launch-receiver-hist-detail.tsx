@@ -80,8 +80,8 @@ export class LaunchReceiverHistDetail extends React.Component<ILaunchReceiverHis
               <span id="editor">Editor</span>
             </dt>
             <dd>{launchReceiverHistEntity.editor}</dd>
-            <dt>Id</dt>
-            <dd>{launchReceiverHistEntity.idId ? launchReceiverHistEntity.idId : ''}</dd>
+            <dt>Launch Receiver</dt>
+            <dd>{launchReceiverHistEntity.launchReceiverId ? launchReceiverHistEntity.launchReceiverId : ''}</dd>
             <dt>Id Pipeline</dt>
             <dd>{launchReceiverHistEntity.idPipelineId ? launchReceiverHistEntity.idPipelineId : ''}</dd>
             <dt>Id Status</dt>

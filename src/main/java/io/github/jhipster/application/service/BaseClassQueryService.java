@@ -105,21 +105,17 @@ public class BaseClassQueryService extends QueryService<BaseClass> {
                 specification = specification.and(buildSpecification(criteria.getIdTypeId(),
                     root -> root.join(BaseClass_.idType, JoinType.LEFT).get(ListObjectType_.id)));
             }
-            if (criteria.getPipejointId() != null) {
-                specification = specification.and(buildSpecification(criteria.getPipejointId(),
-                    root -> root.join(BaseClass_.pipejoint, JoinType.LEFT).get(Pipejoint_.id)));
-            }
             if (criteria.getAnodeId() != null) {
                 specification = specification.and(buildSpecification(criteria.getAnodeId(),
-                    root -> root.join(BaseClass_.anodes, JoinType.LEFT).get(Anode_.id)));
+                    root -> root.join(BaseClass_.anode, JoinType.LEFT).get(Anode_.id)));
             }
             if (criteria.getBendId() != null) {
                 specification = specification.and(buildSpecification(criteria.getBendId(),
-                    root -> root.join(BaseClass_.bends, JoinType.LEFT).get(Bend_.id)));
+                    root -> root.join(BaseClass_.bend, JoinType.LEFT).get(Bend_.id)));
             }
             if (criteria.getBuckleArrestorId() != null) {
                 specification = specification.and(buildSpecification(criteria.getBuckleArrestorId(),
-                    root -> root.join(BaseClass_.buckleArrestors, JoinType.LEFT).get(BuckleArrestor_.id)));
+                    root -> root.join(BaseClass_.buckleArrestor, JoinType.LEFT).get(BuckleArrestor_.id)));
             }
             if (criteria.getCpsId() != null) {
                 specification = specification.and(buildSpecification(criteria.getCpsId(),
@@ -127,39 +123,43 @@ public class BaseClassQueryService extends QueryService<BaseClass> {
             }
             if (criteria.getDisplacementId() != null) {
                 specification = specification.and(buildSpecification(criteria.getDisplacementId(),
-                    root -> root.join(BaseClass_.displacements, JoinType.LEFT).get(Displacement_.id)));
+                    root -> root.join(BaseClass_.displacement, JoinType.LEFT).get(Displacement_.id)));
             }
             if (criteria.getFreeSpanId() != null) {
                 specification = specification.and(buildSpecification(criteria.getFreeSpanId(),
-                    root -> root.join(BaseClass_.freeSpans, JoinType.LEFT).get(FreeSpan_.id)));
+                    root -> root.join(BaseClass_.freeSpan, JoinType.LEFT).get(FreeSpan_.id)));
             }
             if (criteria.getFreeSpanSupportId() != null) {
                 specification = specification.and(buildSpecification(criteria.getFreeSpanSupportId(),
-                    root -> root.join(BaseClass_.freeSpanSupports, JoinType.LEFT).get(FreeSpanSupport_.id)));
+                    root -> root.join(BaseClass_.freeSpanSupport, JoinType.LEFT).get(FreeSpanSupport_.id)));
             }
             if (criteria.getLaunchReceiverId() != null) {
                 specification = specification.and(buildSpecification(criteria.getLaunchReceiverId(),
-                    root -> root.join(BaseClass_.launchReceivers, JoinType.LEFT).get(LaunchReceiver_.id)));
+                    root -> root.join(BaseClass_.launchReceiver, JoinType.LEFT).get(LaunchReceiver_.id)));
             }
             if (criteria.getPipeId() != null) {
                 specification = specification.and(buildSpecification(criteria.getPipeId(),
-                    root -> root.join(BaseClass_.pipes, JoinType.LEFT).get(Pipe_.id)));
+                    root -> root.join(BaseClass_.pipe, JoinType.LEFT).get(Pipe_.id)));
+            }
+            if (criteria.getPipejointId() != null) {
+                specification = specification.and(buildSpecification(criteria.getPipejointId(),
+                    root -> root.join(BaseClass_.pipejoint, JoinType.LEFT).get(Pipejoint_.id)));
             }
             if (criteria.getPipelineId() != null) {
                 specification = specification.and(buildSpecification(criteria.getPipelineId(),
-                    root -> root.join(BaseClass_.pipelines, JoinType.LEFT).get(Pipeline_.id)));
+                    root -> root.join(BaseClass_.pipeline, JoinType.LEFT).get(Pipeline_.id)));
             }
             if (criteria.getPipelineSectionId() != null) {
                 specification = specification.and(buildSpecification(criteria.getPipelineSectionId(),
-                    root -> root.join(BaseClass_.pipelineSections, JoinType.LEFT).get(PipelineSection_.id)));
+                    root -> root.join(BaseClass_.pipelineSection, JoinType.LEFT).get(PipelineSection_.id)));
             }
             if (criteria.getTeeId() != null) {
                 specification = specification.and(buildSpecification(criteria.getTeeId(),
-                    root -> root.join(BaseClass_.tees, JoinType.LEFT).get(Tee_.id)));
+                    root -> root.join(BaseClass_.tee, JoinType.LEFT).get(Tee_.id)));
             }
             if (criteria.getValveId() != null) {
                 specification = specification.and(buildSpecification(criteria.getValveId(),
-                    root -> root.join(BaseClass_.valves, JoinType.LEFT).get(Valve_.id)));
+                    root -> root.join(BaseClass_.valve, JoinType.LEFT).get(Valve_.id)));
             }
         }
         return specification;

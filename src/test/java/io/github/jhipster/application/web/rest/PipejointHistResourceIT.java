@@ -149,16 +149,6 @@ public class PipejointHistResourceIT {
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
         // Add required entity
-        Pipejoint pipejoint;
-        if (TestUtil.findAll(em, Pipejoint.class).isEmpty()) {
-            pipejoint = PipejointResourceIT.createEntity(em);
-            em.persist(pipejoint);
-            em.flush();
-        } else {
-            pipejoint = TestUtil.findAll(em, Pipejoint.class).get(0);
-        }
-        pipejointHist.setId(pipejoint);
-        // Add required entity
         ListObjectStatus listObjectStatus;
         if (TestUtil.findAll(em, ListObjectStatus.class).isEmpty()) {
             listObjectStatus = ListObjectStatusResourceIT.createEntity(em);
@@ -190,16 +180,6 @@ public class PipejointHistResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        Pipejoint pipejoint;
-        if (TestUtil.findAll(em, Pipejoint.class).isEmpty()) {
-            pipejoint = PipejointResourceIT.createUpdatedEntity(em);
-            em.persist(pipejoint);
-            em.flush();
-        } else {
-            pipejoint = TestUtil.findAll(em, Pipejoint.class).get(0);
-        }
-        pipejointHist.setId(pipejoint);
         // Add required entity
         ListObjectStatus listObjectStatus;
         if (TestUtil.findAll(em, ListObjectStatus.class).isEmpty()) {
@@ -927,17 +907,20 @@ public class PipejointHistResourceIT {
 
     @Test
     @Transactional
-    public void getAllPipejointHistsByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        Pipejoint id = pipejointHist.getId();
+    public void getAllPipejointHistsByPipejointIsEqualToSomething() throws Exception {
+        // Initialize the database
+        Pipejoint pipejoint = PipejointResourceIT.createEntity(em);
+        em.persist(pipejoint);
+        em.flush();
+        pipejointHist.setPipejoint(pipejoint);
         pipejointHistRepository.saveAndFlush(pipejointHist);
-        Long idId = id.getId();
+        Long pipejointId = pipejoint.getId();
 
-        // Get all the pipejointHistList where id equals to idId
-        defaultPipejointHistShouldBeFound("idId.equals=" + idId);
+        // Get all the pipejointHistList where pipejoint equals to pipejointId
+        defaultPipejointHistShouldBeFound("pipejointId.equals=" + pipejointId);
 
-        // Get all the pipejointHistList where id equals to idId + 1
-        defaultPipejointHistShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the pipejointHistList where pipejoint equals to pipejointId + 1
+        defaultPipejointHistShouldNotBeFound("pipejointId.equals=" + (pipejointId + 1));
     }
 
 

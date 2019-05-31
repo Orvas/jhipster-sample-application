@@ -11,7 +11,7 @@
         Added the entity ListMinpressUcase.
     -->
     <changeSet id="20190531124437-1" author="jhipster">
-        <createTable tableName="list_minpress_ucase" remarks="List for define which value of internal pressure to use for calculations: •	Pi from PPS report on the date of assessment •	Pi from PPS report on the date of inspection •	Design pressure">
+        <createTable tableName="list_minpress_ucase" remarks="List for define which value of internal pressure to use for calculations:•	Pi from PPS report on the date of assessment•	Pi from PPS report on the date of inspection•	Design pressure">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>

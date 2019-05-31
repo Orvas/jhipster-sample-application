@@ -46,7 +46,7 @@ export interface IBuckleArrestorHistUpdateProps extends StateProps, DispatchProp
 
 export interface IBuckleArrestorHistUpdateState {
   isNew: boolean;
-  idId: string;
+  buckleArrestorId: string;
   idPipelineSectionId: string;
   idTypeId: string;
   idInternalCoatTypeId: string;
@@ -66,7 +66,7 @@ export class BuckleArrestorHistUpdate extends React.Component<IBuckleArrestorHis
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      buckleArrestorId: '0',
       idPipelineSectionId: '0',
       idTypeId: '0',
       idInternalCoatTypeId: '0',
@@ -595,8 +595,9 @@ export class BuckleArrestorHistUpdate extends React.Component<IBuckleArrestorHis
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="buckle-arrestor-hist-id">Id</Label>
-                  <AvInput id="buckle-arrestor-hist-id" type="select" className="form-control" name="idId" required>
+                  <Label for="buckle-arrestor-hist-buckleArrestor">Buckle Arrestor</Label>
+                  <AvInput id="buckle-arrestor-hist-buckleArrestor" type="select" className="form-control" name="buckleArrestorId">
+                    <option value="" key="0" />
                     {buckleArrestors
                       ? buckleArrestors.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -605,7 +606,6 @@ export class BuckleArrestorHistUpdate extends React.Component<IBuckleArrestorHis
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <AvGroup>
                   <Label for="buckle-arrestor-hist-idPipelineSection">Id Pipeline Section</Label>

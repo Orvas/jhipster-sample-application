@@ -28,18 +28,19 @@
     ],
     "relationships": [
         {
-            "relationshipType": "many-to-one",
+            "relationshipType": "one-to-one",
             "otherEntityName": "baseClass",
             "otherEntityRelationshipName": "freeSpan",
-            "relationshipValidateRules": "required",
-            "relationshipName": "id",
-            "otherEntityField": "id"
+            "relationshipName": "baseClass",
+            "otherEntityField": "id",
+            "ownerSide": true
         },
         {
-            "relationshipType": "one-to-many",
+            "relationshipType": "one-to-one",
             "otherEntityName": "freeSpanHist",
-            "otherEntityRelationshipName": "id",
-            "relationshipName": "freeSpanHist"
+            "otherEntityRelationshipName": "freeSpan",
+            "relationshipName": "freeSpanHist",
+            "ownerSide": false
         }
     ],
     "changelogDate": "20190531124404",

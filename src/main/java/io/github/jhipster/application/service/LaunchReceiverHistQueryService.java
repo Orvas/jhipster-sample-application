@@ -122,9 +122,9 @@ public class LaunchReceiverHistQueryService extends QueryService<LaunchReceiverH
             if (criteria.getEditor() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getEditor(), LaunchReceiverHist_.editor));
             }
-            if (criteria.getIdId() != null) {
-                specification = specification.and(buildSpecification(criteria.getIdId(),
-                    root -> root.join(LaunchReceiverHist_.id, JoinType.LEFT).get(LaunchReceiver_.id)));
+            if (criteria.getLaunchReceiverId() != null) {
+                specification = specification.and(buildSpecification(criteria.getLaunchReceiverId(),
+                    root -> root.join(LaunchReceiverHist_.launchReceiver, JoinType.LEFT).get(LaunchReceiver_.id)));
             }
             if (criteria.getIdPipelineId() != null) {
                 specification = specification.and(buildSpecification(criteria.getIdPipelineId(),

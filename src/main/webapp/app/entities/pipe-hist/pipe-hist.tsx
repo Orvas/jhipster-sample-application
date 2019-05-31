@@ -211,7 +211,7 @@ export class PipeHist extends React.Component<IPipeHistProps, IPipeHistState> {
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Pipe <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
                   Id Pipeline Section <FontAwesomeIcon icon="sort" />
@@ -323,7 +323,7 @@ export class PipeHist extends React.Component<IPipeHistProps, IPipeHistState> {
                   </td>
                   <td>{pipeHist.creator}</td>
                   <td>{pipeHist.editor}</td>
-                  <td>{pipeHist.idId ? <Link to={`pipe/${pipeHist.idId}`}>{pipeHist.idId}</Link> : ''}</td>
+                  <td>{pipeHist.pipeId ? <Link to={`pipe/${pipeHist.pipeId}`}>{pipeHist.pipeId}</Link> : ''}</td>
                   <td>
                     {pipeHist.idPipelineSectionId ? (
                       <Link to={`pipeline-section/${pipeHist.idPipelineSectionId}`}>{pipeHist.idPipelineSectionId}</Link>

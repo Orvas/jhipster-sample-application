@@ -2,7 +2,6 @@ package io.github.jhipster.application.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -11,8 +10,6 @@ import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -44,14 +41,13 @@ public class Displacement implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("displacements")
-    private BaseClass id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private BaseClass baseClass;
 
-    @OneToMany(mappedBy = "id")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<DisplacementHist> displacementHists = new HashSet<>();
+    @OneToOne(mappedBy = "displacement")
+    @JsonIgnore
+    private DisplacementHist displacementHist;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -114,42 +110,30 @@ public class Displacement implements Serializable {
         this.editor = editor;
     }
 
-    public BaseClass getId() {
-        return id;
+    public BaseClass getBaseClass() {
+        return baseClass;
     }
 
-    public Displacement id(BaseClass baseClass) {
-        this.id = baseClass;
+    public Displacement baseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
         return this;
     }
 
-    public void setId(BaseClass baseClass) {
-        this.id = baseClass;
+    public void setBaseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
     }
 
-    public Set<DisplacementHist> getDisplacementHists() {
-        return displacementHists;
+    public DisplacementHist getDisplacementHist() {
+        return displacementHist;
     }
 
-    public Displacement displacementHists(Set<DisplacementHist> displacementHists) {
-        this.displacementHists = displacementHists;
+    public Displacement displacementHist(DisplacementHist displacementHist) {
+        this.displacementHist = displacementHist;
         return this;
     }
 
-    public Displacement addDisplacementHist(DisplacementHist displacementHist) {
-        this.displacementHists.add(displacementHist);
-        displacementHist.setId(this);
-        return this;
-    }
-
-    public Displacement removeDisplacementHist(DisplacementHist displacementHist) {
-        this.displacementHists.remove(displacementHist);
-        displacementHist.setId(null);
-        return this;
-    }
-
-    public void setDisplacementHists(Set<DisplacementHist> displacementHists) {
-        this.displacementHists = displacementHists;
+    public void setDisplacementHist(DisplacementHist displacementHist) {
+        this.displacementHist = displacementHist;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

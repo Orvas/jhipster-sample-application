@@ -70,7 +70,7 @@
     ],
     "relationships": [],
     "changelogDate": "20190531124447",
-    "javadoc": "List of values:\n- high unlikely\n- unlikely\n- can occur once in lifetime\n- somewhat likely to occur\n-  likely to occur",
+    "javadoc": "List of values: - high unlikely - unlikely - can occur once in lifetime - somewhat likely to occur-  likely to occur",
     "entityTableName": "list_risk_probability",
     "dto": "mapstruct",
     "pagination": "pagination",

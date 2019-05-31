@@ -100,8 +100,8 @@ export class FreeSpanHistDetail extends React.Component<IFreeSpanHistDetailProps
               <span id="editor">Editor</span>
             </dt>
             <dd>{freeSpanHistEntity.editor}</dd>
-            <dt>Id</dt>
-            <dd>{freeSpanHistEntity.idId ? freeSpanHistEntity.idId : ''}</dd>
+            <dt>Free Span</dt>
+            <dd>{freeSpanHistEntity.freeSpanId ? freeSpanHistEntity.freeSpanId : ''}</dd>
             <dt>Id Pipeline Section</dt>
             <dd>{freeSpanHistEntity.idPipelineSectionId ? freeSpanHistEntity.idPipelineSectionId : ''}</dd>
             <dt>Id Status</dt>

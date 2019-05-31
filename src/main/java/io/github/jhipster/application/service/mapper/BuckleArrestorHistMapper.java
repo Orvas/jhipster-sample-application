@@ -11,7 +11,7 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {BuckleArrestorMapper.class, PipelineSectionMapper.class, ListBucklarrTypeMapper.class, ListInternalCoatingMapper.class, ListExternalCoatingMapper.class, ListNominalWallThicknessMapper.class, PipejointMapper.class, ListBucklarrManufacturerMapper.class, ListBucklarrSpecificationMapper.class, ListLongSeamWeldTypeMapper.class, ListFabricationTypeMapper.class, ListMaterialMapper.class, ListMillLocationMapper.class, ListSteelGradeMapper.class})
 public interface BuckleArrestorHistMapper extends EntityMapper<BuckleArrestorHistDTO, BuckleArrestorHist> {
 
-    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "buckleArrestor.id", target = "buckleArrestorId")
     @Mapping(source = "idPipelineSection.id", target = "idPipelineSectionId")
     @Mapping(source = "idType.id", target = "idTypeId")
     @Mapping(source = "idInternalCoatType.id", target = "idInternalCoatTypeId")
@@ -27,7 +27,7 @@ public interface BuckleArrestorHistMapper extends EntityMapper<BuckleArrestorHis
     @Mapping(source = "idSteelGrade.id", target = "idSteelGradeId")
     BuckleArrestorHistDTO toDto(BuckleArrestorHist buckleArrestorHist);
 
-    @Mapping(source = "idId", target = "id")
+    @Mapping(source = "buckleArrestorId", target = "buckleArrestor")
     @Mapping(source = "idPipelineSectionId", target = "idPipelineSection")
     @Mapping(source = "idTypeId", target = "idType")
     @Mapping(source = "idInternalCoatTypeId", target = "idInternalCoatType")

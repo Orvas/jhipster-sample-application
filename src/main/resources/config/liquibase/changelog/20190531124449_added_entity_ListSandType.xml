@@ -11,7 +11,7 @@
         Added the entity ListSandType.
     -->
     <changeSet id="20190531124449-1" author="jhipster">
-        <createTable tableName="list_sand_type" remarks="List of values: - A - B - C - D - E">
+        <createTable tableName="list_sand_type" remarks="List of values:- A - B- C- D- E">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>

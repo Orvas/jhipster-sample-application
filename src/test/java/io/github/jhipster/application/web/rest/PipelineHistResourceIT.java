@@ -137,16 +137,6 @@ public class PipelineHistResourceIT {
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
         // Add required entity
-        Pipeline pipeline;
-        if (TestUtil.findAll(em, Pipeline.class).isEmpty()) {
-            pipeline = PipelineResourceIT.createEntity(em);
-            em.persist(pipeline);
-            em.flush();
-        } else {
-            pipeline = TestUtil.findAll(em, Pipeline.class).get(0);
-        }
-        pipelineHist.setId(pipeline);
-        // Add required entity
         ListObjectStatus listObjectStatus;
         if (TestUtil.findAll(em, ListObjectStatus.class).isEmpty()) {
             listObjectStatus = ListObjectStatusResourceIT.createEntity(em);
@@ -176,16 +166,6 @@ public class PipelineHistResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        Pipeline pipeline;
-        if (TestUtil.findAll(em, Pipeline.class).isEmpty()) {
-            pipeline = PipelineResourceIT.createUpdatedEntity(em);
-            em.persist(pipeline);
-            em.flush();
-        } else {
-            pipeline = TestUtil.findAll(em, Pipeline.class).get(0);
-        }
-        pipelineHist.setId(pipeline);
         // Add required entity
         ListObjectStatus listObjectStatus;
         if (TestUtil.findAll(em, ListObjectStatus.class).isEmpty()) {
@@ -875,17 +855,20 @@ public class PipelineHistResourceIT {
 
     @Test
     @Transactional
-    public void getAllPipelineHistsByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        Pipeline id = pipelineHist.getId();
+    public void getAllPipelineHistsByPipelineIsEqualToSomething() throws Exception {
+        // Initialize the database
+        Pipeline pipeline = PipelineResourceIT.createEntity(em);
+        em.persist(pipeline);
+        em.flush();
+        pipelineHist.setPipeline(pipeline);
         pipelineHistRepository.saveAndFlush(pipelineHist);
-        Long idId = id.getId();
+        Long pipelineId = pipeline.getId();
 
-        // Get all the pipelineHistList where id equals to idId
-        defaultPipelineHistShouldBeFound("idId.equals=" + idId);
+        // Get all the pipelineHistList where pipeline equals to pipelineId
+        defaultPipelineHistShouldBeFound("pipelineId.equals=" + pipelineId);
 
-        // Get all the pipelineHistList where id equals to idId + 1
-        defaultPipelineHistShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the pipelineHistList where pipeline equals to pipelineId + 1
+        defaultPipelineHistShouldNotBeFound("pipelineId.equals=" + (pipelineId + 1));
     }
 
 

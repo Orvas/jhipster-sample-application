@@ -61,7 +61,7 @@ public class FreeSpanHistCriteria implements Serializable, Criteria {
 
     private StringFilter editor;
 
-    private LongFilter idId;
+    private LongFilter freeSpanId;
 
     private LongFilter idPipelineSectionId;
 
@@ -88,7 +88,7 @@ public class FreeSpanHistCriteria implements Serializable, Criteria {
         this.dateEdit = other.dateEdit == null ? null : other.dateEdit.copy();
         this.creator = other.creator == null ? null : other.creator.copy();
         this.editor = other.editor == null ? null : other.editor.copy();
-        this.idId = other.idId == null ? null : other.idId.copy();
+        this.freeSpanId = other.freeSpanId == null ? null : other.freeSpanId.copy();
         this.idPipelineSectionId = other.idPipelineSectionId == null ? null : other.idPipelineSectionId.copy();
         this.idStatusId = other.idStatusId == null ? null : other.idStatusId.copy();
     }
@@ -234,12 +234,12 @@ public class FreeSpanHistCriteria implements Serializable, Criteria {
         this.editor = editor;
     }
 
-    public LongFilter getIdId() {
-        return idId;
+    public LongFilter getFreeSpanId() {
+        return freeSpanId;
     }
 
-    public void setIdId(LongFilter idId) {
-        this.idId = idId;
+    public void setFreeSpanId(LongFilter freeSpanId) {
+        this.freeSpanId = freeSpanId;
     }
 
     public LongFilter getIdPipelineSectionId() {
@@ -286,7 +286,7 @@ public class FreeSpanHistCriteria implements Serializable, Criteria {
             Objects.equals(dateEdit, that.dateEdit) &&
             Objects.equals(creator, that.creator) &&
             Objects.equals(editor, that.editor) &&
-            Objects.equals(idId, that.idId) &&
+            Objects.equals(freeSpanId, that.freeSpanId) &&
             Objects.equals(idPipelineSectionId, that.idPipelineSectionId) &&
             Objects.equals(idStatusId, that.idStatusId);
     }
@@ -311,7 +311,7 @@ public class FreeSpanHistCriteria implements Serializable, Criteria {
         dateEdit,
         creator,
         editor,
-        idId,
+        freeSpanId,
         idPipelineSectionId,
         idStatusId
         );
@@ -337,7 +337,7 @@ public class FreeSpanHistCriteria implements Serializable, Criteria {
                 (dateEdit != null ? "dateEdit=" + dateEdit + ", " : "") +
                 (creator != null ? "creator=" + creator + ", " : "") +
                 (editor != null ? "editor=" + editor + ", " : "") +
-                (idId != null ? "idId=" + idId + ", " : "") +
+                (freeSpanId != null ? "freeSpanId=" + freeSpanId + ", " : "") +
                 (idPipelineSectionId != null ? "idPipelineSectionId=" + idPipelineSectionId + ", " : "") +
                 (idStatusId != null ? "idStatusId=" + idStatusId + ", " : "") +
             "}";

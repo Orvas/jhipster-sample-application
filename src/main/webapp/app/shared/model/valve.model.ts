@@ -1,5 +1,4 @@
 import { Moment } from 'moment';
-import { IValveHist } from 'app/shared/model/valve-hist.model';
 
 export interface IValve {
   id?: number;
@@ -7,8 +6,8 @@ export interface IValve {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
-  valveHists?: IValveHist[];
+  baseClassId?: number;
+  valveHistId?: number;
 }
 
 export const defaultValue: Readonly<IValve> = {};

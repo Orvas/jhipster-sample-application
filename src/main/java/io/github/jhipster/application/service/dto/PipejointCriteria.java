@@ -37,13 +37,13 @@ public class PipejointCriteria implements Serializable, Criteria {
 
     private LongFilter baseClassId;
 
+    private LongFilter pipejointHistId;
+
     private LongFilter bendHistId;
 
     private LongFilter buckleArrestorHistId;
 
     private LongFilter pipeHistId;
-
-    private LongFilter pipejointHistId;
 
     private LongFilter teeHistId;
 
@@ -59,10 +59,10 @@ public class PipejointCriteria implements Serializable, Criteria {
         this.creator = other.creator == null ? null : other.creator.copy();
         this.editor = other.editor == null ? null : other.editor.copy();
         this.baseClassId = other.baseClassId == null ? null : other.baseClassId.copy();
+        this.pipejointHistId = other.pipejointHistId == null ? null : other.pipejointHistId.copy();
         this.bendHistId = other.bendHistId == null ? null : other.bendHistId.copy();
         this.buckleArrestorHistId = other.buckleArrestorHistId == null ? null : other.buckleArrestorHistId.copy();
         this.pipeHistId = other.pipeHistId == null ? null : other.pipeHistId.copy();
-        this.pipejointHistId = other.pipejointHistId == null ? null : other.pipejointHistId.copy();
         this.teeHistId = other.teeHistId == null ? null : other.teeHistId.copy();
         this.valveHistId = other.valveHistId == null ? null : other.valveHistId.copy();
     }
@@ -120,6 +120,14 @@ public class PipejointCriteria implements Serializable, Criteria {
         this.baseClassId = baseClassId;
     }
 
+    public LongFilter getPipejointHistId() {
+        return pipejointHistId;
+    }
+
+    public void setPipejointHistId(LongFilter pipejointHistId) {
+        this.pipejointHistId = pipejointHistId;
+    }
+
     public LongFilter getBendHistId() {
         return bendHistId;
     }
@@ -142,14 +150,6 @@ public class PipejointCriteria implements Serializable, Criteria {
 
     public void setPipeHistId(LongFilter pipeHistId) {
         this.pipeHistId = pipeHistId;
-    }
-
-    public LongFilter getPipejointHistId() {
-        return pipejointHistId;
-    }
-
-    public void setPipejointHistId(LongFilter pipejointHistId) {
-        this.pipejointHistId = pipejointHistId;
     }
 
     public LongFilter getTeeHistId() {
@@ -185,10 +185,10 @@ public class PipejointCriteria implements Serializable, Criteria {
             Objects.equals(creator, that.creator) &&
             Objects.equals(editor, that.editor) &&
             Objects.equals(baseClassId, that.baseClassId) &&
+            Objects.equals(pipejointHistId, that.pipejointHistId) &&
             Objects.equals(bendHistId, that.bendHistId) &&
             Objects.equals(buckleArrestorHistId, that.buckleArrestorHistId) &&
             Objects.equals(pipeHistId, that.pipeHistId) &&
-            Objects.equals(pipejointHistId, that.pipejointHistId) &&
             Objects.equals(teeHistId, that.teeHistId) &&
             Objects.equals(valveHistId, that.valveHistId);
     }
@@ -202,10 +202,10 @@ public class PipejointCriteria implements Serializable, Criteria {
         creator,
         editor,
         baseClassId,
+        pipejointHistId,
         bendHistId,
         buckleArrestorHistId,
         pipeHistId,
-        pipejointHistId,
         teeHistId,
         valveHistId
         );
@@ -220,10 +220,10 @@ public class PipejointCriteria implements Serializable, Criteria {
                 (creator != null ? "creator=" + creator + ", " : "") +
                 (editor != null ? "editor=" + editor + ", " : "") +
                 (baseClassId != null ? "baseClassId=" + baseClassId + ", " : "") +
+                (pipejointHistId != null ? "pipejointHistId=" + pipejointHistId + ", " : "") +
                 (bendHistId != null ? "bendHistId=" + bendHistId + ", " : "") +
                 (buckleArrestorHistId != null ? "buckleArrestorHistId=" + buckleArrestorHistId + ", " : "") +
                 (pipeHistId != null ? "pipeHistId=" + pipeHistId + ", " : "") +
-                (pipejointHistId != null ? "pipejointHistId=" + pipejointHistId + ", " : "") +
                 (teeHistId != null ? "teeHistId=" + teeHistId + ", " : "") +
                 (valveHistId != null ? "valveHistId=" + valveHistId + ", " : "") +
             "}";

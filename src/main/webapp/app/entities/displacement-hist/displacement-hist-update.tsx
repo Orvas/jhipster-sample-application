@@ -22,7 +22,7 @@ export interface IDisplacementHistUpdateProps extends StateProps, DispatchProps,
 
 export interface IDisplacementHistUpdateState {
   isNew: boolean;
-  idId: string;
+  displacementId: string;
   idPipelineSectionId: string;
 }
 
@@ -30,7 +30,7 @@ export class DisplacementHistUpdate extends React.Component<IDisplacementHistUpd
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      displacementId: '0',
       idPipelineSectionId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
@@ -265,8 +265,9 @@ export class DisplacementHistUpdate extends React.Component<IDisplacementHistUpd
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="displacement-hist-id">Id</Label>
-                  <AvInput id="displacement-hist-id" type="select" className="form-control" name="idId" required>
+                  <Label for="displacement-hist-displacement">Displacement</Label>
+                  <AvInput id="displacement-hist-displacement" type="select" className="form-control" name="displacementId">
+                    <option value="" key="0" />
                     {displacements
                       ? displacements.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -275,7 +276,6 @@ export class DisplacementHistUpdate extends React.Component<IDisplacementHistUpd
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <AvGroup>
                   <Label for="displacement-hist-idPipelineSection">Id Pipeline Section</Label>

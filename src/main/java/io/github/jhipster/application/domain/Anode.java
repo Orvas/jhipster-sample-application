@@ -2,7 +2,6 @@ package io.github.jhipster.application.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -11,8 +10,6 @@ import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -44,14 +41,13 @@ public class Anode implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("anodes")
-    private BaseClass id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private BaseClass baseClass;
 
-    @OneToMany(mappedBy = "id")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<AnodeHist> anodeHists = new HashSet<>();
+    @OneToOne(mappedBy = "anode")
+    @JsonIgnore
+    private AnodeHist anodeHist;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -114,42 +110,30 @@ public class Anode implements Serializable {
         this.editor = editor;
     }
 
-    public BaseClass getId() {
-        return id;
+    public BaseClass getBaseClass() {
+        return baseClass;
     }
 
-    public Anode id(BaseClass baseClass) {
-        this.id = baseClass;
+    public Anode baseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
         return this;
     }
 
-    public void setId(BaseClass baseClass) {
-        this.id = baseClass;
+    public void setBaseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
     }
 
-    public Set<AnodeHist> getAnodeHists() {
-        return anodeHists;
+    public AnodeHist getAnodeHist() {
+        return anodeHist;
     }
 
-    public Anode anodeHists(Set<AnodeHist> anodeHists) {
-        this.anodeHists = anodeHists;
+    public Anode anodeHist(AnodeHist anodeHist) {
+        this.anodeHist = anodeHist;
         return this;
     }
 
-    public Anode addAnodeHist(AnodeHist anodeHist) {
-        this.anodeHists.add(anodeHist);
-        anodeHist.setId(this);
-        return this;
-    }
-
-    public Anode removeAnodeHist(AnodeHist anodeHist) {
-        this.anodeHists.remove(anodeHist);
-        anodeHist.setId(null);
-        return this;
-    }
-
-    public void setAnodeHists(Set<AnodeHist> anodeHists) {
-        this.anodeHists = anodeHists;
+    public void setAnodeHist(AnodeHist anodeHist) {
+        this.anodeHist = anodeHist;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

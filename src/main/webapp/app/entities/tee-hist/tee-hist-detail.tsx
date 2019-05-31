@@ -232,8 +232,8 @@ export class TeeHistDetail extends React.Component<ITeeHistDetailProps> {
               <span id="editor">Editor</span>
             </dt>
             <dd>{teeHistEntity.editor}</dd>
-            <dt>Id</dt>
-            <dd>{teeHistEntity.idId ? teeHistEntity.idId : ''}</dd>
+            <dt>Tee</dt>
+            <dd>{teeHistEntity.teeId ? teeHistEntity.teeId : ''}</dd>
             <dt>Id Pipeline Section</dt>
             <dd>{teeHistEntity.idPipelineSectionId ? teeHistEntity.idPipelineSectionId : ''}</dd>
             <dt>Id Type</dt>

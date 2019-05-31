@@ -82,10 +82,9 @@ public class CpsHist implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("cpsHists")
-    private Cps id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Cps cps;
 
     @ManyToOne(optional = false)
     @NotNull
@@ -301,17 +300,17 @@ public class CpsHist implements Serializable {
         this.editor = editor;
     }
 
-    public Cps getId() {
-        return id;
+    public Cps getCps() {
+        return cps;
     }
 
-    public CpsHist id(Cps cps) {
-        this.id = cps;
+    public CpsHist cps(Cps cps) {
+        this.cps = cps;
         return this;
     }
 
-    public void setId(Cps cps) {
-        this.id = cps;
+    public void setCps(Cps cps) {
+        this.cps = cps;
     }
 
     public PipelineSection getIdPipelineSection() {

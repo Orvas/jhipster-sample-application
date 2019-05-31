@@ -130,7 +130,7 @@ public class BuckleArrestorHistDTO implements Serializable {
     private String editor;
 
 
-    private Long idId;
+    private Long buckleArrestorId;
 
     private Long idPipelineSectionId;
 
@@ -574,12 +574,12 @@ public class BuckleArrestorHistDTO implements Serializable {
         this.editor = editor;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getBuckleArrestorId() {
+        return buckleArrestorId;
     }
 
-    public void setIdId(Long buckleArrestorId) {
-        this.idId = buckleArrestorId;
+    public void setBuckleArrestorId(Long buckleArrestorId) {
+        this.buckleArrestorId = buckleArrestorId;
     }
 
     public Long getIdPipelineSectionId() {
@@ -762,7 +762,7 @@ public class BuckleArrestorHistDTO implements Serializable {
             ", dateEdit='" + getDateEdit() + "'" +
             ", creator='" + getCreator() + "'" +
             ", editor='" + getEditor() + "'" +
-            ", id=" + getIdId() +
+            ", buckleArrestor=" + getBuckleArrestorId() +
             ", idPipelineSection=" + getIdPipelineSectionId() +
             ", idType=" + getIdTypeId() +
             ", idInternalCoatType=" + getIdInternalCoatTypeId() +

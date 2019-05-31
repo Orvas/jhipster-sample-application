@@ -134,9 +134,9 @@ public class CpsHistQueryService extends QueryService<CpsHist> {
             if (criteria.getEditor() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getEditor(), CpsHist_.editor));
             }
-            if (criteria.getIdId() != null) {
-                specification = specification.and(buildSpecification(criteria.getIdId(),
-                    root -> root.join(CpsHist_.id, JoinType.LEFT).get(Cps_.id)));
+            if (criteria.getCpsId() != null) {
+                specification = specification.and(buildSpecification(criteria.getCpsId(),
+                    root -> root.join(CpsHist_.cps, JoinType.LEFT).get(Cps_.id)));
             }
             if (criteria.getIdPipelineSectionId() != null) {
                 specification = specification.and(buildSpecification(criteria.getIdPipelineSectionId(),

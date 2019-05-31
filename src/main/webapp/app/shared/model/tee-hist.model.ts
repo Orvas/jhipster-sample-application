@@ -50,7 +50,7 @@ export interface ITeeHist {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
+  teeId?: number;
   idPipelineSectionId?: number;
   idTypeId?: number;
   idInternalCoatTypeId?: number;

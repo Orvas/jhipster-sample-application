@@ -15,8 +15,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 /**
- * CPS action  range
- * One row corresponds to one cps and pipeline section
+ * CPS action  rangeOne row corresponds to one cps and pipeline section
  */
 @Entity
 @Table(name = "cps_range")
