@@ -8,6 +8,12 @@ import { ICrudGetAction, ICrudGetAllAction, ICrudPutAction } from 'react-jhipste
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
 
+import { IBaseClass } from 'app/shared/model/base-class.model';
+import { getEntities as getBaseClasses } from 'app/entities/base-class/base-class.reducer';
+import { IPipeline } from 'app/shared/model/pipeline.model';
+import { getEntities as getPipelines } from 'app/entities/pipeline/pipeline.reducer';
+import { IListSafetyClass } from 'app/shared/model/list-safety-class.model';
+import { getEntities as getListSafetyClasses } from 'app/entities/list-safety-class/list-safety-class.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './pipeline-section.reducer';
 import { IPipelineSection } from 'app/shared/model/pipeline-section.model';
 // tslint:disable-next-line:no-unused-variable
@@ -18,12 +24,18 @@ export interface IPipelineSectionUpdateProps extends StateProps, DispatchProps, 
 
 export interface IPipelineSectionUpdateState {
   isNew: boolean;
+  idId: string;
+  idPipelineId: string;
+  idSafetyClassId: string;
 }
 
 export class PipelineSectionUpdate extends React.Component<IPipelineSectionUpdateProps, IPipelineSectionUpdateState> {
   constructor(props) {
     super(props);
     this.state = {
+      idId: '0',
+      idPipelineId: '0',
+      idSafetyClassId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }
@@ -40,6 +52,10 @@ export class PipelineSectionUpdate extends React.Component<IPipelineSectionUpdat
     } else {
       this.props.getEntity(this.props.match.params.id);
     }
+
+    this.props.getBaseClasses();
+    this.props.getPipelines();
+    this.props.getListSafetyClasses();
   }
 
   saveEntity = (event, errors, values) => {
@@ -66,7 +82,7 @@ export class PipelineSectionUpdate extends React.Component<IPipelineSectionUpdat
   };
 
   render() {
-    const { pipelineSectionEntity, loading, updating } = this.props;
+    const { pipelineSectionEntity, baseClasses, pipelines, listSafetyClasses, loading, updating } = this.props;
     const { isNew } = this.state;
 
     return (
@@ -92,37 +108,58 @@ export class PipelineSectionUpdate extends React.Component<IPipelineSectionUpdat
                   <Label id="nameLabel" for="pipeline-section-name">
                     Name
                   </Label>
-                  <AvField id="pipeline-section-name" type="text" name="name" />
+                  <AvField
+                    id="pipeline-section-name"
+                    type="text"
+                    name="name"
+                    validate={{
+                      required: { value: true, errorMessage: 'This field is required.' },
+                      maxLength: { value: 255, errorMessage: 'This field cannot be longer than 255 characters.' }
+                    }}
+                  />
                 </AvGroup>
                 <AvGroup>
-                  <Label id="pipelineIdLabel" for="pipeline-section-pipelineId">
-                    Pipeline Id
-                  </Label>
-                  <AvField id="pipeline-section-pipelineId" type="string" className="form-control" name="pipelineId" />
-                </AvGroup>
-                <AvGroup>
-                  <Label id="isOnshoreLabel" check>
-                    <AvInput id="pipeline-section-isOnshore" type="checkbox" className="form-control" name="isOnshore" />
+                  <Label id="isOnshoreLabel" for="pipeline-section-isOnshore">
                     Is Onshore
                   </Label>
-                </AvGroup>
-                <AvGroup>
-                  <Label id="safetyClassIdLabel" for="pipeline-section-safetyClassId">
-                    Safety Class Id
-                  </Label>
-                  <AvField id="pipeline-section-safetyClassId" type="string" className="form-control" name="safetyClassId" />
+                  <AvField
+                    id="pipeline-section-isOnshore"
+                    type="string"
+                    className="form-control"
+                    name="isOnshore"
+                    validate={{
+                      required: { value: true, errorMessage: 'This field is required.' },
+                      number: { value: true, errorMessage: 'This field should be a number.' }
+                    }}
+                  />
                 </AvGroup>
                 <AvGroup>
                   <Label id="kpStartLabel" for="pipeline-section-kpStart">
                     Kp Start
                   </Label>
-                  <AvField id="pipeline-section-kpStart" type="string" className="form-control" name="kpStart" />
+                  <AvField
+                    id="pipeline-section-kpStart"
+                    type="text"
+                    name="kpStart"
+                    validate={{
+                      required: { value: true, errorMessage: 'This field is required.' },
+                      number: { value: true, errorMessage: 'This field should be a number.' }
+                    }}
+                  />
                 </AvGroup>
                 <AvGroup>
                   <Label id="kpEndLabel" for="pipeline-section-kpEnd">
                     Kp End
                   </Label>
-                  <AvField id="pipeline-section-kpEnd" type="string" className="form-control" name="kpEnd" />
+                  <AvField
+                    id="pipeline-section-kpEnd"
+                    type="text"
+                    name="kpEnd"
+                    validate={{
+                      required: { value: true, errorMessage: 'This field is required.' },
+                      number: { value: true, errorMessage: 'This field should be a number.' }
+                    }}
+                  />
                 </AvGroup>
                 <AvGroup>
                   <Label id="dateCreateLabel" for="pipeline-section-dateCreate">
@@ -154,13 +191,66 @@ export class PipelineSectionUpdate extends React.Component<IPipelineSectionUpdat
                   <Label id="creatorLabel" for="pipeline-section-creator">
                     Creator
                   </Label>
-                  <AvField id="pipeline-section-creator" type="text" name="creator" />
+                  <AvField
+                    id="pipeline-section-creator"
+                    type="text"
+                    name="creator"
+                    validate={{
+                      maxLength: { value: 255, errorMessage: 'This field cannot be longer than 255 characters.' }
+                    }}
+                  />
                 </AvGroup>
                 <AvGroup>
                   <Label id="editorLabel" for="pipeline-section-editor">
                     Editor
                   </Label>
-                  <AvField id="pipeline-section-editor" type="text" name="editor" />
+                  <AvField
+                    id="pipeline-section-editor"
+                    type="text"
+                    name="editor"
+                    validate={{
+                      maxLength: { value: 255, errorMessage: 'This field cannot be longer than 255 characters.' }
+                    }}
+                  />
+                </AvGroup>
+                <AvGroup>
+                  <Label for="pipeline-section-id">Id</Label>
+                  <AvInput id="pipeline-section-id" type="select" className="form-control" name="idId" required>
+                    {baseClasses
+                      ? baseClasses.map(otherEntity => (
+                          <option value={otherEntity.id} key={otherEntity.id}>
+                            {otherEntity.id}
+                          </option>
+                        ))
+                      : null}
+                  </AvInput>
+                  <AvFeedback>This field is required.</AvFeedback>
+                </AvGroup>
+                <AvGroup>
+                  <Label for="pipeline-section-idPipeline">Id Pipeline</Label>
+                  <AvInput id="pipeline-section-idPipeline" type="select" className="form-control" name="idPipelineId" required>
+                    {pipelines
+                      ? pipelines.map(otherEntity => (
+                          <option value={otherEntity.id} key={otherEntity.id}>
+                            {otherEntity.id}
+                          </option>
+                        ))
+                      : null}
+                  </AvInput>
+                  <AvFeedback>This field is required.</AvFeedback>
+                </AvGroup>
+                <AvGroup>
+                  <Label for="pipeline-section-idSafetyClass">Id Safety Class</Label>
+                  <AvInput id="pipeline-section-idSafetyClass" type="select" className="form-control" name="idSafetyClassId" required>
+                    {listSafetyClasses
+                      ? listSafetyClasses.map(otherEntity => (
+                          <option value={otherEntity.id} key={otherEntity.id}>
+                            {otherEntity.id}
+                          </option>
+                        ))
+                      : null}
+                  </AvInput>
+                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <Button tag={Link} id="cancel-save" to="/entity/pipeline-section" replace color="info">
                   <FontAwesomeIcon icon="arrow-left" />
@@ -182,6 +272,9 @@ export class PipelineSectionUpdate extends React.Component<IPipelineSectionUpdat
 }
 
 const mapStateToProps = (storeState: IRootState) => ({
+  baseClasses: storeState.baseClass.entities,
+  pipelines: storeState.pipeline.entities,
+  listSafetyClasses: storeState.listSafetyClass.entities,
   pipelineSectionEntity: storeState.pipelineSection.entity,
   loading: storeState.pipelineSection.loading,
   updating: storeState.pipelineSection.updating,
@@ -189,6 +282,9 @@ const mapStateToProps = (storeState: IRootState) => ({
 });
 
 const mapDispatchToProps = {
+  getBaseClasses,
+  getPipelines,
+  getListSafetyClasses,
   getEntity,
   updateEntity,
   createEntity,

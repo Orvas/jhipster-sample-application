@@ -3,27 +3,33 @@
     "fields": [
         {
             "fieldName": "name",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "pipelineId",
-            "fieldType": "Long"
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
         },
         {
             "fieldName": "isOnshore",
-            "fieldType": "Boolean"
-        },
-        {
-            "fieldName": "safetyClassId",
-            "fieldType": "Long"
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
         },
         {
             "fieldName": "kpStart",
-            "fieldType": "Double"
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
         },
         {
             "fieldName": "kpEnd",
-            "fieldType": "Double"
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
         },
         {
             "fieldName": "dateCreate",
@@ -35,20 +41,120 @@
         },
         {
             "fieldName": "creator",
-            "fieldType": "String"
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
         },
         {
             "fieldName": "editor",
-            "fieldType": "String"
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
         }
     ],
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "baseClass",
+            "otherEntityRelationshipName": "pipelineSection",
+            "relationshipValidateRules": "required",
+            "relationshipName": "id",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "pipeline",
+            "otherEntityRelationshipName": "pipelineSection",
+            "relationshipValidateRules": "required",
+            "relationshipName": "idPipeline",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "listSafetyClass",
+            "otherEntityRelationshipName": "pipelineSection",
+            "relationshipValidateRules": "required",
+            "relationshipName": "idSafetyClass",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "anodeHist",
+            "otherEntityRelationshipName": "idPipelineSection",
+            "relationshipName": "anodeHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "bendHist",
+            "otherEntityRelationshipName": "idPipelineSection",
+            "relationshipName": "bendHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "buckleArrestorHist",
+            "otherEntityRelationshipName": "idPipelineSection",
+            "relationshipName": "buckleArrestorHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "cpsHist",
+            "otherEntityRelationshipName": "idPipelineSection",
+            "relationshipName": "cpsHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "cpsRange",
+            "otherEntityRelationshipName": "idPipelineSection",
+            "relationshipName": "cpsRange"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "displacementHist",
+            "otherEntityRelationshipName": "idPipelineSection",
+            "relationshipName": "displacementHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "freeSpanHist",
+            "otherEntityRelationshipName": "idPipelineSection",
+            "relationshipName": "freeSpanHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "freeSpanSupportHist",
+            "otherEntityRelationshipName": "idPipelineSection",
+            "relationshipName": "freeSpanSupportHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pipeHist",
+            "otherEntityRelationshipName": "idPipelineSection",
+            "relationshipName": "pipeHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "teeHist",
+            "otherEntityRelationshipName": "idPipelineSection",
+            "relationshipName": "teeHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "valveHist",
+            "otherEntityRelationshipName": "idPipelineSection",
+            "relationshipName": "valveHist"
+        }
+    ],
     "changelogDate": "20190528160557",
+    "javadoc": "Homogeneous sections,  areas of unchanged values ??of the following characteristics:\n- is_onshore\n- safety class\n\nOne table rows corresponds to one section",
     "entityTableName": "pipeline_section",
-    "dto": "no",
-    "pagination": "no",
-    "service": "no",
-    "jpaMetamodelFiltering": false,
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
     "fluentMethods": true,
     "clientRootFolder": "",
     "applications": "*"

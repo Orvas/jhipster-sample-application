@@ -1,0 +1,124 @@
+{
+    "name": "ListMaterial",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "fullName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "isCurrentFlag",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "dateCreate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateEdit",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "creator",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "editor",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "anodeHist",
+            "otherEntityRelationshipName": "idMaterial",
+            "relationshipName": "anodeHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "bendHist",
+            "otherEntityRelationshipName": "idMaterial",
+            "relationshipName": "bendHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "buckleArrestorHist",
+            "otherEntityRelationshipName": "idMaterial",
+            "relationshipName": "buckleArrestorHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pipeHist",
+            "otherEntityRelationshipName": "idMaterial",
+            "relationshipName": "pipeHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pipejointHist",
+            "otherEntityRelationshipName": "idMaterial",
+            "relationshipName": "pipejointHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "teeHist",
+            "otherEntityRelationshipName": "idMaterial",
+            "relationshipName": "teeHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "valveHist",
+            "otherEntityRelationshipName": "idMaterial",
+            "relationshipName": "valveHist"
+        }
+    ],
+    "changelogDate": "20190531124435",
+    "entityTableName": "list_material",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

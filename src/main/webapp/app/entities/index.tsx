@@ -7,6 +7,90 @@ import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
 import ListObjectStatus from './list-object-status';
 import PipelineSection from './pipeline-section';
 import FreeSpanHistory from './free-span-history';
+import Anode from './anode';
+import AnodeHist from './anode-hist';
+import BaseClass from './base-class';
+import Bend from './bend';
+import BendHist from './bend-hist';
+import BuckleArrestor from './buckle-arrestor';
+import BuckleArrestorHist from './buckle-arrestor-hist';
+import Cps from './cps';
+import CpsHist from './cps-hist';
+import CpsRange from './cps-range';
+import Displacement from './displacement';
+import DisplacementHist from './displacement-hist';
+import FreeSpan from './free-span';
+import FreeSpanHist from './free-span-hist';
+import FreeSpanSupport from './free-span-support';
+import FreeSpanSupportHist from './free-span-support-hist';
+import LaunchReceiver from './launch-receiver';
+import LaunchReceiverHist from './launch-receiver-hist';
+import ListAnodeBraceleteType from './list-anode-bracelete-type';
+import ListBendManufacturer from './list-bend-manufacturer';
+import ListBendSpecification from './list-bend-specification';
+import ListBendType from './list-bend-type';
+import ListBoundaryCondUcase from './list-boundary-cond-ucase';
+import ListBucklarrManufacturer from './list-bucklarr-manufacturer';
+import ListBucklarrSpecification from './list-bucklarr-specification';
+import ListBucklarrType from './list-bucklarr-type';
+import ListClayType from './list-clay-type';
+import ListClcKind from './list-clc-kind';
+import ListClcLvl from './list-clc-lvl';
+import ListClcResult from './list-clc-result';
+import ListClcType from './list-clc-type';
+import ListDfctGroup from './list-dfct-group';
+import ListDfctPosType from './list-dfct-pos-type';
+import ListDfctType from './list-dfct-type';
+import ListEffAxforceUcase from './list-eff-axforce-ucase';
+import ListEnvDirection from './list-env-direction';
+import ListEnvPoint from './list-env-point';
+import ListExternalCoating from './list-external-coating';
+import ListFabricationType from './list-fabrication-type';
+import ListIliPigType from './list-ili-pig-type';
+import ListInternalCoating from './list-internal-coating';
+import ListInternalPressUcase from './list-internal-press-ucase';
+import ListLongSeamWeldType from './list-long-seam-weld-type';
+import ListMaterial from './list-material';
+import ListMillLocation from './list-mill-location';
+import ListMinpressUcase from './list-minpress-ucase';
+import ListNominalWallThickness from './list-nominal-wall-thickness';
+import ListObjectType from './list-object-type';
+import ListPipeManufacturer from './list-pipe-manufacturer';
+import ListPipeSpecification from './list-pipe-specification';
+import ListPipejointSpecification from './list-pipejoint-specification';
+import ListPipejointType from './list-pipejoint-type';
+import ListPipelineLocation from './list-pipeline-location';
+import ListRiskConsequence from './list-risk-consequence';
+import ListRiskProbability from './list-risk-probability';
+import ListSafetyClass from './list-safety-class';
+import ListSandType from './list-sand-type';
+import ListSoilType from './list-soil-type';
+import ListSteelGrade from './list-steel-grade';
+import ListTeeManufacturer from './list-tee-manufacturer';
+import ListTeeSpecification from './list-tee-specification';
+import ListTeeType from './list-tee-type';
+import ListThreat from './list-threat';
+import ListThreatGroup from './list-threat-group';
+import ListValveFunction from './list-valve-function';
+import ListValveManufacturer from './list-valve-manufacturer';
+import ListValveSpecification from './list-valve-specification';
+import ListValveType from './list-valve-type';
+import ListWrkKind from './list-wrk-kind';
+import ListWrkPurpose from './list-wrk-purpose';
+import ListWrkStatus from './list-wrk-status';
+import ListWrkcmmsStatus from './list-wrkcmms-status';
+import MetaList from './meta-list';
+import Pipe from './pipe';
+import PipeHist from './pipe-hist';
+import Pipejoint from './pipejoint';
+import PipejointHist from './pipejoint-hist';
+import Pipeline from './pipeline';
+import PipelineHist from './pipeline-hist';
+import PipelineSegment from './pipeline-segment';
+import Tee from './tee';
+import TeeHist from './tee-hist';
+import Valve from './valve';
+import ValveHist from './valve-hist';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 const Routes = ({ match }) => (
@@ -16,6 +100,90 @@ const Routes = ({ match }) => (
       <ErrorBoundaryRoute path={`${match.url}/list-object-status`} component={ListObjectStatus} />
       <ErrorBoundaryRoute path={`${match.url}/pipeline-section`} component={PipelineSection} />
       <ErrorBoundaryRoute path={`${match.url}/free-span-history`} component={FreeSpanHistory} />
+      <ErrorBoundaryRoute path={`${match.url}/anode`} component={Anode} />
+      <ErrorBoundaryRoute path={`${match.url}/anode-hist`} component={AnodeHist} />
+      <ErrorBoundaryRoute path={`${match.url}/base-class`} component={BaseClass} />
+      <ErrorBoundaryRoute path={`${match.url}/bend`} component={Bend} />
+      <ErrorBoundaryRoute path={`${match.url}/bend-hist`} component={BendHist} />
+      <ErrorBoundaryRoute path={`${match.url}/buckle-arrestor`} component={BuckleArrestor} />
+      <ErrorBoundaryRoute path={`${match.url}/buckle-arrestor-hist`} component={BuckleArrestorHist} />
+      <ErrorBoundaryRoute path={`${match.url}/cps`} component={Cps} />
+      <ErrorBoundaryRoute path={`${match.url}/cps-hist`} component={CpsHist} />
+      <ErrorBoundaryRoute path={`${match.url}/cps-range`} component={CpsRange} />
+      <ErrorBoundaryRoute path={`${match.url}/displacement`} component={Displacement} />
+      <ErrorBoundaryRoute path={`${match.url}/displacement-hist`} component={DisplacementHist} />
+      <ErrorBoundaryRoute path={`${match.url}/free-span`} component={FreeSpan} />
+      <ErrorBoundaryRoute path={`${match.url}/free-span-hist`} component={FreeSpanHist} />
+      <ErrorBoundaryRoute path={`${match.url}/free-span-support`} component={FreeSpanSupport} />
+      <ErrorBoundaryRoute path={`${match.url}/free-span-support-hist`} component={FreeSpanSupportHist} />
+      <ErrorBoundaryRoute path={`${match.url}/launch-receiver`} component={LaunchReceiver} />
+      <ErrorBoundaryRoute path={`${match.url}/launch-receiver-hist`} component={LaunchReceiverHist} />
+      <ErrorBoundaryRoute path={`${match.url}/list-anode-bracelete-type`} component={ListAnodeBraceleteType} />
+      <ErrorBoundaryRoute path={`${match.url}/list-bend-manufacturer`} component={ListBendManufacturer} />
+      <ErrorBoundaryRoute path={`${match.url}/list-bend-specification`} component={ListBendSpecification} />
+      <ErrorBoundaryRoute path={`${match.url}/list-bend-type`} component={ListBendType} />
+      <ErrorBoundaryRoute path={`${match.url}/list-boundary-cond-ucase`} component={ListBoundaryCondUcase} />
+      <ErrorBoundaryRoute path={`${match.url}/list-bucklarr-manufacturer`} component={ListBucklarrManufacturer} />
+      <ErrorBoundaryRoute path={`${match.url}/list-bucklarr-specification`} component={ListBucklarrSpecification} />
+      <ErrorBoundaryRoute path={`${match.url}/list-bucklarr-type`} component={ListBucklarrType} />
+      <ErrorBoundaryRoute path={`${match.url}/list-clay-type`} component={ListClayType} />
+      <ErrorBoundaryRoute path={`${match.url}/list-clc-kind`} component={ListClcKind} />
+      <ErrorBoundaryRoute path={`${match.url}/list-clc-lvl`} component={ListClcLvl} />
+      <ErrorBoundaryRoute path={`${match.url}/list-clc-result`} component={ListClcResult} />
+      <ErrorBoundaryRoute path={`${match.url}/list-clc-type`} component={ListClcType} />
+      <ErrorBoundaryRoute path={`${match.url}/list-dfct-group`} component={ListDfctGroup} />
+      <ErrorBoundaryRoute path={`${match.url}/list-dfct-pos-type`} component={ListDfctPosType} />
+      <ErrorBoundaryRoute path={`${match.url}/list-dfct-type`} component={ListDfctType} />
+      <ErrorBoundaryRoute path={`${match.url}/list-eff-axforce-ucase`} component={ListEffAxforceUcase} />
+      <ErrorBoundaryRoute path={`${match.url}/list-env-direction`} component={ListEnvDirection} />
+      <ErrorBoundaryRoute path={`${match.url}/list-env-point`} component={ListEnvPoint} />
+      <ErrorBoundaryRoute path={`${match.url}/list-external-coating`} component={ListExternalCoating} />
+      <ErrorBoundaryRoute path={`${match.url}/list-fabrication-type`} component={ListFabricationType} />
+      <ErrorBoundaryRoute path={`${match.url}/list-ili-pig-type`} component={ListIliPigType} />
+      <ErrorBoundaryRoute path={`${match.url}/list-internal-coating`} component={ListInternalCoating} />
+      <ErrorBoundaryRoute path={`${match.url}/list-internal-press-ucase`} component={ListInternalPressUcase} />
+      <ErrorBoundaryRoute path={`${match.url}/list-long-seam-weld-type`} component={ListLongSeamWeldType} />
+      <ErrorBoundaryRoute path={`${match.url}/list-material`} component={ListMaterial} />
+      <ErrorBoundaryRoute path={`${match.url}/list-mill-location`} component={ListMillLocation} />
+      <ErrorBoundaryRoute path={`${match.url}/list-minpress-ucase`} component={ListMinpressUcase} />
+      <ErrorBoundaryRoute path={`${match.url}/list-nominal-wall-thickness`} component={ListNominalWallThickness} />
+      <ErrorBoundaryRoute path={`${match.url}/list-object-type`} component={ListObjectType} />
+      <ErrorBoundaryRoute path={`${match.url}/list-pipe-manufacturer`} component={ListPipeManufacturer} />
+      <ErrorBoundaryRoute path={`${match.url}/list-pipe-specification`} component={ListPipeSpecification} />
+      <ErrorBoundaryRoute path={`${match.url}/list-pipejoint-specification`} component={ListPipejointSpecification} />
+      <ErrorBoundaryRoute path={`${match.url}/list-pipejoint-type`} component={ListPipejointType} />
+      <ErrorBoundaryRoute path={`${match.url}/list-pipeline-location`} component={ListPipelineLocation} />
+      <ErrorBoundaryRoute path={`${match.url}/list-risk-consequence`} component={ListRiskConsequence} />
+      <ErrorBoundaryRoute path={`${match.url}/list-risk-probability`} component={ListRiskProbability} />
+      <ErrorBoundaryRoute path={`${match.url}/list-safety-class`} component={ListSafetyClass} />
+      <ErrorBoundaryRoute path={`${match.url}/list-sand-type`} component={ListSandType} />
+      <ErrorBoundaryRoute path={`${match.url}/list-soil-type`} component={ListSoilType} />
+      <ErrorBoundaryRoute path={`${match.url}/list-steel-grade`} component={ListSteelGrade} />
+      <ErrorBoundaryRoute path={`${match.url}/list-tee-manufacturer`} component={ListTeeManufacturer} />
+      <ErrorBoundaryRoute path={`${match.url}/list-tee-specification`} component={ListTeeSpecification} />
+      <ErrorBoundaryRoute path={`${match.url}/list-tee-type`} component={ListTeeType} />
+      <ErrorBoundaryRoute path={`${match.url}/list-threat`} component={ListThreat} />
+      <ErrorBoundaryRoute path={`${match.url}/list-threat-group`} component={ListThreatGroup} />
+      <ErrorBoundaryRoute path={`${match.url}/list-valve-function`} component={ListValveFunction} />
+      <ErrorBoundaryRoute path={`${match.url}/list-valve-manufacturer`} component={ListValveManufacturer} />
+      <ErrorBoundaryRoute path={`${match.url}/list-valve-specification`} component={ListValveSpecification} />
+      <ErrorBoundaryRoute path={`${match.url}/list-valve-type`} component={ListValveType} />
+      <ErrorBoundaryRoute path={`${match.url}/list-wrk-kind`} component={ListWrkKind} />
+      <ErrorBoundaryRoute path={`${match.url}/list-wrk-purpose`} component={ListWrkPurpose} />
+      <ErrorBoundaryRoute path={`${match.url}/list-wrk-status`} component={ListWrkStatus} />
+      <ErrorBoundaryRoute path={`${match.url}/list-wrkcmms-status`} component={ListWrkcmmsStatus} />
+      <ErrorBoundaryRoute path={`${match.url}/meta-list`} component={MetaList} />
+      <ErrorBoundaryRoute path={`${match.url}/pipe`} component={Pipe} />
+      <ErrorBoundaryRoute path={`${match.url}/pipe-hist`} component={PipeHist} />
+      <ErrorBoundaryRoute path={`${match.url}/pipejoint`} component={Pipejoint} />
+      <ErrorBoundaryRoute path={`${match.url}/pipejoint-hist`} component={PipejointHist} />
+      <ErrorBoundaryRoute path={`${match.url}/pipeline`} component={Pipeline} />
+      <ErrorBoundaryRoute path={`${match.url}/pipeline-hist`} component={PipelineHist} />
+      <ErrorBoundaryRoute path={`${match.url}/pipeline-segment`} component={PipelineSegment} />
+      <ErrorBoundaryRoute path={`${match.url}/tee`} component={Tee} />
+      <ErrorBoundaryRoute path={`${match.url}/tee-hist`} component={TeeHist} />
+      <ErrorBoundaryRoute path={`${match.url}/valve`} component={Valve} />
+      <ErrorBoundaryRoute path={`${match.url}/valve-hist`} component={ValveHist} />
       {/* jhipster-needle-add-route-path - JHipster will add routes here */}
     </Switch>
   </div>

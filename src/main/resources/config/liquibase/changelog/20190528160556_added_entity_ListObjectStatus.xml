@@ -16,24 +16,46 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="code" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
 
             <column name="name" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
 
             <column name="full_name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="is_current_flag" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="description" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 
-            <column name="is_current_flag" type="boolean">
+            <column name="date_create" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="date_edit" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="creator" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="editor" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
 
+        <dropDefaultValue tableName="list_object_status" columnName="date_create" columnDataType="datetime"/>
+        <dropDefaultValue tableName="list_object_status" columnName="date_edit" columnDataType="datetime"/>
     </changeSet>
 
     <!--
@@ -54,7 +76,12 @@
             <column name="code" type="string"/>
             <column name="name" type="string"/>
             <column name="full_name" type="string"/>
-            <column name="is_current_flag" type="boolean"/>
+            <column name="is_current_flag" type="numeric"/>
+            <column name="description" type="string"/>
+            <column name="date_create" type="date"/>
+            <column name="date_edit" type="date"/>
+            <column name="creator" type="string"/>
+            <column name="editor" type="string"/>
         </loadData>
     </changeSet>
 

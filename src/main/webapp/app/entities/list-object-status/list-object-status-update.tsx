@@ -43,6 +43,9 @@ export class ListObjectStatusUpdate extends React.Component<IListObjectStatusUpd
   }
 
   saveEntity = (event, errors, values) => {
+    values.dateCreate = convertDateTimeToServer(values.dateCreate);
+    values.dateEdit = convertDateTimeToServer(values.dateEdit);
+
     if (errors.length === 0) {
       const { listObjectStatusEntity } = this.props;
       const entity = {
@@ -89,25 +92,123 @@ export class ListObjectStatusUpdate extends React.Component<IListObjectStatusUpd
                   <Label id="codeLabel" for="list-object-status-code">
                     Code
                   </Label>
-                  <AvField id="list-object-status-code" type="text" name="code" />
+                  <AvField
+                    id="list-object-status-code"
+                    type="text"
+                    name="code"
+                    validate={{
+                      required: { value: true, errorMessage: 'This field is required.' },
+                      maxLength: { value: 255, errorMessage: 'This field cannot be longer than 255 characters.' }
+                    }}
+                  />
                 </AvGroup>
                 <AvGroup>
                   <Label id="nameLabel" for="list-object-status-name">
                     Name
                   </Label>
-                  <AvField id="list-object-status-name" type="text" name="name" />
+                  <AvField
+                    id="list-object-status-name"
+                    type="text"
+                    name="name"
+                    validate={{
+                      required: { value: true, errorMessage: 'This field is required.' },
+                      maxLength: { value: 255, errorMessage: 'This field cannot be longer than 255 characters.' }
+                    }}
+                  />
                 </AvGroup>
                 <AvGroup>
                   <Label id="fullNameLabel" for="list-object-status-fullName">
                     Full Name
                   </Label>
-                  <AvField id="list-object-status-fullName" type="text" name="fullName" />
+                  <AvField
+                    id="list-object-status-fullName"
+                    type="text"
+                    name="fullName"
+                    validate={{
+                      required: { value: true, errorMessage: 'This field is required.' },
+                      maxLength: { value: 255, errorMessage: 'This field cannot be longer than 255 characters.' }
+                    }}
+                  />
                 </AvGroup>
                 <AvGroup>
-                  <Label id="isCurrentFlagLabel" check>
-                    <AvInput id="list-object-status-isCurrentFlag" type="checkbox" className="form-control" name="isCurrentFlag" />
+                  <Label id="isCurrentFlagLabel" for="list-object-status-isCurrentFlag">
                     Is Current Flag
                   </Label>
+                  <AvField
+                    id="list-object-status-isCurrentFlag"
+                    type="string"
+                    className="form-control"
+                    name="isCurrentFlag"
+                    validate={{
+                      required: { value: true, errorMessage: 'This field is required.' },
+                      number: { value: true, errorMessage: 'This field should be a number.' }
+                    }}
+                  />
+                </AvGroup>
+                <AvGroup>
+                  <Label id="descriptionLabel" for="list-object-status-description">
+                    Description
+                  </Label>
+                  <AvField
+                    id="list-object-status-description"
+                    type="text"
+                    name="description"
+                    validate={{
+                      maxLength: { value: 255, errorMessage: 'This field cannot be longer than 255 characters.' }
+                    }}
+                  />
+                </AvGroup>
+                <AvGroup>
+                  <Label id="dateCreateLabel" for="list-object-status-dateCreate">
+                    Date Create
+                  </Label>
+                  <AvInput
+                    id="list-object-status-dateCreate"
+                    type="datetime-local"
+                    className="form-control"
+                    name="dateCreate"
+                    placeholder={'YYYY-MM-DD HH:mm'}
+                    value={isNew ? null : convertDateTimeFromServer(this.props.listObjectStatusEntity.dateCreate)}
+                  />
+                </AvGroup>
+                <AvGroup>
+                  <Label id="dateEditLabel" for="list-object-status-dateEdit">
+                    Date Edit
+                  </Label>
+                  <AvInput
+                    id="list-object-status-dateEdit"
+                    type="datetime-local"
+                    className="form-control"
+                    name="dateEdit"
+                    placeholder={'YYYY-MM-DD HH:mm'}
+                    value={isNew ? null : convertDateTimeFromServer(this.props.listObjectStatusEntity.dateEdit)}
+                  />
+                </AvGroup>
+                <AvGroup>
+                  <Label id="creatorLabel" for="list-object-status-creator">
+                    Creator
+                  </Label>
+                  <AvField
+                    id="list-object-status-creator"
+                    type="text"
+                    name="creator"
+                    validate={{
+                      maxLength: { value: 255, errorMessage: 'This field cannot be longer than 255 characters.' }
+                    }}
+                  />
+                </AvGroup>
+                <AvGroup>
+                  <Label id="editorLabel" for="list-object-status-editor">
+                    Editor
+                  </Label>
+                  <AvField
+                    id="list-object-status-editor"
+                    type="text"
+                    name="editor"
+                    validate={{
+                      maxLength: { value: 255, errorMessage: 'This field cannot be longer than 255 characters.' }
+                    }}
+                  />
                 </AvGroup>
                 <Button tag={Link} id="cancel-save" to="/entity/list-object-status" replace color="info">
                   <FontAwesomeIcon icon="arrow-left" />

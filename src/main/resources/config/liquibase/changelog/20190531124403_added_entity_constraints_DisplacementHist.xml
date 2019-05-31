@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity DisplacementHist.
+    -->
+    <changeSet id="20190531124403-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="id_id"
+                                 baseTableName="displacement_hist"
+                                 constraintName="fk_displacement_hist_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="displacement"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_pipeline_section_id"
+                                 baseTableName="displacement_hist"
+                                 constraintName="fk_displacement_hist_id_pipeline_section_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pipeline_section"/>
+
+    </changeSet>
+</databaseChangeLog>

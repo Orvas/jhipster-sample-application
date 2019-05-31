@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface PipelineSectionRepository extends JpaRepository<PipelineSection, Long> {
+public interface PipelineSectionRepository extends JpaRepository<PipelineSection, Long>, JpaSpecificationExecutor<PipelineSection> {
 
 }

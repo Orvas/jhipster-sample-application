@@ -1,0 +1,133 @@
+{
+    "name": "BaseClass",
+    "fields": [
+        {
+            "fieldName": "dateCreate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateEdit",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "creator",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "editor",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "listObjectType",
+            "otherEntityRelationshipName": "baseClass",
+            "relationshipValidateRules": "required",
+            "relationshipName": "idType",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "anode",
+            "otherEntityRelationshipName": "id",
+            "relationshipName": "anode"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "bend",
+            "otherEntityRelationshipName": "id",
+            "relationshipName": "bend"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "buckleArrestor",
+            "otherEntityRelationshipName": "id",
+            "relationshipName": "buckleArrestor"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "cps",
+            "otherEntityRelationshipName": "id",
+            "relationshipName": "cps"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "displacement",
+            "otherEntityRelationshipName": "id",
+            "relationshipName": "displacement"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "freeSpan",
+            "otherEntityRelationshipName": "id",
+            "relationshipName": "freeSpan"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "freeSpanSupport",
+            "otherEntityRelationshipName": "id",
+            "relationshipName": "freeSpanSupport"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "launchReceiver",
+            "otherEntityRelationshipName": "id",
+            "relationshipName": "launchReceiver"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pipe",
+            "otherEntityRelationshipName": "id",
+            "relationshipName": "pipe"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pipejoint",
+            "otherEntityRelationshipName": "id",
+            "relationshipName": "pipejoint"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pipeline",
+            "otherEntityRelationshipName": "id",
+            "relationshipName": "pipeline"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pipelineSection",
+            "otherEntityRelationshipName": "id",
+            "relationshipName": "pipelineSection"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tee",
+            "otherEntityRelationshipName": "id",
+            "relationshipName": "tee"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "valve",
+            "otherEntityRelationshipName": "id",
+            "relationshipName": "valve"
+        }
+    ],
+    "changelogDate": "20190531124354",
+    "javadoc": "Object header. One row corresponds to one object",
+    "entityTableName": "base_class",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

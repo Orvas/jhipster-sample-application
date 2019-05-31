@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity BendHist.
+    -->
+    <changeSet id="20190531124356-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="id_id"
+                                 baseTableName="bend_hist"
+                                 constraintName="fk_bend_hist_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bend"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_pipeline_section_id"
+                                 baseTableName="bend_hist"
+                                 constraintName="fk_bend_hist_id_pipeline_section_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pipeline_section"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_type_id"
+                                 baseTableName="bend_hist"
+                                 constraintName="fk_bend_hist_id_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="list_bend_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_internal_coat_type_id"
+                                 baseTableName="bend_hist"
+                                 constraintName="fk_bend_hist_id_internal_coat_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="list_internal_coating"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_external_coat_type_id"
+                                 baseTableName="bend_hist"
+                                 constraintName="fk_bend_hist_id_external_coat_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="list_external_coating"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_nominal_wall_thickness_id"
+                                 baseTableName="bend_hist"
+                                 constraintName="fk_bend_hist_id_nominal_wall_thickness_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="list_nominal_wall_thickness"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_pipe_joint_id"
+                                 baseTableName="bend_hist"
+                                 constraintName="fk_bend_hist_id_pipe_joint_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pipejoint"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_manufacturer_id"
+                                 baseTableName="bend_hist"
+                                 constraintName="fk_bend_hist_id_manufacturer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="list_bend_manufacturer"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_specification_id"
+                                 baseTableName="bend_hist"
+                                 constraintName="fk_bend_hist_id_specification_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="list_bend_specification"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_long_seam_weld_type_id"
+                                 baseTableName="bend_hist"
+                                 constraintName="fk_bend_hist_id_long_seam_weld_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="list_long_seam_weld_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_fabrication_type_id"
+                                 baseTableName="bend_hist"
+                                 constraintName="fk_bend_hist_id_fabrication_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="list_fabrication_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_material_id"
+                                 baseTableName="bend_hist"
+                                 constraintName="fk_bend_hist_id_material_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="list_material"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_mill_location_id"
+                                 baseTableName="bend_hist"
+                                 constraintName="fk_bend_hist_id_mill_location_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="list_mill_location"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_steel_grade_id"
+                                 baseTableName="bend_hist"
+                                 constraintName="fk_bend_hist_id_steel_grade_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="list_steel_grade"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_status_id"
+                                 baseTableName="bend_hist"
+                                 constraintName="fk_bend_hist_id_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="list_object_status"/>
+
+    </changeSet>
+</databaseChangeLog>

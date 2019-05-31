@@ -21,6 +21,7 @@ const initialState = {
   entities: [] as ReadonlyArray<IListObjectStatus>,
   entity: defaultValue,
   updating: false,
+  totalItems: 0,
   updateSuccess: false
 };
 
@@ -63,6 +64,7 @@ export default (state: ListObjectStatusState = initialState, action): ListObject
       return {
         ...state,
         loading: false,
+        totalItems: action.payload.headers['x-total-count'],
         entities: action.payload.data
       };
     case SUCCESS(ACTION_TYPES.FETCH_LISTOBJECTSTATUS):
@@ -99,10 +101,13 @@ const apiUrl = 'api/list-object-statuses';
 
 // Actions
 
-export const getEntities: ICrudGetAllAction<IListObjectStatus> = (page, size, sort) => ({
-  type: ACTION_TYPES.FETCH_LISTOBJECTSTATUS_LIST,
-  payload: axios.get<IListObjectStatus>(`${apiUrl}?cacheBuster=${new Date().getTime()}`)
-});
+export const getEntities: ICrudGetAllAction<IListObjectStatus> = (page, size, sort) => {
+  const requestUrl = `${apiUrl}${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;
+  return {
+    type: ACTION_TYPES.FETCH_LISTOBJECTSTATUS_LIST,
+    payload: axios.get<IListObjectStatus>(`${requestUrl}${sort ? '&' : '?'}cacheBuster=${new Date().getTime()}`)
+  };
+};
 
 export const getEntity: ICrudGetAction<IListObjectStatus> = id => {
   const requestUrl = `${apiUrl}/${id}`;

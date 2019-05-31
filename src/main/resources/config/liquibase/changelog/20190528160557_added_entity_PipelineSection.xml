@@ -11,32 +11,24 @@
         Added the entity PipelineSection.
     -->
     <changeSet id="20190528160557-1" author="jhipster">
-        <createTable tableName="pipeline_section">
+        <createTable tableName="pipeline_section" remarks="Homogeneous sections,  areas of unchanged values ??of the following characteristics: - is_onshore - safety class One table rows corresponds to one section">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
 
-            <column name="pipeline_id" type="bigint">
-                <constraints nullable="true" />
+            <column name="is_onshore" type="integer">
+                <constraints nullable="false" />
             </column>
 
-            <column name="is_onshore" type="boolean">
-                <constraints nullable="true" />
+            <column name="kp_start" type="decimal(21,2)">
+                <constraints nullable="false" />
             </column>
 
-            <column name="safety_class_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="kp_start" type="double">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="kp_end" type="double">
-                <constraints nullable="true" />
+            <column name="kp_end" type="decimal(21,2)">
+                <constraints nullable="false" />
             </column>
 
             <column name="date_create" type="datetime">
@@ -53,6 +45,18 @@
 
             <column name="editor" type="varchar(255)">
                 <constraints nullable="true" />
+            </column>
+
+            <column name="id_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="id_pipeline_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="id_safety_class_id" type="bigint">
+                <constraints nullable="false" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
@@ -78,15 +82,16 @@
                   context="dev">
             <column name="id" type="numeric"/>
             <column name="name" type="string"/>
-            <column name="pipeline_id" type="numeric"/>
-            <column name="is_onshore" type="boolean"/>
-            <column name="safety_class_id" type="numeric"/>
+            <column name="is_onshore" type="numeric"/>
             <column name="kp_start" type="numeric"/>
             <column name="kp_end" type="numeric"/>
             <column name="date_create" type="date"/>
             <column name="date_edit" type="date"/>
             <column name="creator" type="string"/>
             <column name="editor" type="string"/>
+            <column name="id_id" type="numeric"/>
+            <column name="id_pipeline_id" type="numeric"/>
+            <column name="id_safety_class_id" type="numeric"/>
         </loadData>
     </changeSet>
 

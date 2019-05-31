@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity CpsHist.
+    -->
+    <changeSet id="20190531124400-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="id_id"
+                                 baseTableName="cps_hist"
+                                 constraintName="fk_cps_hist_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cps"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_pipeline_section_id"
+                                 baseTableName="cps_hist"
+                                 constraintName="fk_cps_hist_id_pipeline_section_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pipeline_section"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_status_id"
+                                 baseTableName="cps_hist"
+                                 constraintName="fk_cps_hist_id_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="list_object_status"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,120 @@
+{
+    "name": "DisplacementHist",
+    "fields": [
+        {
+            "fieldName": "dateFrom",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateTo",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "idWrk",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "deltaX",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "deltaY",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "deltaZ",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "deltaTotal",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "kpStart",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "kpEnd",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "isCurrentFlag",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "idStatus",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "comment",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "dateCreate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateEdit",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "creator",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "editor",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "displacement",
+            "otherEntityRelationshipName": "displacementHist",
+            "relationshipValidateRules": "required",
+            "relationshipName": "id",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "pipelineSection",
+            "otherEntityRelationshipName": "displacementHist",
+            "relationshipValidateRules": "required",
+            "relationshipName": "idPipelineSection",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190531124403",
+    "entityTableName": "displacement_hist",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

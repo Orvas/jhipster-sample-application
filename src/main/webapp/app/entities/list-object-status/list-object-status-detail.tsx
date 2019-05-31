@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Row, Col } from 'reactstrap';
 // tslint:disable-next-line:no-unused-variable
-import { ICrudGetAction } from 'react-jhipster';
+import { ICrudGetAction, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
@@ -43,7 +43,31 @@ export class ListObjectStatusDetail extends React.Component<IListObjectStatusDet
             <dt>
               <span id="isCurrentFlag">Is Current Flag</span>
             </dt>
-            <dd>{listObjectStatusEntity.isCurrentFlag ? 'true' : 'false'}</dd>
+            <dd>{listObjectStatusEntity.isCurrentFlag}</dd>
+            <dt>
+              <span id="description">Description</span>
+            </dt>
+            <dd>{listObjectStatusEntity.description}</dd>
+            <dt>
+              <span id="dateCreate">Date Create</span>
+            </dt>
+            <dd>
+              <TextFormat value={listObjectStatusEntity.dateCreate} type="date" format={APP_DATE_FORMAT} />
+            </dd>
+            <dt>
+              <span id="dateEdit">Date Edit</span>
+            </dt>
+            <dd>
+              <TextFormat value={listObjectStatusEntity.dateEdit} type="date" format={APP_DATE_FORMAT} />
+            </dd>
+            <dt>
+              <span id="creator">Creator</span>
+            </dt>
+            <dd>{listObjectStatusEntity.creator}</dd>
+            <dt>
+              <span id="editor">Editor</span>
+            </dt>
+            <dd>{listObjectStatusEntity.editor}</dd>
           </dl>
           <Button tag={Link} to="/entity/list-object-status" replace color="info">
             <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>

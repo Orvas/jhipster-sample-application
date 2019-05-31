@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface ListObjectStatusRepository extends JpaRepository<ListObjectStatus, Long> {
+public interface ListObjectStatusRepository extends JpaRepository<ListObjectStatus, Long>, JpaSpecificationExecutor<ListObjectStatus> {
 
 }

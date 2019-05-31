@@ -3,28 +3,139 @@
     "fields": [
         {
             "fieldName": "code",
-            "fieldType": "String"
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
         },
         {
             "fieldName": "name",
-            "fieldType": "String"
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
         },
         {
             "fieldName": "fullName",
-            "fieldType": "String"
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
         },
         {
             "fieldName": "isCurrentFlag",
-            "fieldType": "Boolean"
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "dateCreate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateEdit",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "creator",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "editor",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
         }
     ],
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "bendHist",
+            "otherEntityRelationshipName": "idStatus",
+            "relationshipName": "bendHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "cpsHist",
+            "otherEntityRelationshipName": "idStatus",
+            "relationshipName": "cpsHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "freeSpanHist",
+            "otherEntityRelationshipName": "idStatus",
+            "relationshipName": "freeSpanHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "freeSpanSupportHist",
+            "otherEntityRelationshipName": "idStatus",
+            "relationshipName": "freeSpanSupportHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "launchReceiverHist",
+            "otherEntityRelationshipName": "idStatus",
+            "relationshipName": "launchReceiverHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pipeHist",
+            "otherEntityRelationshipName": "idStatus",
+            "relationshipName": "pipeHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pipejointHist",
+            "otherEntityRelationshipName": "idStatus",
+            "relationshipName": "pipejointHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pipelineHist",
+            "otherEntityRelationshipName": "idStatus",
+            "relationshipName": "pipelineHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "teeHist",
+            "otherEntityRelationshipName": "idStatus",
+            "relationshipName": "teeHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "valveHist",
+            "otherEntityRelationshipName": "idStatus",
+            "relationshipName": "valveHist"
+        }
+    ],
     "changelogDate": "20190528160556",
     "entityTableName": "list_object_status",
-    "dto": "no",
-    "pagination": "no",
-    "service": "no",
-    "jpaMetamodelFiltering": false,
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
     "fluentMethods": true,
     "clientRootFolder": "",
     "applications": "*"

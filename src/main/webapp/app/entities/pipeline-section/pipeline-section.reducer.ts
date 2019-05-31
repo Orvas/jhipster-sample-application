@@ -21,6 +21,7 @@ const initialState = {
   entities: [] as ReadonlyArray<IPipelineSection>,
   entity: defaultValue,
   updating: false,
+  totalItems: 0,
   updateSuccess: false
 };
 
@@ -63,6 +64,7 @@ export default (state: PipelineSectionState = initialState, action): PipelineSec
       return {
         ...state,
         loading: false,
+        totalItems: action.payload.headers['x-total-count'],
         entities: action.payload.data
       };
     case SUCCESS(ACTION_TYPES.FETCH_PIPELINESECTION):
@@ -99,10 +101,13 @@ const apiUrl = 'api/pipeline-sections';
 
 // Actions
 
-export const getEntities: ICrudGetAllAction<IPipelineSection> = (page, size, sort) => ({
-  type: ACTION_TYPES.FETCH_PIPELINESECTION_LIST,
-  payload: axios.get<IPipelineSection>(`${apiUrl}?cacheBuster=${new Date().getTime()}`)
-});
+export const getEntities: ICrudGetAllAction<IPipelineSection> = (page, size, sort) => {
+  const requestUrl = `${apiUrl}${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;
+  return {
+    type: ACTION_TYPES.FETCH_PIPELINESECTION_LIST,
+    payload: axios.get<IPipelineSection>(`${requestUrl}${sort ? '&' : '?'}cacheBuster=${new Date().getTime()}`)
+  };
+};
 
 export const getEntity: ICrudGetAction<IPipelineSection> = id => {
   const requestUrl = `${apiUrl}/${id}`;

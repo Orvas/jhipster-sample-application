@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity FreeSpanHist.
+    -->
+    <changeSet id="20190531124405-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="id_id"
+                                 baseTableName="free_span_hist"
+                                 constraintName="fk_free_span_hist_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="free_span"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_pipeline_section_id"
+                                 baseTableName="free_span_hist"
+                                 constraintName="fk_free_span_hist_id_pipeline_section_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pipeline_section"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_status_id"
+                                 baseTableName="free_span_hist"
+                                 constraintName="fk_free_span_hist_id_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="list_object_status"/>
+
+    </changeSet>
+</databaseChangeLog>
