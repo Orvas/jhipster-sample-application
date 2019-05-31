@@ -1,0 +1,220 @@
+{
+    "name": "AnodeHist",
+    "fields": [
+        {
+            "fieldName": "dateFrom",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateTo",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "idWrk",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "designLife",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dmcd",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "l1",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "l2",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "length",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "electrCapac",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "designWeight",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "weight",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "isBurial",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "chemicalComposition",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "density",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "spacing",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "coatCutbackLength",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "coatDmgArea",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "h2sSoil",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "remain",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "intFldTemp",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "minPrc",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "thickness",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "coord",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "kpStart",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "coatThickness",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "kpEnd",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "isCurrentFlag",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "comment",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "dateCreate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateEdit",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "creator",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "editor",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "anode",
+            "otherEntityRelationshipName": "anodeHist",
+            "relationshipValidateRules": "required",
+            "relationshipName": "id",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "pipelineSection",
+            "otherEntityRelationshipName": "anodeHist",
+            "relationshipValidateRules": "required",
+            "relationshipName": "idPipelineSection",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "listAnodeBraceleteType",
+            "otherEntityRelationshipName": "anodeHist",
+            "relationshipName": "idBraceleteType",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "listMaterial",
+            "otherEntityRelationshipName": "anodeHist",
+            "relationshipName": "idMaterial",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "listWrkStatus",
+            "otherEntityRelationshipName": "anodeHist",
+            "relationshipValidateRules": "required",
+            "relationshipName": "idStatus",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190531124353",
+    "javadoc": "Time-dependent attribute table. One table  rows corresponds to one anode and time period",
+    "entityTableName": "anode_hist",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

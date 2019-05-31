@@ -1,0 +1,85 @@
+{
+    "name": "CpsRange",
+    "fields": [
+        {
+            "fieldName": "kpStart",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "kpEnd",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateFrom",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateTo",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateCreate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateEdit",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "creator",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "editor",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "cps",
+            "otherEntityRelationshipName": "cpsRange",
+            "relationshipValidateRules": "required",
+            "relationshipName": "idCps",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "pipelineSection",
+            "otherEntityRelationshipName": "cpsRange",
+            "relationshipValidateRules": "required",
+            "relationshipName": "idPipelineSection",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190531124401",
+    "javadoc": "CPS action  range\nOne row corresponds to one cps and pipeline section",
+    "entityTableName": "cps_range",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

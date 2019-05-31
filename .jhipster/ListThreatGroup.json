@@ -1,0 +1,89 @@
+{
+    "name": "ListThreatGroup",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "fullName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "isCurrentFlag",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "dateCreate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateEdit",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "creator",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "editor",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "listThreat",
+            "otherEntityRelationshipName": "idGroup",
+            "relationshipName": "listThreat"
+        }
+    ],
+    "changelogDate": "20190531124456",
+    "javadoc": "Threat groups:\n\nCorrosion/Erosion/Material Threats\nThird Party Interaction Threats\nNatural Hazard and Stability Threats\nStructural Threats\nDesign, Fabrication and Installation (DFI) and Incorrect\nOperation Threats",
+    "entityTableName": "list_threat_group",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

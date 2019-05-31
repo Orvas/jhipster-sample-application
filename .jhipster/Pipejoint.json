@@ -1,0 +1,85 @@
+{
+    "name": "Pipejoint",
+    "fields": [
+        {
+            "fieldName": "dateCreate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateEdit",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "creator",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "editor",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "baseClass",
+            "otherEntityRelationshipName": "pipejoint",
+            "relationshipValidateRules": "required",
+            "relationshipName": "id",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "bendHist",
+            "otherEntityRelationshipName": "idPipeJoint",
+            "relationshipName": "bendHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "buckleArrestorHist",
+            "otherEntityRelationshipName": "idPipeJoint",
+            "relationshipName": "buckleArrestorHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pipeHist",
+            "otherEntityRelationshipName": "idPipeJoint",
+            "relationshipName": "pipeHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pipejointHist",
+            "otherEntityRelationshipName": "id",
+            "relationshipName": "pipejointHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "teeHist",
+            "otherEntityRelationshipName": "idPipeJoint",
+            "relationshipName": "teeHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "valveHist",
+            "otherEntityRelationshipName": "idPipeJoint",
+            "relationshipName": "valveHist"
+        }
+    ],
+    "changelogDate": "20190531124508",
+    "javadoc": "Pipe joints main table. One table  rows corresponds to one pipe joint",
+    "entityTableName": "pipejoint",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

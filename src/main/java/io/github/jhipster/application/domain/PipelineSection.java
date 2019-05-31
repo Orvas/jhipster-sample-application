@@ -1,17 +1,27 @@
 package io.github.jhipster.application.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
- * A PipelineSection.
+ * Homogeneous sections,  areas of unchanged values ??of the following characteristics:
+ * - is_onshore
+ * - safety class
+ * 
+ * One table rows corresponds to one section
  */
 @Entity
 @Table(name = "pipeline_section")
@@ -25,23 +35,22 @@ public class PipelineSection implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "name")
+    @NotNull
+    @Size(max = 255)
+    @Column(name = "name", length = 255, nullable = false)
     private String name;
 
-    @Column(name = "pipeline_id")
-    private Long pipelineId;
+    @NotNull
+    @Column(name = "is_onshore", nullable = false)
+    private Integer isOnshore;
 
-    @Column(name = "is_onshore")
-    private Boolean isOnshore;
+    @NotNull
+    @Column(name = "kp_start", precision = 21, scale = 2, nullable = false)
+    private BigDecimal kpStart;
 
-    @Column(name = "safety_class_id")
-    private Long safetyClassId;
-
-    @Column(name = "kp_start")
-    private Double kpStart;
-
-    @Column(name = "kp_end")
-    private Double kpEnd;
+    @NotNull
+    @Column(name = "kp_end", precision = 21, scale = 2, nullable = false)
+    private BigDecimal kpEnd;
 
     @Column(name = "date_create")
     private Instant dateCreate;
@@ -49,11 +58,72 @@ public class PipelineSection implements Serializable {
     @Column(name = "date_edit")
     private Instant dateEdit;
 
-    @Column(name = "creator")
+    @Size(max = 255)
+    @Column(name = "creator", length = 255)
     private String creator;
 
-    @Column(name = "editor")
+    @Size(max = 255)
+    @Column(name = "editor", length = 255)
     private String editor;
+
+    @ManyToOne(optional = false)
+    @NotNull
+    @JsonIgnoreProperties("pipelineSections")
+    private BaseClass id;
+
+    @ManyToOne(optional = false)
+    @NotNull
+    @JsonIgnoreProperties("pipelineSections")
+    private Pipeline idPipeline;
+
+    @ManyToOne(optional = false)
+    @NotNull
+    @JsonIgnoreProperties("pipelineSections")
+    private ListSafetyClass idSafetyClass;
+
+    @OneToMany(mappedBy = "idPipelineSection")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<AnodeHist> anodeHists = new HashSet<>();
+
+    @OneToMany(mappedBy = "idPipelineSection")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<BendHist> bendHists = new HashSet<>();
+
+    @OneToMany(mappedBy = "idPipelineSection")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<BuckleArrestorHist> buckleArrestorHists = new HashSet<>();
+
+    @OneToMany(mappedBy = "idPipelineSection")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<CpsHist> cpsHists = new HashSet<>();
+
+    @OneToMany(mappedBy = "idPipelineSection")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<CpsRange> cpsRanges = new HashSet<>();
+
+    @OneToMany(mappedBy = "idPipelineSection")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<DisplacementHist> displacementHists = new HashSet<>();
+
+    @OneToMany(mappedBy = "idPipelineSection")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<FreeSpanHist> freeSpanHists = new HashSet<>();
+
+    @OneToMany(mappedBy = "idPipelineSection")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<FreeSpanSupportHist> freeSpanSupportHists = new HashSet<>();
+
+    @OneToMany(mappedBy = "idPipelineSection")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<PipeHist> pipeHists = new HashSet<>();
+
+    @OneToMany(mappedBy = "idPipelineSection")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<TeeHist> teeHists = new HashSet<>();
+
+    @OneToMany(mappedBy = "idPipelineSection")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<ValveHist> valveHists = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -77,68 +147,42 @@ public class PipelineSection implements Serializable {
         this.name = name;
     }
 
-    public Long getPipelineId() {
-        return pipelineId;
-    }
-
-    public PipelineSection pipelineId(Long pipelineId) {
-        this.pipelineId = pipelineId;
-        return this;
-    }
-
-    public void setPipelineId(Long pipelineId) {
-        this.pipelineId = pipelineId;
-    }
-
-    public Boolean isIsOnshore() {
+    public Integer getIsOnshore() {
         return isOnshore;
     }
 
-    public PipelineSection isOnshore(Boolean isOnshore) {
+    public PipelineSection isOnshore(Integer isOnshore) {
         this.isOnshore = isOnshore;
         return this;
     }
 
-    public void setIsOnshore(Boolean isOnshore) {
+    public void setIsOnshore(Integer isOnshore) {
         this.isOnshore = isOnshore;
     }
 
-    public Long getSafetyClassId() {
-        return safetyClassId;
-    }
-
-    public PipelineSection safetyClassId(Long safetyClassId) {
-        this.safetyClassId = safetyClassId;
-        return this;
-    }
-
-    public void setSafetyClassId(Long safetyClassId) {
-        this.safetyClassId = safetyClassId;
-    }
-
-    public Double getKpStart() {
+    public BigDecimal getKpStart() {
         return kpStart;
     }
 
-    public PipelineSection kpStart(Double kpStart) {
+    public PipelineSection kpStart(BigDecimal kpStart) {
         this.kpStart = kpStart;
         return this;
     }
 
-    public void setKpStart(Double kpStart) {
+    public void setKpStart(BigDecimal kpStart) {
         this.kpStart = kpStart;
     }
 
-    public Double getKpEnd() {
+    public BigDecimal getKpEnd() {
         return kpEnd;
     }
 
-    public PipelineSection kpEnd(Double kpEnd) {
+    public PipelineSection kpEnd(BigDecimal kpEnd) {
         this.kpEnd = kpEnd;
         return this;
     }
 
-    public void setKpEnd(Double kpEnd) {
+    public void setKpEnd(BigDecimal kpEnd) {
         this.kpEnd = kpEnd;
     }
 
@@ -193,6 +237,320 @@ public class PipelineSection implements Serializable {
     public void setEditor(String editor) {
         this.editor = editor;
     }
+
+    public BaseClass getId() {
+        return id;
+    }
+
+    public PipelineSection id(BaseClass baseClass) {
+        this.id = baseClass;
+        return this;
+    }
+
+    public void setId(BaseClass baseClass) {
+        this.id = baseClass;
+    }
+
+    public Pipeline getIdPipeline() {
+        return idPipeline;
+    }
+
+    public PipelineSection idPipeline(Pipeline pipeline) {
+        this.idPipeline = pipeline;
+        return this;
+    }
+
+    public void setIdPipeline(Pipeline pipeline) {
+        this.idPipeline = pipeline;
+    }
+
+    public ListSafetyClass getIdSafetyClass() {
+        return idSafetyClass;
+    }
+
+    public PipelineSection idSafetyClass(ListSafetyClass listSafetyClass) {
+        this.idSafetyClass = listSafetyClass;
+        return this;
+    }
+
+    public void setIdSafetyClass(ListSafetyClass listSafetyClass) {
+        this.idSafetyClass = listSafetyClass;
+    }
+
+    public Set<AnodeHist> getAnodeHists() {
+        return anodeHists;
+    }
+
+    public PipelineSection anodeHists(Set<AnodeHist> anodeHists) {
+        this.anodeHists = anodeHists;
+        return this;
+    }
+
+    public PipelineSection addAnodeHist(AnodeHist anodeHist) {
+        this.anodeHists.add(anodeHist);
+        anodeHist.setIdPipelineSection(this);
+        return this;
+    }
+
+    public PipelineSection removeAnodeHist(AnodeHist anodeHist) {
+        this.anodeHists.remove(anodeHist);
+        anodeHist.setIdPipelineSection(null);
+        return this;
+    }
+
+    public void setAnodeHists(Set<AnodeHist> anodeHists) {
+        this.anodeHists = anodeHists;
+    }
+
+    public Set<BendHist> getBendHists() {
+        return bendHists;
+    }
+
+    public PipelineSection bendHists(Set<BendHist> bendHists) {
+        this.bendHists = bendHists;
+        return this;
+    }
+
+    public PipelineSection addBendHist(BendHist bendHist) {
+        this.bendHists.add(bendHist);
+        bendHist.setIdPipelineSection(this);
+        return this;
+    }
+
+    public PipelineSection removeBendHist(BendHist bendHist) {
+        this.bendHists.remove(bendHist);
+        bendHist.setIdPipelineSection(null);
+        return this;
+    }
+
+    public void setBendHists(Set<BendHist> bendHists) {
+        this.bendHists = bendHists;
+    }
+
+    public Set<BuckleArrestorHist> getBuckleArrestorHists() {
+        return buckleArrestorHists;
+    }
+
+    public PipelineSection buckleArrestorHists(Set<BuckleArrestorHist> buckleArrestorHists) {
+        this.buckleArrestorHists = buckleArrestorHists;
+        return this;
+    }
+
+    public PipelineSection addBuckleArrestorHist(BuckleArrestorHist buckleArrestorHist) {
+        this.buckleArrestorHists.add(buckleArrestorHist);
+        buckleArrestorHist.setIdPipelineSection(this);
+        return this;
+    }
+
+    public PipelineSection removeBuckleArrestorHist(BuckleArrestorHist buckleArrestorHist) {
+        this.buckleArrestorHists.remove(buckleArrestorHist);
+        buckleArrestorHist.setIdPipelineSection(null);
+        return this;
+    }
+
+    public void setBuckleArrestorHists(Set<BuckleArrestorHist> buckleArrestorHists) {
+        this.buckleArrestorHists = buckleArrestorHists;
+    }
+
+    public Set<CpsHist> getCpsHists() {
+        return cpsHists;
+    }
+
+    public PipelineSection cpsHists(Set<CpsHist> cpsHists) {
+        this.cpsHists = cpsHists;
+        return this;
+    }
+
+    public PipelineSection addCpsHist(CpsHist cpsHist) {
+        this.cpsHists.add(cpsHist);
+        cpsHist.setIdPipelineSection(this);
+        return this;
+    }
+
+    public PipelineSection removeCpsHist(CpsHist cpsHist) {
+        this.cpsHists.remove(cpsHist);
+        cpsHist.setIdPipelineSection(null);
+        return this;
+    }
+
+    public void setCpsHists(Set<CpsHist> cpsHists) {
+        this.cpsHists = cpsHists;
+    }
+
+    public Set<CpsRange> getCpsRanges() {
+        return cpsRanges;
+    }
+
+    public PipelineSection cpsRanges(Set<CpsRange> cpsRanges) {
+        this.cpsRanges = cpsRanges;
+        return this;
+    }
+
+    public PipelineSection addCpsRange(CpsRange cpsRange) {
+        this.cpsRanges.add(cpsRange);
+        cpsRange.setIdPipelineSection(this);
+        return this;
+    }
+
+    public PipelineSection removeCpsRange(CpsRange cpsRange) {
+        this.cpsRanges.remove(cpsRange);
+        cpsRange.setIdPipelineSection(null);
+        return this;
+    }
+
+    public void setCpsRanges(Set<CpsRange> cpsRanges) {
+        this.cpsRanges = cpsRanges;
+    }
+
+    public Set<DisplacementHist> getDisplacementHists() {
+        return displacementHists;
+    }
+
+    public PipelineSection displacementHists(Set<DisplacementHist> displacementHists) {
+        this.displacementHists = displacementHists;
+        return this;
+    }
+
+    public PipelineSection addDisplacementHist(DisplacementHist displacementHist) {
+        this.displacementHists.add(displacementHist);
+        displacementHist.setIdPipelineSection(this);
+        return this;
+    }
+
+    public PipelineSection removeDisplacementHist(DisplacementHist displacementHist) {
+        this.displacementHists.remove(displacementHist);
+        displacementHist.setIdPipelineSection(null);
+        return this;
+    }
+
+    public void setDisplacementHists(Set<DisplacementHist> displacementHists) {
+        this.displacementHists = displacementHists;
+    }
+
+    public Set<FreeSpanHist> getFreeSpanHists() {
+        return freeSpanHists;
+    }
+
+    public PipelineSection freeSpanHists(Set<FreeSpanHist> freeSpanHists) {
+        this.freeSpanHists = freeSpanHists;
+        return this;
+    }
+
+    public PipelineSection addFreeSpanHist(FreeSpanHist freeSpanHist) {
+        this.freeSpanHists.add(freeSpanHist);
+        freeSpanHist.setIdPipelineSection(this);
+        return this;
+    }
+
+    public PipelineSection removeFreeSpanHist(FreeSpanHist freeSpanHist) {
+        this.freeSpanHists.remove(freeSpanHist);
+        freeSpanHist.setIdPipelineSection(null);
+        return this;
+    }
+
+    public void setFreeSpanHists(Set<FreeSpanHist> freeSpanHists) {
+        this.freeSpanHists = freeSpanHists;
+    }
+
+    public Set<FreeSpanSupportHist> getFreeSpanSupportHists() {
+        return freeSpanSupportHists;
+    }
+
+    public PipelineSection freeSpanSupportHists(Set<FreeSpanSupportHist> freeSpanSupportHists) {
+        this.freeSpanSupportHists = freeSpanSupportHists;
+        return this;
+    }
+
+    public PipelineSection addFreeSpanSupportHist(FreeSpanSupportHist freeSpanSupportHist) {
+        this.freeSpanSupportHists.add(freeSpanSupportHist);
+        freeSpanSupportHist.setIdPipelineSection(this);
+        return this;
+    }
+
+    public PipelineSection removeFreeSpanSupportHist(FreeSpanSupportHist freeSpanSupportHist) {
+        this.freeSpanSupportHists.remove(freeSpanSupportHist);
+        freeSpanSupportHist.setIdPipelineSection(null);
+        return this;
+    }
+
+    public void setFreeSpanSupportHists(Set<FreeSpanSupportHist> freeSpanSupportHists) {
+        this.freeSpanSupportHists = freeSpanSupportHists;
+    }
+
+    public Set<PipeHist> getPipeHists() {
+        return pipeHists;
+    }
+
+    public PipelineSection pipeHists(Set<PipeHist> pipeHists) {
+        this.pipeHists = pipeHists;
+        return this;
+    }
+
+    public PipelineSection addPipeHist(PipeHist pipeHist) {
+        this.pipeHists.add(pipeHist);
+        pipeHist.setIdPipelineSection(this);
+        return this;
+    }
+
+    public PipelineSection removePipeHist(PipeHist pipeHist) {
+        this.pipeHists.remove(pipeHist);
+        pipeHist.setIdPipelineSection(null);
+        return this;
+    }
+
+    public void setPipeHists(Set<PipeHist> pipeHists) {
+        this.pipeHists = pipeHists;
+    }
+
+    public Set<TeeHist> getTeeHists() {
+        return teeHists;
+    }
+
+    public PipelineSection teeHists(Set<TeeHist> teeHists) {
+        this.teeHists = teeHists;
+        return this;
+    }
+
+    public PipelineSection addTeeHist(TeeHist teeHist) {
+        this.teeHists.add(teeHist);
+        teeHist.setIdPipelineSection(this);
+        return this;
+    }
+
+    public PipelineSection removeTeeHist(TeeHist teeHist) {
+        this.teeHists.remove(teeHist);
+        teeHist.setIdPipelineSection(null);
+        return this;
+    }
+
+    public void setTeeHists(Set<TeeHist> teeHists) {
+        this.teeHists = teeHists;
+    }
+
+    public Set<ValveHist> getValveHists() {
+        return valveHists;
+    }
+
+    public PipelineSection valveHists(Set<ValveHist> valveHists) {
+        this.valveHists = valveHists;
+        return this;
+    }
+
+    public PipelineSection addValveHist(ValveHist valveHist) {
+        this.valveHists.add(valveHist);
+        valveHist.setIdPipelineSection(this);
+        return this;
+    }
+
+    public PipelineSection removeValveHist(ValveHist valveHist) {
+        this.valveHists.remove(valveHist);
+        valveHist.setIdPipelineSection(null);
+        return this;
+    }
+
+    public void setValveHists(Set<ValveHist> valveHists) {
+        this.valveHists = valveHists;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -216,9 +574,7 @@ public class PipelineSection implements Serializable {
         return "PipelineSection{" +
             "id=" + getId() +
             ", name='" + getName() + "'" +
-            ", pipelineId=" + getPipelineId() +
-            ", isOnshore='" + isIsOnshore() + "'" +
-            ", safetyClassId=" + getSafetyClassId() +
+            ", isOnshore=" + getIsOnshore() +
             ", kpStart=" + getKpStart() +
             ", kpEnd=" + getKpEnd() +
             ", dateCreate='" + getDateCreate() + "'" +

@@ -1,0 +1,372 @@
+{
+    "name": "ValveHist",
+    "fields": [
+        {
+            "fieldName": "dateFrom",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateTo",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "idWrk",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "serialNum",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "model",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "diameterOuterSteel",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "internalCoatThickness",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "externalCoatThickness",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "isConcrCoating",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "concrCoatThickness",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "concrCoatDensity",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "measWallThickness",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "length",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "weight",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "smts",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "smys",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "sdbm",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "sdaf",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "sdcs",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "allowTensStrain",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "corrosionAllowance",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fabricationAllowance",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dateManufactured",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "millTestPressure",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "designPressure",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "designPressureIn",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "designPressureOut",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "incidentalPressure",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "dateInstalled",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "seamOrient",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "seamAngle",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "azimuth",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "seabInstallTemp",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "verticalAngle",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "heatTreatDurat",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "maxDesignTemp",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "heatNumber",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "coord",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "designCoord",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "kpInst",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "isCurrentFlag",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "comment",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "dateCreate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateEdit",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "creator",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "editor",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "valve",
+            "otherEntityRelationshipName": "valveHist",
+            "relationshipValidateRules": "required",
+            "relationshipName": "id",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "pipelineSection",
+            "otherEntityRelationshipName": "valveHist",
+            "relationshipValidateRules": "required",
+            "relationshipName": "idPipelineSection",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "listValveType",
+            "otherEntityRelationshipName": "valveHist",
+            "relationshipName": "idType",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "listInternalCoating",
+            "otherEntityRelationshipName": "valveHist",
+            "relationshipName": "idInternalCoatType",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "listExternalCoating",
+            "otherEntityRelationshipName": "valveHist",
+            "relationshipName": "idExternalCoatType",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "listNominalWallThickness",
+            "otherEntityRelationshipName": "valveHist",
+            "relationshipName": "idNominalWallThickness",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "pipejoint",
+            "otherEntityRelationshipName": "valveHist",
+            "relationshipName": "idPipeJoint",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "listValveManufacturer",
+            "otherEntityRelationshipName": "valveHist",
+            "relationshipName": "idManufacturer",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "listValveSpecification",
+            "otherEntityRelationshipName": "valveHist",
+            "relationshipName": "idSpecification",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "listValveFunction",
+            "otherEntityRelationshipName": "valveHist",
+            "relationshipName": "idFunction",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "listLongSeamWeldType",
+            "otherEntityRelationshipName": "valveHist",
+            "relationshipName": "idLongSeamWeldType",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "listFabricationType",
+            "otherEntityRelationshipName": "valveHist",
+            "relationshipName": "idFabricationType",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "listMaterial",
+            "otherEntityRelationshipName": "valveHist",
+            "relationshipName": "idMaterial",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "listMillLocation",
+            "otherEntityRelationshipName": "valveHist",
+            "relationshipName": "idMillLocation",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "listSteelGrade",
+            "otherEntityRelationshipName": "valveHist",
+            "relationshipName": "idSteelGrade",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "listObjectStatus",
+            "otherEntityRelationshipName": "valveHist",
+            "relationshipValidateRules": "required",
+            "relationshipName": "idStatus",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190531124517",
+    "javadoc": "Valve. Time-dependent attribute table. One table  rows corresponds to one valve and time period",
+    "entityTableName": "valve_hist",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

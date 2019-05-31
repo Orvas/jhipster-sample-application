@@ -1,0 +1,66 @@
+{
+    "name": "Pipeline",
+    "fields": [
+        {
+            "fieldName": "dateCreate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateEdit",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "creator",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "editor",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "baseClass",
+            "otherEntityRelationshipName": "pipeline",
+            "relationshipValidateRules": "required",
+            "relationshipName": "id",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "launchReceiverHist",
+            "otherEntityRelationshipName": "idPipeline",
+            "relationshipName": "launchReceiverHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pipelineHist",
+            "otherEntityRelationshipName": "id",
+            "relationshipName": "pipelineHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pipelineSection",
+            "otherEntityRelationshipName": "idPipeline",
+            "relationshipName": "pipelineSection"
+        }
+    ],
+    "changelogDate": "20190531124510",
+    "entityTableName": "pipeline",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

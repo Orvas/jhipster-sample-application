@@ -1653,13 +1653,13 @@ relationship ManyToOne {
 }
 
 // CPS action  range
-One row corresponds to one cps and pipeline section 
+//One row corresponds to one cps and pipeline section 
 relationship ManyToOne {
 	CpsRange{idCps required} to Cps{cpsRange}
 }
 
 // CPS action  range
-One row corresponds to one cps and pipeline section 
+//One row corresponds to one cps and pipeline section 
 relationship ManyToOne {
 	CpsRange{idPipelineSection required} to PipelineSection{cpsRange}
 }
@@ -1732,9 +1732,9 @@ relationship ManyToOne {
 }
 
 // Internal corrosion
-Erosion
-External Corrosion
-Stray Current/Current drain
+//Erosion
+//External Corrosion
+//Stray Current/Current drain
 
 
 relationship ManyToOne {
@@ -1872,10 +1872,10 @@ relationship ManyToOne {
 }
 
 // Homogeneous sections,  areas of unchanged values ??of the following characteristics:
-- is_onshore
-- safety class
+//- is_onshore
+//- safety class
 
-One table rows corresponds to one section
+//One table rows corresponds to one section
 
 
 
@@ -1884,10 +1884,10 @@ relationship ManyToOne {
 }
 
 // Homogeneous sections,  areas of unchanged values ??of the following characteristics:
-- is_onshore
-- safety class
+//- is_onshore
+//- safety class
 
-One table rows corresponds to one section
+//One table rows corresponds to one section
 
 
 
@@ -1896,10 +1896,10 @@ relationship ManyToOne {
 }
 
 // Homogeneous sections,  areas of unchanged values ??of the following characteristics:
-- is_onshore
-- safety class
+//- is_onshore
+//- safety class
 
-One table rows corresponds to one section
+//One table rows corresponds to one section
 
 
 

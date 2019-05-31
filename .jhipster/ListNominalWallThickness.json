@@ -1,0 +1,112 @@
+{
+    "name": "ListNominalWallThickness",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "fullName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "isCurrentFlag",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "dateCreate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateEdit",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "creator",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "editor",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "bendHist",
+            "otherEntityRelationshipName": "idNominalWallThickness",
+            "relationshipName": "bendHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "buckleArrestorHist",
+            "otherEntityRelationshipName": "idNominalWallThickness",
+            "relationshipName": "buckleArrestorHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pipeHist",
+            "otherEntityRelationshipName": "idNominalWallThickness",
+            "relationshipName": "pipeHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "teeHist",
+            "otherEntityRelationshipName": "idNominalWallThickness",
+            "relationshipName": "teeHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "valveHist",
+            "otherEntityRelationshipName": "idNominalWallThickness",
+            "relationshipName": "valveHist"
+        }
+    ],
+    "changelogDate": "20190531124438",
+    "entityTableName": "list_nominal_wall_thickness",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

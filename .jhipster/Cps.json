@@ -1,0 +1,61 @@
+{
+    "name": "Cps",
+    "fields": [
+        {
+            "fieldName": "dateCreate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateEdit",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "creator",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "editor",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "baseClass",
+            "otherEntityRelationshipName": "cps",
+            "relationshipValidateRules": "required",
+            "relationshipName": "id",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "cpsHist",
+            "otherEntityRelationshipName": "id",
+            "relationshipName": "cpsHist"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "cpsRange",
+            "otherEntityRelationshipName": "idCps",
+            "relationshipName": "cpsRange"
+        }
+    ],
+    "changelogDate": "20190531124359",
+    "javadoc": "Cathodic protecion station. Time-independent attribute table. One table  rows corresponds to one station",
+    "entityTableName": "cps",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

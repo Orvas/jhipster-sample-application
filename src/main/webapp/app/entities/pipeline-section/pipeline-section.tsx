@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Col, Row, Table } from 'reactstrap';
 // tslint:disable-next-line:no-unused-variable
-import { ICrudGetAllAction, TextFormat } from 'react-jhipster';
+import { ICrudGetAllAction, TextFormat, getSortState, IPaginationBaseState, getPaginationItemsNumber, JhiPagination } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
@@ -11,16 +11,45 @@ import { getEntities } from './pipeline-section.reducer';
 import { IPipelineSection } from 'app/shared/model/pipeline-section.model';
 // tslint:disable-next-line:no-unused-variable
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
+import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 
 export interface IPipelineSectionProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
-export class PipelineSection extends React.Component<IPipelineSectionProps> {
+export type IPipelineSectionState = IPaginationBaseState;
+
+export class PipelineSection extends React.Component<IPipelineSectionProps, IPipelineSectionState> {
+  state: IPipelineSectionState = {
+    ...getSortState(this.props.location, ITEMS_PER_PAGE)
+  };
+
   componentDidMount() {
-    this.props.getEntities();
+    this.getEntities();
   }
 
+  sort = prop => () => {
+    this.setState(
+      {
+        order: this.state.order === 'asc' ? 'desc' : 'asc',
+        sort: prop
+      },
+      () => this.sortEntities()
+    );
+  };
+
+  sortEntities() {
+    this.getEntities();
+    this.props.history.push(`${this.props.location.pathname}?page=${this.state.activePage}&sort=${this.state.sort},${this.state.order}`);
+  }
+
+  handlePagination = activePage => this.setState({ activePage }, () => this.sortEntities());
+
+  getEntities = () => {
+    const { activePage, itemsPerPage, sort, order } = this.state;
+    this.props.getEntities(activePage - 1, itemsPerPage, `${sort},${order}`);
+  };
+
   render() {
-    const { pipelineSectionList, match } = this.props;
+    const { pipelineSectionList, match, totalItems } = this.props;
     return (
       <div>
         <h2 id="pipeline-section-heading">
@@ -34,17 +63,42 @@ export class PipelineSection extends React.Component<IPipelineSectionProps> {
           <Table responsive>
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Pipeline Id</th>
-                <th>Is Onshore</th>
-                <th>Safety Class Id</th>
-                <th>Kp Start</th>
-                <th>Kp End</th>
-                <th>Date Create</th>
-                <th>Date Edit</th>
-                <th>Creator</th>
-                <th>Editor</th>
+                <th className="hand" onClick={this.sort('id')}>
+                  ID <FontAwesomeIcon icon="sort" />
+                </th>
+                <th className="hand" onClick={this.sort('name')}>
+                  Name <FontAwesomeIcon icon="sort" />
+                </th>
+                <th className="hand" onClick={this.sort('isOnshore')}>
+                  Is Onshore <FontAwesomeIcon icon="sort" />
+                </th>
+                <th className="hand" onClick={this.sort('kpStart')}>
+                  Kp Start <FontAwesomeIcon icon="sort" />
+                </th>
+                <th className="hand" onClick={this.sort('kpEnd')}>
+                  Kp End <FontAwesomeIcon icon="sort" />
+                </th>
+                <th className="hand" onClick={this.sort('dateCreate')}>
+                  Date Create <FontAwesomeIcon icon="sort" />
+                </th>
+                <th className="hand" onClick={this.sort('dateEdit')}>
+                  Date Edit <FontAwesomeIcon icon="sort" />
+                </th>
+                <th className="hand" onClick={this.sort('creator')}>
+                  Creator <FontAwesomeIcon icon="sort" />
+                </th>
+                <th className="hand" onClick={this.sort('editor')}>
+                  Editor <FontAwesomeIcon icon="sort" />
+                </th>
+                <th>
+                  Id <FontAwesomeIcon icon="sort" />
+                </th>
+                <th>
+                  Id Pipeline <FontAwesomeIcon icon="sort" />
+                </th>
+                <th>
+                  Id Safety Class <FontAwesomeIcon icon="sort" />
+                </th>
                 <th />
               </tr>
             </thead>
@@ -57,9 +111,7 @@ export class PipelineSection extends React.Component<IPipelineSectionProps> {
                     </Button>
                   </td>
                   <td>{pipelineSection.name}</td>
-                  <td>{pipelineSection.pipelineId}</td>
-                  <td>{pipelineSection.isOnshore ? 'true' : 'false'}</td>
-                  <td>{pipelineSection.safetyClassId}</td>
+                  <td>{pipelineSection.isOnshore}</td>
                   <td>{pipelineSection.kpStart}</td>
                   <td>{pipelineSection.kpEnd}</td>
                   <td>
@@ -70,6 +122,21 @@ export class PipelineSection extends React.Component<IPipelineSectionProps> {
                   </td>
                   <td>{pipelineSection.creator}</td>
                   <td>{pipelineSection.editor}</td>
+                  <td>{pipelineSection.idId ? <Link to={`base-class/${pipelineSection.idId}`}>{pipelineSection.idId}</Link> : ''}</td>
+                  <td>
+                    {pipelineSection.idPipelineId ? (
+                      <Link to={`pipeline/${pipelineSection.idPipelineId}`}>{pipelineSection.idPipelineId}</Link>
+                    ) : (
+                      ''
+                    )}
+                  </td>
+                  <td>
+                    {pipelineSection.idSafetyClassId ? (
+                      <Link to={`list-safety-class/${pipelineSection.idSafetyClassId}`}>{pipelineSection.idSafetyClassId}</Link>
+                    ) : (
+                      ''
+                    )}
+                  </td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${pipelineSection.id}`} color="info" size="sm">
@@ -88,13 +155,22 @@ export class PipelineSection extends React.Component<IPipelineSectionProps> {
             </tbody>
           </Table>
         </div>
+        <Row className="justify-content-center">
+          <JhiPagination
+            items={getPaginationItemsNumber(totalItems, this.state.itemsPerPage)}
+            activePage={this.state.activePage}
+            onSelect={this.handlePagination}
+            maxButtons={5}
+          />
+        </Row>
       </div>
     );
   }
 }
 
 const mapStateToProps = ({ pipelineSection }: IRootState) => ({
-  pipelineSectionList: pipelineSection.entities
+  pipelineSectionList: pipelineSection.entities,
+  totalItems: pipelineSection.totalItems
 });
 
 const mapDispatchToProps = {

@@ -33,17 +33,9 @@ export class PipelineSectionDetail extends React.Component<IPipelineSectionDetai
             </dt>
             <dd>{pipelineSectionEntity.name}</dd>
             <dt>
-              <span id="pipelineId">Pipeline Id</span>
-            </dt>
-            <dd>{pipelineSectionEntity.pipelineId}</dd>
-            <dt>
               <span id="isOnshore">Is Onshore</span>
             </dt>
-            <dd>{pipelineSectionEntity.isOnshore ? 'true' : 'false'}</dd>
-            <dt>
-              <span id="safetyClassId">Safety Class Id</span>
-            </dt>
-            <dd>{pipelineSectionEntity.safetyClassId}</dd>
+            <dd>{pipelineSectionEntity.isOnshore}</dd>
             <dt>
               <span id="kpStart">Kp Start</span>
             </dt>
@@ -72,6 +64,12 @@ export class PipelineSectionDetail extends React.Component<IPipelineSectionDetai
               <span id="editor">Editor</span>
             </dt>
             <dd>{pipelineSectionEntity.editor}</dd>
+            <dt>Id</dt>
+            <dd>{pipelineSectionEntity.idId ? pipelineSectionEntity.idId : ''}</dd>
+            <dt>Id Pipeline</dt>
+            <dd>{pipelineSectionEntity.idPipelineId ? pipelineSectionEntity.idPipelineId : ''}</dd>
+            <dt>Id Safety Class</dt>
+            <dd>{pipelineSectionEntity.idSafetyClassId ? pipelineSectionEntity.idSafetyClassId : ''}</dd>
           </dl>
           <Button tag={Link} to="/entity/pipeline-section" replace color="info">
             <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>

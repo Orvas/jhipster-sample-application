@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity AnodeHist.
+    -->
+    <changeSet id="20190531124353-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="id_id"
+                                 baseTableName="anode_hist"
+                                 constraintName="fk_anode_hist_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="anode"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_pipeline_section_id"
+                                 baseTableName="anode_hist"
+                                 constraintName="fk_anode_hist_id_pipeline_section_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pipeline_section"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_bracelete_type_id"
+                                 baseTableName="anode_hist"
+                                 constraintName="fk_anode_hist_id_bracelete_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="list_anode_bracelete_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_material_id"
+                                 baseTableName="anode_hist"
+                                 constraintName="fk_anode_hist_id_material_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="list_material"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_status_id"
+                                 baseTableName="anode_hist"
+                                 constraintName="fk_anode_hist_id_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="list_wrk_status"/>
+
+    </changeSet>
+</databaseChangeLog>

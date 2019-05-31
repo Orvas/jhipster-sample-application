@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity PipejointHist.
+    -->
+    <changeSet id="20190531124509-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="id_id"
+                                 baseTableName="pipejoint_hist"
+                                 constraintName="fk_pipejoint_hist_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pipejoint"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_type_id"
+                                 baseTableName="pipejoint_hist"
+                                 constraintName="fk_pipejoint_hist_id_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="list_pipejoint_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_external_coat_type_id"
+                                 baseTableName="pipejoint_hist"
+                                 constraintName="fk_pipejoint_hist_id_external_coat_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="list_external_coating"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_material_id"
+                                 baseTableName="pipejoint_hist"
+                                 constraintName="fk_pipejoint_hist_id_material_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="list_material"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_specification_id"
+                                 baseTableName="pipejoint_hist"
+                                 constraintName="fk_pipejoint_hist_id_specification_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="list_pipejoint_specification"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_status_id"
+                                 baseTableName="pipejoint_hist"
+                                 constraintName="fk_pipejoint_hist_id_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="list_object_status"/>
+
+    </changeSet>
+</databaseChangeLog>
