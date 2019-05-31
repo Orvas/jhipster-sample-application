@@ -1,0 +1,2082 @@
+/** Anode main table. One table  rows corresponds to one anode */
+entity Anode {
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Time-dependent attribute table. One table  rows corresponds to one anode and time period */
+entity AnodeHist {
+	dateFrom LocalDate required,
+	dateTo LocalDate required,
+	idWrk Long,
+	designLife Integer,
+	dmcd BigDecimal,
+	l1 BigDecimal,
+	l2 BigDecimal,
+	length Integer,
+	electrCapac BigDecimal,
+	designWeight BigDecimal,
+	weight BigDecimal,
+	isBurial Integer,
+	chemicalComposition String maxlength(255),
+	density BigDecimal,
+	spacing Integer,
+	coatCutbackLength Integer,
+	coatDmgArea BigDecimal,
+	h2sSoil BigDecimal,
+	remain BigDecimal,
+	intFldTemp BigDecimal,
+	minPrc BigDecimal,
+	thickness BigDecimal,
+	coord String maxlength(255),
+	kpStart BigDecimal,
+	coatThickness BigDecimal,
+	kpEnd BigDecimal,
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	comment String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Object header. One row corresponds to one object */
+entity BaseClass {
+	id Long required,
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Bends  main table. One table  rows corresponds to one bend */
+entity Bend {
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Time-dependent attribute table. One table  rows corresponds to one bend and time period */
+entity BendHist {
+	dateFrom LocalDate required,
+	dateTo LocalDate required,
+	idWrk Long,
+	num String maxlength(255),
+	radius BigDecimal,
+	diameterOuterSteel Integer,
+	internalCoatThickness BigDecimal,
+	externalCoatThickness BigDecimal,
+	isConcrCoating Integer,
+	concrCoatThickness BigDecimal,
+	concrCoatDensity BigDecimal,
+	measWallThickness BigDecimal,
+	length Integer,
+	weight BigDecimal,
+	smts BigDecimal,
+	smys BigDecimal,
+	sdbm BigDecimal,
+	sdaf BigDecimal,
+	sdcs BigDecimal,
+	allowTensStrain BigDecimal,
+	corrosionAllowance Integer,
+	fabricationAllowance Integer,
+	isBurial Integer,
+	burialDepth Integer,
+	factBurialDepth Integer,
+	dateManufactured LocalDate,
+	millTestPressure BigDecimal,
+	designPressure BigDecimal,
+	incidentalPressure BigDecimal,
+	dateInstalled LocalDate,
+	seamOrient BigDecimal,
+	seamAngle BigDecimal,
+	azimuth BigDecimal,
+	seabInstallTemp BigDecimal,
+	verticalAngle BigDecimal,
+	heatTreatDurat BigDecimal,
+	maxDesignTemp BigDecimal,
+	heatNumber String maxlength(255),
+	coord String maxlength(255),
+	designCoord BigDecimal,
+	kpStart BigDecimal,
+	kpEnd BigDecimal,
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	comment String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Colla main table. One table  rows corresponds to one collar */
+entity BuckleArrestor {
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Collar. Time-dependent attribute table. One table  rows corresponds to one collar and time period */
+entity BuckleArrestorHist {
+	dateFrom LocalDate required,
+	dateTo LocalDate required,
+	idWrk Long,
+	serialNum String maxlength(255),
+	diameterOuterSteel Integer required,
+	internalCoatThickness BigDecimal,
+	externalCoatThickness BigDecimal,
+	isConcrCoating Integer,
+	concrCoatThickness BigDecimal,
+	concrCoatDensity BigDecimal,
+	measColWallThickness BigDecimal,
+	measPipeWallThickness BigDecimal,
+	colLength Integer,
+	pipeLength Integer,
+	weight BigDecimal,
+	smts BigDecimal,
+	smys BigDecimal,
+	sdbm BigDecimal,
+	sdaf BigDecimal,
+	sdcs BigDecimal,
+	allowTensStrain BigDecimal,
+	corrosionAllowance Integer,
+	fabricationAllowance Integer,
+	isBurial Integer,
+	burialDepth Integer,
+	factBurialDepth Integer,
+	dateManufactured LocalDate,
+	millTestPressure BigDecimal,
+	designPressure BigDecimal,
+	incidentalPressure BigDecimal,
+	dateInstalled LocalDate,
+	seamOrient BigDecimal,
+	seamAngle BigDecimal,
+	azimuth BigDecimal,
+	seabInstallTemp BigDecimal,
+	verticalAngle BigDecimal,
+	heatTreatDurat BigDecimal,
+	maxDesignTemp BigDecimal,
+	heatNumber String maxlength(255),
+	coord String maxlength(255),
+	designCoord BigDecimal,
+	kpStart BigDecimal,
+	kpEnd BigDecimal,
+	isCurrentFlag Integer required,
+	idStatus Long required,
+	description String maxlength(255),
+	comment String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Cathodic protecion station. Time-independent attribute table. One table  rows corresponds to one station */
+entity Cps {
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Cathodic protecion station. Time-dependent attribute table. One table  rows corresponds to one station and time period */
+entity CpsHist {
+	dateFrom LocalDate required,
+	dateTo LocalDate required,
+	idWrk Long,
+	current BigDecimal,
+	potential BigDecimal,
+	downtime BigDecimal,
+	coord String maxlength(255),
+	kpInst BigDecimal,
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	comment String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** CPS action  range
+One row corresponds to one cps and pipeline section  */
+entity CpsRange {
+	id Long required,
+	kpStart BigDecimal required,
+	kpEnd BigDecimal required,
+	dateFrom LocalDate required,
+	dateTo LocalDate required,
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Pipes main table. One table  rows corresponds to one pipe */
+entity Displacement {
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity DisplacementHist {
+	dateFrom LocalDate required,
+	dateTo LocalDate required,
+	idWrk Long,
+	deltaX BigDecimal,
+	deltaY BigDecimal,
+	deltaZ BigDecimal,
+	deltaTotal BigDecimal,
+	kpStart BigDecimal,
+	kpEnd BigDecimal,
+	isCurrentFlag Integer required,
+	idStatus Long required,
+	comment String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Free span  main table. One table  rows corresponds to one free span */
+entity FreeSpan {
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity FreeSpanHist {
+	dateFrom LocalDate required,
+	dateTo LocalDate required,
+	idWrk Long,
+	lenght BigDecimal,
+	lenghtAllow BigDecimal,
+	height BigDecimal,
+	isMultispan Integer,
+	gap BigDecimal,
+	kpStart BigDecimal,
+	kpEnd BigDecimal,
+	isCurrentFlag Integer required,
+	comment String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Free span support  main table. One table  rows corresponds to one free span support */
+entity FreeSpanSupport {
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity FreeSpanSupportHist {
+	dateFrom LocalDate required,
+	dateTo LocalDate required,
+	idWrk Long,
+	height BigDecimal,
+	kpInst BigDecimal,
+	isCurrentFlag Integer required,
+	comment String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity LaunchReceiver {
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity LaunchReceiverHist {
+	dateFrom LocalDate required,
+	dateTo LocalDate required,
+	name String required maxlength(255),
+	coord String maxlength(255),
+	kpInst BigDecimal,
+	isCurrentFlag Integer required,
+	comment String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListAnodeBraceleteType {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListBendManufacturer {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListBendSpecification {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListBendType {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** List for define which value of boundary condidtion to use for calculations:
+•	Pinned-Pinned	
+•	Fixed-Fixed	
+•	Single span on seabed
+
+ */
+entity ListBoundaryCondUcase {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListBucklarrManufacturer {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListBucklarrSpecification {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListBucklarrType {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** List of values:
+- A 
+- B
+- C
+- D
+- E
+
+ */
+entity ListClayType {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** - main calculation
+- auxiliary calculation */
+entity ListClcKind {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** - Pipeline displacement
+- Metall loss
+- Dent
+- Cathodic protection
+ */
+entity ListClcLvl {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Calculation results:
+- Success
+- No success
+ */
+entity ListClcResult {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** - Pipeline displacement
+- Metall loss
+- Dent
+- Cathodic protection
+ */
+entity ListClcType {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListDfctGroup {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListDfctPosType {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListDfctType {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** List for define which value of effective axial force to use for calculations:
+- Estimated in PIMS value of effective axial force
+- System design value
+- User input value
+
+
+ */
+entity ListEffAxforceUcase {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListEnvDirection {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	degreeStart BigDecimal required,
+	degreeEnd BigDecimal,
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListEnvPoint {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	degreeStart BigDecimal required,
+	degreeEnd BigDecimal,
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListExternalCoating {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	density BigDecimal,
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListFabricationType {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** List of ILI pig types:
+ */
+entity ListIliPigType {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListInternalCoating {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** List for define which value of internal pressure to use for calculations:
+•	Pi from PPS report on the date of assessment
+•	Pi from PPS report on the date of inspection
+•	Design pressure
+ */
+entity ListInternalPressUcase {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListLongSeamWeldType {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListMaterial {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListMillLocation {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** List for define which value of internal pressure to use for calculations:
+•	Pi from PPS report on the date of assessment
+•	Pi from PPS report on the date of inspection
+•	Design pressure
+ */
+entity ListMinpressUcase {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListNominalWallThickness {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListObjectStatus {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** List of ILI pig types:
+ */
+entity ListObjectType {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	tableName String required maxlength(255),
+	tableNameHist String maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListPipeManufacturer {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListPipeSpecification {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListPipejointSpecification {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListPipejointType {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListPipelineLocation {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** List of values:
+- A 
+- B
+- C
+- D
+- E
+
+ */
+entity ListRiskConsequence {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	safety String maxlength(255),
+	commerImpact String maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** List of values:
+ - high unlikely
+ - unlikely
+ - can occur once in lifetime
+ - somewhat likely to occur
+-  likely to occur 
+
+ */
+entity ListRiskProbability {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Pipeline safety class:
+- Low
+- Medium
+- High
+
+ */
+entity ListSafetyClass {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** List of values:
+- A 
+- B
+- C
+- D
+- E
+
+ */
+entity ListSandType {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** List of values:
+- A 
+- B
+- C
+- D
+- E
+
+ */
+entity ListSoilType {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListSteelGrade {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	steelDensity BigDecimal,
+	thermExpCoef BigDecimal,
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListTeeManufacturer {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListTeeSpecification {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListTeeType {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Internal corrosion
+Erosion
+External Corrosion
+Stray Current/Current drain
+
+ */
+entity ListThreat {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Threat groups:
+
+Corrosion/Erosion/Material Threats
+Third Party Interaction Threats
+Natural Hazard and Stability Threats
+Structural Threats
+Design, Fabrication and Installation (DFI) and Incorrect
+Operation Threats
+ */
+entity ListThreatGroup {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListValveFunction {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListValveManufacturer {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListValveSpecification {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListValveType {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListWrkKind {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** List of work pursposes:
+- plan work
+- after repair
+ */
+entity ListWrkPurpose {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity ListWrkStatus {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** List of CMMS work statuses
+ */
+entity ListWrkcmmsStatus {
+	id Long required,
+	code String required maxlength(255),
+	name String required maxlength(255),
+	fullName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** One table  rows corresponds to one reference (list of values)
+ */
+entity MetaList {
+	id Long required,
+	name String required maxlength(255),
+	schemaName String required maxlength(255),
+	tableName String required maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Pipes main table. One table  rows corresponds to one pipe */
+entity Pipe {
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Time-dependent attribute table. One table  rows corresponds to one pipe and time period */
+entity PipeHist {
+	dateFrom LocalDate required,
+	dateTo LocalDate required,
+	idWrk Long,
+	num String maxlength(255),
+	diameterOuterSteel Integer,
+	internalCoatThickness BigDecimal,
+	externalCoatThickness BigDecimal,
+	isConcrCoating Integer,
+	concrCoatThickness BigDecimal,
+	concrCoatDensity BigDecimal,
+	measWallThickness BigDecimal,
+	length Integer,
+	weight BigDecimal,
+	smts BigDecimal,
+	smys BigDecimal,
+	sdbm BigDecimal,
+	sdaf BigDecimal,
+	sdcs BigDecimal,
+	allowTensStrain BigDecimal,
+	corrosionAllowance Integer,
+	fabricationAllowance Integer,
+	isBurial Integer,
+	burialDepth Integer,
+	factBurialDepth Integer,
+	dateManufactured LocalDate,
+	millTestPressure BigDecimal,
+	designPressure BigDecimal,
+	incidentalPressure BigDecimal,
+	dateInstalled LocalDate,
+	seamOrient BigDecimal,
+	seamAngle BigDecimal,
+	azimuth BigDecimal,
+	seabInstallTemp BigDecimal,
+	verticalAngle BigDecimal,
+	heatTreatDurat BigDecimal,
+	maxDesignTemp BigDecimal,
+	heatNumber String maxlength(255),
+	coord String maxlength(255),
+	designCoord String maxlength(255),
+	kpStart BigDecimal,
+	kpEnd BigDecimal,
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	comment String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Pipe joints main table. One table  rows corresponds to one pipe joint */
+entity Pipejoint {
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Time-dependent attribute table. One table  rows corresponds to one pipe joint and time period */
+entity PipejointHist {
+	dateFrom LocalDate required,
+	dateTo LocalDate required,
+	name String maxlength(255),
+	externalCoatThickness BigDecimal,
+	coord String maxlength(255),
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	comment String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity Pipeline {
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+entity PipelineHist {
+	dateFrom LocalDate required,
+	dateTo LocalDate required,
+	name String required maxlength(255),
+	designLife Integer,
+	isCurrentFlag Integer required,
+	comment String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Homogeneous sections,  areas of unchanged values ??of the following characteristics:
+- is_onshore
+- safety class
+
+One table rows corresponds to one section
+
+
+ */
+entity PipelineSection {
+	name String required maxlength(255),
+	isOnshore Integer required,
+	kpStart BigDecimal required,
+	kpEnd BigDecimal required,
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** One table rows corresponds to one pipeline segment
+
+List of Pipeline segments:
+
+Segment Number/Segment name/Pipeline 1 KP_start kp_end/Pipeline 4 kp_start kp_end
+
+1Onshore Pipeline - Russia -2.2 0 -2.2 0
+2 Micro Tunnel 0 1.4 0 1.4
+3 Shelf section- Russia 1.4 30.1 1.4 31.1
+4 Slope 30° - Russia 30.1 53 31.1 53
+5 Abyssal Plain 1 (Russia territorial waters end) 53 228.3 53 228.3
+6 Abyssal Plain 2 (original SS scope end) 228.3 660 228.3 660
+7 Abyssal Plain 3 (New TurkStream Scope) 660 792 660 790
+8 Slope 10° - Turkey 792 876.4 790 874.9
+9 Shelf section - Turkey 876.4 923.2 874.9 921.8
+10 Open Cut Shore Crossing 923.2 925.6 921.8 924.2
+11 Onshore Pipeline - Turkey 1000 1001.8 1000 1001.8 */
+entity PipelineSegment {
+	id Long required,
+	num String required maxlength(255),
+	name String required maxlength(255),
+	kpStart1 BigDecimal required,
+	kpEnd1 BigDecimal required,
+	kpStart4 BigDecimal required,
+	kpEnd4 BigDecimal required,
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Tee main table. One table  rows corresponds to one tee */
+entity Tee {
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Tee. Time-dependent attribute table. One table  rows corresponds to one tee and time period */
+entity TeeHist {
+	dateFrom LocalDate required,
+	dateTo LocalDate required,
+	idWrk Long,
+	name String maxlength(255),
+	diameterOuterSteel Integer,
+	diameterOuterSteelBr Integer,
+	internalCoatThickness BigDecimal,
+	externalCoatThickness BigDecimal,
+	isConcrCoating Integer,
+	concrCoatThickness BigDecimal,
+	concrCoatDensity BigDecimal,
+	measWallThickness BigDecimal,
+	length Integer,
+	weight BigDecimal,
+	smts BigDecimal,
+	smys BigDecimal,
+	sdbm BigDecimal,
+	sdaf BigDecimal,
+	sdcs BigDecimal,
+	allowTensStrain BigDecimal,
+	corrosionAllowance Integer,
+	fabricationAllowance Integer,
+	isBurial Integer,
+	burialDepth Integer,
+	factBurialDepth Integer,
+	dateManufactured LocalDate,
+	millTestPressure BigDecimal,
+	designPressure BigDecimal,
+	incidentalPressure BigDecimal,
+	dateInstalled LocalDate,
+	seamOrient BigDecimal,
+	seamAngle BigDecimal,
+	azimuth BigDecimal,
+	seabInstallTemp BigDecimal,
+	verticalAngle BigDecimal,
+	heatTreatDurat BigDecimal,
+	maxDesignTemp BigDecimal,
+	heatNumber String maxlength(255),
+	coord String maxlength(255),
+	designCoord BigDecimal,
+	kpInst BigDecimal,
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	comment String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Valve main table. One table  rows corresponds to one valve */
+entity Valve {
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+/** Valve. Time-dependent attribute table. One table  rows corresponds to one valve and time period */
+entity ValveHist {
+	dateFrom LocalDate required,
+	dateTo LocalDate required,
+	idWrk Long,
+	name String maxlength(255),
+	serialNum String maxlength(255),
+	model String maxlength(255),
+	diameterOuterSteel Integer required,
+	internalCoatThickness BigDecimal,
+	externalCoatThickness BigDecimal,
+	isConcrCoating Integer,
+	concrCoatThickness BigDecimal,
+	concrCoatDensity BigDecimal,
+	measWallThickness BigDecimal,
+	length Integer,
+	weight BigDecimal,
+	smts BigDecimal,
+	smys BigDecimal,
+	sdbm BigDecimal,
+	sdaf BigDecimal,
+	sdcs BigDecimal,
+	allowTensStrain BigDecimal,
+	corrosionAllowance Integer,
+	fabricationAllowance Integer,
+	dateManufactured LocalDate,
+	millTestPressure BigDecimal,
+	designPressure BigDecimal,
+	designPressureIn BigDecimal,
+	designPressureOut BigDecimal,
+	incidentalPressure BigDecimal,
+	dateInstalled LocalDate,
+	seamOrient BigDecimal,
+	seamAngle BigDecimal,
+	azimuth BigDecimal,
+	seabInstallTemp BigDecimal,
+	verticalAngle BigDecimal,
+	heatTreatDurat BigDecimal,
+	maxDesignTemp BigDecimal,
+	heatNumber String maxlength(255),
+	coord String maxlength(255),
+	designCoord BigDecimal,
+	kpInst BigDecimal,
+	isCurrentFlag Integer required,
+	description String maxlength(255),
+	comment String maxlength(255),
+	dateCreate Instant,
+	dateEdit Instant,
+	creator String maxlength(255),
+	editor String maxlength(255)
+}
+
+
+
+// Relations
+// Anode main table. One table  rows corresponds to one anode
+relationship ManyToOne {
+	Anode{id required} to BaseClass{anode}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one anode and time period
+relationship ManyToOne {
+	AnodeHist{id required} to Anode{anodeHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one anode and time period
+relationship ManyToOne {
+	AnodeHist{idPipelineSection required} to PipelineSection{anodeHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one anode and time period
+relationship ManyToOne {
+	AnodeHist{idBraceleteType} to ListAnodeBraceleteType{anodeHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one anode and time period
+relationship ManyToOne {
+	AnodeHist{idMaterial} to ListMaterial{anodeHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one anode and time period
+relationship ManyToOne {
+	AnodeHist{idStatus required} to ListWrkStatus{anodeHist}
+}
+
+// Object header. One row corresponds to one object
+relationship ManyToOne {
+	BaseClass{idType required} to ListObjectType{baseClass}
+}
+
+// Bends  main table. One table  rows corresponds to one bend
+relationship ManyToOne {
+	Bend{id required} to BaseClass{bend}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one bend and time period
+relationship ManyToOne {
+	BendHist{id required} to Bend{bendHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one bend and time period
+relationship ManyToOne {
+	BendHist{idPipelineSection required} to PipelineSection{bendHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one bend and time period
+relationship ManyToOne {
+	BendHist{idType} to ListBendType{bendHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one bend and time period
+relationship ManyToOne {
+	BendHist{idInternalCoatType} to ListInternalCoating{bendHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one bend and time period
+relationship ManyToOne {
+	BendHist{idExternalCoatType} to ListExternalCoating{bendHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one bend and time period
+relationship ManyToOne {
+	BendHist{idNominalWallThickness} to ListNominalWallThickness{bendHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one bend and time period
+relationship ManyToOne {
+	BendHist{idPipeJoint} to Pipejoint{bendHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one bend and time period
+relationship ManyToOne {
+	BendHist{idManufacturer} to ListBendManufacturer{bendHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one bend and time period
+relationship ManyToOne {
+	BendHist{idSpecification} to ListBendSpecification{bendHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one bend and time period
+relationship ManyToOne {
+	BendHist{idLongSeamWeldType} to ListLongSeamWeldType{bendHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one bend and time period
+relationship ManyToOne {
+	BendHist{idFabricationType} to ListFabricationType{bendHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one bend and time period
+relationship ManyToOne {
+	BendHist{idMaterial} to ListMaterial{bendHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one bend and time period
+relationship ManyToOne {
+	BendHist{idMillLocation} to ListMillLocation{bendHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one bend and time period
+relationship ManyToOne {
+	BendHist{idSteelGrade} to ListSteelGrade{bendHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one bend and time period
+relationship ManyToOne {
+	BendHist{idStatus required} to ListObjectStatus{bendHist}
+}
+
+// Colla main table. One table  rows corresponds to one collar
+relationship ManyToOne {
+	BuckleArrestor{id required} to BaseClass{buckleArrestor}
+}
+
+// Collar. Time-dependent attribute table. One table  rows corresponds to one collar and time period
+relationship ManyToOne {
+	BuckleArrestorHist{id required} to BuckleArrestor{buckleArrestorHist}
+}
+
+// Collar. Time-dependent attribute table. One table  rows corresponds to one collar and time period
+relationship ManyToOne {
+	BuckleArrestorHist{idPipelineSection required} to PipelineSection{buckleArrestorHist}
+}
+
+// Collar. Time-dependent attribute table. One table  rows corresponds to one collar and time period
+relationship ManyToOne {
+	BuckleArrestorHist{idType required} to ListBucklarrType{buckleArrestorHist}
+}
+
+// Collar. Time-dependent attribute table. One table  rows corresponds to one collar and time period
+relationship ManyToOne {
+	BuckleArrestorHist{idInternalCoatType required} to ListInternalCoating{buckleArrestorHist}
+}
+
+// Collar. Time-dependent attribute table. One table  rows corresponds to one collar and time period
+relationship ManyToOne {
+	BuckleArrestorHist{idExternalCoatType required} to ListExternalCoating{buckleArrestorHist}
+}
+
+// Collar. Time-dependent attribute table. One table  rows corresponds to one collar and time period
+relationship ManyToOne {
+	BuckleArrestorHist{idNominalWallThickness} to ListNominalWallThickness{buckleArrestorHist}
+}
+
+// Collar. Time-dependent attribute table. One table  rows corresponds to one collar and time period
+relationship ManyToOne {
+	BuckleArrestorHist{idPipeJoint} to Pipejoint{buckleArrestorHist}
+}
+
+// Collar. Time-dependent attribute table. One table  rows corresponds to one collar and time period
+relationship ManyToOne {
+	BuckleArrestorHist{idManufacturer} to ListBucklarrManufacturer{buckleArrestorHist}
+}
+
+// Collar. Time-dependent attribute table. One table  rows corresponds to one collar and time period
+relationship ManyToOne {
+	BuckleArrestorHist{idSpecification} to ListBucklarrSpecification{buckleArrestorHist}
+}
+
+// Collar. Time-dependent attribute table. One table  rows corresponds to one collar and time period
+relationship ManyToOne {
+	BuckleArrestorHist{idLongSeamWeldType} to ListLongSeamWeldType{buckleArrestorHist}
+}
+
+// Collar. Time-dependent attribute table. One table  rows corresponds to one collar and time period
+relationship ManyToOne {
+	BuckleArrestorHist{idFabricationType} to ListFabricationType{buckleArrestorHist}
+}
+
+// Collar. Time-dependent attribute table. One table  rows corresponds to one collar and time period
+relationship ManyToOne {
+	BuckleArrestorHist{idMaterial} to ListMaterial{buckleArrestorHist}
+}
+
+// Collar. Time-dependent attribute table. One table  rows corresponds to one collar and time period
+relationship ManyToOne {
+	BuckleArrestorHist{idMillLocation} to ListMillLocation{buckleArrestorHist}
+}
+
+// Collar. Time-dependent attribute table. One table  rows corresponds to one collar and time period
+relationship ManyToOne {
+	BuckleArrestorHist{idSteelGrade} to ListSteelGrade{buckleArrestorHist}
+}
+
+// Cathodic protecion station. Time-independent attribute table. One table  rows corresponds to one station
+relationship ManyToOne {
+	Cps{id required} to BaseClass{cps}
+}
+
+// Cathodic protecion station. Time-dependent attribute table. One table  rows corresponds to one station and time period
+relationship ManyToOne {
+	CpsHist{id required} to Cps{cpsHist}
+}
+
+// Cathodic protecion station. Time-dependent attribute table. One table  rows corresponds to one station and time period
+relationship ManyToOne {
+	CpsHist{idPipelineSection required} to PipelineSection{cpsHist}
+}
+
+// Cathodic protecion station. Time-dependent attribute table. One table  rows corresponds to one station and time period
+relationship ManyToOne {
+	CpsHist{idStatus required} to ListObjectStatus{cpsHist}
+}
+
+// CPS action  range
+One row corresponds to one cps and pipeline section 
+relationship ManyToOne {
+	CpsRange{idCps required} to Cps{cpsRange}
+}
+
+// CPS action  range
+One row corresponds to one cps and pipeline section 
+relationship ManyToOne {
+	CpsRange{idPipelineSection required} to PipelineSection{cpsRange}
+}
+
+// Pipes main table. One table  rows corresponds to one pipe
+relationship ManyToOne {
+	Displacement{id required} to BaseClass{displacement}
+}
+
+relationship ManyToOne {
+	DisplacementHist{id required} to Displacement{displacementHist}
+}
+
+relationship ManyToOne {
+	DisplacementHist{idPipelineSection required} to PipelineSection{displacementHist}
+}
+
+// Free span  main table. One table  rows corresponds to one free span
+relationship ManyToOne {
+	FreeSpan{id required} to BaseClass{freeSpan}
+}
+
+relationship ManyToOne {
+	FreeSpanHist{id required} to FreeSpan{freeSpanHist}
+}
+
+relationship ManyToOne {
+	FreeSpanHist{idPipelineSection required} to PipelineSection{freeSpanHist}
+}
+
+relationship ManyToOne {
+	FreeSpanHist{idStatus required} to ListObjectStatus{freeSpanHist}
+}
+
+// Free span support  main table. One table  rows corresponds to one free span support
+relationship ManyToOne {
+	FreeSpanSupport{id required} to BaseClass{freeSpanSupport}
+}
+
+relationship ManyToOne {
+	FreeSpanSupportHist{id required} to FreeSpanSupport{freeSpanSupportHist}
+}
+
+relationship ManyToOne {
+	FreeSpanSupportHist{idPipelineSection required} to PipelineSection{freeSpanSupportHist}
+}
+
+relationship ManyToOne {
+	FreeSpanSupportHist{idStatus required} to ListObjectStatus{freeSpanSupportHist}
+}
+
+relationship ManyToOne {
+	LaunchReceiver{id required} to BaseClass{launchReceiver}
+}
+
+relationship ManyToOne {
+	LaunchReceiverHist{id required} to LaunchReceiver{launchReceiverHist}
+}
+
+relationship ManyToOne {
+	LaunchReceiverHist{idPipeline required} to Pipeline{launchReceiverHist}
+}
+
+relationship ManyToOne {
+	LaunchReceiverHist{idStatus required} to ListObjectStatus{launchReceiverHist}
+}
+
+relationship ManyToOne {
+	ListDfctType{idGroup required} to ListDfctGroup{listDfctType}
+}
+
+// Internal corrosion
+Erosion
+External Corrosion
+Stray Current/Current drain
+
+
+relationship ManyToOne {
+	ListThreat{idGroup required} to ListThreatGroup{listThreat}
+}
+
+relationship ManyToOne {
+	ListWrkStatus{idWrkKind required} to ListWrkKind{listWrkStatus}
+}
+
+// Pipes main table. One table  rows corresponds to one pipe
+relationship ManyToOne {
+	Pipe{id required} to BaseClass{pipe}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one pipe and time period
+relationship ManyToOne {
+	PipeHist{id required} to Pipe{pipeHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one pipe and time period
+relationship ManyToOne {
+	PipeHist{idPipelineSection required} to PipelineSection{pipeHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one pipe and time period
+relationship ManyToOne {
+	PipeHist{idInternalCoatType} to ListInternalCoating{pipeHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one pipe and time period
+relationship ManyToOne {
+	PipeHist{idExternalCoatType} to ListExternalCoating{pipeHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one pipe and time period
+relationship ManyToOne {
+	PipeHist{idNominalWallThickness} to ListNominalWallThickness{pipeHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one pipe and time period
+relationship ManyToOne {
+	PipeHist{idPipeJoint} to Pipejoint{pipeHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one pipe and time period
+relationship ManyToOne {
+	PipeHist{idManufacturer} to ListPipeManufacturer{pipeHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one pipe and time period
+relationship ManyToOne {
+	PipeHist{idSpecification} to ListPipeSpecification{pipeHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one pipe and time period
+relationship ManyToOne {
+	PipeHist{idLongSeamWeldType} to ListLongSeamWeldType{pipeHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one pipe and time period
+relationship ManyToOne {
+	PipeHist{idFabricationType} to ListFabricationType{pipeHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one pipe and time period
+relationship ManyToOne {
+	PipeHist{idMaterial} to ListMaterial{pipeHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one pipe and time period
+relationship ManyToOne {
+	PipeHist{idMillLocation} to ListMillLocation{pipeHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one pipe and time period
+relationship ManyToOne {
+	PipeHist{idSteelGrade} to ListSteelGrade{pipeHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one pipe and time period
+relationship ManyToOne {
+	PipeHist{idStatus required} to ListObjectStatus{pipeHist}
+}
+
+// Pipe joints main table. One table  rows corresponds to one pipe joint
+relationship ManyToOne {
+	Pipejoint{id required} to BaseClass{pipejoint}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one pipe joint and time period
+relationship ManyToOne {
+	PipejointHist{id required} to Pipejoint{pipejointHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one pipe joint and time period
+relationship ManyToOne {
+	PipejointHist{idType} to ListPipejointType{pipejointHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one pipe joint and time period
+relationship ManyToOne {
+	PipejointHist{idExternalCoatType} to ListExternalCoating{pipejointHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one pipe joint and time period
+relationship ManyToOne {
+	PipejointHist{idMaterial} to ListMaterial{pipejointHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one pipe joint and time period
+relationship ManyToOne {
+	PipejointHist{idSpecification} to ListPipejointSpecification{pipejointHist}
+}
+
+// Time-dependent attribute table. One table  rows corresponds to one pipe joint and time period
+relationship ManyToOne {
+	PipejointHist{idStatus required} to ListObjectStatus{pipejointHist}
+}
+
+relationship ManyToOne {
+	Pipeline{id required} to BaseClass{pipeline}
+}
+
+relationship ManyToOne {
+	PipelineHist{id required} to Pipeline{pipelineHist}
+}
+
+relationship ManyToOne {
+	PipelineHist{idLocation} to ListPipelineLocation{pipelineHist}
+}
+
+relationship ManyToOne {
+	PipelineHist{idStatus required} to ListObjectStatus{pipelineHist}
+}
+
+// Homogeneous sections,  areas of unchanged values ??of the following characteristics:
+- is_onshore
+- safety class
+
+One table rows corresponds to one section
+
+
+
+relationship ManyToOne {
+	PipelineSection{id required} to BaseClass{pipelineSection}
+}
+
+// Homogeneous sections,  areas of unchanged values ??of the following characteristics:
+- is_onshore
+- safety class
+
+One table rows corresponds to one section
+
+
+
+relationship ManyToOne {
+	PipelineSection{idPipeline required} to Pipeline{pipelineSection}
+}
+
+// Homogeneous sections,  areas of unchanged values ??of the following characteristics:
+- is_onshore
+- safety class
+
+One table rows corresponds to one section
+
+
+
+relationship ManyToOne {
+	PipelineSection{idSafetyClass required} to ListSafetyClass{pipelineSection}
+}
+
+// Tee main table. One table  rows corresponds to one tee
+relationship ManyToOne {
+	Tee{id required} to BaseClass{tee}
+}
+
+// Tee. Time-dependent attribute table. One table  rows corresponds to one tee and time period
+relationship ManyToOne {
+	TeeHist{id required} to Tee{teeHist}
+}
+
+// Tee. Time-dependent attribute table. One table  rows corresponds to one tee and time period
+relationship ManyToOne {
+	TeeHist{idPipelineSection required} to PipelineSection{teeHist}
+}
+
+// Tee. Time-dependent attribute table. One table  rows corresponds to one tee and time period
+relationship ManyToOne {
+	TeeHist{idType} to ListTeeType{teeHist}
+}
+
+// Tee. Time-dependent attribute table. One table  rows corresponds to one tee and time period
+relationship ManyToOne {
+	TeeHist{idInternalCoatType} to ListInternalCoating{teeHist}
+}
+
+// Tee. Time-dependent attribute table. One table  rows corresponds to one tee and time period
+relationship ManyToOne {
+	TeeHist{idExternalCoatType} to ListExternalCoating{teeHist}
+}
+
+// Tee. Time-dependent attribute table. One table  rows corresponds to one tee and time period
+relationship ManyToOne {
+	TeeHist{idNominalWallThickness} to ListNominalWallThickness{teeHist}
+}
+
+// Tee. Time-dependent attribute table. One table  rows corresponds to one tee and time period
+relationship ManyToOne {
+	TeeHist{idPipeJoint} to Pipejoint{teeHist}
+}
+
+// Tee. Time-dependent attribute table. One table  rows corresponds to one tee and time period
+relationship ManyToOne {
+	TeeHist{idManufacturer} to ListTeeManufacturer{teeHist}
+}
+
+// Tee. Time-dependent attribute table. One table  rows corresponds to one tee and time period
+relationship ManyToOne {
+	TeeHist{idSpecification} to ListTeeSpecification{teeHist}
+}
+
+// Tee. Time-dependent attribute table. One table  rows corresponds to one tee and time period
+relationship ManyToOne {
+	TeeHist{idLongSeamWeldType} to ListLongSeamWeldType{teeHist}
+}
+
+// Tee. Time-dependent attribute table. One table  rows corresponds to one tee and time period
+relationship ManyToOne {
+	TeeHist{idFabricationType} to ListFabricationType{teeHist}
+}
+
+// Tee. Time-dependent attribute table. One table  rows corresponds to one tee and time period
+relationship ManyToOne {
+	TeeHist{idMaterial} to ListMaterial{teeHist}
+}
+
+// Tee. Time-dependent attribute table. One table  rows corresponds to one tee and time period
+relationship ManyToOne {
+	TeeHist{idMillLocation} to ListMillLocation{teeHist}
+}
+
+// Tee. Time-dependent attribute table. One table  rows corresponds to one tee and time period
+relationship ManyToOne {
+	TeeHist{idSteelGrade} to ListSteelGrade{teeHist}
+}
+
+// Tee. Time-dependent attribute table. One table  rows corresponds to one tee and time period
+relationship ManyToOne {
+	TeeHist{idStatus required} to ListObjectStatus{teeHist}
+}
+
+// Valve main table. One table  rows corresponds to one valve
+relationship ManyToOne {
+	Valve{id required} to BaseClass{valve}
+}
+
+// Valve. Time-dependent attribute table. One table  rows corresponds to one valve and time period
+relationship ManyToOne {
+	ValveHist{id required} to Valve{valveHist}
+}
+
+// Valve. Time-dependent attribute table. One table  rows corresponds to one valve and time period
+relationship ManyToOne {
+	ValveHist{idPipelineSection required} to PipelineSection{valveHist}
+}
+
+// Valve. Time-dependent attribute table. One table  rows corresponds to one valve and time period
+relationship ManyToOne {
+	ValveHist{idType} to ListValveType{valveHist}
+}
+
+// Valve. Time-dependent attribute table. One table  rows corresponds to one valve and time period
+relationship ManyToOne {
+	ValveHist{idInternalCoatType} to ListInternalCoating{valveHist}
+}
+
+// Valve. Time-dependent attribute table. One table  rows corresponds to one valve and time period
+relationship ManyToOne {
+	ValveHist{idExternalCoatType} to ListExternalCoating{valveHist}
+}
+
+// Valve. Time-dependent attribute table. One table  rows corresponds to one valve and time period
+relationship ManyToOne {
+	ValveHist{idNominalWallThickness} to ListNominalWallThickness{valveHist}
+}
+
+// Valve. Time-dependent attribute table. One table  rows corresponds to one valve and time period
+relationship ManyToOne {
+	ValveHist{idPipeJoint} to Pipejoint{valveHist}
+}
+
+// Valve. Time-dependent attribute table. One table  rows corresponds to one valve and time period
+relationship ManyToOne {
+	ValveHist{idManufacturer} to ListValveManufacturer{valveHist}
+}
+
+// Valve. Time-dependent attribute table. One table  rows corresponds to one valve and time period
+relationship ManyToOne {
+	ValveHist{idSpecification} to ListValveSpecification{valveHist}
+}
+
+// Valve. Time-dependent attribute table. One table  rows corresponds to one valve and time period
+relationship ManyToOne {
+	ValveHist{idFunction} to ListValveFunction{valveHist}
+}
+
+// Valve. Time-dependent attribute table. One table  rows corresponds to one valve and time period
+relationship ManyToOne {
+	ValveHist{idLongSeamWeldType} to ListLongSeamWeldType{valveHist}
+}
+
+// Valve. Time-dependent attribute table. One table  rows corresponds to one valve and time period
+relationship ManyToOne {
+	ValveHist{idFabricationType} to ListFabricationType{valveHist}
+}
+
+// Valve. Time-dependent attribute table. One table  rows corresponds to one valve and time period
+relationship ManyToOne {
+	ValveHist{idMaterial} to ListMaterial{valveHist}
+}
+
+// Valve. Time-dependent attribute table. One table  rows corresponds to one valve and time period
+relationship ManyToOne {
+	ValveHist{idMillLocation} to ListMillLocation{valveHist}
+}
+
+// Valve. Time-dependent attribute table. One table  rows corresponds to one valve and time period
+relationship ManyToOne {
+	ValveHist{idSteelGrade} to ListSteelGrade{valveHist}
+}
+
+// Valve. Time-dependent attribute table. One table  rows corresponds to one valve and time period
+relationship ManyToOne {
+	ValveHist{idStatus required} to ListObjectStatus{valveHist}
+}
+
+
+
+// Options
+service * with serviceClass
+paginate * with pagination
+dto * with mapstruct
+filter *
+
