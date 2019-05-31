@@ -203,8 +203,7 @@ entity CpsHist {
 	editor String maxlength(255)
 }
 
-/** CPS action  range
-One row corresponds to one cps and pipeline section  */
+/** CPS action  rangeOne row corresponds to one cps and pipeline section  */
 entity CpsRange {
 	id Long required,
 	kpStart BigDecimal required,
@@ -366,12 +365,7 @@ entity ListBendType {
 	editor String maxlength(255)
 }
 
-/** List for define which value of boundary condidtion to use for calculations:
-•	Pinned-Pinned	
-•	Fixed-Fixed	
-•	Single span on seabed
-
- */
+/** List for define which value of boundary condidtion to use for calculations:•	Pinned-Pinned	•	Fixed-Fixed	•	Single span on seabed */
 entity ListBoundaryCondUcase {
 	id Long required,
 	code String required maxlength(255),
@@ -424,14 +418,7 @@ entity ListBucklarrType {
 	editor String maxlength(255)
 }
 
-/** List of values:
-- A 
-- B
-- C
-- D
-- E
-
- */
+/** List of values:- A - B- C- D- E */
 entity ListClayType {
 	id Long required,
 	code String required maxlength(255),
@@ -445,8 +432,7 @@ entity ListClayType {
 	editor String maxlength(255)
 }
 
-/** - main calculation
-- auxiliary calculation */
+/** - main calculation- auxiliary calculation */
 entity ListClcKind {
 	id Long required,
 	code String required maxlength(255),
@@ -460,11 +446,7 @@ entity ListClcKind {
 	editor String maxlength(255)
 }
 
-/** - Pipeline displacement
-- Metall loss
-- Dent
-- Cathodic protection
- */
+/** - Pipeline displacement- Metall loss- Dent- Cathodic protection */
 entity ListClcLvl {
 	id Long required,
 	code String required maxlength(255),
@@ -478,10 +460,7 @@ entity ListClcLvl {
 	editor String maxlength(255)
 }
 
-/** Calculation results:
-- Success
-- No success
- */
+/** Calculation results:- Success- No success */
 entity ListClcResult {
 	id Long required,
 	code String required maxlength(255),
@@ -495,11 +474,7 @@ entity ListClcResult {
 	editor String maxlength(255)
 }
 
-/** - Pipeline displacement
-- Metall loss
-- Dent
-- Cathodic protection
- */
+/** - Pipeline displacement- Metall loss- Dent- Cathodic protection */
 entity ListClcType {
 	id Long required,
 	code String required maxlength(255),
@@ -552,13 +527,7 @@ entity ListDfctType {
 	editor String maxlength(255)
 }
 
-/** List for define which value of effective axial force to use for calculations:
-- Estimated in PIMS value of effective axial force
-- System design value
-- User input value
-
-
- */
+/** List for define which value of effective axial force to use for calculations:- Estimated in PIMS value of effective axial force- System design value- User input value */
 entity ListEffAxforceUcase {
 	id Long required,
 	code String required maxlength(255),
@@ -629,8 +598,7 @@ entity ListFabricationType {
 	editor String maxlength(255)
 }
 
-/** List of ILI pig types:
- */
+/** List of ILI pig types: */
 entity ListIliPigType {
 	id Long required,
 	code String required maxlength(255),
@@ -657,11 +625,7 @@ entity ListInternalCoating {
 	editor String maxlength(255)
 }
 
-/** List for define which value of internal pressure to use for calculations:
-•	Pi from PPS report on the date of assessment
-•	Pi from PPS report on the date of inspection
-•	Design pressure
- */
+/** List for define which value of internal pressure to use for calculations:•	Pi from PPS report on the date of assessment•	Pi from PPS report on the date of inspection•	Design pressure */
 entity ListInternalPressUcase {
 	id Long required,
 	code String required maxlength(255),
@@ -714,11 +678,7 @@ entity ListMillLocation {
 	editor String maxlength(255)
 }
 
-/** List for define which value of internal pressure to use for calculations:
-•	Pi from PPS report on the date of assessment
-•	Pi from PPS report on the date of inspection
-•	Design pressure
- */
+/** List for define which value of internal pressure to use for calculations:•	Pi from PPS report on the date of assessment•	Pi from PPS report on the date of inspection•	Design pressure */
 entity ListMinpressUcase {
 	id Long required,
 	code String required maxlength(255),
@@ -758,8 +718,7 @@ entity ListObjectStatus {
 	editor String maxlength(255)
 }
 
-/** List of ILI pig types:
- */
+/** List of ILI pig types: */
 entity ListObjectType {
 	id Long required,
 	code String required maxlength(255),
@@ -840,14 +799,7 @@ entity ListPipelineLocation {
 	editor String maxlength(255)
 }
 
-/** List of values:
-- A 
-- B
-- C
-- D
-- E
-
- */
+/** List of values:- A - B- C- D- E */
 entity ListRiskConsequence {
 	id Long required,
 	code String required maxlength(255),
@@ -863,14 +815,7 @@ entity ListRiskConsequence {
 	editor String maxlength(255)
 }
 
-/** List of values:
- - high unlikely
- - unlikely
- - can occur once in lifetime
- - somewhat likely to occur
--  likely to occur 
-
- */
+/** List of values: - high unlikely - unlikely - can occur once in lifetime - somewhat likely to occur-  likely to occur  */
 entity ListRiskProbability {
 	id Long required,
 	code String required maxlength(255),
@@ -884,12 +829,7 @@ entity ListRiskProbability {
 	editor String maxlength(255)
 }
 
-/** Pipeline safety class:
-- Low
-- Medium
-- High
-
- */
+/** Pipeline safety class:- Low- Medium- High */
 entity ListSafetyClass {
 	id Long required,
 	code String required maxlength(255),
@@ -903,14 +843,7 @@ entity ListSafetyClass {
 	editor String maxlength(255)
 }
 
-/** List of values:
-- A 
-- B
-- C
-- D
-- E
-
- */
+/** List of values:- A - B- C- D- E */
 entity ListSandType {
 	id Long required,
 	code String required maxlength(255),
@@ -924,14 +857,7 @@ entity ListSandType {
 	editor String maxlength(255)
 }
 
-/** List of values:
-- A 
-- B
-- C
-- D
-- E
-
- */
+/** List of values:- A - B- C- D- E */
 entity ListSoilType {
 	id Long required,
 	code String required maxlength(255),
@@ -999,12 +925,7 @@ entity ListTeeType {
 	editor String maxlength(255)
 }
 
-/** Internal corrosion
-Erosion
-External Corrosion
-Stray Current/Current drain
-
- */
+/** Internal corrosionErosionExternal CorrosionStray Current/Current drain */
 entity ListThreat {
 	id Long required,
 	code String required maxlength(255),
@@ -1018,15 +939,7 @@ entity ListThreat {
 	editor String maxlength(255)
 }
 
-/** Threat groups:
-
-Corrosion/Erosion/Material Threats
-Third Party Interaction Threats
-Natural Hazard and Stability Threats
-Structural Threats
-Design, Fabrication and Installation (DFI) and Incorrect
-Operation Threats
- */
+/** Threat groups:Corrosion/Erosion/Material ThreatsThird Party Interaction ThreatsNatural Hazard and Stability ThreatsStructural ThreatsDesign, Fabrication and Installation (DFI) and IncorrectOperation Threats */
 entity ListThreatGroup {
 	id Long required,
 	code String required maxlength(255),
@@ -1105,10 +1018,7 @@ entity ListWrkKind {
 	editor String maxlength(255)
 }
 
-/** List of work pursposes:
-- plan work
-- after repair
- */
+/** List of work pursposes:- plan work- after repair */
 entity ListWrkPurpose {
 	id Long required,
 	code String required maxlength(255),
@@ -1135,8 +1045,7 @@ entity ListWrkStatus {
 	editor String maxlength(255)
 }
 
-/** List of CMMS work statuses
- */
+/** List of CMMS work statuses */
 entity ListWrkcmmsStatus {
 	id Long required,
 	code String required maxlength(255),
@@ -1150,8 +1059,7 @@ entity ListWrkcmmsStatus {
 	editor String maxlength(255)
 }
 
-/** One table  rows corresponds to one reference (list of values)
- */
+/** One table  rows corresponds to one reference (list of values) */
 entity MetaList {
 	id Long required,
 	name String required maxlength(255),
@@ -1269,14 +1177,7 @@ entity PipelineHist {
 	editor String maxlength(255)
 }
 
-/** Homogeneous sections,  areas of unchanged values ??of the following characteristics:
-- is_onshore
-- safety class
-
-One table rows corresponds to one section
-
-
- */
+/** Homogeneous sections,  areas of unchanged values ??of the following characteristics:- is_onshore- safety classOne table rows corresponds to one section */
 entity PipelineSection {
 	name String required maxlength(255),
 	isOnshore Integer required,
@@ -1288,23 +1189,7 @@ entity PipelineSection {
 	editor String maxlength(255)
 }
 
-/** One table rows corresponds to one pipeline segment
-
-List of Pipeline segments:
-
-Segment Number/Segment name/Pipeline 1 KP_start kp_end/Pipeline 4 kp_start kp_end
-
-1Onshore Pipeline - Russia -2.2 0 -2.2 0
-2 Micro Tunnel 0 1.4 0 1.4
-3 Shelf section- Russia 1.4 30.1 1.4 31.1
-4 Slope 30° - Russia 30.1 53 31.1 53
-5 Abyssal Plain 1 (Russia territorial waters end) 53 228.3 53 228.3
-6 Abyssal Plain 2 (original SS scope end) 228.3 660 228.3 660
-7 Abyssal Plain 3 (New TurkStream Scope) 660 792 660 790
-8 Slope 10° - Turkey 792 876.4 790 874.9
-9 Shelf section - Turkey 876.4 923.2 874.9 921.8
-10 Open Cut Shore Crossing 923.2 925.6 921.8 924.2
-11 Onshore Pipeline - Turkey 1000 1001.8 1000 1001.8 */
+/** One table rows corresponds to one pipeline segmentList of Pipeline segments:Segment Number/Segment name/Pipeline 1 KP_start kp_end/Pipeline 4 kp_start kp_end1Onshore Pipeline - Russia -2.2 0 -2.2 02 Micro Tunnel 0 1.4 0 1.43 Shelf section- Russia 1.4 30.1 1.4 31.14 Slope 30° - Russia 30.1 53 31.1 535 Abyssal Plain 1 (Russia territorial waters end) 53 228.3 53 228.36 Abyssal Plain 2 (original SS scope end) 228.3 660 228.3 6607 Abyssal Plain 3 (New TurkStream Scope) 660 792 660 7908 Slope 10° - Turkey 792 876.4 790 874.99 Shelf section - Turkey 876.4 923.2 874.9 921.810 Open Cut Shore Crossing 923.2 925.6 921.8 924.211 Onshore Pipeline - Turkey 1000 1001.8 1000 1001.8 */
 entity PipelineSegment {
 	id Long required,
 	num String required maxlength(255),
@@ -1443,13 +1328,13 @@ entity ValveHist {
 
 // Relations
 // Anode main table. One table  rows corresponds to one anode
-relationship ManyToOne {
-	Anode{id required} to BaseClass{anode}
+relationship OneToOne {
+	Anode to BaseClass{anode}
 }
 
 // Time-dependent attribute table. One table  rows corresponds to one anode and time period
-relationship ManyToOne {
-	AnodeHist{id required} to Anode{anodeHist}
+relationship OneToOne {
+	AnodeHist to Anode{anodeHist}
 }
 
 // Time-dependent attribute table. One table  rows corresponds to one anode and time period
@@ -1478,13 +1363,13 @@ relationship ManyToOne {
 }
 
 // Bends  main table. One table  rows corresponds to one bend
-relationship ManyToOne {
-	Bend{id required} to BaseClass{bend}
+relationship OneToOne {
+	Bend to BaseClass{bend}
 }
 
 // Time-dependent attribute table. One table  rows corresponds to one bend and time period
-relationship ManyToOne {
-	BendHist{id required} to Bend{bendHist}
+relationship OneToOne {
+	BendHist to Bend{bendHist}
 }
 
 // Time-dependent attribute table. One table  rows corresponds to one bend and time period
@@ -1558,13 +1443,13 @@ relationship ManyToOne {
 }
 
 // Colla main table. One table  rows corresponds to one collar
-relationship ManyToOne {
-	BuckleArrestor{id required} to BaseClass{buckleArrestor}
+relationship OneToOne {
+	BuckleArrestor to BaseClass{buckleArrestor}
 }
 
 // Collar. Time-dependent attribute table. One table  rows corresponds to one collar and time period
-relationship ManyToOne {
-	BuckleArrestorHist{id required} to BuckleArrestor{buckleArrestorHist}
+relationship OneToOne {
+	BuckleArrestorHist to BuckleArrestor{buckleArrestorHist}
 }
 
 // Collar. Time-dependent attribute table. One table  rows corresponds to one collar and time period
@@ -1633,13 +1518,13 @@ relationship ManyToOne {
 }
 
 // Cathodic protecion station. Time-independent attribute table. One table  rows corresponds to one station
-relationship ManyToOne {
-	Cps{id required} to BaseClass{cps}
+relationship OneToOne {
+	Cps to BaseClass{cps}
 }
 
 // Cathodic protecion station. Time-dependent attribute table. One table  rows corresponds to one station and time period
-relationship ManyToOne {
-	CpsHist{id required} to Cps{cpsHist}
+relationship OneToOne {
+	CpsHist to Cps{cpsHist}
 }
 
 // Cathodic protecion station. Time-dependent attribute table. One table  rows corresponds to one station and time period
@@ -1652,25 +1537,23 @@ relationship ManyToOne {
 	CpsHist{idStatus required} to ListObjectStatus{cpsHist}
 }
 
-// CPS action  range
-//One row corresponds to one cps and pipeline section 
+// CPS action  rangeOne row corresponds to one cps and pipeline section 
 relationship ManyToOne {
 	CpsRange{idCps required} to Cps{cpsRange}
 }
 
-// CPS action  range
-//One row corresponds to one cps and pipeline section 
+// CPS action  rangeOne row corresponds to one cps and pipeline section 
 relationship ManyToOne {
 	CpsRange{idPipelineSection required} to PipelineSection{cpsRange}
 }
 
 // Pipes main table. One table  rows corresponds to one pipe
-relationship ManyToOne {
-	Displacement{id required} to BaseClass{displacement}
+relationship OneToOne {
+	Displacement to BaseClass{displacement}
 }
 
-relationship ManyToOne {
-	DisplacementHist{id required} to Displacement{displacementHist}
+relationship OneToOne {
+	DisplacementHist to Displacement{displacementHist}
 }
 
 relationship ManyToOne {
@@ -1678,12 +1561,12 @@ relationship ManyToOne {
 }
 
 // Free span  main table. One table  rows corresponds to one free span
-relationship ManyToOne {
-	FreeSpan{id required} to BaseClass{freeSpan}
+relationship OneToOne {
+	FreeSpan to BaseClass{freeSpan}
 }
 
-relationship ManyToOne {
-	FreeSpanHist{id required} to FreeSpan{freeSpanHist}
+relationship OneToOne {
+	FreeSpanHist to FreeSpan{freeSpanHist}
 }
 
 relationship ManyToOne {
@@ -1695,12 +1578,12 @@ relationship ManyToOne {
 }
 
 // Free span support  main table. One table  rows corresponds to one free span support
-relationship ManyToOne {
-	FreeSpanSupport{id required} to BaseClass{freeSpanSupport}
+relationship OneToOne {
+	FreeSpanSupport to BaseClass{freeSpanSupport}
 }
 
-relationship ManyToOne {
-	FreeSpanSupportHist{id required} to FreeSpanSupport{freeSpanSupportHist}
+relationship OneToOne {
+	FreeSpanSupportHist to FreeSpanSupport{freeSpanSupportHist}
 }
 
 relationship ManyToOne {
@@ -1711,12 +1594,12 @@ relationship ManyToOne {
 	FreeSpanSupportHist{idStatus required} to ListObjectStatus{freeSpanSupportHist}
 }
 
-relationship ManyToOne {
-	LaunchReceiver{id required} to BaseClass{launchReceiver}
+relationship OneToOne {
+	LaunchReceiver to BaseClass{launchReceiver}
 }
 
-relationship ManyToOne {
-	LaunchReceiverHist{id required} to LaunchReceiver{launchReceiverHist}
+relationship OneToOne {
+	LaunchReceiverHist to LaunchReceiver{launchReceiverHist}
 }
 
 relationship ManyToOne {
@@ -1731,12 +1614,7 @@ relationship ManyToOne {
 	ListDfctType{idGroup required} to ListDfctGroup{listDfctType}
 }
 
-// Internal corrosion
-//Erosion
-//External Corrosion
-//Stray Current/Current drain
-
-
+// Internal corrosionErosionExternal CorrosionStray Current/Current drain
 relationship ManyToOne {
 	ListThreat{idGroup required} to ListThreatGroup{listThreat}
 }
@@ -1746,13 +1624,13 @@ relationship ManyToOne {
 }
 
 // Pipes main table. One table  rows corresponds to one pipe
-relationship ManyToOne {
-	Pipe{id required} to BaseClass{pipe}
+relationship OneToOne {
+	Pipe to BaseClass{pipe}
 }
 
 // Time-dependent attribute table. One table  rows corresponds to one pipe and time period
-relationship ManyToOne {
-	PipeHist{id required} to Pipe{pipeHist}
+relationship OneToOne {
+	PipeHist to Pipe{pipeHist}
 }
 
 // Time-dependent attribute table. One table  rows corresponds to one pipe and time period
@@ -1826,8 +1704,8 @@ relationship OneToOne {
 }
 
 // Time-dependent attribute table. One table  rows corresponds to one pipe joint and time period
-relationship ManyToOne {
-	PipejointHist{id required} to Pipejoint{pipejointHist}
+relationship OneToOne {
+	PipejointHist to Pipejoint{pipejointHist}
 }
 
 // Time-dependent attribute table. One table  rows corresponds to one pipe joint and time period
@@ -1855,12 +1733,12 @@ relationship ManyToOne {
 	PipejointHist{idStatus required} to ListObjectStatus{pipejointHist}
 }
 
-relationship ManyToOne {
-	Pipeline{id required} to BaseClass{pipeline}
+relationship OneToOne {
+	Pipeline to BaseClass{pipeline}
 }
 
-relationship ManyToOne {
-	PipelineHist{id required} to Pipeline{pipelineHist}
+relationship OneToOne {
+	PipelineHist to Pipeline{pipelineHist}
 }
 
 relationship ManyToOne {
@@ -1871,50 +1749,29 @@ relationship ManyToOne {
 	PipelineHist{idStatus required} to ListObjectStatus{pipelineHist}
 }
 
-// Homogeneous sections,  areas of unchanged values ??of the following characteristics:
-//- is_onshore
-//- safety class
-
-//One table rows corresponds to one section
-
-
-
-relationship ManyToOne {
-	PipelineSection{id required} to BaseClass{pipelineSection}
+// Homogeneous sections,  areas of unchanged values ??of the following characteristics:- is_onshore- safety classOne table rows corresponds to one section
+relationship OneToOne {
+	PipelineSection to BaseClass{pipelineSection}
 }
 
-// Homogeneous sections,  areas of unchanged values ??of the following characteristics:
-//- is_onshore
-//- safety class
-
-//One table rows corresponds to one section
-
-
-
+// Homogeneous sections,  areas of unchanged values ??of the following characteristics:- is_onshore- safety classOne table rows corresponds to one section
 relationship ManyToOne {
 	PipelineSection{idPipeline required} to Pipeline{pipelineSection}
 }
 
-// Homogeneous sections,  areas of unchanged values ??of the following characteristics:
-//- is_onshore
-//- safety class
-
-//One table rows corresponds to one section
-
-
-
+// Homogeneous sections,  areas of unchanged values ??of the following characteristics:- is_onshore- safety classOne table rows corresponds to one section
 relationship ManyToOne {
 	PipelineSection{idSafetyClass required} to ListSafetyClass{pipelineSection}
 }
 
 // Tee main table. One table  rows corresponds to one tee
-relationship ManyToOne {
-	Tee{id required} to BaseClass{tee}
+relationship OneToOne {
+	Tee to BaseClass{tee}
 }
 
 // Tee. Time-dependent attribute table. One table  rows corresponds to one tee and time period
-relationship ManyToOne {
-	TeeHist{id required} to Tee{teeHist}
+relationship OneToOne {
+	TeeHist to Tee{teeHist}
 }
 
 // Tee. Time-dependent attribute table. One table  rows corresponds to one tee and time period
@@ -1988,13 +1845,13 @@ relationship ManyToOne {
 }
 
 // Valve main table. One table  rows corresponds to one valve
-relationship ManyToOne {
-	Valve{id required} to BaseClass{valve}
+relationship OneToOne {
+	Valve to BaseClass{valve}
 }
 
 // Valve. Time-dependent attribute table. One table  rows corresponds to one valve and time period
-relationship ManyToOne {
-	ValveHist{id required} to Valve{valveHist}
+relationship OneToOne {
+	ValveHist to Valve{valveHist}
 }
 
 // Valve. Time-dependent attribute table. One table  rows corresponds to one valve and time period
