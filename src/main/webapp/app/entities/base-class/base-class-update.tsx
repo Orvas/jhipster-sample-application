@@ -10,6 +10,8 @@ import { IRootState } from 'app/shared/reducers';
 
 import { IListObjectType } from 'app/shared/model/list-object-type.model';
 import { getEntities as getListObjectTypes } from 'app/entities/list-object-type/list-object-type.reducer';
+import { IPipejoint } from 'app/shared/model/pipejoint.model';
+import { getEntities as getPipejoints } from 'app/entities/pipejoint/pipejoint.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './base-class.reducer';
 import { IBaseClass } from 'app/shared/model/base-class.model';
 // tslint:disable-next-line:no-unused-variable
@@ -21,6 +23,7 @@ export interface IBaseClassUpdateProps extends StateProps, DispatchProps, RouteC
 export interface IBaseClassUpdateState {
   isNew: boolean;
   idTypeId: string;
+  pipejointId: string;
 }
 
 export class BaseClassUpdate extends React.Component<IBaseClassUpdateProps, IBaseClassUpdateState> {
@@ -28,6 +31,7 @@ export class BaseClassUpdate extends React.Component<IBaseClassUpdateProps, IBas
     super(props);
     this.state = {
       idTypeId: '0',
+      pipejointId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }
@@ -46,6 +50,7 @@ export class BaseClassUpdate extends React.Component<IBaseClassUpdateProps, IBas
     }
 
     this.props.getListObjectTypes();
+    this.props.getPipejoints();
   }
 
   saveEntity = (event, errors, values) => {
@@ -72,7 +77,7 @@ export class BaseClassUpdate extends React.Component<IBaseClassUpdateProps, IBas
   };
 
   render() {
-    const { baseClassEntity, listObjectTypes, loading, updating } = this.props;
+    const { baseClassEntity, listObjectTypes, pipejoints, loading, updating } = this.props;
     const { isNew } = this.state;
 
     return (
@@ -180,6 +185,7 @@ export class BaseClassUpdate extends React.Component<IBaseClassUpdateProps, IBas
 
 const mapStateToProps = (storeState: IRootState) => ({
   listObjectTypes: storeState.listObjectType.entities,
+  pipejoints: storeState.pipejoint.entities,
   baseClassEntity: storeState.baseClass.entity,
   loading: storeState.baseClass.loading,
   updating: storeState.baseClass.updating,
@@ -188,6 +194,7 @@ const mapStateToProps = (storeState: IRootState) => ({
 
 const mapDispatchToProps = {
   getListObjectTypes,
+  getPipejoints,
   getEntity,
   updateEntity,
   createEntity,

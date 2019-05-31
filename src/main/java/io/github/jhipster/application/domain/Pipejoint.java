@@ -2,7 +2,6 @@ package io.github.jhipster.application.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -44,10 +43,9 @@ public class Pipejoint implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("pipejoints")
-    private BaseClass id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private BaseClass baseClass;
 
     @OneToMany(mappedBy = "idPipeJoint")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -134,17 +132,17 @@ public class Pipejoint implements Serializable {
         this.editor = editor;
     }
 
-    public BaseClass getId() {
-        return id;
+    public BaseClass getBaseClass() {
+        return baseClass;
     }
 
-    public Pipejoint id(BaseClass baseClass) {
-        this.id = baseClass;
+    public Pipejoint baseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
         return this;
     }
 
-    public void setId(BaseClass baseClass) {
-        this.id = baseClass;
+    public void setBaseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
     }
 
     public Set<BendHist> getBendHists() {

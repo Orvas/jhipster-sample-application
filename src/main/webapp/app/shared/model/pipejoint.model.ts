@@ -12,7 +12,7 @@ export interface IPipejoint {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
+  baseClassId?: number;
   bendHists?: IBendHist[];
   buckleArrestorHists?: IBuckleArrestorHist[];
   pipeHists?: IPipeHist[];

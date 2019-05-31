@@ -15,6 +15,7 @@ public interface BaseClassMapper extends EntityMapper<BaseClassDTO, BaseClass> {
     BaseClassDTO toDto(BaseClass baseClass);
 
     @Mapping(source = "idTypeId", target = "idType")
+    @Mapping(target = "pipejoint", ignore = true)
     @Mapping(target = "anodes", ignore = true)
     @Mapping(target = "bends", ignore = true)
     @Mapping(target = "buckleArrestors", ignore = true)
@@ -24,7 +25,6 @@ public interface BaseClassMapper extends EntityMapper<BaseClassDTO, BaseClass> {
     @Mapping(target = "freeSpanSupports", ignore = true)
     @Mapping(target = "launchReceivers", ignore = true)
     @Mapping(target = "pipes", ignore = true)
-    @Mapping(target = "pipejoints", ignore = true)
     @Mapping(target = "pipelines", ignore = true)
     @Mapping(target = "pipelineSections", ignore = true)
     @Mapping(target = "tees", ignore = true)
