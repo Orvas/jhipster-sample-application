@@ -1443,13 +1443,13 @@ entity ValveHist {
 
 // Relations
 // Anode main table. One table  rows corresponds to one anode
-relationship ManyToOne {
-	Anode{id required} to BaseClass{anode}
+relationship OneToOne {
+	Anode to BaseClass{anode}
 }
 
 // Time-dependent attribute table. One table  rows corresponds to one anode and time period
-relationship ManyToOne {
-	AnodeHist{id required} to Anode{anodeHist}
+relationship OneToOne {
+	AnodeHist to Anode{anodeHist}
 }
 
 // Time-dependent attribute table. One table  rows corresponds to one anode and time period
@@ -1478,13 +1478,13 @@ relationship ManyToOne {
 }
 
 // Bends  main table. One table  rows corresponds to one bend
-relationship ManyToOne {
-	Bend{id required} to BaseClass{bend}
+relationship OneToOne {
+	Bend to BaseClass{bend}
 }
 
 // Time-dependent attribute table. One table  rows corresponds to one bend and time period
-relationship ManyToOne {
-	BendHist{id required} to Bend{bendHist}
+relationship OneToOne {
+	BendHist to Bend{bendHist}
 }
 
 // Time-dependent attribute table. One table  rows corresponds to one bend and time period
@@ -1558,13 +1558,13 @@ relationship ManyToOne {
 }
 
 // Colla main table. One table  rows corresponds to one collar
-relationship ManyToOne {
-	BuckleArrestor{id required} to BaseClass{buckleArrestor}
+relationship OneToOne {
+	BuckleArrestor to BaseClass{buckleArrestor}
 }
 
 // Collar. Time-dependent attribute table. One table  rows corresponds to one collar and time period
-relationship ManyToOne {
-	BuckleArrestorHist{id required} to BuckleArrestor{buckleArrestorHist}
+relationship OneToOne {
+	BuckleArrestorHist to BuckleArrestor{buckleArrestorHist}
 }
 
 // Collar. Time-dependent attribute table. One table  rows corresponds to one collar and time period
@@ -1633,13 +1633,13 @@ relationship ManyToOne {
 }
 
 // Cathodic protecion station. Time-independent attribute table. One table  rows corresponds to one station
-relationship ManyToOne {
-	Cps{id required} to BaseClass{cps}
+relationship OneToOne {
+	Cps to BaseClass{cps}
 }
 
 // Cathodic protecion station. Time-dependent attribute table. One table  rows corresponds to one station and time period
-relationship ManyToOne {
-	CpsHist{id required} to Cps{cpsHist}
+relationship OneToOne {
+	CpsHist to Cps{cpsHist}
 }
 
 // Cathodic protecion station. Time-dependent attribute table. One table  rows corresponds to one station and time period
@@ -1653,24 +1653,24 @@ relationship ManyToOne {
 }
 
 // CPS action  range
-//One row corresponds to one cps and pipeline section 
+One row corresponds to one cps and pipeline section 
 relationship ManyToOne {
 	CpsRange{idCps required} to Cps{cpsRange}
 }
 
 // CPS action  range
-//One row corresponds to one cps and pipeline section 
+One row corresponds to one cps and pipeline section 
 relationship ManyToOne {
 	CpsRange{idPipelineSection required} to PipelineSection{cpsRange}
 }
 
 // Pipes main table. One table  rows corresponds to one pipe
-relationship ManyToOne {
-	Displacement{id required} to BaseClass{displacement}
+relationship OneToOne {
+	Displacement to BaseClass{displacement}
 }
 
-relationship ManyToOne {
-	DisplacementHist{id required} to Displacement{displacementHist}
+relationship OneToOne {
+	DisplacementHist to Displacement{displacementHist}
 }
 
 relationship ManyToOne {
@@ -1678,12 +1678,12 @@ relationship ManyToOne {
 }
 
 // Free span  main table. One table  rows corresponds to one free span
-relationship ManyToOne {
-	FreeSpan{id required} to BaseClass{freeSpan}
+relationship OneToOne {
+	FreeSpan to BaseClass{freeSpan}
 }
 
-relationship ManyToOne {
-	FreeSpanHist{id required} to FreeSpan{freeSpanHist}
+relationship OneToOne {
+	FreeSpanHist to FreeSpan{freeSpanHist}
 }
 
 relationship ManyToOne {
@@ -1695,12 +1695,12 @@ relationship ManyToOne {
 }
 
 // Free span support  main table. One table  rows corresponds to one free span support
-relationship ManyToOne {
-	FreeSpanSupport{id required} to BaseClass{freeSpanSupport}
+relationship OneToOne {
+	FreeSpanSupport to BaseClass{freeSpanSupport}
 }
 
-relationship ManyToOne {
-	FreeSpanSupportHist{id required} to FreeSpanSupport{freeSpanSupportHist}
+relationship OneToOne {
+	FreeSpanSupportHist to FreeSpanSupport{freeSpanSupportHist}
 }
 
 relationship ManyToOne {
@@ -1711,12 +1711,12 @@ relationship ManyToOne {
 	FreeSpanSupportHist{idStatus required} to ListObjectStatus{freeSpanSupportHist}
 }
 
-relationship ManyToOne {
-	LaunchReceiver{id required} to BaseClass{launchReceiver}
+relationship OneToOne {
+	LaunchReceiver to BaseClass{launchReceiver}
 }
 
-relationship ManyToOne {
-	LaunchReceiverHist{id required} to LaunchReceiver{launchReceiverHist}
+relationship OneToOne {
+	LaunchReceiverHist to LaunchReceiver{launchReceiverHist}
 }
 
 relationship ManyToOne {
@@ -1732,9 +1732,9 @@ relationship ManyToOne {
 }
 
 // Internal corrosion
-//Erosion
-//External Corrosion
-//Stray Current/Current drain
+Erosion
+External Corrosion
+Stray Current/Current drain
 
 
 relationship ManyToOne {
@@ -1746,13 +1746,13 @@ relationship ManyToOne {
 }
 
 // Pipes main table. One table  rows corresponds to one pipe
-relationship ManyToOne {
-	Pipe{id required} to BaseClass{pipe}
+relationship OneToOne {
+	Pipe to BaseClass{pipe}
 }
 
 // Time-dependent attribute table. One table  rows corresponds to one pipe and time period
-relationship ManyToOne {
-	PipeHist{id required} to Pipe{pipeHist}
+relationship OneToOne {
+	PipeHist to Pipe{pipeHist}
 }
 
 // Time-dependent attribute table. One table  rows corresponds to one pipe and time period
@@ -1826,8 +1826,8 @@ relationship OneToOne {
 }
 
 // Time-dependent attribute table. One table  rows corresponds to one pipe joint and time period
-relationship ManyToOne {
-	PipejointHist{id required} to Pipejoint{pipejointHist}
+relationship OneToOne {
+	PipejointHist to Pipejoint{pipejointHist}
 }
 
 // Time-dependent attribute table. One table  rows corresponds to one pipe joint and time period
@@ -1855,12 +1855,12 @@ relationship ManyToOne {
 	PipejointHist{idStatus required} to ListObjectStatus{pipejointHist}
 }
 
-relationship ManyToOne {
-	Pipeline{id required} to BaseClass{pipeline}
+relationship OneToOne {
+	Pipeline to BaseClass{pipeline}
 }
 
-relationship ManyToOne {
-	PipelineHist{id required} to Pipeline{pipelineHist}
+relationship OneToOne {
+	PipelineHist to Pipeline{pipelineHist}
 }
 
 relationship ManyToOne {
@@ -1872,22 +1872,22 @@ relationship ManyToOne {
 }
 
 // Homogeneous sections,  areas of unchanged values ??of the following characteristics:
-//- is_onshore
-//- safety class
+- is_onshore
+- safety class
 
-//One table rows corresponds to one section
+One table rows corresponds to one section
 
 
 
-relationship ManyToOne {
-	PipelineSection{id required} to BaseClass{pipelineSection}
+relationship OneToOne {
+	PipelineSection to BaseClass{pipelineSection}
 }
 
 // Homogeneous sections,  areas of unchanged values ??of the following characteristics:
-//- is_onshore
-//- safety class
+- is_onshore
+- safety class
 
-//One table rows corresponds to one section
+One table rows corresponds to one section
 
 
 
@@ -1896,10 +1896,10 @@ relationship ManyToOne {
 }
 
 // Homogeneous sections,  areas of unchanged values ??of the following characteristics:
-//- is_onshore
-//- safety class
+- is_onshore
+- safety class
 
-//One table rows corresponds to one section
+One table rows corresponds to one section
 
 
 
@@ -1908,13 +1908,13 @@ relationship ManyToOne {
 }
 
 // Tee main table. One table  rows corresponds to one tee
-relationship ManyToOne {
-	Tee{id required} to BaseClass{tee}
+relationship OneToOne {
+	Tee to BaseClass{tee}
 }
 
 // Tee. Time-dependent attribute table. One table  rows corresponds to one tee and time period
-relationship ManyToOne {
-	TeeHist{id required} to Tee{teeHist}
+relationship OneToOne {
+	TeeHist to Tee{teeHist}
 }
 
 // Tee. Time-dependent attribute table. One table  rows corresponds to one tee and time period
@@ -1988,13 +1988,13 @@ relationship ManyToOne {
 }
 
 // Valve main table. One table  rows corresponds to one valve
-relationship ManyToOne {
-	Valve{id required} to BaseClass{valve}
+relationship OneToOne {
+	Valve to BaseClass{valve}
 }
 
 // Valve. Time-dependent attribute table. One table  rows corresponds to one valve and time period
-relationship ManyToOne {
-	ValveHist{id required} to Valve{valveHist}
+relationship OneToOne {
+	ValveHist to Valve{valveHist}
 }
 
 // Valve. Time-dependent attribute table. One table  rows corresponds to one valve and time period
