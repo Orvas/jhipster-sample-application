@@ -79,7 +79,7 @@ export class Pipejoint extends React.Component<IPipejointProps, IPipejointState>
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Base Class <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -100,7 +100,7 @@ export class Pipejoint extends React.Component<IPipejointProps, IPipejointState>
                   </td>
                   <td>{pipejoint.creator}</td>
                   <td>{pipejoint.editor}</td>
-                  <td>{pipejoint.idId ? <Link to={`base-class/${pipejoint.idId}`}>{pipejoint.idId}</Link> : ''}</td>
+                  <td>{pipejoint.baseClassId ? <Link to={`base-class/${pipejoint.baseClassId}`}>{pipejoint.baseClassId}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${pipejoint.id}`} color="info" size="sm">

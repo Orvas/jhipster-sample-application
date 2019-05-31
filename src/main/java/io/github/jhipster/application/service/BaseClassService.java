@@ -12,7 +12,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * Service Implementation for managing {@link BaseClass}.
@@ -58,6 +62,21 @@ public class BaseClassService {
             .map(baseClassMapper::toDto);
     }
 
+
+
+    /**
+    *  Get all the baseClasses where Pipejoint is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<BaseClassDTO> findAllWherePipejointIsNull() {
+        log.debug("Request to get all baseClasses where Pipejoint is null");
+        return StreamSupport
+            .stream(baseClassRepository.findAll().spliterator(), false)
+            .filter(baseClass -> baseClass.getPipejoint() == null)
+            .map(baseClassMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
 
     /**
      * Get one baseClass by id.

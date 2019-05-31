@@ -105,6 +105,10 @@ public class BaseClassQueryService extends QueryService<BaseClass> {
                 specification = specification.and(buildSpecification(criteria.getIdTypeId(),
                     root -> root.join(BaseClass_.idType, JoinType.LEFT).get(ListObjectType_.id)));
             }
+            if (criteria.getPipejointId() != null) {
+                specification = specification.and(buildSpecification(criteria.getPipejointId(),
+                    root -> root.join(BaseClass_.pipejoint, JoinType.LEFT).get(Pipejoint_.id)));
+            }
             if (criteria.getAnodeId() != null) {
                 specification = specification.and(buildSpecification(criteria.getAnodeId(),
                     root -> root.join(BaseClass_.anodes, JoinType.LEFT).get(Anode_.id)));
@@ -140,10 +144,6 @@ public class BaseClassQueryService extends QueryService<BaseClass> {
             if (criteria.getPipeId() != null) {
                 specification = specification.and(buildSpecification(criteria.getPipeId(),
                     root -> root.join(BaseClass_.pipes, JoinType.LEFT).get(Pipe_.id)));
-            }
-            if (criteria.getPipejointId() != null) {
-                specification = specification.and(buildSpecification(criteria.getPipejointId(),
-                    root -> root.join(BaseClass_.pipejoints, JoinType.LEFT).get(Pipejoint_.id)));
             }
             if (criteria.getPipelineId() != null) {
                 specification = specification.and(buildSpecification(criteria.getPipelineId(),

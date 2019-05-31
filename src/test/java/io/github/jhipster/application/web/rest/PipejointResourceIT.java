@@ -114,16 +114,6 @@ public class PipejointResourceIT {
             .dateEdit(DEFAULT_DATE_EDIT)
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
-        // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        pipejoint.setId(baseClass);
         return pipejoint;
     }
     /**
@@ -138,16 +128,6 @@ public class PipejointResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createUpdatedEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        pipejoint.setId(baseClass);
         return pipejoint;
     }
 
@@ -391,17 +371,20 @@ public class PipejointResourceIT {
 
     @Test
     @Transactional
-    public void getAllPipejointsByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        BaseClass id = pipejoint.getId();
+    public void getAllPipejointsByBaseClassIsEqualToSomething() throws Exception {
+        // Initialize the database
+        BaseClass baseClass = BaseClassResourceIT.createEntity(em);
+        em.persist(baseClass);
+        em.flush();
+        pipejoint.setBaseClass(baseClass);
         pipejointRepository.saveAndFlush(pipejoint);
-        Long idId = id.getId();
+        Long baseClassId = baseClass.getId();
 
-        // Get all the pipejointList where id equals to idId
-        defaultPipejointShouldBeFound("idId.equals=" + idId);
+        // Get all the pipejointList where baseClass equals to baseClassId
+        defaultPipejointShouldBeFound("baseClassId.equals=" + baseClassId);
 
-        // Get all the pipejointList where id equals to idId + 1
-        defaultPipejointShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the pipejointList where baseClass equals to baseClassId + 1
+        defaultPipejointShouldNotBeFound("baseClassId.equals=" + (baseClassId + 1));
     }
 
 

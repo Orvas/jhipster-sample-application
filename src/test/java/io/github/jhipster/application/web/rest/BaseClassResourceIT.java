@@ -3,6 +3,7 @@ package io.github.jhipster.application.web.rest;
 import io.github.jhipster.application.JhipsterSampleApplicationApp;
 import io.github.jhipster.application.domain.BaseClass;
 import io.github.jhipster.application.domain.ListObjectType;
+import io.github.jhipster.application.domain.Pipejoint;
 import io.github.jhipster.application.domain.Anode;
 import io.github.jhipster.application.domain.Bend;
 import io.github.jhipster.application.domain.BuckleArrestor;
@@ -12,7 +13,6 @@ import io.github.jhipster.application.domain.FreeSpan;
 import io.github.jhipster.application.domain.FreeSpanSupport;
 import io.github.jhipster.application.domain.LaunchReceiver;
 import io.github.jhipster.application.domain.Pipe;
-import io.github.jhipster.application.domain.Pipejoint;
 import io.github.jhipster.application.domain.Pipeline;
 import io.github.jhipster.application.domain.PipelineSection;
 import io.github.jhipster.application.domain.Tee;
@@ -415,6 +415,26 @@ public class BaseClassResourceIT {
 
     @Test
     @Transactional
+    public void getAllBaseClassesByPipejointIsEqualToSomething() throws Exception {
+        // Initialize the database
+        Pipejoint pipejoint = PipejointResourceIT.createEntity(em);
+        em.persist(pipejoint);
+        em.flush();
+        baseClass.setPipejoint(pipejoint);
+        pipejoint.setBaseClass(baseClass);
+        baseClassRepository.saveAndFlush(baseClass);
+        Long pipejointId = pipejoint.getId();
+
+        // Get all the baseClassList where pipejoint equals to pipejointId
+        defaultBaseClassShouldBeFound("pipejointId.equals=" + pipejointId);
+
+        // Get all the baseClassList where pipejoint equals to pipejointId + 1
+        defaultBaseClassShouldNotBeFound("pipejointId.equals=" + (pipejointId + 1));
+    }
+
+
+    @Test
+    @Transactional
     public void getAllBaseClassesByAnodeIsEqualToSomething() throws Exception {
         // Initialize the database
         Anode anode = AnodeResourceIT.createEntity(em);
@@ -581,25 +601,6 @@ public class BaseClassResourceIT {
 
         // Get all the baseClassList where pipe equals to pipeId + 1
         defaultBaseClassShouldNotBeFound("pipeId.equals=" + (pipeId + 1));
-    }
-
-
-    @Test
-    @Transactional
-    public void getAllBaseClassesByPipejointIsEqualToSomething() throws Exception {
-        // Initialize the database
-        Pipejoint pipejoint = PipejointResourceIT.createEntity(em);
-        em.persist(pipejoint);
-        em.flush();
-        baseClass.addPipejoint(pipejoint);
-        baseClassRepository.saveAndFlush(baseClass);
-        Long pipejointId = pipejoint.getId();
-
-        // Get all the baseClassList where pipejoint equals to pipejointId
-        defaultBaseClassShouldBeFound("pipejointId.equals=" + pipejointId);
-
-        // Get all the baseClassList where pipejoint equals to pipejointId + 1
-        defaultBaseClassShouldNotBeFound("pipejointId.equals=" + (pipejointId + 1));
     }
 
 

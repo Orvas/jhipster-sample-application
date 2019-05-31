@@ -37,6 +37,8 @@ public class BaseClassCriteria implements Serializable, Criteria {
 
     private LongFilter idTypeId;
 
+    private LongFilter pipejointId;
+
     private LongFilter anodeId;
 
     private LongFilter bendId;
@@ -54,8 +56,6 @@ public class BaseClassCriteria implements Serializable, Criteria {
     private LongFilter launchReceiverId;
 
     private LongFilter pipeId;
-
-    private LongFilter pipejointId;
 
     private LongFilter pipelineId;
 
@@ -75,6 +75,7 @@ public class BaseClassCriteria implements Serializable, Criteria {
         this.creator = other.creator == null ? null : other.creator.copy();
         this.editor = other.editor == null ? null : other.editor.copy();
         this.idTypeId = other.idTypeId == null ? null : other.idTypeId.copy();
+        this.pipejointId = other.pipejointId == null ? null : other.pipejointId.copy();
         this.anodeId = other.anodeId == null ? null : other.anodeId.copy();
         this.bendId = other.bendId == null ? null : other.bendId.copy();
         this.buckleArrestorId = other.buckleArrestorId == null ? null : other.buckleArrestorId.copy();
@@ -84,7 +85,6 @@ public class BaseClassCriteria implements Serializable, Criteria {
         this.freeSpanSupportId = other.freeSpanSupportId == null ? null : other.freeSpanSupportId.copy();
         this.launchReceiverId = other.launchReceiverId == null ? null : other.launchReceiverId.copy();
         this.pipeId = other.pipeId == null ? null : other.pipeId.copy();
-        this.pipejointId = other.pipejointId == null ? null : other.pipejointId.copy();
         this.pipelineId = other.pipelineId == null ? null : other.pipelineId.copy();
         this.pipelineSectionId = other.pipelineSectionId == null ? null : other.pipelineSectionId.copy();
         this.teeId = other.teeId == null ? null : other.teeId.copy();
@@ -142,6 +142,14 @@ public class BaseClassCriteria implements Serializable, Criteria {
 
     public void setIdTypeId(LongFilter idTypeId) {
         this.idTypeId = idTypeId;
+    }
+
+    public LongFilter getPipejointId() {
+        return pipejointId;
+    }
+
+    public void setPipejointId(LongFilter pipejointId) {
+        this.pipejointId = pipejointId;
     }
 
     public LongFilter getAnodeId() {
@@ -216,14 +224,6 @@ public class BaseClassCriteria implements Serializable, Criteria {
         this.pipeId = pipeId;
     }
 
-    public LongFilter getPipejointId() {
-        return pipejointId;
-    }
-
-    public void setPipejointId(LongFilter pipejointId) {
-        this.pipejointId = pipejointId;
-    }
-
     public LongFilter getPipelineId() {
         return pipelineId;
     }
@@ -273,6 +273,7 @@ public class BaseClassCriteria implements Serializable, Criteria {
             Objects.equals(creator, that.creator) &&
             Objects.equals(editor, that.editor) &&
             Objects.equals(idTypeId, that.idTypeId) &&
+            Objects.equals(pipejointId, that.pipejointId) &&
             Objects.equals(anodeId, that.anodeId) &&
             Objects.equals(bendId, that.bendId) &&
             Objects.equals(buckleArrestorId, that.buckleArrestorId) &&
@@ -282,7 +283,6 @@ public class BaseClassCriteria implements Serializable, Criteria {
             Objects.equals(freeSpanSupportId, that.freeSpanSupportId) &&
             Objects.equals(launchReceiverId, that.launchReceiverId) &&
             Objects.equals(pipeId, that.pipeId) &&
-            Objects.equals(pipejointId, that.pipejointId) &&
             Objects.equals(pipelineId, that.pipelineId) &&
             Objects.equals(pipelineSectionId, that.pipelineSectionId) &&
             Objects.equals(teeId, that.teeId) &&
@@ -298,6 +298,7 @@ public class BaseClassCriteria implements Serializable, Criteria {
         creator,
         editor,
         idTypeId,
+        pipejointId,
         anodeId,
         bendId,
         buckleArrestorId,
@@ -307,7 +308,6 @@ public class BaseClassCriteria implements Serializable, Criteria {
         freeSpanSupportId,
         launchReceiverId,
         pipeId,
-        pipejointId,
         pipelineId,
         pipelineSectionId,
         teeId,
@@ -324,6 +324,7 @@ public class BaseClassCriteria implements Serializable, Criteria {
                 (creator != null ? "creator=" + creator + ", " : "") +
                 (editor != null ? "editor=" + editor + ", " : "") +
                 (idTypeId != null ? "idTypeId=" + idTypeId + ", " : "") +
+                (pipejointId != null ? "pipejointId=" + pipejointId + ", " : "") +
                 (anodeId != null ? "anodeId=" + anodeId + ", " : "") +
                 (bendId != null ? "bendId=" + bendId + ", " : "") +
                 (buckleArrestorId != null ? "buckleArrestorId=" + buckleArrestorId + ", " : "") +
@@ -333,7 +334,6 @@ public class BaseClassCriteria implements Serializable, Criteria {
                 (freeSpanSupportId != null ? "freeSpanSupportId=" + freeSpanSupportId + ", " : "") +
                 (launchReceiverId != null ? "launchReceiverId=" + launchReceiverId + ", " : "") +
                 (pipeId != null ? "pipeId=" + pipeId + ", " : "") +
-                (pipejointId != null ? "pipejointId=" + pipejointId + ", " : "") +
                 (pipelineId != null ? "pipelineId=" + pipelineId + ", " : "") +
                 (pipelineSectionId != null ? "pipelineSectionId=" + pipelineSectionId + ", " : "") +
                 (teeId != null ? "teeId=" + teeId + ", " : "") +

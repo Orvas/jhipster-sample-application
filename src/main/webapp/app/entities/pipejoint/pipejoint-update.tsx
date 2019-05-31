@@ -20,14 +20,14 @@ export interface IPipejointUpdateProps extends StateProps, DispatchProps, RouteC
 
 export interface IPipejointUpdateState {
   isNew: boolean;
-  idId: string;
+  baseClassId: string;
 }
 
 export class PipejointUpdate extends React.Component<IPipejointUpdateProps, IPipejointUpdateState> {
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      baseClassId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }
@@ -147,8 +147,9 @@ export class PipejointUpdate extends React.Component<IPipejointUpdateProps, IPip
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="pipejoint-id">Id</Label>
-                  <AvInput id="pipejoint-id" type="select" className="form-control" name="idId" required>
+                  <Label for="pipejoint-baseClass">Base Class</Label>
+                  <AvInput id="pipejoint-baseClass" type="select" className="form-control" name="baseClassId">
+                    <option value="" key="0" />
                     {baseClasses
                       ? baseClasses.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -157,7 +158,6 @@ export class PipejointUpdate extends React.Component<IPipejointUpdateProps, IPip
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <Button tag={Link} id="cancel-save" to="/entity/pipejoint" replace color="info">
                   <FontAwesomeIcon icon="arrow-left" />

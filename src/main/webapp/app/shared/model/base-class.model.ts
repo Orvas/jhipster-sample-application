@@ -8,7 +8,6 @@ import { IFreeSpan } from 'app/shared/model/free-span.model';
 import { IFreeSpanSupport } from 'app/shared/model/free-span-support.model';
 import { ILaunchReceiver } from 'app/shared/model/launch-receiver.model';
 import { IPipe } from 'app/shared/model/pipe.model';
-import { IPipejoint } from 'app/shared/model/pipejoint.model';
 import { IPipeline } from 'app/shared/model/pipeline.model';
 import { IPipelineSection } from 'app/shared/model/pipeline-section.model';
 import { ITee } from 'app/shared/model/tee.model';
@@ -21,6 +20,7 @@ export interface IBaseClass {
   creator?: string;
   editor?: string;
   idTypeId?: number;
+  pipejointId?: number;
   anodes?: IAnode[];
   bends?: IBend[];
   buckleArrestors?: IBuckleArrestor[];
@@ -30,7 +30,6 @@ export interface IBaseClass {
   freeSpanSupports?: IFreeSpanSupport[];
   launchReceivers?: ILaunchReceiver[];
   pipes?: IPipe[];
-  pipejoints?: IPipejoint[];
   pipelines?: IPipeline[];
   pipelineSections?: IPipelineSection[];
   tees?: ITee[];

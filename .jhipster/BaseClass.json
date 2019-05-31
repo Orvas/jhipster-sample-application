@@ -36,6 +36,13 @@
             "otherEntityField": "id"
         },
         {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "pipejoint",
+            "otherEntityRelationshipName": "baseClass",
+            "relationshipName": "pipejoint",
+            "ownerSide": false
+        },
+        {
             "relationshipType": "one-to-many",
             "otherEntityName": "anode",
             "otherEntityRelationshipName": "id",
@@ -88,12 +95,6 @@
             "otherEntityName": "pipe",
             "otherEntityRelationshipName": "id",
             "relationshipName": "pipe"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "otherEntityName": "pipejoint",
-            "otherEntityRelationshipName": "id",
-            "relationshipName": "pipejoint"
         },
         {
             "relationshipType": "one-to-many",

@@ -49,6 +49,10 @@ public class BaseClass implements Serializable {
     @JsonIgnoreProperties("baseClasses")
     private ListObjectType idType;
 
+    @OneToOne(mappedBy = "baseClass")
+    @JsonIgnore
+    private Pipejoint pipejoint;
+
     @OneToMany(mappedBy = "id")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Anode> anodes = new HashSet<>();
@@ -84,10 +88,6 @@ public class BaseClass implements Serializable {
     @OneToMany(mappedBy = "id")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Pipe> pipes = new HashSet<>();
-
-    @OneToMany(mappedBy = "id")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Pipejoint> pipejoints = new HashSet<>();
 
     @OneToMany(mappedBy = "id")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -177,6 +177,19 @@ public class BaseClass implements Serializable {
 
     public void setIdType(ListObjectType listObjectType) {
         this.idType = listObjectType;
+    }
+
+    public Pipejoint getPipejoint() {
+        return pipejoint;
+    }
+
+    public BaseClass pipejoint(Pipejoint pipejoint) {
+        this.pipejoint = pipejoint;
+        return this;
+    }
+
+    public void setPipejoint(Pipejoint pipejoint) {
+        this.pipejoint = pipejoint;
     }
 
     public Set<Anode> getAnodes() {
@@ -402,31 +415,6 @@ public class BaseClass implements Serializable {
 
     public void setPipes(Set<Pipe> pipes) {
         this.pipes = pipes;
-    }
-
-    public Set<Pipejoint> getPipejoints() {
-        return pipejoints;
-    }
-
-    public BaseClass pipejoints(Set<Pipejoint> pipejoints) {
-        this.pipejoints = pipejoints;
-        return this;
-    }
-
-    public BaseClass addPipejoint(Pipejoint pipejoint) {
-        this.pipejoints.add(pipejoint);
-        pipejoint.setId(this);
-        return this;
-    }
-
-    public BaseClass removePipejoint(Pipejoint pipejoint) {
-        this.pipejoints.remove(pipejoint);
-        pipejoint.setId(null);
-        return this;
-    }
-
-    public void setPipejoints(Set<Pipejoint> pipejoints) {
-        this.pipejoints = pipejoints;
     }
 
     public Set<Pipeline> getPipelines() {

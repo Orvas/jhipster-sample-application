@@ -48,8 +48,8 @@ export class PipejointDetail extends React.Component<IPipejointDetailProps> {
               <span id="editor">Editor</span>
             </dt>
             <dd>{pipejointEntity.editor}</dd>
-            <dt>Id</dt>
-            <dd>{pipejointEntity.idId ? pipejointEntity.idId : ''}</dd>
+            <dt>Base Class</dt>
+            <dd>{pipejointEntity.baseClassId ? pipejointEntity.baseClassId : ''}</dd>
           </dl>
           <Button tag={Link} to="/entity/pipejoint" replace color="info">
             <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>

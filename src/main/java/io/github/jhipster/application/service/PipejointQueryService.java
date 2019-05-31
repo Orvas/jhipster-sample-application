@@ -101,9 +101,9 @@ public class PipejointQueryService extends QueryService<Pipejoint> {
             if (criteria.getEditor() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getEditor(), Pipejoint_.editor));
             }
-            if (criteria.getIdId() != null) {
-                specification = specification.and(buildSpecification(criteria.getIdId(),
-                    root -> root.join(Pipejoint_.id, JoinType.LEFT).get(BaseClass_.id)));
+            if (criteria.getBaseClassId() != null) {
+                specification = specification.and(buildSpecification(criteria.getBaseClassId(),
+                    root -> root.join(Pipejoint_.baseClass, JoinType.LEFT).get(BaseClass_.id)));
             }
             if (criteria.getBendHistId() != null) {
                 specification = specification.and(buildSpecification(criteria.getBendHistId(),

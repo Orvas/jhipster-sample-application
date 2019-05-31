@@ -11,10 +11,10 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {BaseClassMapper.class})
 public interface PipejointMapper extends EntityMapper<PipejointDTO, Pipejoint> {
 
-    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "baseClass.id", target = "baseClassId")
     PipejointDTO toDto(Pipejoint pipejoint);
 
-    @Mapping(source = "idId", target = "id")
+    @Mapping(source = "baseClassId", target = "baseClass")
     @Mapping(target = "bendHists", ignore = true)
     @Mapping(target = "buckleArrestorHists", ignore = true)
     @Mapping(target = "pipeHists", ignore = true)
