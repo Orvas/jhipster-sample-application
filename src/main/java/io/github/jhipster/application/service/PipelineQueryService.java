@@ -101,17 +101,17 @@ public class PipelineQueryService extends QueryService<Pipeline> {
             if (criteria.getEditor() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getEditor(), Pipeline_.editor));
             }
-            if (criteria.getIdId() != null) {
-                specification = specification.and(buildSpecification(criteria.getIdId(),
-                    root -> root.join(Pipeline_.id, JoinType.LEFT).get(BaseClass_.id)));
+            if (criteria.getBaseClassId() != null) {
+                specification = specification.and(buildSpecification(criteria.getBaseClassId(),
+                    root -> root.join(Pipeline_.baseClass, JoinType.LEFT).get(BaseClass_.id)));
+            }
+            if (criteria.getPipelineHistId() != null) {
+                specification = specification.and(buildSpecification(criteria.getPipelineHistId(),
+                    root -> root.join(Pipeline_.pipelineHist, JoinType.LEFT).get(PipelineHist_.id)));
             }
             if (criteria.getLaunchReceiverHistId() != null) {
                 specification = specification.and(buildSpecification(criteria.getLaunchReceiverHistId(),
                     root -> root.join(Pipeline_.launchReceiverHists, JoinType.LEFT).get(LaunchReceiverHist_.id)));
-            }
-            if (criteria.getPipelineHistId() != null) {
-                specification = specification.and(buildSpecification(criteria.getPipelineHistId(),
-                    root -> root.join(Pipeline_.pipelineHists, JoinType.LEFT).get(PipelineHist_.id)));
             }
             if (criteria.getPipelineSectionId() != null) {
                 specification = specification.and(buildSpecification(criteria.getPipelineSectionId(),

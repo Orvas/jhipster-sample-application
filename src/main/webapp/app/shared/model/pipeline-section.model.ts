@@ -21,7 +21,7 @@ export interface IPipelineSection {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
+  baseClassId?: number;
   idPipelineId?: number;
   idSafetyClassId?: number;
   anodeHists?: IAnodeHist[];

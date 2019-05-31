@@ -30,11 +30,9 @@
             <column name="editor" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
-            <column name="id_id" type="bigint">
-                <constraints nullable="false" />
+            <column name="base_class_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_buckle_arrestor_base_class_id" />
             </column>
-
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
 
@@ -61,7 +59,6 @@
             <column name="date_edit" type="date"/>
             <column name="creator" type="string"/>
             <column name="editor" type="string"/>
-            <column name="id_id" type="numeric"/>
         </loadData>
     </changeSet>
 

@@ -137,9 +137,9 @@ public class DisplacementHistQueryService extends QueryService<DisplacementHist>
             if (criteria.getEditor() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getEditor(), DisplacementHist_.editor));
             }
-            if (criteria.getIdId() != null) {
-                specification = specification.and(buildSpecification(criteria.getIdId(),
-                    root -> root.join(DisplacementHist_.id, JoinType.LEFT).get(Displacement_.id)));
+            if (criteria.getDisplacementId() != null) {
+                specification = specification.and(buildSpecification(criteria.getDisplacementId(),
+                    root -> root.join(DisplacementHist_.displacement, JoinType.LEFT).get(Displacement_.id)));
             }
             if (criteria.getIdPipelineSectionId() != null) {
                 specification = specification.and(buildSpecification(criteria.getIdPipelineSectionId(),

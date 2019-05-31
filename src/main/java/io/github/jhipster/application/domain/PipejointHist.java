@@ -74,10 +74,9 @@ public class PipejointHist implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("pipejointHists")
-    private Pipejoint id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Pipejoint pipejoint;
 
     @ManyToOne
     @JsonIgnoreProperties("pipejointHists")
@@ -265,17 +264,17 @@ public class PipejointHist implements Serializable {
         this.editor = editor;
     }
 
-    public Pipejoint getId() {
-        return id;
+    public Pipejoint getPipejoint() {
+        return pipejoint;
     }
 
-    public PipejointHist id(Pipejoint pipejoint) {
-        this.id = pipejoint;
+    public PipejointHist pipejoint(Pipejoint pipejoint) {
+        this.pipejoint = pipejoint;
         return this;
     }
 
-    public void setId(Pipejoint pipejoint) {
-        this.id = pipejoint;
+    public void setPipejoint(Pipejoint pipejoint) {
+        this.pipejoint = pipejoint;
     }
 
     public ListPipejointType getIdType() {

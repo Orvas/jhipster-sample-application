@@ -11,7 +11,7 @@
         Added the entity ListClcResult.
     -->
     <changeSet id="20190531124421-1" author="jhipster">
-        <createTable tableName="list_clc_result" remarks="Calculation results: - Success - No success">
+        <createTable tableName="list_clc_result" remarks="Calculation results:- Success- No success">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>

@@ -79,7 +79,7 @@ export class Displacement extends React.Component<IDisplacementProps, IDisplacem
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Base Class <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -100,7 +100,9 @@ export class Displacement extends React.Component<IDisplacementProps, IDisplacem
                   </td>
                   <td>{displacement.creator}</td>
                   <td>{displacement.editor}</td>
-                  <td>{displacement.idId ? <Link to={`base-class/${displacement.idId}`}>{displacement.idId}</Link> : ''}</td>
+                  <td>
+                    {displacement.baseClassId ? <Link to={`base-class/${displacement.baseClassId}`}>{displacement.baseClassId}</Link> : ''}
+                  </td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${displacement.id}`} color="info" size="sm">

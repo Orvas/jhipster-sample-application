@@ -1,5 +1,4 @@
 import { Moment } from 'moment';
-import { IBuckleArrestorHist } from 'app/shared/model/buckle-arrestor-hist.model';
 
 export interface IBuckleArrestor {
   id?: number;
@@ -7,8 +6,8 @@ export interface IBuckleArrestor {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
-  buckleArrestorHists?: IBuckleArrestorHist[];
+  baseClassId?: number;
+  buckleArrestorHistId?: number;
 }
 
 export const defaultValue: Readonly<IBuckleArrestor> = {};

@@ -123,7 +123,7 @@ public class PipeHistDTO implements Serializable {
     private String editor;
 
 
-    private Long idId;
+    private Long pipeId;
 
     private Long idPipelineSectionId;
 
@@ -543,12 +543,12 @@ public class PipeHistDTO implements Serializable {
         this.editor = editor;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getPipeId() {
+        return pipeId;
     }
 
-    public void setIdId(Long pipeId) {
-        this.idId = pipeId;
+    public void setPipeId(Long pipeId) {
+        this.pipeId = pipeId;
     }
 
     public Long getIdPipelineSectionId() {
@@ -728,7 +728,7 @@ public class PipeHistDTO implements Serializable {
             ", dateEdit='" + getDateEdit() + "'" +
             ", creator='" + getCreator() + "'" +
             ", editor='" + getEditor() + "'" +
-            ", id=" + getIdId() +
+            ", pipe=" + getPipeId() +
             ", idPipelineSection=" + getIdPipelineSectionId() +
             ", idInternalCoatType=" + getIdInternalCoatTypeId() +
             ", idExternalCoatType=" + getIdExternalCoatTypeId() +

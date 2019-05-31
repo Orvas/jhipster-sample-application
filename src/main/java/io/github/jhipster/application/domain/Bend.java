@@ -2,7 +2,6 @@ package io.github.jhipster.application.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -11,8 +10,6 @@ import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -44,14 +41,13 @@ public class Bend implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("bends")
-    private BaseClass id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private BaseClass baseClass;
 
-    @OneToMany(mappedBy = "id")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<BendHist> bendHists = new HashSet<>();
+    @OneToOne(mappedBy = "bend")
+    @JsonIgnore
+    private BendHist bendHist;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -114,42 +110,30 @@ public class Bend implements Serializable {
         this.editor = editor;
     }
 
-    public BaseClass getId() {
-        return id;
+    public BaseClass getBaseClass() {
+        return baseClass;
     }
 
-    public Bend id(BaseClass baseClass) {
-        this.id = baseClass;
+    public Bend baseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
         return this;
     }
 
-    public void setId(BaseClass baseClass) {
-        this.id = baseClass;
+    public void setBaseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
     }
 
-    public Set<BendHist> getBendHists() {
-        return bendHists;
+    public BendHist getBendHist() {
+        return bendHist;
     }
 
-    public Bend bendHists(Set<BendHist> bendHists) {
-        this.bendHists = bendHists;
+    public Bend bendHist(BendHist bendHist) {
+        this.bendHist = bendHist;
         return this;
     }
 
-    public Bend addBendHist(BendHist bendHist) {
-        this.bendHists.add(bendHist);
-        bendHist.setId(this);
-        return this;
-    }
-
-    public Bend removeBendHist(BendHist bendHist) {
-        this.bendHists.remove(bendHist);
-        bendHist.setId(null);
-        return this;
-    }
-
-    public void setBendHists(Set<BendHist> bendHists) {
-        this.bendHists = bendHists;
+    public void setBendHist(BendHist bendHist) {
+        this.bendHist = bendHist;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

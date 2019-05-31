@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * A DTO for the {@link io.github.jhipster.application.domain.ListThreat} entity.
  */
-@ApiModel(description = "Internal corrosion Erosion External Corrosion Stray Current/Current drain")
+@ApiModel(description = "Internal corrosionErosionExternal CorrosionStray Current/Current drain")
 public class ListThreatDTO implements Serializable {
 
     private Long id;

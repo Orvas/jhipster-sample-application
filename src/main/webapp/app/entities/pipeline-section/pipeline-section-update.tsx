@@ -24,7 +24,7 @@ export interface IPipelineSectionUpdateProps extends StateProps, DispatchProps, 
 
 export interface IPipelineSectionUpdateState {
   isNew: boolean;
-  idId: string;
+  baseClassId: string;
   idPipelineId: string;
   idSafetyClassId: string;
 }
@@ -33,7 +33,7 @@ export class PipelineSectionUpdate extends React.Component<IPipelineSectionUpdat
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      baseClassId: '0',
       idPipelineId: '0',
       idSafetyClassId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
@@ -214,8 +214,9 @@ export class PipelineSectionUpdate extends React.Component<IPipelineSectionUpdat
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="pipeline-section-id">Id</Label>
-                  <AvInput id="pipeline-section-id" type="select" className="form-control" name="idId" required>
+                  <Label for="pipeline-section-baseClass">Base Class</Label>
+                  <AvInput id="pipeline-section-baseClass" type="select" className="form-control" name="baseClassId">
+                    <option value="" key="0" />
                     {baseClasses
                       ? baseClasses.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -224,7 +225,6 @@ export class PipelineSectionUpdate extends React.Component<IPipelineSectionUpdat
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <AvGroup>
                   <Label for="pipeline-section-idPipeline">Id Pipeline</Label>

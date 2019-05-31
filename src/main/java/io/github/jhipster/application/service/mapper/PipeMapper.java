@@ -11,11 +11,11 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {BaseClassMapper.class})
 public interface PipeMapper extends EntityMapper<PipeDTO, Pipe> {
 
-    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "baseClass.id", target = "baseClassId")
     PipeDTO toDto(Pipe pipe);
 
-    @Mapping(source = "idId", target = "id")
-    @Mapping(target = "pipeHists", ignore = true)
+    @Mapping(source = "baseClassId", target = "baseClass")
+    @Mapping(target = "pipeHist", ignore = true)
     Pipe toEntity(PipeDTO pipeDTO);
 
     default Pipe fromId(Long id) {

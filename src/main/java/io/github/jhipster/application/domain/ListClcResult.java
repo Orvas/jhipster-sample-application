@@ -12,9 +12,7 @@ import java.time.Instant;
 import java.util.Objects;
 
 /**
- * Calculation results:
- * - Success
- * - No success
+ * Calculation results:- Success- No success
  */
 @Entity
 @Table(name = "list_clc_result")

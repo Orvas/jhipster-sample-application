@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * A DTO for the {@link io.github.jhipster.application.domain.ListClayType} entity.
  */
-@ApiModel(description = "List of values: - A - B - C - D - E")
+@ApiModel(description = "List of values:- A - B- C- D- E")
 public class ListClayTypeDTO implements Serializable {
 
     private Long id;

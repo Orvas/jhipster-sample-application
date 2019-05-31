@@ -302,16 +302,6 @@ public class TeeHistResourceIT {
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
         // Add required entity
-        Tee tee;
-        if (TestUtil.findAll(em, Tee.class).isEmpty()) {
-            tee = TeeResourceIT.createEntity(em);
-            em.persist(tee);
-            em.flush();
-        } else {
-            tee = TestUtil.findAll(em, Tee.class).get(0);
-        }
-        teeHist.setId(tee);
-        // Add required entity
         PipelineSection pipelineSection;
         if (TestUtil.findAll(em, PipelineSection.class).isEmpty()) {
             pipelineSection = PipelineSectionResourceIT.createEntity(em);
@@ -389,16 +379,6 @@ public class TeeHistResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        Tee tee;
-        if (TestUtil.findAll(em, Tee.class).isEmpty()) {
-            tee = TeeResourceIT.createUpdatedEntity(em);
-            em.persist(tee);
-            em.flush();
-        } else {
-            tee = TestUtil.findAll(em, Tee.class).get(0);
-        }
-        teeHist.setId(tee);
         // Add required entity
         PipelineSection pipelineSection;
         if (TestUtil.findAll(em, PipelineSection.class).isEmpty()) {
@@ -2972,17 +2952,20 @@ public class TeeHistResourceIT {
 
     @Test
     @Transactional
-    public void getAllTeeHistsByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        Tee id = teeHist.getId();
+    public void getAllTeeHistsByTeeIsEqualToSomething() throws Exception {
+        // Initialize the database
+        Tee tee = TeeResourceIT.createEntity(em);
+        em.persist(tee);
+        em.flush();
+        teeHist.setTee(tee);
         teeHistRepository.saveAndFlush(teeHist);
-        Long idId = id.getId();
+        Long teeId = tee.getId();
 
-        // Get all the teeHistList where id equals to idId
-        defaultTeeHistShouldBeFound("idId.equals=" + idId);
+        // Get all the teeHistList where tee equals to teeId
+        defaultTeeHistShouldBeFound("teeId.equals=" + teeId);
 
-        // Get all the teeHistList where id equals to idId + 1
-        defaultTeeHistShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the teeHistList where tee equals to teeId + 1
+        defaultTeeHistShouldNotBeFound("teeId.equals=" + (teeId + 1));
     }
 
 

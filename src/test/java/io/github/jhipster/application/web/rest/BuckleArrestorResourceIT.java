@@ -109,16 +109,6 @@ public class BuckleArrestorResourceIT {
             .dateEdit(DEFAULT_DATE_EDIT)
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
-        // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        buckleArrestor.setId(baseClass);
         return buckleArrestor;
     }
     /**
@@ -133,16 +123,6 @@ public class BuckleArrestorResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createUpdatedEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        buckleArrestor.setId(baseClass);
         return buckleArrestor;
     }
 
@@ -386,17 +366,20 @@ public class BuckleArrestorResourceIT {
 
     @Test
     @Transactional
-    public void getAllBuckleArrestorsByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        BaseClass id = buckleArrestor.getId();
+    public void getAllBuckleArrestorsByBaseClassIsEqualToSomething() throws Exception {
+        // Initialize the database
+        BaseClass baseClass = BaseClassResourceIT.createEntity(em);
+        em.persist(baseClass);
+        em.flush();
+        buckleArrestor.setBaseClass(baseClass);
         buckleArrestorRepository.saveAndFlush(buckleArrestor);
-        Long idId = id.getId();
+        Long baseClassId = baseClass.getId();
 
-        // Get all the buckleArrestorList where id equals to idId
-        defaultBuckleArrestorShouldBeFound("idId.equals=" + idId);
+        // Get all the buckleArrestorList where baseClass equals to baseClassId
+        defaultBuckleArrestorShouldBeFound("baseClassId.equals=" + baseClassId);
 
-        // Get all the buckleArrestorList where id equals to idId + 1
-        defaultBuckleArrestorShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the buckleArrestorList where baseClass equals to baseClassId + 1
+        defaultBuckleArrestorShouldNotBeFound("baseClassId.equals=" + (baseClassId + 1));
     }
 
 
@@ -407,7 +390,8 @@ public class BuckleArrestorResourceIT {
         BuckleArrestorHist buckleArrestorHist = BuckleArrestorHistResourceIT.createEntity(em);
         em.persist(buckleArrestorHist);
         em.flush();
-        buckleArrestor.addBuckleArrestorHist(buckleArrestorHist);
+        buckleArrestor.setBuckleArrestorHist(buckleArrestorHist);
+        buckleArrestorHist.setBuckleArrestor(buckleArrestor);
         buckleArrestorRepository.saveAndFlush(buckleArrestor);
         Long buckleArrestorHistId = buckleArrestorHist.getId();
 

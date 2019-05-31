@@ -48,7 +48,7 @@ export interface ITeeHistUpdateProps extends StateProps, DispatchProps, RouteCom
 
 export interface ITeeHistUpdateState {
   isNew: boolean;
-  idId: string;
+  teeId: string;
   idPipelineSectionId: string;
   idTypeId: string;
   idInternalCoatTypeId: string;
@@ -69,7 +69,7 @@ export class TeeHistUpdate extends React.Component<ITeeHistUpdateProps, ITeeHist
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      teeId: '0',
       idPipelineSectionId: '0',
       idTypeId: '0',
       idInternalCoatTypeId: '0',
@@ -560,8 +560,9 @@ export class TeeHistUpdate extends React.Component<ITeeHistUpdateProps, ITeeHist
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="tee-hist-id">Id</Label>
-                  <AvInput id="tee-hist-id" type="select" className="form-control" name="idId" required>
+                  <Label for="tee-hist-tee">Tee</Label>
+                  <AvInput id="tee-hist-tee" type="select" className="form-control" name="teeId">
+                    <option value="" key="0" />
                     {tees
                       ? tees.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -570,7 +571,6 @@ export class TeeHistUpdate extends React.Component<ITeeHistUpdateProps, ITeeHist
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <AvGroup>
                   <Label for="tee-hist-idPipelineSection">Id Pipeline Section</Label>

@@ -79,7 +79,7 @@ export class Pipe extends React.Component<IPipeProps, IPipeState> {
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Base Class <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -100,7 +100,7 @@ export class Pipe extends React.Component<IPipeProps, IPipeState> {
                   </td>
                   <td>{pipe.creator}</td>
                   <td>{pipe.editor}</td>
-                  <td>{pipe.idId ? <Link to={`base-class/${pipe.idId}`}>{pipe.idId}</Link> : ''}</td>
+                  <td>{pipe.baseClassId ? <Link to={`base-class/${pipe.baseClassId}`}>{pipe.baseClassId}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${pipe.id}`} color="info" size="sm">

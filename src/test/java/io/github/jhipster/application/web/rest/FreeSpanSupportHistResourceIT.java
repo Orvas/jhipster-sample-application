@@ -142,16 +142,6 @@ public class FreeSpanSupportHistResourceIT {
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
         // Add required entity
-        FreeSpanSupport freeSpanSupport;
-        if (TestUtil.findAll(em, FreeSpanSupport.class).isEmpty()) {
-            freeSpanSupport = FreeSpanSupportResourceIT.createEntity(em);
-            em.persist(freeSpanSupport);
-            em.flush();
-        } else {
-            freeSpanSupport = TestUtil.findAll(em, FreeSpanSupport.class).get(0);
-        }
-        freeSpanSupportHist.setId(freeSpanSupport);
-        // Add required entity
         PipelineSection pipelineSection;
         if (TestUtil.findAll(em, PipelineSection.class).isEmpty()) {
             pipelineSection = PipelineSectionResourceIT.createEntity(em);
@@ -192,16 +182,6 @@ public class FreeSpanSupportHistResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        FreeSpanSupport freeSpanSupport;
-        if (TestUtil.findAll(em, FreeSpanSupport.class).isEmpty()) {
-            freeSpanSupport = FreeSpanSupportResourceIT.createUpdatedEntity(em);
-            em.persist(freeSpanSupport);
-            em.flush();
-        } else {
-            freeSpanSupport = TestUtil.findAll(em, FreeSpanSupport.class).get(0);
-        }
-        freeSpanSupportHist.setId(freeSpanSupport);
         // Add required entity
         PipelineSection pipelineSection;
         if (TestUtil.findAll(em, PipelineSection.class).isEmpty()) {
@@ -924,17 +904,20 @@ public class FreeSpanSupportHistResourceIT {
 
     @Test
     @Transactional
-    public void getAllFreeSpanSupportHistsByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        FreeSpanSupport id = freeSpanSupportHist.getId();
+    public void getAllFreeSpanSupportHistsByFreeSpanSupportIsEqualToSomething() throws Exception {
+        // Initialize the database
+        FreeSpanSupport freeSpanSupport = FreeSpanSupportResourceIT.createEntity(em);
+        em.persist(freeSpanSupport);
+        em.flush();
+        freeSpanSupportHist.setFreeSpanSupport(freeSpanSupport);
         freeSpanSupportHistRepository.saveAndFlush(freeSpanSupportHist);
-        Long idId = id.getId();
+        Long freeSpanSupportId = freeSpanSupport.getId();
 
-        // Get all the freeSpanSupportHistList where id equals to idId
-        defaultFreeSpanSupportHistShouldBeFound("idId.equals=" + idId);
+        // Get all the freeSpanSupportHistList where freeSpanSupport equals to freeSpanSupportId
+        defaultFreeSpanSupportHistShouldBeFound("freeSpanSupportId.equals=" + freeSpanSupportId);
 
-        // Get all the freeSpanSupportHistList where id equals to idId + 1
-        defaultFreeSpanSupportHistShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the freeSpanSupportHistList where freeSpanSupport equals to freeSpanSupportId + 1
+        defaultFreeSpanSupportHistShouldNotBeFound("freeSpanSupportId.equals=" + (freeSpanSupportId + 1));
     }
 
 

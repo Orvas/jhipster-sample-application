@@ -11,7 +11,7 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {TeeMapper.class, PipelineSectionMapper.class, ListTeeTypeMapper.class, ListInternalCoatingMapper.class, ListExternalCoatingMapper.class, ListNominalWallThicknessMapper.class, PipejointMapper.class, ListTeeManufacturerMapper.class, ListTeeSpecificationMapper.class, ListLongSeamWeldTypeMapper.class, ListFabricationTypeMapper.class, ListMaterialMapper.class, ListMillLocationMapper.class, ListSteelGradeMapper.class, ListObjectStatusMapper.class})
 public interface TeeHistMapper extends EntityMapper<TeeHistDTO, TeeHist> {
 
-    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "tee.id", target = "teeId")
     @Mapping(source = "idPipelineSection.id", target = "idPipelineSectionId")
     @Mapping(source = "idType.id", target = "idTypeId")
     @Mapping(source = "idInternalCoatType.id", target = "idInternalCoatTypeId")
@@ -28,7 +28,7 @@ public interface TeeHistMapper extends EntityMapper<TeeHistDTO, TeeHist> {
     @Mapping(source = "idStatus.id", target = "idStatusId")
     TeeHistDTO toDto(TeeHist teeHist);
 
-    @Mapping(source = "idId", target = "id")
+    @Mapping(source = "teeId", target = "tee")
     @Mapping(source = "idPipelineSectionId", target = "idPipelineSection")
     @Mapping(source = "idTypeId", target = "idType")
     @Mapping(source = "idInternalCoatTypeId", target = "idInternalCoatType")

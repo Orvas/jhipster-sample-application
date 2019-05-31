@@ -48,8 +48,8 @@ export class TeeDetail extends React.Component<ITeeDetailProps> {
               <span id="editor">Editor</span>
             </dt>
             <dd>{teeEntity.editor}</dd>
-            <dt>Id</dt>
-            <dd>{teeEntity.idId ? teeEntity.idId : ''}</dd>
+            <dt>Base Class</dt>
+            <dd>{teeEntity.baseClassId ? teeEntity.baseClassId : ''}</dd>
           </dl>
           <Button tag={Link} to="/entity/tee" replace color="info">
             <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>

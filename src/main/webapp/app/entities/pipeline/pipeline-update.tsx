@@ -10,6 +10,8 @@ import { IRootState } from 'app/shared/reducers';
 
 import { IBaseClass } from 'app/shared/model/base-class.model';
 import { getEntities as getBaseClasses } from 'app/entities/base-class/base-class.reducer';
+import { IPipelineHist } from 'app/shared/model/pipeline-hist.model';
+import { getEntities as getPipelineHists } from 'app/entities/pipeline-hist/pipeline-hist.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './pipeline.reducer';
 import { IPipeline } from 'app/shared/model/pipeline.model';
 // tslint:disable-next-line:no-unused-variable
@@ -20,14 +22,16 @@ export interface IPipelineUpdateProps extends StateProps, DispatchProps, RouteCo
 
 export interface IPipelineUpdateState {
   isNew: boolean;
-  idId: string;
+  baseClassId: string;
+  pipelineHistId: string;
 }
 
 export class PipelineUpdate extends React.Component<IPipelineUpdateProps, IPipelineUpdateState> {
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      baseClassId: '0',
+      pipelineHistId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }
@@ -46,6 +50,7 @@ export class PipelineUpdate extends React.Component<IPipelineUpdateProps, IPipel
     }
 
     this.props.getBaseClasses();
+    this.props.getPipelineHists();
   }
 
   saveEntity = (event, errors, values) => {
@@ -72,7 +77,7 @@ export class PipelineUpdate extends React.Component<IPipelineUpdateProps, IPipel
   };
 
   render() {
-    const { pipelineEntity, baseClasses, loading, updating } = this.props;
+    const { pipelineEntity, baseClasses, pipelineHists, loading, updating } = this.props;
     const { isNew } = this.state;
 
     return (
@@ -147,8 +152,9 @@ export class PipelineUpdate extends React.Component<IPipelineUpdateProps, IPipel
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="pipeline-id">Id</Label>
-                  <AvInput id="pipeline-id" type="select" className="form-control" name="idId" required>
+                  <Label for="pipeline-baseClass">Base Class</Label>
+                  <AvInput id="pipeline-baseClass" type="select" className="form-control" name="baseClassId">
+                    <option value="" key="0" />
                     {baseClasses
                       ? baseClasses.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -157,7 +163,6 @@ export class PipelineUpdate extends React.Component<IPipelineUpdateProps, IPipel
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <Button tag={Link} id="cancel-save" to="/entity/pipeline" replace color="info">
                   <FontAwesomeIcon icon="arrow-left" />
@@ -180,6 +185,7 @@ export class PipelineUpdate extends React.Component<IPipelineUpdateProps, IPipel
 
 const mapStateToProps = (storeState: IRootState) => ({
   baseClasses: storeState.baseClass.entities,
+  pipelineHists: storeState.pipelineHist.entities,
   pipelineEntity: storeState.pipeline.entity,
   loading: storeState.pipeline.loading,
   updating: storeState.pipeline.updating,
@@ -188,6 +194,7 @@ const mapStateToProps = (storeState: IRootState) => ({
 
 const mapDispatchToProps = {
   getBaseClasses,
+  getPipelineHists,
   getEntity,
   updateEntity,
   createEntity,

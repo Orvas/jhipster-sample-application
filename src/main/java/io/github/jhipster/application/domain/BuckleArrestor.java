@@ -2,7 +2,6 @@ package io.github.jhipster.application.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -11,8 +10,6 @@ import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -44,14 +41,13 @@ public class BuckleArrestor implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("buckleArrestors")
-    private BaseClass id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private BaseClass baseClass;
 
-    @OneToMany(mappedBy = "id")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<BuckleArrestorHist> buckleArrestorHists = new HashSet<>();
+    @OneToOne(mappedBy = "buckleArrestor")
+    @JsonIgnore
+    private BuckleArrestorHist buckleArrestorHist;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -114,42 +110,30 @@ public class BuckleArrestor implements Serializable {
         this.editor = editor;
     }
 
-    public BaseClass getId() {
-        return id;
+    public BaseClass getBaseClass() {
+        return baseClass;
     }
 
-    public BuckleArrestor id(BaseClass baseClass) {
-        this.id = baseClass;
+    public BuckleArrestor baseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
         return this;
     }
 
-    public void setId(BaseClass baseClass) {
-        this.id = baseClass;
+    public void setBaseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
     }
 
-    public Set<BuckleArrestorHist> getBuckleArrestorHists() {
-        return buckleArrestorHists;
+    public BuckleArrestorHist getBuckleArrestorHist() {
+        return buckleArrestorHist;
     }
 
-    public BuckleArrestor buckleArrestorHists(Set<BuckleArrestorHist> buckleArrestorHists) {
-        this.buckleArrestorHists = buckleArrestorHists;
+    public BuckleArrestor buckleArrestorHist(BuckleArrestorHist buckleArrestorHist) {
+        this.buckleArrestorHist = buckleArrestorHist;
         return this;
     }
 
-    public BuckleArrestor addBuckleArrestorHist(BuckleArrestorHist buckleArrestorHist) {
-        this.buckleArrestorHists.add(buckleArrestorHist);
-        buckleArrestorHist.setId(this);
-        return this;
-    }
-
-    public BuckleArrestor removeBuckleArrestorHist(BuckleArrestorHist buckleArrestorHist) {
-        this.buckleArrestorHists.remove(buckleArrestorHist);
-        buckleArrestorHist.setId(null);
-        return this;
-    }
-
-    public void setBuckleArrestorHists(Set<BuckleArrestorHist> buckleArrestorHists) {
-        this.buckleArrestorHists = buckleArrestorHists;
+    public void setBuckleArrestorHist(BuckleArrestorHist buckleArrestorHist) {
+        this.buckleArrestorHist = buckleArrestorHist;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

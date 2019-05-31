@@ -12,9 +12,7 @@ import java.time.Instant;
 import java.util.Objects;
 
 /**
- * List of work pursposes:
- * - plan work
- * - after repair
+ * List of work pursposes:- plan work- after repair
  */
 @Entity
 @Table(name = "list_wrk_purpose")

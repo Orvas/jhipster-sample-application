@@ -48,8 +48,8 @@ export class DisplacementDetail extends React.Component<IDisplacementDetailProps
               <span id="editor">Editor</span>
             </dt>
             <dd>{displacementEntity.editor}</dd>
-            <dt>Id</dt>
-            <dd>{displacementEntity.idId ? displacementEntity.idId : ''}</dd>
+            <dt>Base Class</dt>
+            <dd>{displacementEntity.baseClassId ? displacementEntity.baseClassId : ''}</dd>
           </dl>
           <Button tag={Link} to="/entity/displacement" replace color="info">
             <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>

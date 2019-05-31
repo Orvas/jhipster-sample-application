@@ -68,10 +68,9 @@ public class FreeSpanSupportHist implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("freeSpanSupportHists")
-    private FreeSpanSupport id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private FreeSpanSupport freeSpanSupport;
 
     @ManyToOne(optional = false)
     @NotNull
@@ -235,17 +234,17 @@ public class FreeSpanSupportHist implements Serializable {
         this.editor = editor;
     }
 
-    public FreeSpanSupport getId() {
-        return id;
+    public FreeSpanSupport getFreeSpanSupport() {
+        return freeSpanSupport;
     }
 
-    public FreeSpanSupportHist id(FreeSpanSupport freeSpanSupport) {
-        this.id = freeSpanSupport;
+    public FreeSpanSupportHist freeSpanSupport(FreeSpanSupport freeSpanSupport) {
+        this.freeSpanSupport = freeSpanSupport;
         return this;
     }
 
-    public void setId(FreeSpanSupport freeSpanSupport) {
-        this.id = freeSpanSupport;
+    public void setFreeSpanSupport(FreeSpanSupport freeSpanSupport) {
+        this.freeSpanSupport = freeSpanSupport;
     }
 
     public PipelineSection getIdPipelineSection() {

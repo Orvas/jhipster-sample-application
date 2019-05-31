@@ -186,10 +186,9 @@ public class BendHist implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("bendHists")
-    private Bend id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Bend bend;
 
     @ManyToOne(optional = false)
     @NotNull
@@ -895,17 +894,17 @@ public class BendHist implements Serializable {
         this.editor = editor;
     }
 
-    public Bend getId() {
-        return id;
+    public Bend getBend() {
+        return bend;
     }
 
-    public BendHist id(Bend bend) {
-        this.id = bend;
+    public BendHist bend(Bend bend) {
+        this.bend = bend;
         return this;
     }
 
-    public void setId(Bend bend) {
-        this.id = bend;
+    public void setBend(Bend bend) {
+        this.bend = bend;
     }
 
     public PipelineSection getIdPipelineSection() {

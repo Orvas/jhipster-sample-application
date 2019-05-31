@@ -15,14 +15,7 @@ import java.util.Set;
 import java.util.Objects;
 
 /**
- * Threat groups:
- * 
- * Corrosion/Erosion/Material Threats
- * Third Party Interaction Threats
- * Natural Hazard and Stability Threats
- * Structural Threats
- * Design, Fabrication and Installation (DFI) and Incorrect
- * Operation Threats
+ * Threat groups:Corrosion/Erosion/Material ThreatsThird Party Interaction ThreatsNatural Hazard and Stability ThreatsStructural ThreatsDesign, Fabrication and Installation (DFI) and IncorrectOperation Threats
  */
 @Entity
 @Table(name = "list_threat_group")

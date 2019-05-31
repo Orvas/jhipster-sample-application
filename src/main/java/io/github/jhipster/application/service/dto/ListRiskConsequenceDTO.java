@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * A DTO for the {@link io.github.jhipster.application.domain.ListRiskConsequence} entity.
  */
-@ApiModel(description = "List of values: - A - B - C - D - E")
+@ApiModel(description = "List of values:- A - B- C- D- E")
 public class ListRiskConsequenceDTO implements Serializable {
 
     private Long id;

@@ -100,8 +100,8 @@ export class DisplacementHistDetail extends React.Component<IDisplacementHistDet
               <span id="editor">Editor</span>
             </dt>
             <dd>{displacementHistEntity.editor}</dd>
-            <dt>Id</dt>
-            <dd>{displacementHistEntity.idId ? displacementHistEntity.idId : ''}</dd>
+            <dt>Displacement</dt>
+            <dd>{displacementHistEntity.displacementId ? displacementHistEntity.displacementId : ''}</dd>
             <dt>Id Pipeline Section</dt>
             <dd>{displacementHistEntity.idPipelineSectionId ? displacementHistEntity.idPipelineSectionId : ''}</dd>
           </dl>

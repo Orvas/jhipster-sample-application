@@ -61,7 +61,7 @@ public class DisplacementHistCriteria implements Serializable, Criteria {
 
     private StringFilter editor;
 
-    private LongFilter idId;
+    private LongFilter displacementId;
 
     private LongFilter idPipelineSectionId;
 
@@ -86,7 +86,7 @@ public class DisplacementHistCriteria implements Serializable, Criteria {
         this.dateEdit = other.dateEdit == null ? null : other.dateEdit.copy();
         this.creator = other.creator == null ? null : other.creator.copy();
         this.editor = other.editor == null ? null : other.editor.copy();
-        this.idId = other.idId == null ? null : other.idId.copy();
+        this.displacementId = other.displacementId == null ? null : other.displacementId.copy();
         this.idPipelineSectionId = other.idPipelineSectionId == null ? null : other.idPipelineSectionId.copy();
     }
 
@@ -231,12 +231,12 @@ public class DisplacementHistCriteria implements Serializable, Criteria {
         this.editor = editor;
     }
 
-    public LongFilter getIdId() {
-        return idId;
+    public LongFilter getDisplacementId() {
+        return displacementId;
     }
 
-    public void setIdId(LongFilter idId) {
-        this.idId = idId;
+    public void setDisplacementId(LongFilter displacementId) {
+        this.displacementId = displacementId;
     }
 
     public LongFilter getIdPipelineSectionId() {
@@ -275,7 +275,7 @@ public class DisplacementHistCriteria implements Serializable, Criteria {
             Objects.equals(dateEdit, that.dateEdit) &&
             Objects.equals(creator, that.creator) &&
             Objects.equals(editor, that.editor) &&
-            Objects.equals(idId, that.idId) &&
+            Objects.equals(displacementId, that.displacementId) &&
             Objects.equals(idPipelineSectionId, that.idPipelineSectionId);
     }
 
@@ -299,7 +299,7 @@ public class DisplacementHistCriteria implements Serializable, Criteria {
         dateEdit,
         creator,
         editor,
-        idId,
+        displacementId,
         idPipelineSectionId
         );
     }
@@ -324,7 +324,7 @@ public class DisplacementHistCriteria implements Serializable, Criteria {
                 (dateEdit != null ? "dateEdit=" + dateEdit + ", " : "") +
                 (creator != null ? "creator=" + creator + ", " : "") +
                 (editor != null ? "editor=" + editor + ", " : "") +
-                (idId != null ? "idId=" + idId + ", " : "") +
+                (displacementId != null ? "displacementId=" + displacementId + ", " : "") +
                 (idPipelineSectionId != null ? "idPipelineSectionId=" + idPipelineSectionId + ", " : "") +
             "}";
     }

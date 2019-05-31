@@ -12,7 +12,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * Service Implementation for managing {@link LaunchReceiver}.
@@ -58,6 +62,21 @@ public class LaunchReceiverService {
             .map(launchReceiverMapper::toDto);
     }
 
+
+
+    /**
+    *  Get all the launchReceivers where LaunchReceiverHist is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<LaunchReceiverDTO> findAllWhereLaunchReceiverHistIsNull() {
+        log.debug("Request to get all launchReceivers where LaunchReceiverHist is null");
+        return StreamSupport
+            .stream(launchReceiverRepository.findAll().spliterator(), false)
+            .filter(launchReceiver -> launchReceiver.getLaunchReceiverHist() == null)
+            .map(launchReceiverMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
 
     /**
      * Get one launchReceiver by id.

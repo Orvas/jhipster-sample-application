@@ -100,7 +100,7 @@ export class LaunchReceiverHist extends React.Component<ILaunchReceiverHistProps
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Launch Receiver <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
                   Id Pipeline <FontAwesomeIcon icon="sort" />
@@ -139,8 +139,8 @@ export class LaunchReceiverHist extends React.Component<ILaunchReceiverHistProps
                   <td>{launchReceiverHist.creator}</td>
                   <td>{launchReceiverHist.editor}</td>
                   <td>
-                    {launchReceiverHist.idId ? (
-                      <Link to={`launch-receiver/${launchReceiverHist.idId}`}>{launchReceiverHist.idId}</Link>
+                    {launchReceiverHist.launchReceiverId ? (
+                      <Link to={`launch-receiver/${launchReceiverHist.launchReceiverId}`}>{launchReceiverHist.launchReceiverId}</Link>
                     ) : (
                       ''
                     )}

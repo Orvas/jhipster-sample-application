@@ -28,18 +28,19 @@
     ],
     "relationships": [
         {
-            "relationshipType": "many-to-one",
+            "relationshipType": "one-to-one",
             "otherEntityName": "baseClass",
             "otherEntityRelationshipName": "tee",
-            "relationshipValidateRules": "required",
-            "relationshipName": "id",
-            "otherEntityField": "id"
+            "relationshipName": "baseClass",
+            "otherEntityField": "id",
+            "ownerSide": true
         },
         {
-            "relationshipType": "one-to-many",
+            "relationshipType": "one-to-one",
             "otherEntityName": "teeHist",
-            "otherEntityRelationshipName": "id",
-            "relationshipName": "teeHist"
+            "otherEntityRelationshipName": "tee",
+            "relationshipName": "teeHist",
+            "ownerSide": false
         }
     ],
     "changelogDate": "20190531124514",

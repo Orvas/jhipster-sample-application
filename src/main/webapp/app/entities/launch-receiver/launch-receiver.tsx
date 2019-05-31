@@ -79,7 +79,7 @@ export class LaunchReceiver extends React.Component<ILaunchReceiverProps, ILaunc
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Base Class <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -100,7 +100,13 @@ export class LaunchReceiver extends React.Component<ILaunchReceiverProps, ILaunc
                   </td>
                   <td>{launchReceiver.creator}</td>
                   <td>{launchReceiver.editor}</td>
-                  <td>{launchReceiver.idId ? <Link to={`base-class/${launchReceiver.idId}`}>{launchReceiver.idId}</Link> : ''}</td>
+                  <td>
+                    {launchReceiver.baseClassId ? (
+                      <Link to={`base-class/${launchReceiver.baseClassId}`}>{launchReceiver.baseClassId}</Link>
+                    ) : (
+                      ''
+                    )}
+                  </td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${launchReceiver.id}`} color="info" size="sm">

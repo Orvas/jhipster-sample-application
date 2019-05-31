@@ -73,7 +73,7 @@
         }
     ],
     "changelogDate": "20190531124401",
-    "javadoc": "CPS action  range\nOne row corresponds to one cps and pipeline section",
+    "javadoc": "CPS action  rangeOne row corresponds to one cps and pipeline section",
     "entityTableName": "cps_range",
     "dto": "mapstruct",
     "pagination": "pagination",

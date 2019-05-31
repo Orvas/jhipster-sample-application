@@ -2,7 +2,6 @@ package io.github.jhipster.application.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -11,8 +10,6 @@ import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -44,14 +41,13 @@ public class FreeSpanSupport implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("freeSpanSupports")
-    private BaseClass id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private BaseClass baseClass;
 
-    @OneToMany(mappedBy = "id")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<FreeSpanSupportHist> freeSpanSupportHists = new HashSet<>();
+    @OneToOne(mappedBy = "freeSpanSupport")
+    @JsonIgnore
+    private FreeSpanSupportHist freeSpanSupportHist;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -114,42 +110,30 @@ public class FreeSpanSupport implements Serializable {
         this.editor = editor;
     }
 
-    public BaseClass getId() {
-        return id;
+    public BaseClass getBaseClass() {
+        return baseClass;
     }
 
-    public FreeSpanSupport id(BaseClass baseClass) {
-        this.id = baseClass;
+    public FreeSpanSupport baseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
         return this;
     }
 
-    public void setId(BaseClass baseClass) {
-        this.id = baseClass;
+    public void setBaseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
     }
 
-    public Set<FreeSpanSupportHist> getFreeSpanSupportHists() {
-        return freeSpanSupportHists;
+    public FreeSpanSupportHist getFreeSpanSupportHist() {
+        return freeSpanSupportHist;
     }
 
-    public FreeSpanSupport freeSpanSupportHists(Set<FreeSpanSupportHist> freeSpanSupportHists) {
-        this.freeSpanSupportHists = freeSpanSupportHists;
+    public FreeSpanSupport freeSpanSupportHist(FreeSpanSupportHist freeSpanSupportHist) {
+        this.freeSpanSupportHist = freeSpanSupportHist;
         return this;
     }
 
-    public FreeSpanSupport addFreeSpanSupportHist(FreeSpanSupportHist freeSpanSupportHist) {
-        this.freeSpanSupportHists.add(freeSpanSupportHist);
-        freeSpanSupportHist.setId(this);
-        return this;
-    }
-
-    public FreeSpanSupport removeFreeSpanSupportHist(FreeSpanSupportHist freeSpanSupportHist) {
-        this.freeSpanSupportHists.remove(freeSpanSupportHist);
-        freeSpanSupportHist.setId(null);
-        return this;
-    }
-
-    public void setFreeSpanSupportHists(Set<FreeSpanSupportHist> freeSpanSupportHists) {
-        this.freeSpanSupportHists = freeSpanSupportHists;
+    public void setFreeSpanSupportHist(FreeSpanSupportHist freeSpanSupportHist) {
+        this.freeSpanSupportHist = freeSpanSupportHist;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

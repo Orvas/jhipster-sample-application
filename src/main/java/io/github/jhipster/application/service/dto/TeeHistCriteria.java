@@ -125,7 +125,7 @@ public class TeeHistCriteria implements Serializable, Criteria {
 
     private StringFilter editor;
 
-    private LongFilter idId;
+    private LongFilter teeId;
 
     private LongFilter idPipelineSectionId;
 
@@ -208,7 +208,7 @@ public class TeeHistCriteria implements Serializable, Criteria {
         this.dateEdit = other.dateEdit == null ? null : other.dateEdit.copy();
         this.creator = other.creator == null ? null : other.creator.copy();
         this.editor = other.editor == null ? null : other.editor.copy();
-        this.idId = other.idId == null ? null : other.idId.copy();
+        this.teeId = other.teeId == null ? null : other.teeId.copy();
         this.idPipelineSectionId = other.idPipelineSectionId == null ? null : other.idPipelineSectionId.copy();
         this.idTypeId = other.idTypeId == null ? null : other.idTypeId.copy();
         this.idInternalCoatTypeId = other.idInternalCoatTypeId == null ? null : other.idInternalCoatTypeId.copy();
@@ -622,12 +622,12 @@ public class TeeHistCriteria implements Serializable, Criteria {
         this.editor = editor;
     }
 
-    public LongFilter getIdId() {
-        return idId;
+    public LongFilter getTeeId() {
+        return teeId;
     }
 
-    public void setIdId(LongFilter idId) {
-        this.idId = idId;
+    public void setTeeId(LongFilter teeId) {
+        this.teeId = teeId;
     }
 
     public LongFilter getIdPipelineSectionId() {
@@ -802,7 +802,7 @@ public class TeeHistCriteria implements Serializable, Criteria {
             Objects.equals(dateEdit, that.dateEdit) &&
             Objects.equals(creator, that.creator) &&
             Objects.equals(editor, that.editor) &&
-            Objects.equals(idId, that.idId) &&
+            Objects.equals(teeId, that.teeId) &&
             Objects.equals(idPipelineSectionId, that.idPipelineSectionId) &&
             Objects.equals(idTypeId, that.idTypeId) &&
             Objects.equals(idInternalCoatTypeId, that.idInternalCoatTypeId) &&
@@ -871,7 +871,7 @@ public class TeeHistCriteria implements Serializable, Criteria {
         dateEdit,
         creator,
         editor,
-        idId,
+        teeId,
         idPipelineSectionId,
         idTypeId,
         idInternalCoatTypeId,
@@ -941,7 +941,7 @@ public class TeeHistCriteria implements Serializable, Criteria {
                 (dateEdit != null ? "dateEdit=" + dateEdit + ", " : "") +
                 (creator != null ? "creator=" + creator + ", " : "") +
                 (editor != null ? "editor=" + editor + ", " : "") +
-                (idId != null ? "idId=" + idId + ", " : "") +
+                (teeId != null ? "teeId=" + teeId + ", " : "") +
                 (idPipelineSectionId != null ? "idPipelineSectionId=" + idPipelineSectionId + ", " : "") +
                 (idTypeId != null ? "idTypeId=" + idTypeId + ", " : "") +
                 (idInternalCoatTypeId != null ? "idInternalCoatTypeId=" + idInternalCoatTypeId + ", " : "") +

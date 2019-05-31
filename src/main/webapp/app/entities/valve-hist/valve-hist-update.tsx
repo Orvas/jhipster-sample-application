@@ -50,7 +50,7 @@ export interface IValveHistUpdateProps extends StateProps, DispatchProps, RouteC
 
 export interface IValveHistUpdateState {
   isNew: boolean;
-  idId: string;
+  valveId: string;
   idPipelineSectionId: string;
   idTypeId: string;
   idInternalCoatTypeId: string;
@@ -72,7 +72,7 @@ export class ValveHistUpdate extends React.Component<IValveHistUpdateProps, IVal
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      valveId: '0',
       idPipelineSectionId: '0',
       idTypeId: '0',
       idInternalCoatTypeId: '0',
@@ -589,8 +589,9 @@ export class ValveHistUpdate extends React.Component<IValveHistUpdateProps, IVal
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="valve-hist-id">Id</Label>
-                  <AvInput id="valve-hist-id" type="select" className="form-control" name="idId" required>
+                  <Label for="valve-hist-valve">Valve</Label>
+                  <AvInput id="valve-hist-valve" type="select" className="form-control" name="valveId">
+                    <option value="" key="0" />
                     {valves
                       ? valves.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -599,7 +600,6 @@ export class ValveHistUpdate extends React.Component<IValveHistUpdateProps, IVal
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <AvGroup>
                   <Label for="valve-hist-idPipelineSection">Id Pipeline Section</Label>

@@ -28,7 +28,7 @@ export interface IAnodeHistUpdateProps extends StateProps, DispatchProps, RouteC
 
 export interface IAnodeHistUpdateState {
   isNew: boolean;
-  idId: string;
+  anodeId: string;
   idPipelineSectionId: string;
   idBraceleteTypeId: string;
   idMaterialId: string;
@@ -39,7 +39,7 @@ export class AnodeHistUpdate extends React.Component<IAnodeHistUpdateProps, IAno
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      anodeId: '0',
       idPipelineSectionId: '0',
       idBraceleteTypeId: '0',
       idMaterialId: '0',
@@ -403,8 +403,9 @@ export class AnodeHistUpdate extends React.Component<IAnodeHistUpdateProps, IAno
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="anode-hist-id">Id</Label>
-                  <AvInput id="anode-hist-id" type="select" className="form-control" name="idId" required>
+                  <Label for="anode-hist-anode">Anode</Label>
+                  <AvInput id="anode-hist-anode" type="select" className="form-control" name="anodeId">
+                    <option value="" key="0" />
                     {anodes
                       ? anodes.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -413,7 +414,6 @@ export class AnodeHistUpdate extends React.Component<IAnodeHistUpdateProps, IAno
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <AvGroup>
                   <Label for="anode-hist-idPipelineSection">Id Pipeline Section</Label>

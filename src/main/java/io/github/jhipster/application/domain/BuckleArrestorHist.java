@@ -194,10 +194,9 @@ public class BuckleArrestorHist implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("buckleArrestorHists")
-    private BuckleArrestor id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private BuckleArrestor buckleArrestor;
 
     @ManyToOne(optional = false)
     @NotNull
@@ -927,17 +926,17 @@ public class BuckleArrestorHist implements Serializable {
         this.editor = editor;
     }
 
-    public BuckleArrestor getId() {
-        return id;
+    public BuckleArrestor getBuckleArrestor() {
+        return buckleArrestor;
     }
 
-    public BuckleArrestorHist id(BuckleArrestor buckleArrestor) {
-        this.id = buckleArrestor;
+    public BuckleArrestorHist buckleArrestor(BuckleArrestor buckleArrestor) {
+        this.buckleArrestor = buckleArrestor;
         return this;
     }
 
-    public void setId(BuckleArrestor buckleArrestor) {
-        this.id = buckleArrestor;
+    public void setBuckleArrestor(BuckleArrestor buckleArrestor) {
+        this.buckleArrestor = buckleArrestor;
     }
 
     public PipelineSection getIdPipelineSection() {

@@ -50,7 +50,7 @@ export interface IPipeHist {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
+  pipeId?: number;
   idPipelineSectionId?: number;
   idInternalCoatTypeId?: number;
   idExternalCoatTypeId?: number;

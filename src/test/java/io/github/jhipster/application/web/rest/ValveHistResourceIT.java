@@ -303,16 +303,6 @@ public class ValveHistResourceIT {
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
         // Add required entity
-        Valve valve;
-        if (TestUtil.findAll(em, Valve.class).isEmpty()) {
-            valve = ValveResourceIT.createEntity(em);
-            em.persist(valve);
-            em.flush();
-        } else {
-            valve = TestUtil.findAll(em, Valve.class).get(0);
-        }
-        valveHist.setId(valve);
-        // Add required entity
         PipelineSection pipelineSection;
         if (TestUtil.findAll(em, PipelineSection.class).isEmpty()) {
             pipelineSection = PipelineSectionResourceIT.createEntity(em);
@@ -390,16 +380,6 @@ public class ValveHistResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        Valve valve;
-        if (TestUtil.findAll(em, Valve.class).isEmpty()) {
-            valve = ValveResourceIT.createUpdatedEntity(em);
-            em.persist(valve);
-            em.flush();
-        } else {
-            valve = TestUtil.findAll(em, Valve.class).get(0);
-        }
-        valveHist.setId(valve);
         // Add required entity
         PipelineSection pipelineSection;
         if (TestUtil.findAll(em, PipelineSection.class).isEmpty()) {
@@ -2884,17 +2864,20 @@ public class ValveHistResourceIT {
 
     @Test
     @Transactional
-    public void getAllValveHistsByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        Valve id = valveHist.getId();
+    public void getAllValveHistsByValveIsEqualToSomething() throws Exception {
+        // Initialize the database
+        Valve valve = ValveResourceIT.createEntity(em);
+        em.persist(valve);
+        em.flush();
+        valveHist.setValve(valve);
         valveHistRepository.saveAndFlush(valveHist);
-        Long idId = id.getId();
+        Long valveId = valve.getId();
 
-        // Get all the valveHistList where id equals to idId
-        defaultValveHistShouldBeFound("idId.equals=" + idId);
+        // Get all the valveHistList where valve equals to valveId
+        defaultValveHistShouldBeFound("valveId.equals=" + valveId);
 
-        // Get all the valveHistList where id equals to idId + 1
-        defaultValveHistShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the valveHistList where valve equals to valveId + 1
+        defaultValveHistShouldNotBeFound("valveId.equals=" + (valveId + 1));
     }
 
 

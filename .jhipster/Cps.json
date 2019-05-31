@@ -28,18 +28,19 @@
     ],
     "relationships": [
         {
-            "relationshipType": "many-to-one",
+            "relationshipType": "one-to-one",
             "otherEntityName": "baseClass",
             "otherEntityRelationshipName": "cps",
-            "relationshipValidateRules": "required",
-            "relationshipName": "id",
-            "otherEntityField": "id"
+            "relationshipName": "baseClass",
+            "otherEntityField": "id",
+            "ownerSide": true
         },
         {
-            "relationshipType": "one-to-many",
+            "relationshipType": "one-to-one",
             "otherEntityName": "cpsHist",
-            "otherEntityRelationshipName": "id",
-            "relationshipName": "cpsHist"
+            "otherEntityRelationshipName": "cps",
+            "relationshipName": "cpsHist",
+            "ownerSide": false
         },
         {
             "relationshipType": "one-to-many",

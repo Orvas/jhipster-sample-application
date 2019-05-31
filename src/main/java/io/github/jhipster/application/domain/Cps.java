@@ -2,7 +2,6 @@ package io.github.jhipster.application.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -44,14 +43,13 @@ public class Cps implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("cps")
-    private BaseClass id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private BaseClass baseClass;
 
-    @OneToMany(mappedBy = "id")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<CpsHist> cpsHists = new HashSet<>();
+    @OneToOne(mappedBy = "cps")
+    @JsonIgnore
+    private CpsHist cpsHist;
 
     @OneToMany(mappedBy = "idCps")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -118,42 +116,30 @@ public class Cps implements Serializable {
         this.editor = editor;
     }
 
-    public BaseClass getId() {
-        return id;
+    public BaseClass getBaseClass() {
+        return baseClass;
     }
 
-    public Cps id(BaseClass baseClass) {
-        this.id = baseClass;
+    public Cps baseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
         return this;
     }
 
-    public void setId(BaseClass baseClass) {
-        this.id = baseClass;
+    public void setBaseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
     }
 
-    public Set<CpsHist> getCpsHists() {
-        return cpsHists;
+    public CpsHist getCpsHist() {
+        return cpsHist;
     }
 
-    public Cps cpsHists(Set<CpsHist> cpsHists) {
-        this.cpsHists = cpsHists;
+    public Cps cpsHist(CpsHist cpsHist) {
+        this.cpsHist = cpsHist;
         return this;
     }
 
-    public Cps addCpsHist(CpsHist cpsHist) {
-        this.cpsHists.add(cpsHist);
-        cpsHist.setId(this);
-        return this;
-    }
-
-    public Cps removeCpsHist(CpsHist cpsHist) {
-        this.cpsHists.remove(cpsHist);
-        cpsHist.setId(null);
-        return this;
-    }
-
-    public void setCpsHists(Set<CpsHist> cpsHists) {
-        this.cpsHists = cpsHists;
+    public void setCpsHist(CpsHist cpsHist) {
+        this.cpsHist = cpsHist;
     }
 
     public Set<CpsRange> getCpsRanges() {

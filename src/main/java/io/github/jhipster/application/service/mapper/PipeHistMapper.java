@@ -11,7 +11,7 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {PipeMapper.class, PipelineSectionMapper.class, ListInternalCoatingMapper.class, ListExternalCoatingMapper.class, ListNominalWallThicknessMapper.class, PipejointMapper.class, ListPipeManufacturerMapper.class, ListPipeSpecificationMapper.class, ListLongSeamWeldTypeMapper.class, ListFabricationTypeMapper.class, ListMaterialMapper.class, ListMillLocationMapper.class, ListSteelGradeMapper.class, ListObjectStatusMapper.class})
 public interface PipeHistMapper extends EntityMapper<PipeHistDTO, PipeHist> {
 
-    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "pipe.id", target = "pipeId")
     @Mapping(source = "idPipelineSection.id", target = "idPipelineSectionId")
     @Mapping(source = "idInternalCoatType.id", target = "idInternalCoatTypeId")
     @Mapping(source = "idExternalCoatType.id", target = "idExternalCoatTypeId")
@@ -27,7 +27,7 @@ public interface PipeHistMapper extends EntityMapper<PipeHistDTO, PipeHist> {
     @Mapping(source = "idStatus.id", target = "idStatusId")
     PipeHistDTO toDto(PipeHist pipeHist);
 
-    @Mapping(source = "idId", target = "id")
+    @Mapping(source = "pipeId", target = "pipe")
     @Mapping(source = "idPipelineSectionId", target = "idPipelineSection")
     @Mapping(source = "idInternalCoatTypeId", target = "idInternalCoatType")
     @Mapping(source = "idExternalCoatTypeId", target = "idExternalCoatType")

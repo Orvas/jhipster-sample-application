@@ -122,7 +122,7 @@ public class TeeHistDTO implements Serializable {
     private String editor;
 
 
-    private Long idId;
+    private Long teeId;
 
     private Long idPipelineSectionId;
 
@@ -544,12 +544,12 @@ public class TeeHistDTO implements Serializable {
         this.editor = editor;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getTeeId() {
+        return teeId;
     }
 
-    public void setIdId(Long teeId) {
-        this.idId = teeId;
+    public void setTeeId(Long teeId) {
+        this.teeId = teeId;
     }
 
     public Long getIdPipelineSectionId() {
@@ -737,7 +737,7 @@ public class TeeHistDTO implements Serializable {
             ", dateEdit='" + getDateEdit() + "'" +
             ", creator='" + getCreator() + "'" +
             ", editor='" + getEditor() + "'" +
-            ", id=" + getIdId() +
+            ", tee=" + getTeeId() +
             ", idPipelineSection=" + getIdPipelineSectionId() +
             ", idType=" + getIdTypeId() +
             ", idInternalCoatType=" + getIdInternalCoatTypeId() +

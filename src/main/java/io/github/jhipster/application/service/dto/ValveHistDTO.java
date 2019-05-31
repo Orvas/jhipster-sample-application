@@ -125,7 +125,7 @@ public class ValveHistDTO implements Serializable {
     private String editor;
 
 
-    private Long idId;
+    private Long valveId;
 
     private Long idPipelineSectionId;
 
@@ -549,12 +549,12 @@ public class ValveHistDTO implements Serializable {
         this.editor = editor;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getValveId() {
+        return valveId;
     }
 
-    public void setIdId(Long valveId) {
-        this.idId = valveId;
+    public void setValveId(Long valveId) {
+        this.valveId = valveId;
     }
 
     public Long getIdPipelineSectionId() {
@@ -750,7 +750,7 @@ public class ValveHistDTO implements Serializable {
             ", dateEdit='" + getDateEdit() + "'" +
             ", creator='" + getCreator() + "'" +
             ", editor='" + getEditor() + "'" +
-            ", id=" + getIdId() +
+            ", valve=" + getValveId() +
             ", idPipelineSection=" + getIdPipelineSectionId() +
             ", idType=" + getIdTypeId() +
             ", idInternalCoatType=" + getIdInternalCoatTypeId() +

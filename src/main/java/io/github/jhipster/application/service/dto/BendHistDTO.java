@@ -124,7 +124,7 @@ public class BendHistDTO implements Serializable {
     private String editor;
 
 
-    private Long idId;
+    private Long bendId;
 
     private Long idPipelineSectionId;
 
@@ -554,12 +554,12 @@ public class BendHistDTO implements Serializable {
         this.editor = editor;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getBendId() {
+        return bendId;
     }
 
-    public void setIdId(Long bendId) {
-        this.idId = bendId;
+    public void setBendId(Long bendId) {
+        this.bendId = bendId;
     }
 
     public Long getIdPipelineSectionId() {
@@ -748,7 +748,7 @@ public class BendHistDTO implements Serializable {
             ", dateEdit='" + getDateEdit() + "'" +
             ", creator='" + getCreator() + "'" +
             ", editor='" + getEditor() + "'" +
-            ", id=" + getIdId() +
+            ", bend=" + getBendId() +
             ", idPipelineSection=" + getIdPipelineSectionId() +
             ", idType=" + getIdTypeId() +
             ", idInternalCoatType=" + getIdInternalCoatTypeId() +

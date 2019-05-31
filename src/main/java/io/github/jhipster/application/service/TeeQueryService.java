@@ -101,13 +101,13 @@ public class TeeQueryService extends QueryService<Tee> {
             if (criteria.getEditor() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getEditor(), Tee_.editor));
             }
-            if (criteria.getIdId() != null) {
-                specification = specification.and(buildSpecification(criteria.getIdId(),
-                    root -> root.join(Tee_.id, JoinType.LEFT).get(BaseClass_.id)));
+            if (criteria.getBaseClassId() != null) {
+                specification = specification.and(buildSpecification(criteria.getBaseClassId(),
+                    root -> root.join(Tee_.baseClass, JoinType.LEFT).get(BaseClass_.id)));
             }
             if (criteria.getTeeHistId() != null) {
                 specification = specification.and(buildSpecification(criteria.getTeeHistId(),
-                    root -> root.join(Tee_.teeHists, JoinType.LEFT).get(TeeHist_.id)));
+                    root -> root.join(Tee_.teeHist, JoinType.LEFT).get(TeeHist_.id)));
             }
         }
         return specification;

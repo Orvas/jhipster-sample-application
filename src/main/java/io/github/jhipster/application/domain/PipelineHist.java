@@ -66,10 +66,9 @@ public class PipelineHist implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("pipelineHists")
-    private Pipeline id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Pipeline pipeline;
 
     @ManyToOne
     @JsonIgnoreProperties("pipelineHists")
@@ -219,17 +218,17 @@ public class PipelineHist implements Serializable {
         this.editor = editor;
     }
 
-    public Pipeline getId() {
-        return id;
+    public Pipeline getPipeline() {
+        return pipeline;
     }
 
-    public PipelineHist id(Pipeline pipeline) {
-        this.id = pipeline;
+    public PipelineHist pipeline(Pipeline pipeline) {
+        this.pipeline = pipeline;
         return this;
     }
 
-    public void setId(Pipeline pipeline) {
-        this.id = pipeline;
+    public void setPipeline(Pipeline pipeline) {
+        this.pipeline = pipeline;
     }
 
     public ListPipelineLocation getIdLocation() {

@@ -79,7 +79,7 @@ export class Pipeline extends React.Component<IPipelineProps, IPipelineState> {
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Base Class <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -100,7 +100,7 @@ export class Pipeline extends React.Component<IPipelineProps, IPipelineState> {
                   </td>
                   <td>{pipeline.creator}</td>
                   <td>{pipeline.editor}</td>
-                  <td>{pipeline.idId ? <Link to={`base-class/${pipeline.idId}`}>{pipeline.idId}</Link> : ''}</td>
+                  <td>{pipeline.baseClassId ? <Link to={`base-class/${pipeline.baseClassId}`}>{pipeline.baseClassId}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${pipeline.id}`} color="info" size="sm">

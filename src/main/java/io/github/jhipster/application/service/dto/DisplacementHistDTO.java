@@ -53,7 +53,7 @@ public class DisplacementHistDTO implements Serializable {
     private String editor;
 
 
-    private Long idId;
+    private Long displacementId;
 
     private Long idPipelineSectionId;
 
@@ -193,12 +193,12 @@ public class DisplacementHistDTO implements Serializable {
         this.editor = editor;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getDisplacementId() {
+        return displacementId;
     }
 
-    public void setIdId(Long displacementId) {
-        this.idId = displacementId;
+    public void setDisplacementId(Long displacementId) {
+        this.displacementId = displacementId;
     }
 
     public Long getIdPipelineSectionId() {
@@ -250,7 +250,7 @@ public class DisplacementHistDTO implements Serializable {
             ", dateEdit='" + getDateEdit() + "'" +
             ", creator='" + getCreator() + "'" +
             ", editor='" + getEditor() + "'" +
-            ", id=" + getIdId() +
+            ", displacement=" + getDisplacementId() +
             ", idPipelineSection=" + getIdPipelineSectionId() +
             "}";
     }

@@ -96,8 +96,8 @@ export class CpsHistDetail extends React.Component<ICpsHistDetailProps> {
               <span id="editor">Editor</span>
             </dt>
             <dd>{cpsHistEntity.editor}</dd>
-            <dt>Id</dt>
-            <dd>{cpsHistEntity.idId ? cpsHistEntity.idId : ''}</dd>
+            <dt>Cps</dt>
+            <dd>{cpsHistEntity.cpsId ? cpsHistEntity.cpsId : ''}</dd>
             <dt>Id Pipeline Section</dt>
             <dd>{cpsHistEntity.idPipelineSectionId ? cpsHistEntity.idPipelineSectionId : ''}</dd>
             <dt>Id Status</dt>

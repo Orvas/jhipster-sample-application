@@ -1,5 +1,4 @@
 import { Moment } from 'moment';
-import { ICpsHist } from 'app/shared/model/cps-hist.model';
 import { ICpsRange } from 'app/shared/model/cps-range.model';
 
 export interface ICps {
@@ -8,8 +7,8 @@ export interface ICps {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
-  cpsHists?: ICpsHist[];
+  baseClassId?: number;
+  cpsHistId?: number;
   cpsRanges?: ICpsRange[];
 }
 

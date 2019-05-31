@@ -18,7 +18,7 @@ export interface IFreeSpanHist {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
+  freeSpanId?: number;
   idPipelineSectionId?: number;
   idStatusId?: number;
 }

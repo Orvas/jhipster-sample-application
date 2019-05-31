@@ -1,5 +1,4 @@
 import { Moment } from 'moment';
-import { IFreeSpanSupportHist } from 'app/shared/model/free-span-support-hist.model';
 
 export interface IFreeSpanSupport {
   id?: number;
@@ -7,8 +6,8 @@ export interface IFreeSpanSupport {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
-  freeSpanSupportHists?: IFreeSpanSupportHist[];
+  baseClassId?: number;
+  freeSpanSupportHistId?: number;
 }
 
 export const defaultValue: Readonly<IFreeSpanSupport> = {};

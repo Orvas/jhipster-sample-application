@@ -11,11 +11,11 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {BaseClassMapper.class})
 public interface FreeSpanMapper extends EntityMapper<FreeSpanDTO, FreeSpan> {
 
-    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "baseClass.id", target = "baseClassId")
     FreeSpanDTO toDto(FreeSpan freeSpan);
 
-    @Mapping(source = "idId", target = "id")
-    @Mapping(target = "freeSpanHists", ignore = true)
+    @Mapping(source = "baseClassId", target = "baseClass")
+    @Mapping(target = "freeSpanHist", ignore = true)
     FreeSpan toEntity(FreeSpanDTO freeSpanDTO);
 
     default FreeSpan fromId(Long id) {

@@ -11,7 +11,7 @@
         Added the entity ListBoundaryCondUcase.
     -->
     <changeSet id="20190531124414-1" author="jhipster">
-        <createTable tableName="list_boundary_cond_ucase" remarks="List for define which value of boundary condidtion to use for calculations: •	Pinned-Pinned •	Fixed-Fixed •	Single span on seabed">
+        <createTable tableName="list_boundary_cond_ucase" remarks="List for define which value of boundary condidtion to use for calculations:•	Pinned-Pinned	•	Fixed-Fixed	•	Single span on seabed">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>

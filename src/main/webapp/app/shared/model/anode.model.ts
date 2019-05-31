@@ -1,5 +1,4 @@
 import { Moment } from 'moment';
-import { IAnodeHist } from 'app/shared/model/anode-hist.model';
 
 export interface IAnode {
   id?: number;
@@ -7,8 +6,8 @@ export interface IAnode {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
-  anodeHists?: IAnodeHist[];
+  baseClassId?: number;
+  anodeHistId?: number;
 }
 
 export const defaultValue: Readonly<IAnode> = {};

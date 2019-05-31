@@ -11,11 +11,11 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {BaseClassMapper.class})
 public interface LaunchReceiverMapper extends EntityMapper<LaunchReceiverDTO, LaunchReceiver> {
 
-    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "baseClass.id", target = "baseClassId")
     LaunchReceiverDTO toDto(LaunchReceiver launchReceiver);
 
-    @Mapping(source = "idId", target = "id")
-    @Mapping(target = "launchReceiverHists", ignore = true)
+    @Mapping(source = "baseClassId", target = "baseClass")
+    @Mapping(target = "launchReceiverHist", ignore = true)
     LaunchReceiver toEntity(LaunchReceiverDTO launchReceiverDTO);
 
     default LaunchReceiver fromId(Long id) {

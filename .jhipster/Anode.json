@@ -28,18 +28,19 @@
     ],
     "relationships": [
         {
-            "relationshipType": "many-to-one",
+            "relationshipType": "one-to-one",
             "otherEntityName": "baseClass",
             "otherEntityRelationshipName": "anode",
-            "relationshipValidateRules": "required",
-            "relationshipName": "id",
-            "otherEntityField": "id"
+            "relationshipName": "baseClass",
+            "otherEntityField": "id",
+            "ownerSide": true
         },
         {
-            "relationshipType": "one-to-many",
+            "relationshipType": "one-to-one",
             "otherEntityName": "anodeHist",
-            "otherEntityRelationshipName": "id",
-            "relationshipName": "anodeHist"
+            "otherEntityRelationshipName": "anode",
+            "relationshipName": "anodeHist",
+            "ownerSide": false
         }
     ],
     "changelogDate": "20190531124352",

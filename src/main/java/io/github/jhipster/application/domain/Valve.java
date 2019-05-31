@@ -2,7 +2,6 @@ package io.github.jhipster.application.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -11,8 +10,6 @@ import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -44,14 +41,13 @@ public class Valve implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("valves")
-    private BaseClass id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private BaseClass baseClass;
 
-    @OneToMany(mappedBy = "id")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<ValveHist> valveHists = new HashSet<>();
+    @OneToOne(mappedBy = "valve")
+    @JsonIgnore
+    private ValveHist valveHist;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -114,42 +110,30 @@ public class Valve implements Serializable {
         this.editor = editor;
     }
 
-    public BaseClass getId() {
-        return id;
+    public BaseClass getBaseClass() {
+        return baseClass;
     }
 
-    public Valve id(BaseClass baseClass) {
-        this.id = baseClass;
+    public Valve baseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
         return this;
     }
 
-    public void setId(BaseClass baseClass) {
-        this.id = baseClass;
+    public void setBaseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
     }
 
-    public Set<ValveHist> getValveHists() {
-        return valveHists;
+    public ValveHist getValveHist() {
+        return valveHist;
     }
 
-    public Valve valveHists(Set<ValveHist> valveHists) {
-        this.valveHists = valveHists;
+    public Valve valveHist(ValveHist valveHist) {
+        this.valveHist = valveHist;
         return this;
     }
 
-    public Valve addValveHist(ValveHist valveHist) {
-        this.valveHists.add(valveHist);
-        valveHist.setId(this);
-        return this;
-    }
-
-    public Valve removeValveHist(ValveHist valveHist) {
-        this.valveHists.remove(valveHist);
-        valveHist.setId(null);
-        return this;
-    }
-
-    public void setValveHists(Set<ValveHist> valveHists) {
-        this.valveHists = valveHists;
+    public void setValveHist(ValveHist valveHist) {
+        this.valveHist = valveHist;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

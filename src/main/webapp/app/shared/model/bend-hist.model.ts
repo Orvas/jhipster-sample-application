@@ -51,7 +51,7 @@ export interface IBendHist {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
+  bendId?: number;
   idPipelineSectionId?: number;
   idTypeId?: number;
   idInternalCoatTypeId?: number;

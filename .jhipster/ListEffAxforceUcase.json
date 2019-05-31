@@ -70,7 +70,7 @@
     ],
     "relationships": [],
     "changelogDate": "20190531124426",
-    "javadoc": "List for define which value of effective axial force to use for calculations:\n- Estimated in PIMS value of effective axial force\n- System design value\n- User input value",
+    "javadoc": "List for define which value of effective axial force to use for calculations:- Estimated in PIMS value of effective axial force- System design value- User input value",
     "entityTableName": "list_eff_axforce_ucase",
     "dto": "mapstruct",
     "pagination": "pagination",

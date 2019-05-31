@@ -70,7 +70,7 @@
     ],
     "relationships": [],
     "changelogDate": "20190531124502",
-    "javadoc": "List of work pursposes:\n- plan work\n- after repair",
+    "javadoc": "List of work pursposes:- plan work- after repair",
     "entityTableName": "list_wrk_purpose",
     "dto": "mapstruct",
     "pagination": "pagination",

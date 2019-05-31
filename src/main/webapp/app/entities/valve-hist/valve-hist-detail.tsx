@@ -232,8 +232,8 @@ export class ValveHistDetail extends React.Component<IValveHistDetailProps> {
               <span id="editor">Editor</span>
             </dt>
             <dd>{valveHistEntity.editor}</dd>
-            <dt>Id</dt>
-            <dd>{valveHistEntity.idId ? valveHistEntity.idId : ''}</dd>
+            <dt>Valve</dt>
+            <dd>{valveHistEntity.valveId ? valveHistEntity.valveId : ''}</dd>
             <dt>Id Pipeline Section</dt>
             <dd>{valveHistEntity.idPipelineSectionId ? valveHistEntity.idPipelineSectionId : ''}</dd>
             <dt>Id Type</dt>

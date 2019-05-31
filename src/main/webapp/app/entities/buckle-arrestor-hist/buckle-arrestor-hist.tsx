@@ -220,7 +220,7 @@ export class BuckleArrestorHist extends React.Component<IBuckleArrestorHistProps
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Buckle Arrestor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
                   Id Pipeline Section <FontAwesomeIcon icon="sort" />
@@ -336,8 +336,8 @@ export class BuckleArrestorHist extends React.Component<IBuckleArrestorHistProps
                   <td>{buckleArrestorHist.creator}</td>
                   <td>{buckleArrestorHist.editor}</td>
                   <td>
-                    {buckleArrestorHist.idId ? (
-                      <Link to={`buckle-arrestor/${buckleArrestorHist.idId}`}>{buckleArrestorHist.idId}</Link>
+                    {buckleArrestorHist.buckleArrestorId ? (
+                      <Link to={`buckle-arrestor/${buckleArrestorHist.buckleArrestorId}`}>{buckleArrestorHist.buckleArrestorId}</Link>
                     ) : (
                       ''
                     )}

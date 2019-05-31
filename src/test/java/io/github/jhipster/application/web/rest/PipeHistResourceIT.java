@@ -301,16 +301,6 @@ public class PipeHistResourceIT {
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
         // Add required entity
-        Pipe pipe;
-        if (TestUtil.findAll(em, Pipe.class).isEmpty()) {
-            pipe = PipeResourceIT.createEntity(em);
-            em.persist(pipe);
-            em.flush();
-        } else {
-            pipe = TestUtil.findAll(em, Pipe.class).get(0);
-        }
-        pipeHist.setId(pipe);
-        // Add required entity
         PipelineSection pipelineSection;
         if (TestUtil.findAll(em, PipelineSection.class).isEmpty()) {
             pipelineSection = PipelineSectionResourceIT.createEntity(em);
@@ -388,16 +378,6 @@ public class PipeHistResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        Pipe pipe;
-        if (TestUtil.findAll(em, Pipe.class).isEmpty()) {
-            pipe = PipeResourceIT.createUpdatedEntity(em);
-            em.persist(pipe);
-            em.flush();
-        } else {
-            pipe = TestUtil.findAll(em, Pipe.class).get(0);
-        }
-        pipeHist.setId(pipe);
         // Add required entity
         PipelineSection pipelineSection;
         if (TestUtil.findAll(em, PipelineSection.class).isEmpty()) {
@@ -2944,17 +2924,20 @@ public class PipeHistResourceIT {
 
     @Test
     @Transactional
-    public void getAllPipeHistsByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        Pipe id = pipeHist.getId();
+    public void getAllPipeHistsByPipeIsEqualToSomething() throws Exception {
+        // Initialize the database
+        Pipe pipe = PipeResourceIT.createEntity(em);
+        em.persist(pipe);
+        em.flush();
+        pipeHist.setPipe(pipe);
         pipeHistRepository.saveAndFlush(pipeHist);
-        Long idId = id.getId();
+        Long pipeId = pipe.getId();
 
-        // Get all the pipeHistList where id equals to idId
-        defaultPipeHistShouldBeFound("idId.equals=" + idId);
+        // Get all the pipeHistList where pipe equals to pipeId
+        defaultPipeHistShouldBeFound("pipeId.equals=" + pipeId);
 
-        // Get all the pipeHistList where id equals to idId + 1
-        defaultPipeHistShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the pipeHistList where pipe equals to pipeId + 1
+        defaultPipeHistShouldNotBeFound("pipeId.equals=" + (pipeId + 1));
     }
 
 

@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * A DTO for the {@link io.github.jhipster.application.domain.ListMinpressUcase} entity.
  */
-@ApiModel(description = "List for define which value of internal pressure to use for calculations: •	Pi from PPS report on the date of assessment •	Pi from PPS report on the date of inspection •	Design pressure")
+@ApiModel(description = "List for define which value of internal pressure to use for calculations:•	Pi from PPS report on the date of assessment•	Pi from PPS report on the date of inspection•	Design pressure")
 public class ListMinpressUcaseDTO implements Serializable {
 
     private Long id;

@@ -10,6 +10,8 @@ import { IRootState } from 'app/shared/reducers';
 
 import { IBaseClass } from 'app/shared/model/base-class.model';
 import { getEntities as getBaseClasses } from 'app/entities/base-class/base-class.reducer';
+import { ICpsHist } from 'app/shared/model/cps-hist.model';
+import { getEntities as getCpsHists } from 'app/entities/cps-hist/cps-hist.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './cps.reducer';
 import { ICps } from 'app/shared/model/cps.model';
 // tslint:disable-next-line:no-unused-variable
@@ -20,14 +22,16 @@ export interface ICpsUpdateProps extends StateProps, DispatchProps, RouteCompone
 
 export interface ICpsUpdateState {
   isNew: boolean;
-  idId: string;
+  baseClassId: string;
+  cpsHistId: string;
 }
 
 export class CpsUpdate extends React.Component<ICpsUpdateProps, ICpsUpdateState> {
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      baseClassId: '0',
+      cpsHistId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }
@@ -46,6 +50,7 @@ export class CpsUpdate extends React.Component<ICpsUpdateProps, ICpsUpdateState>
     }
 
     this.props.getBaseClasses();
+    this.props.getCpsHists();
   }
 
   saveEntity = (event, errors, values) => {
@@ -72,7 +77,7 @@ export class CpsUpdate extends React.Component<ICpsUpdateProps, ICpsUpdateState>
   };
 
   render() {
-    const { cpsEntity, baseClasses, loading, updating } = this.props;
+    const { cpsEntity, baseClasses, cpsHists, loading, updating } = this.props;
     const { isNew } = this.state;
 
     return (
@@ -147,8 +152,9 @@ export class CpsUpdate extends React.Component<ICpsUpdateProps, ICpsUpdateState>
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="cps-id">Id</Label>
-                  <AvInput id="cps-id" type="select" className="form-control" name="idId" required>
+                  <Label for="cps-baseClass">Base Class</Label>
+                  <AvInput id="cps-baseClass" type="select" className="form-control" name="baseClassId">
+                    <option value="" key="0" />
                     {baseClasses
                       ? baseClasses.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -157,7 +163,6 @@ export class CpsUpdate extends React.Component<ICpsUpdateProps, ICpsUpdateState>
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <Button tag={Link} id="cancel-save" to="/entity/cps" replace color="info">
                   <FontAwesomeIcon icon="arrow-left" />
@@ -180,6 +185,7 @@ export class CpsUpdate extends React.Component<ICpsUpdateProps, ICpsUpdateState>
 
 const mapStateToProps = (storeState: IRootState) => ({
   baseClasses: storeState.baseClass.entities,
+  cpsHists: storeState.cpsHist.entities,
   cpsEntity: storeState.cps.entity,
   loading: storeState.cps.loading,
   updating: storeState.cps.updating,
@@ -188,6 +194,7 @@ const mapStateToProps = (storeState: IRootState) => ({
 
 const mapDispatchToProps = {
   getBaseClasses,
+  getCpsHists,
   getEntity,
   updateEntity,
   createEntity,

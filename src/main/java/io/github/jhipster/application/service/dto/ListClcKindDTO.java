@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * A DTO for the {@link io.github.jhipster.application.domain.ListClcKind} entity.
  */
-@ApiModel(description = "- main calculation - auxiliary calculation")
+@ApiModel(description = "- main calculation- auxiliary calculation")
 public class ListClcKindDTO implements Serializable {
 
     private Long id;

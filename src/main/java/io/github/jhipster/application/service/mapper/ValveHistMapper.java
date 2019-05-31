@@ -11,7 +11,7 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {ValveMapper.class, PipelineSectionMapper.class, ListValveTypeMapper.class, ListInternalCoatingMapper.class, ListExternalCoatingMapper.class, ListNominalWallThicknessMapper.class, PipejointMapper.class, ListValveManufacturerMapper.class, ListValveSpecificationMapper.class, ListValveFunctionMapper.class, ListLongSeamWeldTypeMapper.class, ListFabricationTypeMapper.class, ListMaterialMapper.class, ListMillLocationMapper.class, ListSteelGradeMapper.class, ListObjectStatusMapper.class})
 public interface ValveHistMapper extends EntityMapper<ValveHistDTO, ValveHist> {
 
-    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "valve.id", target = "valveId")
     @Mapping(source = "idPipelineSection.id", target = "idPipelineSectionId")
     @Mapping(source = "idType.id", target = "idTypeId")
     @Mapping(source = "idInternalCoatType.id", target = "idInternalCoatTypeId")
@@ -29,7 +29,7 @@ public interface ValveHistMapper extends EntityMapper<ValveHistDTO, ValveHist> {
     @Mapping(source = "idStatus.id", target = "idStatusId")
     ValveHistDTO toDto(ValveHist valveHist);
 
-    @Mapping(source = "idId", target = "id")
+    @Mapping(source = "valveId", target = "valve")
     @Mapping(source = "idPipelineSectionId", target = "idPipelineSection")
     @Mapping(source = "idTypeId", target = "idType")
     @Mapping(source = "idInternalCoatTypeId", target = "idInternalCoatType")

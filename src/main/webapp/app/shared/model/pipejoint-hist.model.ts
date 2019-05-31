@@ -14,7 +14,7 @@ export interface IPipejointHist {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
+  pipejointId?: number;
   idTypeId?: number;
   idExternalCoatTypeId?: number;
   idMaterialId?: number;

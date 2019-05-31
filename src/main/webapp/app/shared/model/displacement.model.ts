@@ -1,5 +1,4 @@
 import { Moment } from 'moment';
-import { IDisplacementHist } from 'app/shared/model/displacement-hist.model';
 
 export interface IDisplacement {
   id?: number;
@@ -7,8 +6,8 @@ export interface IDisplacement {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
-  displacementHists?: IDisplacementHist[];
+  baseClassId?: number;
+  displacementHistId?: number;
 }
 
 export const defaultValue: Readonly<IDisplacement> = {};

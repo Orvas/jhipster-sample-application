@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * A DTO for the {@link io.github.jhipster.application.domain.ListClcResult} entity.
  */
-@ApiModel(description = "Calculation results: - Success - No success")
+@ApiModel(description = "Calculation results:- Success- No success")
 public class ListClcResultDTO implements Serializable {
 
     private Long id;

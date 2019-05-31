@@ -12,7 +12,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * Service Implementation for managing {@link Pipeline}.
@@ -58,6 +62,21 @@ public class PipelineService {
             .map(pipelineMapper::toDto);
     }
 
+
+
+    /**
+    *  Get all the pipelines where PipelineHist is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<PipelineDTO> findAllWherePipelineHistIsNull() {
+        log.debug("Request to get all pipelines where PipelineHist is null");
+        return StreamSupport
+            .stream(pipelineRepository.findAll().spliterator(), false)
+            .filter(pipeline -> pipeline.getPipelineHist() == null)
+            .map(pipelineMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
 
     /**
      * Get one pipeline by id.

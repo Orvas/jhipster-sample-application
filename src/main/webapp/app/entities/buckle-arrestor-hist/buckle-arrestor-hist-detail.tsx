@@ -244,8 +244,8 @@ export class BuckleArrestorHistDetail extends React.Component<IBuckleArrestorHis
               <span id="editor">Editor</span>
             </dt>
             <dd>{buckleArrestorHistEntity.editor}</dd>
-            <dt>Id</dt>
-            <dd>{buckleArrestorHistEntity.idId ? buckleArrestorHistEntity.idId : ''}</dd>
+            <dt>Buckle Arrestor</dt>
+            <dd>{buckleArrestorHistEntity.buckleArrestorId ? buckleArrestorHistEntity.buckleArrestorId : ''}</dd>
             <dt>Id Pipeline Section</dt>
             <dd>{buckleArrestorHistEntity.idPipelineSectionId ? buckleArrestorHistEntity.idPipelineSectionId : ''}</dd>
             <dt>Id Type</dt>

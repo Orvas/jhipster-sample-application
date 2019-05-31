@@ -53,7 +53,7 @@ export interface IBuckleArrestorHist {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
+  buckleArrestorId?: number;
   idPipelineSectionId?: number;
   idTypeId?: number;
   idInternalCoatTypeId?: number;

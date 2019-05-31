@@ -3,10 +3,10 @@ package io.github.jhipster.application.web.rest;
 import io.github.jhipster.application.JhipsterSampleApplicationApp;
 import io.github.jhipster.application.domain.Pipejoint;
 import io.github.jhipster.application.domain.BaseClass;
+import io.github.jhipster.application.domain.PipejointHist;
 import io.github.jhipster.application.domain.BendHist;
 import io.github.jhipster.application.domain.BuckleArrestorHist;
 import io.github.jhipster.application.domain.PipeHist;
-import io.github.jhipster.application.domain.PipejointHist;
 import io.github.jhipster.application.domain.TeeHist;
 import io.github.jhipster.application.domain.ValveHist;
 import io.github.jhipster.application.repository.PipejointRepository;
@@ -390,6 +390,26 @@ public class PipejointResourceIT {
 
     @Test
     @Transactional
+    public void getAllPipejointsByPipejointHistIsEqualToSomething() throws Exception {
+        // Initialize the database
+        PipejointHist pipejointHist = PipejointHistResourceIT.createEntity(em);
+        em.persist(pipejointHist);
+        em.flush();
+        pipejoint.setPipejointHist(pipejointHist);
+        pipejointHist.setPipejoint(pipejoint);
+        pipejointRepository.saveAndFlush(pipejoint);
+        Long pipejointHistId = pipejointHist.getId();
+
+        // Get all the pipejointList where pipejointHist equals to pipejointHistId
+        defaultPipejointShouldBeFound("pipejointHistId.equals=" + pipejointHistId);
+
+        // Get all the pipejointList where pipejointHist equals to pipejointHistId + 1
+        defaultPipejointShouldNotBeFound("pipejointHistId.equals=" + (pipejointHistId + 1));
+    }
+
+
+    @Test
+    @Transactional
     public void getAllPipejointsByBendHistIsEqualToSomething() throws Exception {
         // Initialize the database
         BendHist bendHist = BendHistResourceIT.createEntity(em);
@@ -442,25 +462,6 @@ public class PipejointResourceIT {
 
         // Get all the pipejointList where pipeHist equals to pipeHistId + 1
         defaultPipejointShouldNotBeFound("pipeHistId.equals=" + (pipeHistId + 1));
-    }
-
-
-    @Test
-    @Transactional
-    public void getAllPipejointsByPipejointHistIsEqualToSomething() throws Exception {
-        // Initialize the database
-        PipejointHist pipejointHist = PipejointHistResourceIT.createEntity(em);
-        em.persist(pipejointHist);
-        em.flush();
-        pipejoint.addPipejointHist(pipejointHist);
-        pipejointRepository.saveAndFlush(pipejoint);
-        Long pipejointHistId = pipejointHist.getId();
-
-        // Get all the pipejointList where pipejointHist equals to pipejointHistId
-        defaultPipejointShouldBeFound("pipejointHistId.equals=" + pipejointHistId);
-
-        // Get all the pipejointList where pipejointHist equals to pipejointHistId + 1
-        defaultPipejointShouldNotBeFound("pipejointHistId.equals=" + (pipejointHistId + 1));
     }
 
 

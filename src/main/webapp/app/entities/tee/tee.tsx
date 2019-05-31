@@ -79,7 +79,7 @@ export class Tee extends React.Component<ITeeProps, ITeeState> {
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Base Class <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -100,7 +100,7 @@ export class Tee extends React.Component<ITeeProps, ITeeState> {
                   </td>
                   <td>{tee.creator}</td>
                   <td>{tee.editor}</td>
-                  <td>{tee.idId ? <Link to={`base-class/${tee.idId}`}>{tee.idId}</Link> : ''}</td>
+                  <td>{tee.baseClassId ? <Link to={`base-class/${tee.baseClassId}`}>{tee.baseClassId}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${tee.id}`} color="info" size="sm">

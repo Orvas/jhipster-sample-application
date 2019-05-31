@@ -101,13 +101,13 @@ public class PipeQueryService extends QueryService<Pipe> {
             if (criteria.getEditor() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getEditor(), Pipe_.editor));
             }
-            if (criteria.getIdId() != null) {
-                specification = specification.and(buildSpecification(criteria.getIdId(),
-                    root -> root.join(Pipe_.id, JoinType.LEFT).get(BaseClass_.id)));
+            if (criteria.getBaseClassId() != null) {
+                specification = specification.and(buildSpecification(criteria.getBaseClassId(),
+                    root -> root.join(Pipe_.baseClass, JoinType.LEFT).get(BaseClass_.id)));
             }
             if (criteria.getPipeHistId() != null) {
                 specification = specification.and(buildSpecification(criteria.getPipeHistId(),
-                    root -> root.join(Pipe_.pipeHists, JoinType.LEFT).get(PipeHist_.id)));
+                    root -> root.join(Pipe_.pipeHist, JoinType.LEFT).get(PipeHist_.id)));
             }
         }
         return specification;

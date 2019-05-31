@@ -11,7 +11,7 @@
         Added the entity ListSafetyClass.
     -->
     <changeSet id="20190531124448-1" author="jhipster">
-        <createTable tableName="list_safety_class" remarks="Pipeline safety class: - Low - Medium - High">
+        <createTable tableName="list_safety_class" remarks="Pipeline safety class:- Low- Medium- High">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>

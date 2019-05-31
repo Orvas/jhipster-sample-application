@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * A DTO for the {@link io.github.jhipster.application.domain.ListRiskProbability} entity.
  */
-@ApiModel(description = "List of values: - high unlikely - unlikely - can occur once in lifetime - somewhat likely to occur -  likely to occur")
+@ApiModel(description = "List of values: - high unlikely - unlikely - can occur once in lifetime - somewhat likely to occur-  likely to occur")
 public class ListRiskProbabilityDTO implements Serializable {
 
     private Long id;

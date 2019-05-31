@@ -48,8 +48,8 @@ export class BuckleArrestorDetail extends React.Component<IBuckleArrestorDetailP
               <span id="editor">Editor</span>
             </dt>
             <dd>{buckleArrestorEntity.editor}</dd>
-            <dt>Id</dt>
-            <dd>{buckleArrestorEntity.idId ? buckleArrestorEntity.idId : ''}</dd>
+            <dt>Base Class</dt>
+            <dd>{buckleArrestorEntity.baseClassId ? buckleArrestorEntity.baseClassId : ''}</dd>
           </dl>
           <Button tag={Link} to="/entity/buckle-arrestor" replace color="info">
             <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>

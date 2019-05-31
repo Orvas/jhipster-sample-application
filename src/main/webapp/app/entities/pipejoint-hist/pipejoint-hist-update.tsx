@@ -30,7 +30,7 @@ export interface IPipejointHistUpdateProps extends StateProps, DispatchProps, Ro
 
 export interface IPipejointHistUpdateState {
   isNew: boolean;
-  idId: string;
+  pipejointId: string;
   idTypeId: string;
   idExternalCoatTypeId: string;
   idMaterialId: string;
@@ -42,7 +42,7 @@ export class PipejointHistUpdate extends React.Component<IPipejointHistUpdatePro
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      pipejointId: '0',
       idTypeId: '0',
       idExternalCoatTypeId: '0',
       idMaterialId: '0',
@@ -283,8 +283,9 @@ export class PipejointHistUpdate extends React.Component<IPipejointHistUpdatePro
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="pipejoint-hist-id">Id</Label>
-                  <AvInput id="pipejoint-hist-id" type="select" className="form-control" name="idId" required>
+                  <Label for="pipejoint-hist-pipejoint">Pipejoint</Label>
+                  <AvInput id="pipejoint-hist-pipejoint" type="select" className="form-control" name="pipejointId">
+                    <option value="" key="0" />
                     {pipejoints
                       ? pipejoints.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -293,7 +294,6 @@ export class PipejointHistUpdate extends React.Component<IPipejointHistUpdatePro
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <AvGroup>
                   <Label for="pipejoint-hist-idType">Id Type</Label>

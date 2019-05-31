@@ -110,16 +110,6 @@ public class CpsResourceIT {
             .dateEdit(DEFAULT_DATE_EDIT)
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
-        // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        cps.setId(baseClass);
         return cps;
     }
     /**
@@ -134,16 +124,6 @@ public class CpsResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createUpdatedEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        cps.setId(baseClass);
         return cps;
     }
 
@@ -387,17 +367,20 @@ public class CpsResourceIT {
 
     @Test
     @Transactional
-    public void getAllCpsByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        BaseClass id = cps.getId();
+    public void getAllCpsByBaseClassIsEqualToSomething() throws Exception {
+        // Initialize the database
+        BaseClass baseClass = BaseClassResourceIT.createEntity(em);
+        em.persist(baseClass);
+        em.flush();
+        cps.setBaseClass(baseClass);
         cpsRepository.saveAndFlush(cps);
-        Long idId = id.getId();
+        Long baseClassId = baseClass.getId();
 
-        // Get all the cpsList where id equals to idId
-        defaultCpsShouldBeFound("idId.equals=" + idId);
+        // Get all the cpsList where baseClass equals to baseClassId
+        defaultCpsShouldBeFound("baseClassId.equals=" + baseClassId);
 
-        // Get all the cpsList where id equals to idId + 1
-        defaultCpsShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the cpsList where baseClass equals to baseClassId + 1
+        defaultCpsShouldNotBeFound("baseClassId.equals=" + (baseClassId + 1));
     }
 
 
@@ -408,7 +391,8 @@ public class CpsResourceIT {
         CpsHist cpsHist = CpsHistResourceIT.createEntity(em);
         em.persist(cpsHist);
         em.flush();
-        cps.addCpsHist(cpsHist);
+        cps.setCpsHist(cpsHist);
+        cpsHist.setCps(cps);
         cpsRepository.saveAndFlush(cps);
         Long cpsHistId = cpsHist.getId();
 

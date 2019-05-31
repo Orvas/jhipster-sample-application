@@ -232,16 +232,6 @@ public class AnodeHistResourceIT {
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
         // Add required entity
-        Anode anode;
-        if (TestUtil.findAll(em, Anode.class).isEmpty()) {
-            anode = AnodeResourceIT.createEntity(em);
-            em.persist(anode);
-            em.flush();
-        } else {
-            anode = TestUtil.findAll(em, Anode.class).get(0);
-        }
-        anodeHist.setId(anode);
-        // Add required entity
         PipelineSection pipelineSection;
         if (TestUtil.findAll(em, PipelineSection.class).isEmpty()) {
             pipelineSection = PipelineSectionResourceIT.createEntity(em);
@@ -304,16 +294,6 @@ public class AnodeHistResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        Anode anode;
-        if (TestUtil.findAll(em, Anode.class).isEmpty()) {
-            anode = AnodeResourceIT.createUpdatedEntity(em);
-            em.persist(anode);
-            em.flush();
-        } else {
-            anode = TestUtil.findAll(em, Anode.class).get(0);
-        }
-        anodeHist.setId(anode);
         // Add required entity
         PipelineSection pipelineSection;
         if (TestUtil.findAll(em, PipelineSection.class).isEmpty()) {
@@ -2095,17 +2075,20 @@ public class AnodeHistResourceIT {
 
     @Test
     @Transactional
-    public void getAllAnodeHistsByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        Anode id = anodeHist.getId();
+    public void getAllAnodeHistsByAnodeIsEqualToSomething() throws Exception {
+        // Initialize the database
+        Anode anode = AnodeResourceIT.createEntity(em);
+        em.persist(anode);
+        em.flush();
+        anodeHist.setAnode(anode);
         anodeHistRepository.saveAndFlush(anodeHist);
-        Long idId = id.getId();
+        Long anodeId = anode.getId();
 
-        // Get all the anodeHistList where id equals to idId
-        defaultAnodeHistShouldBeFound("idId.equals=" + idId);
+        // Get all the anodeHistList where anode equals to anodeId
+        defaultAnodeHistShouldBeFound("anodeId.equals=" + anodeId);
 
-        // Get all the anodeHistList where id equals to idId + 1
-        defaultAnodeHistShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the anodeHistList where anode equals to anodeId + 1
+        defaultAnodeHistShouldNotBeFound("anodeId.equals=" + (anodeId + 1));
     }
 
 

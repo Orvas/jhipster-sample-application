@@ -2,7 +2,6 @@ package io.github.jhipster.application.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -11,8 +10,6 @@ import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -44,14 +41,13 @@ public class LaunchReceiver implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("launchReceivers")
-    private BaseClass id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private BaseClass baseClass;
 
-    @OneToMany(mappedBy = "id")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<LaunchReceiverHist> launchReceiverHists = new HashSet<>();
+    @OneToOne(mappedBy = "launchReceiver")
+    @JsonIgnore
+    private LaunchReceiverHist launchReceiverHist;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -114,42 +110,30 @@ public class LaunchReceiver implements Serializable {
         this.editor = editor;
     }
 
-    public BaseClass getId() {
-        return id;
+    public BaseClass getBaseClass() {
+        return baseClass;
     }
 
-    public LaunchReceiver id(BaseClass baseClass) {
-        this.id = baseClass;
+    public LaunchReceiver baseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
         return this;
     }
 
-    public void setId(BaseClass baseClass) {
-        this.id = baseClass;
+    public void setBaseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
     }
 
-    public Set<LaunchReceiverHist> getLaunchReceiverHists() {
-        return launchReceiverHists;
+    public LaunchReceiverHist getLaunchReceiverHist() {
+        return launchReceiverHist;
     }
 
-    public LaunchReceiver launchReceiverHists(Set<LaunchReceiverHist> launchReceiverHists) {
-        this.launchReceiverHists = launchReceiverHists;
+    public LaunchReceiver launchReceiverHist(LaunchReceiverHist launchReceiverHist) {
+        this.launchReceiverHist = launchReceiverHist;
         return this;
     }
 
-    public LaunchReceiver addLaunchReceiverHist(LaunchReceiverHist launchReceiverHist) {
-        this.launchReceiverHists.add(launchReceiverHist);
-        launchReceiverHist.setId(this);
-        return this;
-    }
-
-    public LaunchReceiver removeLaunchReceiverHist(LaunchReceiverHist launchReceiverHist) {
-        this.launchReceiverHists.remove(launchReceiverHist);
-        launchReceiverHist.setId(null);
-        return this;
-    }
-
-    public void setLaunchReceiverHists(Set<LaunchReceiverHist> launchReceiverHists) {
-        this.launchReceiverHists = launchReceiverHists;
+    public void setLaunchReceiverHist(LaunchReceiverHist launchReceiverHist) {
+        this.launchReceiverHist = launchReceiverHist;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

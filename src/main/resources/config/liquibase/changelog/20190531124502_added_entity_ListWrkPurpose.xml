@@ -11,7 +11,7 @@
         Added the entity ListWrkPurpose.
     -->
     <changeSet id="20190531124502-1" author="jhipster">
-        <createTable tableName="list_wrk_purpose" remarks="List of work pursposes: - plan work - after repair">
+        <createTable tableName="list_wrk_purpose" remarks="List of work pursposes:- plan work- after repair">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>

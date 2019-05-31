@@ -162,16 +162,6 @@ public class FreeSpanHistResourceIT {
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
         // Add required entity
-        FreeSpan freeSpan;
-        if (TestUtil.findAll(em, FreeSpan.class).isEmpty()) {
-            freeSpan = FreeSpanResourceIT.createEntity(em);
-            em.persist(freeSpan);
-            em.flush();
-        } else {
-            freeSpan = TestUtil.findAll(em, FreeSpan.class).get(0);
-        }
-        freeSpanHist.setId(freeSpan);
-        // Add required entity
         PipelineSection pipelineSection;
         if (TestUtil.findAll(em, PipelineSection.class).isEmpty()) {
             pipelineSection = PipelineSectionResourceIT.createEntity(em);
@@ -217,16 +207,6 @@ public class FreeSpanHistResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        FreeSpan freeSpan;
-        if (TestUtil.findAll(em, FreeSpan.class).isEmpty()) {
-            freeSpan = FreeSpanResourceIT.createUpdatedEntity(em);
-            em.persist(freeSpan);
-            em.flush();
-        } else {
-            freeSpan = TestUtil.findAll(em, FreeSpan.class).get(0);
-        }
-        freeSpanHist.setId(freeSpan);
         // Add required entity
         PipelineSection pipelineSection;
         if (TestUtil.findAll(em, PipelineSection.class).isEmpty()) {
@@ -1186,17 +1166,20 @@ public class FreeSpanHistResourceIT {
 
     @Test
     @Transactional
-    public void getAllFreeSpanHistsByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        FreeSpan id = freeSpanHist.getId();
+    public void getAllFreeSpanHistsByFreeSpanIsEqualToSomething() throws Exception {
+        // Initialize the database
+        FreeSpan freeSpan = FreeSpanResourceIT.createEntity(em);
+        em.persist(freeSpan);
+        em.flush();
+        freeSpanHist.setFreeSpan(freeSpan);
         freeSpanHistRepository.saveAndFlush(freeSpanHist);
-        Long idId = id.getId();
+        Long freeSpanId = freeSpan.getId();
 
-        // Get all the freeSpanHistList where id equals to idId
-        defaultFreeSpanHistShouldBeFound("idId.equals=" + idId);
+        // Get all the freeSpanHistList where freeSpan equals to freeSpanId
+        defaultFreeSpanHistShouldBeFound("freeSpanId.equals=" + freeSpanId);
 
-        // Get all the freeSpanHistList where id equals to idId + 1
-        defaultFreeSpanHistShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the freeSpanHistList where freeSpan equals to freeSpanId + 1
+        defaultFreeSpanHistShouldNotBeFound("freeSpanId.equals=" + (freeSpanId + 1));
     }
 
 

@@ -12,10 +12,7 @@ import java.time.Instant;
 import java.util.Objects;
 
 /**
- * List for define which value of internal pressure to use for calculations:
- * •	Pi from PPS report on the date of assessment
- * •	Pi from PPS report on the date of inspection
- * •	Design pressure
+ * List for define which value of internal pressure to use for calculations:•	Pi from PPS report on the date of assessment•	Pi from PPS report on the date of inspection•	Design pressure
  */
 @Entity
 @Table(name = "list_internal_press_ucase")

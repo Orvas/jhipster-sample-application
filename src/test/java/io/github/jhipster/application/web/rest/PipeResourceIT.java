@@ -109,16 +109,6 @@ public class PipeResourceIT {
             .dateEdit(DEFAULT_DATE_EDIT)
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
-        // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        pipe.setId(baseClass);
         return pipe;
     }
     /**
@@ -133,16 +123,6 @@ public class PipeResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createUpdatedEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        pipe.setId(baseClass);
         return pipe;
     }
 
@@ -386,17 +366,20 @@ public class PipeResourceIT {
 
     @Test
     @Transactional
-    public void getAllPipesByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        BaseClass id = pipe.getId();
+    public void getAllPipesByBaseClassIsEqualToSomething() throws Exception {
+        // Initialize the database
+        BaseClass baseClass = BaseClassResourceIT.createEntity(em);
+        em.persist(baseClass);
+        em.flush();
+        pipe.setBaseClass(baseClass);
         pipeRepository.saveAndFlush(pipe);
-        Long idId = id.getId();
+        Long baseClassId = baseClass.getId();
 
-        // Get all the pipeList where id equals to idId
-        defaultPipeShouldBeFound("idId.equals=" + idId);
+        // Get all the pipeList where baseClass equals to baseClassId
+        defaultPipeShouldBeFound("baseClassId.equals=" + baseClassId);
 
-        // Get all the pipeList where id equals to idId + 1
-        defaultPipeShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the pipeList where baseClass equals to baseClassId + 1
+        defaultPipeShouldNotBeFound("baseClassId.equals=" + (baseClassId + 1));
     }
 
 
@@ -407,7 +390,8 @@ public class PipeResourceIT {
         PipeHist pipeHist = PipeHistResourceIT.createEntity(em);
         em.persist(pipeHist);
         em.flush();
-        pipe.addPipeHist(pipeHist);
+        pipe.setPipeHist(pipeHist);
+        pipeHist.setPipe(pipe);
         pipeRepository.saveAndFlush(pipe);
         Long pipeHistId = pipeHist.getId();
 

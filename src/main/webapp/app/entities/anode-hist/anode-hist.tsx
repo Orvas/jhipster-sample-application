@@ -166,7 +166,7 @@ export class AnodeHist extends React.Component<IAnodeHistProps, IAnodeHistState>
                   Editor <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  Id <FontAwesomeIcon icon="sort" />
+                  Anode <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
                   Id Pipeline Section <FontAwesomeIcon icon="sort" />
@@ -232,7 +232,7 @@ export class AnodeHist extends React.Component<IAnodeHistProps, IAnodeHistState>
                   </td>
                   <td>{anodeHist.creator}</td>
                   <td>{anodeHist.editor}</td>
-                  <td>{anodeHist.idId ? <Link to={`anode/${anodeHist.idId}`}>{anodeHist.idId}</Link> : ''}</td>
+                  <td>{anodeHist.anodeId ? <Link to={`anode/${anodeHist.anodeId}`}>{anodeHist.anodeId}</Link> : ''}</td>
                   <td>
                     {anodeHist.idPipelineSectionId ? (
                       <Link to={`pipeline-section/${anodeHist.idPipelineSectionId}`}>{anodeHist.idPipelineSectionId}</Link>

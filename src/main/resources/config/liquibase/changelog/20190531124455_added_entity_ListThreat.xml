@@ -11,7 +11,7 @@
         Added the entity ListThreat.
     -->
     <changeSet id="20190531124455-1" author="jhipster">
-        <createTable tableName="list_threat" remarks="Internal corrosion Erosion External Corrosion Stray Current/Current drain">
+        <createTable tableName="list_threat" remarks="Internal corrosionErosionExternal CorrosionStray Current/Current drain">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>

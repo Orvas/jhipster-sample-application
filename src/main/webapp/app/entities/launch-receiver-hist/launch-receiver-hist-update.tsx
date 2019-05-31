@@ -24,7 +24,7 @@ export interface ILaunchReceiverHistUpdateProps extends StateProps, DispatchProp
 
 export interface ILaunchReceiverHistUpdateState {
   isNew: boolean;
-  idId: string;
+  launchReceiverId: string;
   idPipelineId: string;
   idStatusId: string;
 }
@@ -33,7 +33,7 @@ export class LaunchReceiverHistUpdate extends React.Component<ILaunchReceiverHis
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      launchReceiverId: '0',
       idPipelineId: '0',
       idStatusId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
@@ -246,8 +246,9 @@ export class LaunchReceiverHistUpdate extends React.Component<ILaunchReceiverHis
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="launch-receiver-hist-id">Id</Label>
-                  <AvInput id="launch-receiver-hist-id" type="select" className="form-control" name="idId" required>
+                  <Label for="launch-receiver-hist-launchReceiver">Launch Receiver</Label>
+                  <AvInput id="launch-receiver-hist-launchReceiver" type="select" className="form-control" name="launchReceiverId">
+                    <option value="" key="0" />
                     {launchReceivers
                       ? launchReceivers.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -256,7 +257,6 @@ export class LaunchReceiverHistUpdate extends React.Component<ILaunchReceiverHis
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <AvGroup>
                   <Label for="launch-receiver-hist-idPipeline">Id Pipeline</Label>

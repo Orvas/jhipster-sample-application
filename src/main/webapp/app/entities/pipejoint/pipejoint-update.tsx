@@ -10,6 +10,8 @@ import { IRootState } from 'app/shared/reducers';
 
 import { IBaseClass } from 'app/shared/model/base-class.model';
 import { getEntities as getBaseClasses } from 'app/entities/base-class/base-class.reducer';
+import { IPipejointHist } from 'app/shared/model/pipejoint-hist.model';
+import { getEntities as getPipejointHists } from 'app/entities/pipejoint-hist/pipejoint-hist.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './pipejoint.reducer';
 import { IPipejoint } from 'app/shared/model/pipejoint.model';
 // tslint:disable-next-line:no-unused-variable
@@ -21,6 +23,7 @@ export interface IPipejointUpdateProps extends StateProps, DispatchProps, RouteC
 export interface IPipejointUpdateState {
   isNew: boolean;
   baseClassId: string;
+  pipejointHistId: string;
 }
 
 export class PipejointUpdate extends React.Component<IPipejointUpdateProps, IPipejointUpdateState> {
@@ -28,6 +31,7 @@ export class PipejointUpdate extends React.Component<IPipejointUpdateProps, IPip
     super(props);
     this.state = {
       baseClassId: '0',
+      pipejointHistId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }
@@ -46,6 +50,7 @@ export class PipejointUpdate extends React.Component<IPipejointUpdateProps, IPip
     }
 
     this.props.getBaseClasses();
+    this.props.getPipejointHists();
   }
 
   saveEntity = (event, errors, values) => {
@@ -72,7 +77,7 @@ export class PipejointUpdate extends React.Component<IPipejointUpdateProps, IPip
   };
 
   render() {
-    const { pipejointEntity, baseClasses, loading, updating } = this.props;
+    const { pipejointEntity, baseClasses, pipejointHists, loading, updating } = this.props;
     const { isNew } = this.state;
 
     return (
@@ -180,6 +185,7 @@ export class PipejointUpdate extends React.Component<IPipejointUpdateProps, IPip
 
 const mapStateToProps = (storeState: IRootState) => ({
   baseClasses: storeState.baseClass.entities,
+  pipejointHists: storeState.pipejointHist.entities,
   pipejointEntity: storeState.pipejoint.entity,
   loading: storeState.pipejoint.loading,
   updating: storeState.pipejoint.updating,
@@ -188,6 +194,7 @@ const mapStateToProps = (storeState: IRootState) => ({
 
 const mapDispatchToProps = {
   getBaseClasses,
+  getPipejointHists,
   getEntity,
   updateEntity,
   createEntity,

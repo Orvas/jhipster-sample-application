@@ -13,10 +13,7 @@ import java.time.Instant;
 import java.util.Objects;
 
 /**
- * Internal corrosion
- * Erosion
- * External Corrosion
- * Stray Current/Current drain
+ * Internal corrosionErosionExternal CorrosionStray Current/Current drain
  */
 @Entity
 @Table(name = "list_threat")

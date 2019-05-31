@@ -15,20 +15,20 @@ public interface BaseClassMapper extends EntityMapper<BaseClassDTO, BaseClass> {
     BaseClassDTO toDto(BaseClass baseClass);
 
     @Mapping(source = "idTypeId", target = "idType")
-    @Mapping(target = "pipejoint", ignore = true)
-    @Mapping(target = "anodes", ignore = true)
-    @Mapping(target = "bends", ignore = true)
-    @Mapping(target = "buckleArrestors", ignore = true)
+    @Mapping(target = "anode", ignore = true)
+    @Mapping(target = "bend", ignore = true)
+    @Mapping(target = "buckleArrestor", ignore = true)
     @Mapping(target = "cps", ignore = true)
-    @Mapping(target = "displacements", ignore = true)
-    @Mapping(target = "freeSpans", ignore = true)
-    @Mapping(target = "freeSpanSupports", ignore = true)
-    @Mapping(target = "launchReceivers", ignore = true)
-    @Mapping(target = "pipes", ignore = true)
-    @Mapping(target = "pipelines", ignore = true)
-    @Mapping(target = "pipelineSections", ignore = true)
-    @Mapping(target = "tees", ignore = true)
-    @Mapping(target = "valves", ignore = true)
+    @Mapping(target = "displacement", ignore = true)
+    @Mapping(target = "freeSpan", ignore = true)
+    @Mapping(target = "freeSpanSupport", ignore = true)
+    @Mapping(target = "launchReceiver", ignore = true)
+    @Mapping(target = "pipe", ignore = true)
+    @Mapping(target = "pipejoint", ignore = true)
+    @Mapping(target = "pipeline", ignore = true)
+    @Mapping(target = "pipelineSection", ignore = true)
+    @Mapping(target = "tee", ignore = true)
+    @Mapping(target = "valve", ignore = true)
     BaseClass toEntity(BaseClassDTO baseClassDTO);
 
     default BaseClass fromId(Long id) {

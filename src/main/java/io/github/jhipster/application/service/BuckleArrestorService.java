@@ -12,7 +12,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * Service Implementation for managing {@link BuckleArrestor}.
@@ -58,6 +62,21 @@ public class BuckleArrestorService {
             .map(buckleArrestorMapper::toDto);
     }
 
+
+
+    /**
+    *  Get all the buckleArrestors where BuckleArrestorHist is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<BuckleArrestorDTO> findAllWhereBuckleArrestorHistIsNull() {
+        log.debug("Request to get all buckleArrestors where BuckleArrestorHist is null");
+        return StreamSupport
+            .stream(buckleArrestorRepository.findAll().spliterator(), false)
+            .filter(buckleArrestor -> buckleArrestor.getBuckleArrestorHist() == null)
+            .map(buckleArrestorMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
 
     /**
      * Get one buckleArrestor by id.

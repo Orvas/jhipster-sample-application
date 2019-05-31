@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * A DTO for the {@link io.github.jhipster.application.domain.PipelineSection} entity.
  */
-@ApiModel(description = "Homogeneous sections,  areas of unchanged values ??of the following characteristics: - is_onshore - safety class One table rows corresponds to one section")
+@ApiModel(description = "Homogeneous sections,  areas of unchanged values ??of the following characteristics:- is_onshore- safety classOne table rows corresponds to one section")
 public class PipelineSectionDTO implements Serializable {
 
     private Long id;
@@ -38,7 +38,7 @@ public class PipelineSectionDTO implements Serializable {
     private String editor;
 
 
-    private Long idId;
+    private Long baseClassId;
 
     private Long idPipelineId;
 
@@ -116,12 +116,12 @@ public class PipelineSectionDTO implements Serializable {
         this.editor = editor;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getBaseClassId() {
+        return baseClassId;
     }
 
-    public void setIdId(Long baseClassId) {
-        this.idId = baseClassId;
+    public void setBaseClassId(Long baseClassId) {
+        this.baseClassId = baseClassId;
     }
 
     public Long getIdPipelineId() {
@@ -173,7 +173,7 @@ public class PipelineSectionDTO implements Serializable {
             ", dateEdit='" + getDateEdit() + "'" +
             ", creator='" + getCreator() + "'" +
             ", editor='" + getEditor() + "'" +
-            ", id=" + getIdId() +
+            ", baseClass=" + getBaseClassId() +
             ", idPipeline=" + getIdPipelineId() +
             ", idSafetyClass=" + getIdSafetyClassId() +
             "}";

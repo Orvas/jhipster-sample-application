@@ -105,6 +105,10 @@ public class PipejointQueryService extends QueryService<Pipejoint> {
                 specification = specification.and(buildSpecification(criteria.getBaseClassId(),
                     root -> root.join(Pipejoint_.baseClass, JoinType.LEFT).get(BaseClass_.id)));
             }
+            if (criteria.getPipejointHistId() != null) {
+                specification = specification.and(buildSpecification(criteria.getPipejointHistId(),
+                    root -> root.join(Pipejoint_.pipejointHist, JoinType.LEFT).get(PipejointHist_.id)));
+            }
             if (criteria.getBendHistId() != null) {
                 specification = specification.and(buildSpecification(criteria.getBendHistId(),
                     root -> root.join(Pipejoint_.bendHists, JoinType.LEFT).get(BendHist_.id)));
@@ -116,10 +120,6 @@ public class PipejointQueryService extends QueryService<Pipejoint> {
             if (criteria.getPipeHistId() != null) {
                 specification = specification.and(buildSpecification(criteria.getPipeHistId(),
                     root -> root.join(Pipejoint_.pipeHists, JoinType.LEFT).get(PipeHist_.id)));
-            }
-            if (criteria.getPipejointHistId() != null) {
-                specification = specification.and(buildSpecification(criteria.getPipejointHistId(),
-                    root -> root.join(Pipejoint_.pipejointHists, JoinType.LEFT).get(PipejointHist_.id)));
             }
             if (criteria.getTeeHistId() != null) {
                 specification = specification.and(buildSpecification(criteria.getTeeHistId(),

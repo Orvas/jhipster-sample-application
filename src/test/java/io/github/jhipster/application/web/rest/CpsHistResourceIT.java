@@ -158,16 +158,6 @@ public class CpsHistResourceIT {
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
         // Add required entity
-        Cps cps;
-        if (TestUtil.findAll(em, Cps.class).isEmpty()) {
-            cps = CpsResourceIT.createEntity(em);
-            em.persist(cps);
-            em.flush();
-        } else {
-            cps = TestUtil.findAll(em, Cps.class).get(0);
-        }
-        cpsHist.setId(cps);
-        // Add required entity
         PipelineSection pipelineSection;
         if (TestUtil.findAll(em, PipelineSection.class).isEmpty()) {
             pipelineSection = PipelineSectionResourceIT.createEntity(em);
@@ -212,16 +202,6 @@ public class CpsHistResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        Cps cps;
-        if (TestUtil.findAll(em, Cps.class).isEmpty()) {
-            cps = CpsResourceIT.createUpdatedEntity(em);
-            em.persist(cps);
-            em.flush();
-        } else {
-            cps = TestUtil.findAll(em, Cps.class).get(0);
-        }
-        cpsHist.setId(cps);
         // Add required entity
         PipelineSection pipelineSection;
         if (TestUtil.findAll(em, PipelineSection.class).isEmpty()) {
@@ -1112,17 +1092,20 @@ public class CpsHistResourceIT {
 
     @Test
     @Transactional
-    public void getAllCpsHistsByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        Cps id = cpsHist.getId();
+    public void getAllCpsHistsByCpsIsEqualToSomething() throws Exception {
+        // Initialize the database
+        Cps cps = CpsResourceIT.createEntity(em);
+        em.persist(cps);
+        em.flush();
+        cpsHist.setCps(cps);
         cpsHistRepository.saveAndFlush(cpsHist);
-        Long idId = id.getId();
+        Long cpsId = cps.getId();
 
-        // Get all the cpsHistList where id equals to idId
-        defaultCpsHistShouldBeFound("idId.equals=" + idId);
+        // Get all the cpsHistList where cps equals to cpsId
+        defaultCpsHistShouldBeFound("cpsId.equals=" + cpsId);
 
-        // Get all the cpsHistList where id equals to idId + 1
-        defaultCpsHistShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the cpsHistList where cps equals to cpsId + 1
+        defaultCpsHistShouldNotBeFound("cpsId.equals=" + (cpsId + 1));
     }
 
 

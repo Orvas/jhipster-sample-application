@@ -232,8 +232,8 @@ export class PipeHistDetail extends React.Component<IPipeHistDetailProps> {
               <span id="editor">Editor</span>
             </dt>
             <dd>{pipeHistEntity.editor}</dd>
-            <dt>Id</dt>
-            <dd>{pipeHistEntity.idId ? pipeHistEntity.idId : ''}</dd>
+            <dt>Pipe</dt>
+            <dd>{pipeHistEntity.pipeId ? pipeHistEntity.pipeId : ''}</dd>
             <dt>Id Pipeline Section</dt>
             <dd>{pipeHistEntity.idPipelineSectionId ? pipeHistEntity.idPipelineSectionId : ''}</dd>
             <dt>Id Internal Coat Type</dt>

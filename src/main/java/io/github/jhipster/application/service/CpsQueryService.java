@@ -101,13 +101,13 @@ public class CpsQueryService extends QueryService<Cps> {
             if (criteria.getEditor() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getEditor(), Cps_.editor));
             }
-            if (criteria.getIdId() != null) {
-                specification = specification.and(buildSpecification(criteria.getIdId(),
-                    root -> root.join(Cps_.id, JoinType.LEFT).get(BaseClass_.id)));
+            if (criteria.getBaseClassId() != null) {
+                specification = specification.and(buildSpecification(criteria.getBaseClassId(),
+                    root -> root.join(Cps_.baseClass, JoinType.LEFT).get(BaseClass_.id)));
             }
             if (criteria.getCpsHistId() != null) {
                 specification = specification.and(buildSpecification(criteria.getCpsHistId(),
-                    root -> root.join(Cps_.cpsHists, JoinType.LEFT).get(CpsHist_.id)));
+                    root -> root.join(Cps_.cpsHist, JoinType.LEFT).get(CpsHist_.id)));
             }
             if (criteria.getCpsRangeId() != null) {
                 specification = specification.and(buildSpecification(criteria.getCpsRangeId(),

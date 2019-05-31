@@ -48,8 +48,8 @@ export class CpsDetail extends React.Component<ICpsDetailProps> {
               <span id="editor">Editor</span>
             </dt>
             <dd>{cpsEntity.editor}</dd>
-            <dt>Id</dt>
-            <dd>{cpsEntity.idId ? cpsEntity.idId : ''}</dd>
+            <dt>Base Class</dt>
+            <dd>{cpsEntity.baseClassId ? cpsEntity.baseClassId : ''}</dd>
           </dl>
           <Button tag={Link} to="/entity/cps" replace color="info">
             <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>

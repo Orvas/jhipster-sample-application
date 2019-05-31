@@ -17,7 +17,7 @@ export interface ICpsHist {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
+  cpsId?: number;
   idPipelineSectionId?: number;
   idStatusId?: number;
 }

@@ -15,10 +15,7 @@ import java.util.Set;
 import java.util.Objects;
 
 /**
- * Pipeline safety class:
- * - Low
- * - Medium
- * - High
+ * Pipeline safety class:- Low- Medium- High
  */
 @Entity
 @Table(name = "list_safety_class")

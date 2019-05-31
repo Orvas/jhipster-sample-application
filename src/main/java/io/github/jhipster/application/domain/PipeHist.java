@@ -184,10 +184,9 @@ public class PipeHist implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("pipeHists")
-    private Pipe id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Pipe pipe;
 
     @ManyToOne(optional = false)
     @NotNull
@@ -876,17 +875,17 @@ public class PipeHist implements Serializable {
         this.editor = editor;
     }
 
-    public Pipe getId() {
-        return id;
+    public Pipe getPipe() {
+        return pipe;
     }
 
-    public PipeHist id(Pipe pipe) {
-        this.id = pipe;
+    public PipeHist pipe(Pipe pipe) {
+        this.pipe = pipe;
         return this;
     }
 
-    public void setId(Pipe pipe) {
-        this.id = pipe;
+    public void setPipe(Pipe pipe) {
+        this.pipe = pipe;
     }
 
     public PipelineSection getIdPipelineSection() {

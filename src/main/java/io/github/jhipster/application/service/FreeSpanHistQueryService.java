@@ -137,9 +137,9 @@ public class FreeSpanHistQueryService extends QueryService<FreeSpanHist> {
             if (criteria.getEditor() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getEditor(), FreeSpanHist_.editor));
             }
-            if (criteria.getIdId() != null) {
-                specification = specification.and(buildSpecification(criteria.getIdId(),
-                    root -> root.join(FreeSpanHist_.id, JoinType.LEFT).get(FreeSpan_.id)));
+            if (criteria.getFreeSpanId() != null) {
+                specification = specification.and(buildSpecification(criteria.getFreeSpanId(),
+                    root -> root.join(FreeSpanHist_.freeSpan, JoinType.LEFT).get(FreeSpan_.id)));
             }
             if (criteria.getIdPipelineSectionId() != null) {
                 specification = specification.and(buildSpecification(criteria.getIdPipelineSectionId(),

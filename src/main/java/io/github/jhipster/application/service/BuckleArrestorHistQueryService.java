@@ -242,9 +242,9 @@ public class BuckleArrestorHistQueryService extends QueryService<BuckleArrestorH
             if (criteria.getEditor() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getEditor(), BuckleArrestorHist_.editor));
             }
-            if (criteria.getIdId() != null) {
-                specification = specification.and(buildSpecification(criteria.getIdId(),
-                    root -> root.join(BuckleArrestorHist_.id, JoinType.LEFT).get(BuckleArrestor_.id)));
+            if (criteria.getBuckleArrestorId() != null) {
+                specification = specification.and(buildSpecification(criteria.getBuckleArrestorId(),
+                    root -> root.join(BuckleArrestorHist_.buckleArrestor, JoinType.LEFT).get(BuckleArrestor_.id)));
             }
             if (criteria.getIdPipelineSectionId() != null) {
                 specification = specification.and(buildSpecification(criteria.getIdPipelineSectionId(),

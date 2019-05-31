@@ -10,6 +10,8 @@ import { IRootState } from 'app/shared/reducers';
 
 import { IBaseClass } from 'app/shared/model/base-class.model';
 import { getEntities as getBaseClasses } from 'app/entities/base-class/base-class.reducer';
+import { IBuckleArrestorHist } from 'app/shared/model/buckle-arrestor-hist.model';
+import { getEntities as getBuckleArrestorHists } from 'app/entities/buckle-arrestor-hist/buckle-arrestor-hist.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './buckle-arrestor.reducer';
 import { IBuckleArrestor } from 'app/shared/model/buckle-arrestor.model';
 // tslint:disable-next-line:no-unused-variable
@@ -20,14 +22,16 @@ export interface IBuckleArrestorUpdateProps extends StateProps, DispatchProps, R
 
 export interface IBuckleArrestorUpdateState {
   isNew: boolean;
-  idId: string;
+  baseClassId: string;
+  buckleArrestorHistId: string;
 }
 
 export class BuckleArrestorUpdate extends React.Component<IBuckleArrestorUpdateProps, IBuckleArrestorUpdateState> {
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      baseClassId: '0',
+      buckleArrestorHistId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }
@@ -46,6 +50,7 @@ export class BuckleArrestorUpdate extends React.Component<IBuckleArrestorUpdateP
     }
 
     this.props.getBaseClasses();
+    this.props.getBuckleArrestorHists();
   }
 
   saveEntity = (event, errors, values) => {
@@ -72,7 +77,7 @@ export class BuckleArrestorUpdate extends React.Component<IBuckleArrestorUpdateP
   };
 
   render() {
-    const { buckleArrestorEntity, baseClasses, loading, updating } = this.props;
+    const { buckleArrestorEntity, baseClasses, buckleArrestorHists, loading, updating } = this.props;
     const { isNew } = this.state;
 
     return (
@@ -147,8 +152,9 @@ export class BuckleArrestorUpdate extends React.Component<IBuckleArrestorUpdateP
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="buckle-arrestor-id">Id</Label>
-                  <AvInput id="buckle-arrestor-id" type="select" className="form-control" name="idId" required>
+                  <Label for="buckle-arrestor-baseClass">Base Class</Label>
+                  <AvInput id="buckle-arrestor-baseClass" type="select" className="form-control" name="baseClassId">
+                    <option value="" key="0" />
                     {baseClasses
                       ? baseClasses.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -157,7 +163,6 @@ export class BuckleArrestorUpdate extends React.Component<IBuckleArrestorUpdateP
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <Button tag={Link} id="cancel-save" to="/entity/buckle-arrestor" replace color="info">
                   <FontAwesomeIcon icon="arrow-left" />
@@ -180,6 +185,7 @@ export class BuckleArrestorUpdate extends React.Component<IBuckleArrestorUpdateP
 
 const mapStateToProps = (storeState: IRootState) => ({
   baseClasses: storeState.baseClass.entities,
+  buckleArrestorHists: storeState.buckleArrestorHist.entities,
   buckleArrestorEntity: storeState.buckleArrestor.entity,
   loading: storeState.buckleArrestor.loading,
   updating: storeState.buckleArrestor.updating,
@@ -188,6 +194,7 @@ const mapStateToProps = (storeState: IRootState) => ({
 
 const mapDispatchToProps = {
   getBaseClasses,
+  getBuckleArrestorHists,
   getEntity,
   updateEntity,
   createEntity,

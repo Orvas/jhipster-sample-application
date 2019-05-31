@@ -15,10 +15,10 @@ public interface PipejointMapper extends EntityMapper<PipejointDTO, Pipejoint> {
     PipejointDTO toDto(Pipejoint pipejoint);
 
     @Mapping(source = "baseClassId", target = "baseClass")
+    @Mapping(target = "pipejointHist", ignore = true)
     @Mapping(target = "bendHists", ignore = true)
     @Mapping(target = "buckleArrestorHists", ignore = true)
     @Mapping(target = "pipeHists", ignore = true)
-    @Mapping(target = "pipejointHists", ignore = true)
     @Mapping(target = "teeHists", ignore = true)
     @Mapping(target = "valveHists", ignore = true)
     Pipejoint toEntity(PipejointDTO pipejointDTO);

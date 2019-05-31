@@ -11,7 +11,7 @@
         Added the entity ListClcKind.
     -->
     <changeSet id="20190531124419-1" author="jhipster">
-        <createTable tableName="list_clc_kind" remarks="- main calculation - auxiliary calculation">
+        <createTable tableName="list_clc_kind" remarks="- main calculation- auxiliary calculation">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>

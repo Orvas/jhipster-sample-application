@@ -12,12 +12,7 @@ import java.time.Instant;
 import java.util.Objects;
 
 /**
- * List of values:
- * - A
- * - B
- * - C
- * - D
- * - E
+ * List of values:- A - B- C- D- E
  */
 @Entity
 @Table(name = "list_sand_type")

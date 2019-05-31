@@ -11,12 +11,12 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {BaseClassMapper.class, PipelineMapper.class, ListSafetyClassMapper.class})
 public interface PipelineSectionMapper extends EntityMapper<PipelineSectionDTO, PipelineSection> {
 
-    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "baseClass.id", target = "baseClassId")
     @Mapping(source = "idPipeline.id", target = "idPipelineId")
     @Mapping(source = "idSafetyClass.id", target = "idSafetyClassId")
     PipelineSectionDTO toDto(PipelineSection pipelineSection);
 
-    @Mapping(source = "idId", target = "id")
+    @Mapping(source = "baseClassId", target = "baseClass")
     @Mapping(source = "idPipelineId", target = "idPipeline")
     @Mapping(source = "idSafetyClassId", target = "idSafetyClass")
     @Mapping(target = "anodeHists", ignore = true)

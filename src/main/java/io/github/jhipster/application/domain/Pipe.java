@@ -2,7 +2,6 @@ package io.github.jhipster.application.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -11,8 +10,6 @@ import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -44,14 +41,13 @@ public class Pipe implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("pipes")
-    private BaseClass id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private BaseClass baseClass;
 
-    @OneToMany(mappedBy = "id")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<PipeHist> pipeHists = new HashSet<>();
+    @OneToOne(mappedBy = "pipe")
+    @JsonIgnore
+    private PipeHist pipeHist;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -114,42 +110,30 @@ public class Pipe implements Serializable {
         this.editor = editor;
     }
 
-    public BaseClass getId() {
-        return id;
+    public BaseClass getBaseClass() {
+        return baseClass;
     }
 
-    public Pipe id(BaseClass baseClass) {
-        this.id = baseClass;
+    public Pipe baseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
         return this;
     }
 
-    public void setId(BaseClass baseClass) {
-        this.id = baseClass;
+    public void setBaseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
     }
 
-    public Set<PipeHist> getPipeHists() {
-        return pipeHists;
+    public PipeHist getPipeHist() {
+        return pipeHist;
     }
 
-    public Pipe pipeHists(Set<PipeHist> pipeHists) {
-        this.pipeHists = pipeHists;
+    public Pipe pipeHist(PipeHist pipeHist) {
+        this.pipeHist = pipeHist;
         return this;
     }
 
-    public Pipe addPipeHist(PipeHist pipeHist) {
-        this.pipeHists.add(pipeHist);
-        pipeHist.setId(this);
-        return this;
-    }
-
-    public Pipe removePipeHist(PipeHist pipeHist) {
-        this.pipeHists.remove(pipeHist);
-        pipeHist.setId(null);
-        return this;
-    }
-
-    public void setPipeHists(Set<PipeHist> pipeHists) {
-        this.pipeHists = pipeHists;
+    public void setPipeHist(PipeHist pipeHist) {
+        this.pipeHist = pipeHist;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

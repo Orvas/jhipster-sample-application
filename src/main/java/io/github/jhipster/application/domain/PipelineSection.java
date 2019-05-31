@@ -17,11 +17,7 @@ import java.util.Set;
 import java.util.Objects;
 
 /**
- * Homogeneous sections,  areas of unchanged values ??of the following characteristics:
- * - is_onshore
- * - safety class
- * 
- * One table rows corresponds to one section
+ * Homogeneous sections,  areas of unchanged values ??of the following characteristics:- is_onshore- safety classOne table rows corresponds to one section
  */
 @Entity
 @Table(name = "pipeline_section")
@@ -66,10 +62,9 @@ public class PipelineSection implements Serializable {
     @Column(name = "editor", length = 255)
     private String editor;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    @JsonIgnoreProperties("pipelineSections")
-    private BaseClass id;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private BaseClass baseClass;
 
     @ManyToOne(optional = false)
     @NotNull
@@ -238,17 +233,17 @@ public class PipelineSection implements Serializable {
         this.editor = editor;
     }
 
-    public BaseClass getId() {
-        return id;
+    public BaseClass getBaseClass() {
+        return baseClass;
     }
 
-    public PipelineSection id(BaseClass baseClass) {
-        this.id = baseClass;
+    public PipelineSection baseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
         return this;
     }
 
-    public void setId(BaseClass baseClass) {
-        this.id = baseClass;
+    public void setBaseClass(BaseClass baseClass) {
+        this.baseClass = baseClass;
     }
 
     public Pipeline getIdPipeline() {

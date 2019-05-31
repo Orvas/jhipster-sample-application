@@ -8,9 +8,9 @@
     -->
     <changeSet id="20190531124409-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="id_id"
+        <addForeignKeyConstraint baseColumnNames="launch_receiver_id"
                                  baseTableName="launch_receiver_hist"
-                                 constraintName="fk_launch_receiver_hist_id_id"
+                                 constraintName="fk_launch_receiver_hist_launch_receiver_id"
                                  referencedColumnNames="id"
                                  referencedTableName="launch_receiver"/>
 

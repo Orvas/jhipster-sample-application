@@ -45,7 +45,7 @@ public class LaunchReceiverHistDTO implements Serializable {
     private String editor;
 
 
-    private Long idId;
+    private Long launchReceiverId;
 
     private Long idPipelineId;
 
@@ -147,12 +147,12 @@ public class LaunchReceiverHistDTO implements Serializable {
         this.editor = editor;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getLaunchReceiverId() {
+        return launchReceiverId;
     }
 
-    public void setIdId(Long launchReceiverId) {
-        this.idId = launchReceiverId;
+    public void setLaunchReceiverId(Long launchReceiverId) {
+        this.launchReceiverId = launchReceiverId;
     }
 
     public Long getIdPipelineId() {
@@ -207,7 +207,7 @@ public class LaunchReceiverHistDTO implements Serializable {
             ", dateEdit='" + getDateEdit() + "'" +
             ", creator='" + getCreator() + "'" +
             ", editor='" + getEditor() + "'" +
-            ", id=" + getIdId() +
+            ", launchReceiver=" + getLaunchReceiverId() +
             ", idPipeline=" + getIdPipelineId() +
             ", idStatus=" + getIdStatusId() +
             "}";

@@ -139,16 +139,6 @@ public class PipelineSectionResourceIT {
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
         // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        pipelineSection.setId(baseClass);
-        // Add required entity
         Pipeline pipeline;
         if (TestUtil.findAll(em, Pipeline.class).isEmpty()) {
             pipeline = PipelineResourceIT.createEntity(em);
@@ -186,16 +176,6 @@ public class PipelineSectionResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        BaseClass baseClass;
-        if (TestUtil.findAll(em, BaseClass.class).isEmpty()) {
-            baseClass = BaseClassResourceIT.createUpdatedEntity(em);
-            em.persist(baseClass);
-            em.flush();
-        } else {
-            baseClass = TestUtil.findAll(em, BaseClass.class).get(0);
-        }
-        pipelineSection.setId(baseClass);
         // Add required entity
         Pipeline pipeline;
         if (TestUtil.findAll(em, Pipeline.class).isEmpty()) {
@@ -730,17 +710,20 @@ public class PipelineSectionResourceIT {
 
     @Test
     @Transactional
-    public void getAllPipelineSectionsByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        BaseClass id = pipelineSection.getId();
+    public void getAllPipelineSectionsByBaseClassIsEqualToSomething() throws Exception {
+        // Initialize the database
+        BaseClass baseClass = BaseClassResourceIT.createEntity(em);
+        em.persist(baseClass);
+        em.flush();
+        pipelineSection.setBaseClass(baseClass);
         pipelineSectionRepository.saveAndFlush(pipelineSection);
-        Long idId = id.getId();
+        Long baseClassId = baseClass.getId();
 
-        // Get all the pipelineSectionList where id equals to idId
-        defaultPipelineSectionShouldBeFound("idId.equals=" + idId);
+        // Get all the pipelineSectionList where baseClass equals to baseClassId
+        defaultPipelineSectionShouldBeFound("baseClassId.equals=" + baseClassId);
 
-        // Get all the pipelineSectionList where id equals to idId + 1
-        defaultPipelineSectionShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the pipelineSectionList where baseClass equals to baseClassId + 1
+        defaultPipelineSectionShouldNotBeFound("baseClassId.equals=" + (baseClassId + 1));
     }
 
 

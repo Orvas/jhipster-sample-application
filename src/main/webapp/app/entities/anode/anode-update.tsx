@@ -10,6 +10,8 @@ import { IRootState } from 'app/shared/reducers';
 
 import { IBaseClass } from 'app/shared/model/base-class.model';
 import { getEntities as getBaseClasses } from 'app/entities/base-class/base-class.reducer';
+import { IAnodeHist } from 'app/shared/model/anode-hist.model';
+import { getEntities as getAnodeHists } from 'app/entities/anode-hist/anode-hist.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './anode.reducer';
 import { IAnode } from 'app/shared/model/anode.model';
 // tslint:disable-next-line:no-unused-variable
@@ -20,14 +22,16 @@ export interface IAnodeUpdateProps extends StateProps, DispatchProps, RouteCompo
 
 export interface IAnodeUpdateState {
   isNew: boolean;
-  idId: string;
+  baseClassId: string;
+  anodeHistId: string;
 }
 
 export class AnodeUpdate extends React.Component<IAnodeUpdateProps, IAnodeUpdateState> {
   constructor(props) {
     super(props);
     this.state = {
-      idId: '0',
+      baseClassId: '0',
+      anodeHistId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }
@@ -46,6 +50,7 @@ export class AnodeUpdate extends React.Component<IAnodeUpdateProps, IAnodeUpdate
     }
 
     this.props.getBaseClasses();
+    this.props.getAnodeHists();
   }
 
   saveEntity = (event, errors, values) => {
@@ -72,7 +77,7 @@ export class AnodeUpdate extends React.Component<IAnodeUpdateProps, IAnodeUpdate
   };
 
   render() {
-    const { anodeEntity, baseClasses, loading, updating } = this.props;
+    const { anodeEntity, baseClasses, anodeHists, loading, updating } = this.props;
     const { isNew } = this.state;
 
     return (
@@ -147,8 +152,9 @@ export class AnodeUpdate extends React.Component<IAnodeUpdateProps, IAnodeUpdate
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label for="anode-id">Id</Label>
-                  <AvInput id="anode-id" type="select" className="form-control" name="idId" required>
+                  <Label for="anode-baseClass">Base Class</Label>
+                  <AvInput id="anode-baseClass" type="select" className="form-control" name="baseClassId">
+                    <option value="" key="0" />
                     {baseClasses
                       ? baseClasses.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
@@ -157,7 +163,6 @@ export class AnodeUpdate extends React.Component<IAnodeUpdateProps, IAnodeUpdate
                         ))
                       : null}
                   </AvInput>
-                  <AvFeedback>This field is required.</AvFeedback>
                 </AvGroup>
                 <Button tag={Link} id="cancel-save" to="/entity/anode" replace color="info">
                   <FontAwesomeIcon icon="arrow-left" />
@@ -180,6 +185,7 @@ export class AnodeUpdate extends React.Component<IAnodeUpdateProps, IAnodeUpdate
 
 const mapStateToProps = (storeState: IRootState) => ({
   baseClasses: storeState.baseClass.entities,
+  anodeHists: storeState.anodeHist.entities,
   anodeEntity: storeState.anode.entity,
   loading: storeState.anode.loading,
   updating: storeState.anode.updating,
@@ -188,6 +194,7 @@ const mapStateToProps = (storeState: IRootState) => ({
 
 const mapDispatchToProps = {
   getBaseClasses,
+  getAnodeHists,
   getEntity,
   updateEntity,
   createEntity,

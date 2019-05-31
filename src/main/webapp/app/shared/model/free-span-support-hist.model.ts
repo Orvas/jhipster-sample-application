@@ -13,7 +13,7 @@ export interface IFreeSpanSupportHist {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
+  freeSpanSupportId?: number;
   idPipelineSectionId?: number;
   idStatusId?: number;
 }

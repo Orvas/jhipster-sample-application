@@ -35,11 +35,11 @@ public class PipelineCriteria implements Serializable, Criteria {
 
     private StringFilter editor;
 
-    private LongFilter idId;
-
-    private LongFilter launchReceiverHistId;
+    private LongFilter baseClassId;
 
     private LongFilter pipelineHistId;
+
+    private LongFilter launchReceiverHistId;
 
     private LongFilter pipelineSectionId;
 
@@ -52,9 +52,9 @@ public class PipelineCriteria implements Serializable, Criteria {
         this.dateEdit = other.dateEdit == null ? null : other.dateEdit.copy();
         this.creator = other.creator == null ? null : other.creator.copy();
         this.editor = other.editor == null ? null : other.editor.copy();
-        this.idId = other.idId == null ? null : other.idId.copy();
-        this.launchReceiverHistId = other.launchReceiverHistId == null ? null : other.launchReceiverHistId.copy();
+        this.baseClassId = other.baseClassId == null ? null : other.baseClassId.copy();
         this.pipelineHistId = other.pipelineHistId == null ? null : other.pipelineHistId.copy();
+        this.launchReceiverHistId = other.launchReceiverHistId == null ? null : other.launchReceiverHistId.copy();
         this.pipelineSectionId = other.pipelineSectionId == null ? null : other.pipelineSectionId.copy();
     }
 
@@ -103,20 +103,12 @@ public class PipelineCriteria implements Serializable, Criteria {
         this.editor = editor;
     }
 
-    public LongFilter getIdId() {
-        return idId;
+    public LongFilter getBaseClassId() {
+        return baseClassId;
     }
 
-    public void setIdId(LongFilter idId) {
-        this.idId = idId;
-    }
-
-    public LongFilter getLaunchReceiverHistId() {
-        return launchReceiverHistId;
-    }
-
-    public void setLaunchReceiverHistId(LongFilter launchReceiverHistId) {
-        this.launchReceiverHistId = launchReceiverHistId;
+    public void setBaseClassId(LongFilter baseClassId) {
+        this.baseClassId = baseClassId;
     }
 
     public LongFilter getPipelineHistId() {
@@ -125,6 +117,14 @@ public class PipelineCriteria implements Serializable, Criteria {
 
     public void setPipelineHistId(LongFilter pipelineHistId) {
         this.pipelineHistId = pipelineHistId;
+    }
+
+    public LongFilter getLaunchReceiverHistId() {
+        return launchReceiverHistId;
+    }
+
+    public void setLaunchReceiverHistId(LongFilter launchReceiverHistId) {
+        this.launchReceiverHistId = launchReceiverHistId;
     }
 
     public LongFilter getPipelineSectionId() {
@@ -151,9 +151,9 @@ public class PipelineCriteria implements Serializable, Criteria {
             Objects.equals(dateEdit, that.dateEdit) &&
             Objects.equals(creator, that.creator) &&
             Objects.equals(editor, that.editor) &&
-            Objects.equals(idId, that.idId) &&
-            Objects.equals(launchReceiverHistId, that.launchReceiverHistId) &&
+            Objects.equals(baseClassId, that.baseClassId) &&
             Objects.equals(pipelineHistId, that.pipelineHistId) &&
+            Objects.equals(launchReceiverHistId, that.launchReceiverHistId) &&
             Objects.equals(pipelineSectionId, that.pipelineSectionId);
     }
 
@@ -165,9 +165,9 @@ public class PipelineCriteria implements Serializable, Criteria {
         dateEdit,
         creator,
         editor,
-        idId,
-        launchReceiverHistId,
+        baseClassId,
         pipelineHistId,
+        launchReceiverHistId,
         pipelineSectionId
         );
     }
@@ -180,9 +180,9 @@ public class PipelineCriteria implements Serializable, Criteria {
                 (dateEdit != null ? "dateEdit=" + dateEdit + ", " : "") +
                 (creator != null ? "creator=" + creator + ", " : "") +
                 (editor != null ? "editor=" + editor + ", " : "") +
-                (idId != null ? "idId=" + idId + ", " : "") +
-                (launchReceiverHistId != null ? "launchReceiverHistId=" + launchReceiverHistId + ", " : "") +
+                (baseClassId != null ? "baseClassId=" + baseClassId + ", " : "") +
                 (pipelineHistId != null ? "pipelineHistId=" + pipelineHistId + ", " : "") +
+                (launchReceiverHistId != null ? "launchReceiverHistId=" + launchReceiverHistId + ", " : "") +
                 (pipelineSectionId != null ? "pipelineSectionId=" + pipelineSectionId + ", " : "") +
             "}";
     }

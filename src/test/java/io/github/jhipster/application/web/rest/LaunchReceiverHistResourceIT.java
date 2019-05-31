@@ -142,16 +142,6 @@ public class LaunchReceiverHistResourceIT {
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
         // Add required entity
-        LaunchReceiver launchReceiver;
-        if (TestUtil.findAll(em, LaunchReceiver.class).isEmpty()) {
-            launchReceiver = LaunchReceiverResourceIT.createEntity(em);
-            em.persist(launchReceiver);
-            em.flush();
-        } else {
-            launchReceiver = TestUtil.findAll(em, LaunchReceiver.class).get(0);
-        }
-        launchReceiverHist.setId(launchReceiver);
-        // Add required entity
         Pipeline pipeline;
         if (TestUtil.findAll(em, Pipeline.class).isEmpty()) {
             pipeline = PipelineResourceIT.createEntity(em);
@@ -192,16 +182,6 @@ public class LaunchReceiverHistResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        LaunchReceiver launchReceiver;
-        if (TestUtil.findAll(em, LaunchReceiver.class).isEmpty()) {
-            launchReceiver = LaunchReceiverResourceIT.createUpdatedEntity(em);
-            em.persist(launchReceiver);
-            em.flush();
-        } else {
-            launchReceiver = TestUtil.findAll(em, LaunchReceiver.class).get(0);
-        }
-        launchReceiverHist.setId(launchReceiver);
         // Add required entity
         Pipeline pipeline;
         if (TestUtil.findAll(em, Pipeline.class).isEmpty()) {
@@ -916,17 +896,20 @@ public class LaunchReceiverHistResourceIT {
 
     @Test
     @Transactional
-    public void getAllLaunchReceiverHistsByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        LaunchReceiver id = launchReceiverHist.getId();
+    public void getAllLaunchReceiverHistsByLaunchReceiverIsEqualToSomething() throws Exception {
+        // Initialize the database
+        LaunchReceiver launchReceiver = LaunchReceiverResourceIT.createEntity(em);
+        em.persist(launchReceiver);
+        em.flush();
+        launchReceiverHist.setLaunchReceiver(launchReceiver);
         launchReceiverHistRepository.saveAndFlush(launchReceiverHist);
-        Long idId = id.getId();
+        Long launchReceiverId = launchReceiver.getId();
 
-        // Get all the launchReceiverHistList where id equals to idId
-        defaultLaunchReceiverHistShouldBeFound("idId.equals=" + idId);
+        // Get all the launchReceiverHistList where launchReceiver equals to launchReceiverId
+        defaultLaunchReceiverHistShouldBeFound("launchReceiverId.equals=" + launchReceiverId);
 
-        // Get all the launchReceiverHistList where id equals to idId + 1
-        defaultLaunchReceiverHistShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the launchReceiverHistList where launchReceiver equals to launchReceiverId + 1
+        defaultLaunchReceiverHistShouldNotBeFound("launchReceiverId.equals=" + (launchReceiverId + 1));
     }
 
 

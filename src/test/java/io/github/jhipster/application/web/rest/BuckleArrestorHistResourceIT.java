@@ -313,16 +313,6 @@ public class BuckleArrestorHistResourceIT {
             .creator(DEFAULT_CREATOR)
             .editor(DEFAULT_EDITOR);
         // Add required entity
-        BuckleArrestor buckleArrestor;
-        if (TestUtil.findAll(em, BuckleArrestor.class).isEmpty()) {
-            buckleArrestor = BuckleArrestorResourceIT.createEntity(em);
-            em.persist(buckleArrestor);
-            em.flush();
-        } else {
-            buckleArrestor = TestUtil.findAll(em, BuckleArrestor.class).get(0);
-        }
-        buckleArrestorHist.setId(buckleArrestor);
-        // Add required entity
         PipelineSection pipelineSection;
         if (TestUtil.findAll(em, PipelineSection.class).isEmpty()) {
             pipelineSection = PipelineSectionResourceIT.createEntity(em);
@@ -423,16 +413,6 @@ public class BuckleArrestorHistResourceIT {
             .dateEdit(UPDATED_DATE_EDIT)
             .creator(UPDATED_CREATOR)
             .editor(UPDATED_EDITOR);
-        // Add required entity
-        BuckleArrestor buckleArrestor;
-        if (TestUtil.findAll(em, BuckleArrestor.class).isEmpty()) {
-            buckleArrestor = BuckleArrestorResourceIT.createUpdatedEntity(em);
-            em.persist(buckleArrestor);
-            em.flush();
-        } else {
-            buckleArrestor = TestUtil.findAll(em, BuckleArrestor.class).get(0);
-        }
-        buckleArrestorHist.setId(buckleArrestor);
         // Add required entity
         PipelineSection pipelineSection;
         if (TestUtil.findAll(em, PipelineSection.class).isEmpty()) {
@@ -3217,17 +3197,20 @@ public class BuckleArrestorHistResourceIT {
 
     @Test
     @Transactional
-    public void getAllBuckleArrestorHistsByIdIsEqualToSomething() throws Exception {
-        // Get already existing entity
-        BuckleArrestor id = buckleArrestorHist.getId();
+    public void getAllBuckleArrestorHistsByBuckleArrestorIsEqualToSomething() throws Exception {
+        // Initialize the database
+        BuckleArrestor buckleArrestor = BuckleArrestorResourceIT.createEntity(em);
+        em.persist(buckleArrestor);
+        em.flush();
+        buckleArrestorHist.setBuckleArrestor(buckleArrestor);
         buckleArrestorHistRepository.saveAndFlush(buckleArrestorHist);
-        Long idId = id.getId();
+        Long buckleArrestorId = buckleArrestor.getId();
 
-        // Get all the buckleArrestorHistList where id equals to idId
-        defaultBuckleArrestorHistShouldBeFound("idId.equals=" + idId);
+        // Get all the buckleArrestorHistList where buckleArrestor equals to buckleArrestorId
+        defaultBuckleArrestorHistShouldBeFound("buckleArrestorId.equals=" + buckleArrestorId);
 
-        // Get all the buckleArrestorHistList where id equals to idId + 1
-        defaultBuckleArrestorHistShouldNotBeFound("idId.equals=" + (idId + 1));
+        // Get all the buckleArrestorHistList where buckleArrestor equals to buckleArrestorId + 1
+        defaultBuckleArrestorHistShouldNotBeFound("buckleArrestorId.equals=" + (buckleArrestorId + 1));
     }
 
 

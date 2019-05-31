@@ -12,7 +12,7 @@ export interface IPipelineHist {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
+  pipelineId?: number;
   idLocationId?: number;
   idStatusId?: number;
 }

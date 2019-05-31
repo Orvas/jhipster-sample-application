@@ -37,88 +37,101 @@
         },
         {
             "relationshipType": "one-to-one",
+            "otherEntityName": "anode",
+            "otherEntityRelationshipName": "baseClass",
+            "relationshipName": "anode",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "bend",
+            "otherEntityRelationshipName": "baseClass",
+            "relationshipName": "bend",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "buckleArrestor",
+            "otherEntityRelationshipName": "baseClass",
+            "relationshipName": "buckleArrestor",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "cps",
+            "otherEntityRelationshipName": "baseClass",
+            "relationshipName": "cps",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "displacement",
+            "otherEntityRelationshipName": "baseClass",
+            "relationshipName": "displacement",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "freeSpan",
+            "otherEntityRelationshipName": "baseClass",
+            "relationshipName": "freeSpan",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "freeSpanSupport",
+            "otherEntityRelationshipName": "baseClass",
+            "relationshipName": "freeSpanSupport",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "launchReceiver",
+            "otherEntityRelationshipName": "baseClass",
+            "relationshipName": "launchReceiver",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "pipe",
+            "otherEntityRelationshipName": "baseClass",
+            "relationshipName": "pipe",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
             "otherEntityName": "pipejoint",
             "otherEntityRelationshipName": "baseClass",
             "relationshipName": "pipejoint",
             "ownerSide": false
         },
         {
-            "relationshipType": "one-to-many",
-            "otherEntityName": "anode",
-            "otherEntityRelationshipName": "id",
-            "relationshipName": "anode"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "otherEntityName": "bend",
-            "otherEntityRelationshipName": "id",
-            "relationshipName": "bend"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "otherEntityName": "buckleArrestor",
-            "otherEntityRelationshipName": "id",
-            "relationshipName": "buckleArrestor"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "otherEntityName": "cps",
-            "otherEntityRelationshipName": "id",
-            "relationshipName": "cps"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "otherEntityName": "displacement",
-            "otherEntityRelationshipName": "id",
-            "relationshipName": "displacement"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "otherEntityName": "freeSpan",
-            "otherEntityRelationshipName": "id",
-            "relationshipName": "freeSpan"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "otherEntityName": "freeSpanSupport",
-            "otherEntityRelationshipName": "id",
-            "relationshipName": "freeSpanSupport"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "otherEntityName": "launchReceiver",
-            "otherEntityRelationshipName": "id",
-            "relationshipName": "launchReceiver"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "otherEntityName": "pipe",
-            "otherEntityRelationshipName": "id",
-            "relationshipName": "pipe"
-        },
-        {
-            "relationshipType": "one-to-many",
+            "relationshipType": "one-to-one",
             "otherEntityName": "pipeline",
-            "otherEntityRelationshipName": "id",
-            "relationshipName": "pipeline"
+            "otherEntityRelationshipName": "baseClass",
+            "relationshipName": "pipeline",
+            "ownerSide": false
         },
         {
-            "relationshipType": "one-to-many",
+            "relationshipType": "one-to-one",
             "otherEntityName": "pipelineSection",
-            "otherEntityRelationshipName": "id",
-            "relationshipName": "pipelineSection"
+            "otherEntityRelationshipName": "baseClass",
+            "relationshipName": "pipelineSection",
+            "ownerSide": false
         },
         {
-            "relationshipType": "one-to-many",
+            "relationshipType": "one-to-one",
             "otherEntityName": "tee",
-            "otherEntityRelationshipName": "id",
-            "relationshipName": "tee"
+            "otherEntityRelationshipName": "baseClass",
+            "relationshipName": "tee",
+            "ownerSide": false
         },
         {
-            "relationshipType": "one-to-many",
+            "relationshipType": "one-to-one",
             "otherEntityName": "valve",
-            "otherEntityRelationshipName": "id",
-            "relationshipName": "valve"
+            "otherEntityRelationshipName": "baseClass",
+            "relationshipName": "valve",
+            "ownerSide": false
         }
     ],
     "changelogDate": "20190531124354",

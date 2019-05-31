@@ -70,7 +70,7 @@
     ],
     "relationships": [],
     "changelogDate": "20190531124419",
-    "javadoc": "- main calculation\n- auxiliary calculation",
+    "javadoc": "- main calculation- auxiliary calculation",
     "entityTableName": "list_clc_kind",
     "dto": "mapstruct",
     "pagination": "pagination",

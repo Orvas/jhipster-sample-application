@@ -168,8 +168,8 @@ export class AnodeHistDetail extends React.Component<IAnodeHistDetailProps> {
               <span id="editor">Editor</span>
             </dt>
             <dd>{anodeHistEntity.editor}</dd>
-            <dt>Id</dt>
-            <dd>{anodeHistEntity.idId ? anodeHistEntity.idId : ''}</dd>
+            <dt>Anode</dt>
+            <dd>{anodeHistEntity.anodeId ? anodeHistEntity.anodeId : ''}</dd>
             <dt>Id Pipeline Section</dt>
             <dd>{anodeHistEntity.idPipelineSectionId ? anodeHistEntity.idPipelineSectionId : ''}</dd>
             <dt>Id Bracelete Type</dt>

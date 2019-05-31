@@ -1,5 +1,4 @@
 import { Moment } from 'moment';
-import { ILaunchReceiverHist } from 'app/shared/model/launch-receiver-hist.model';
 
 export interface ILaunchReceiver {
   id?: number;
@@ -7,8 +6,8 @@ export interface ILaunchReceiver {
   dateEdit?: Moment;
   creator?: string;
   editor?: string;
-  idId?: number;
-  launchReceiverHists?: ILaunchReceiverHist[];
+  baseClassId?: number;
+  launchReceiverHistId?: number;
 }
 
 export const defaultValue: Readonly<ILaunchReceiver> = {};

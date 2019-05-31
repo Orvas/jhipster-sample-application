@@ -11,7 +11,7 @@
         Added the entity ListRiskProbability.
     -->
     <changeSet id="20190531124447-1" author="jhipster">
-        <createTable tableName="list_risk_probability" remarks="List of values: - high unlikely - unlikely - can occur once in lifetime - somewhat likely to occur -  likely to occur">
+        <createTable tableName="list_risk_probability" remarks="List of values: - high unlikely - unlikely - can occur once in lifetime - somewhat likely to occur-  likely to occur">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>

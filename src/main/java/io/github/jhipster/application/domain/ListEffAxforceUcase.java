@@ -12,10 +12,7 @@ import java.time.Instant;
 import java.util.Objects;
 
 /**
- * List for define which value of effective axial force to use for calculations:
- * - Estimated in PIMS value of effective axial force
- * - System design value
- * - User input value
+ * List for define which value of effective axial force to use for calculations:- Estimated in PIMS value of effective axial force- System design value- User input value
  */
 @Entity
 @Table(name = "list_eff_axforce_ucase")
