@@ -1821,8 +1821,8 @@ relationship ManyToOne {
 }
 
 // Pipe joints main table. One table  rows corresponds to one pipe joint
-relationship ManyToOne {
-	Pipejoint{id required} to BaseClass{pipejoint}
+relationship OneToOne {
+	Pipejoint to BaseClass{pipejoint}
 }
 
 // Time-dependent attribute table. One table  rows corresponds to one pipe joint and time period
